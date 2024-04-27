@@ -7,12 +7,12 @@
         <Nullable>enable</Nullable>
         <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     </PropertyGroup>
-    
+
     <PropertyGroup>
         <Title>Raylib-CSharp</Title>
         <Authors>MrScautHD</Authors>
     </PropertyGroup>
 
     <!-- Raylib CMake -->
-    <Import Project="CMake.props" />
+    <Import Project="CMake.props"/>
 </Project>

@@ -4,7 +4,7 @@ namespace Raylib_CSharp.CSharp.Rendering.Shaders;
 
 [StructLayout(LayoutKind.Sequential)]
 public struct Shader {
-    
+
     /// <summary>
     /// Shader program id.
     /// </summary>

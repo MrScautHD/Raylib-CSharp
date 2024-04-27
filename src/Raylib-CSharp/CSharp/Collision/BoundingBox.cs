@@ -3,24 +3,19 @@ using System.Runtime.InteropServices;
 
 namespace Raylib_CSharp.CSharp.Collision;
 
+/// <summary>
+/// Bounding box type.
+/// </summary>
 [StructLayout(LayoutKind.Sequential)]
-public struct BoundingBox {
-    
+public struct BoundingBox(Vector3 min, Vector3 max) {
+
     /// <summary>
     /// Minimum vertex box-corner.
     /// </summary>
-    public Vector3 Min;
+    public Vector3 Min = min;
 
     /// <summary>
     /// Maximum vertex box-corner.
     /// </summary>
-    public Vector3 Max;
-
-    /// <summary>
-    /// Bounding box type.
-    /// </summary>
-    public BoundingBox(Vector3 min, Vector3 max) {
-        this.Min = min;
-        this.Max = max;
-    }
+    public Vector3 Max = max;
 }

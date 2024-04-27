@@ -1,7 +1,7 @@
 namespace Raylib_CSharp.CSharp.Rendering.Shaders;
 
 public enum ShaderUniformDataType {
-    
+
     /// <summary>
     /// Shader uniform type: float.
     /// </summary>

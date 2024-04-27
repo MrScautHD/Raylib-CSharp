@@ -5,7 +5,7 @@ namespace Raylib_CSharp.CSharp.Rendering;
 
 [StructLayout(LayoutKind.Sequential)]
 public struct NPatchInfo {
-    
+
     /// <summary>
     /// Texture source rectangle.
     /// </summary>

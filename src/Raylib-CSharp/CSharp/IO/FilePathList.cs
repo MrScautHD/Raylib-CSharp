@@ -4,7 +4,7 @@ namespace Raylib_CSharp.CSharp.IO;
 
 [StructLayout(LayoutKind.Sequential)]
 public struct FilePathList {
-    
+
     /// <summary>
     /// FilePaths max entries.
     /// </summary>

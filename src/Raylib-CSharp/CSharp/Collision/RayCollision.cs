@@ -5,7 +5,7 @@ namespace Raylib_CSharp.CSharp.Collision;
 
 [StructLayout(LayoutKind.Sequential)]
 public struct RayCollision {
-    
+
     /// <summary>
     /// Did the ray hit something?
     /// </summary>

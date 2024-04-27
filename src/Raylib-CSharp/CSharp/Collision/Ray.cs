@@ -3,24 +3,19 @@ using System.Runtime.InteropServices;
 
 namespace Raylib_CSharp.CSharp.Collision;
 
+/// <summary>
+/// Ray, ray for RayCasting.
+/// </summary>
 [StructLayout(LayoutKind.Sequential)]
-public struct Ray {
-    
+public struct Ray(Vector3 position, Vector3 direction) {
+
     /// <summary>
     /// Ray position (origin).
     /// </summary>
-    public Vector3 Position;
+    public Vector3 Position = position;
 
     /// <summary>
     /// Ray direction.
     /// </summary>
-    public Vector3 Direction;
-
-    /// <summary>
-    /// Ray, ray for RayCasting.
-    /// </summary>
-    public Ray(Vector3 position, Vector3 direction) {
-        this.Position = position;
-        this.Direction = direction;
-    }
+    public Vector3 Direction = direction;
 }

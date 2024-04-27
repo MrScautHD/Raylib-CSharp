@@ -1,7 +1,7 @@
 namespace Raylib_CSharp.CSharp.Interact;
 
 public enum GamepadButton {
-    
+
     /// <summary>
     /// Unknown button, just for error checking.
     /// </summary>

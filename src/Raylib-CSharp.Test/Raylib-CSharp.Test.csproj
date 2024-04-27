@@ -8,8 +8,8 @@
         <Nullable>enable</Nullable>
         <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     </PropertyGroup>
-    
+
     <ItemGroup>
-        <ProjectReference Include="..\Raylib-CSharp\Raylib-CSharp.csproj" />
+        <ProjectReference Include="..\Raylib-CSharp\Raylib-CSharp.csproj"/>
     </ItemGroup>
 </Project>

@@ -4,7 +4,7 @@ namespace Raylib_CSharp.CSharp.Vr;
 
 [StructLayout(LayoutKind.Sequential)]
 public struct VrDeviceInfo {
-    
+
     /// <summary>
     /// Horizontal resolution in pixels.
     /// </summary>

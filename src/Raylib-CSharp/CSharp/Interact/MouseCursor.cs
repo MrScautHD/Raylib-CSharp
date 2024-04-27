@@ -1,7 +1,7 @@
 namespace Raylib_CSharp.CSharp.Interact;
 
 public enum MouseCursor {
-    
+
     /// <summary>
     /// Default pointer shape.
     /// </summary>

@@ -1,8 +1,16 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Raylib-CSharp", "src\Raylib-CSharp\Raylib-CSharp.csproj", "{06C3AD87-19F1-4E57-909F-7DA12CB12C2E}"
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34728.123
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Raylib-CSharp", "src\Raylib-CSharp\Raylib-CSharp.csproj", "{06C3AD87-19F1-4E57-909F-7DA12CB12C2E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Raylib-CSharp.Test", "src\Raylib-CSharp.Test\Raylib-CSharp.Test.csproj", "{FFB46B6C-6508-45E9-99EF-C7321EB8C2F4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Raylib-CSharp.Test", "src\Raylib-CSharp.Test\Raylib-CSharp.Test.csproj", "{FFB46B6C-6508-45E9-99EF-C7321EB8C2F4}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{6A01BA31-440F-4336-93B8-E50DB5E877A9}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -18,5 +26,8 @@ Global
 		{FFB46B6C-6508-45E9-99EF-C7321EB8C2F4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FFB46B6C-6508-45E9-99EF-C7321EB8C2F4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FFB46B6C-6508-45E9-99EF-C7321EB8C2F4}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
 	EndGlobalSection
 EndGlobal

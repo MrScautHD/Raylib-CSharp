@@ -1,7 +1,7 @@
 namespace Raylib_CSharp.CSharp.Rendering.Gl;
 
 public enum MatrixMode {
-    
+
     /// <summary>
     /// GL_MODELVIEW.
     /// </summary>

@@ -5,7 +5,7 @@ namespace Raylib_CSharp.CSharp.Misc;
 
 [StructLayout(LayoutKind.Sequential)]
 public struct Transform {
-    
+
     /// <summary>
     /// Translation.
     /// </summary>

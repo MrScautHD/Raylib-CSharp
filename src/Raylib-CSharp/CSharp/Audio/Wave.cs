@@ -4,7 +4,7 @@ namespace Raylib_CSharp.CSharp.Audio;
 
 [StructLayout(LayoutKind.Sequential)]
 public struct Wave {
-    
+
     /// <summary>
     /// Total number of frames (considering channels).
     /// </summary>

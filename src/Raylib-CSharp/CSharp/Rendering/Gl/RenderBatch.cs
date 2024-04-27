@@ -4,7 +4,7 @@ namespace Raylib_CSharp.CSharp.Rendering.Gl;
 
 [StructLayout(LayoutKind.Sequential)]
 public struct RenderBatch {
-    
+
     /// <summary>
     /// Number of vertex buffers (multi-buffering support).
     /// </summary>

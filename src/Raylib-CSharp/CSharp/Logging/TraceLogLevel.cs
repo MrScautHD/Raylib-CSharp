@@ -1,7 +1,7 @@
 namespace Raylib_CSharp.CSharp.Logging;
 
 public enum TraceLogLevel {
-    
+
     /// <summary>
     /// Display all logs.
     /// </summary>

@@ -1,7 +1,7 @@
 namespace Raylib_CSharp.CSharp.Interact;
 
 public enum GamepadAxis {
-    
+
     /// <summary>
     /// Gamepad left stick X axis.
     /// </summary>

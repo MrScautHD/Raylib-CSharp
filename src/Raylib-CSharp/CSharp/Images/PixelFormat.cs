@@ -1,7 +1,7 @@
 namespace Raylib_CSharp.CSharp.Images;
 
 public enum PixelFormat {
-    
+
     /// <summary>
     /// 8 bit per pixel (no alpha).
     /// </summary>
@@ -51,22 +51,22 @@ public enum PixelFormat {
     /// 32*4 bpp (4 channels - float).
     /// </summary>
     UncompressedR32G32B32A32,
-    
+
     /// <summary>
     /// 16 bpp (1 channel - half float).
     /// </summary>
     UncompressedR16,
-    
+
     /// <summary>
     /// 16*3 bpp (3 channels - half float).
     /// </summary>
     UncompressedR16G16B16,
-    
+
     /// <summary>
     /// 16*4 bpp (4 channels - half float).
     /// </summary>
     UncompressedR16G16B16A16,
-    
+
     /// <summary>
     /// 4 bpp (no alpha).
     /// </summary>

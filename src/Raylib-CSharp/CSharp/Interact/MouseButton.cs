@@ -1,7 +1,7 @@
 namespace Raylib_CSharp.CSharp.Interact;
 
 public enum MouseButton {
-    
+
     /// <summary>
     /// Mouse button left.
     /// </summary>

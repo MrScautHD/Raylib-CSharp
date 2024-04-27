@@ -6,7 +6,7 @@ namespace Raylib_CSharp.CSharp.Fonts;
 
 [StructLayout(LayoutKind.Sequential)]
 public struct Font {
-    
+
     /// <summary>
     /// Base size (default chars height).
     /// </summary>

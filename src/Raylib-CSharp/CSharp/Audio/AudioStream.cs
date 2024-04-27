@@ -4,7 +4,7 @@ namespace Raylib_CSharp.CSharp.Audio;
 
 [StructLayout(LayoutKind.Sequential)]
 public struct AudioStream {
-    
+
     /// <summary>
     /// Pointer to internal data used by the audio system.
     /// </summary>

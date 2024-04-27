@@ -7,7 +7,7 @@ namespace Raylib_CSharp.CSharp.Geometry;
 
 [StructLayout(LayoutKind.Sequential)]
 public struct Model {
-    
+
     /// <summary>
     /// Local transform matrix.
     /// </summary>

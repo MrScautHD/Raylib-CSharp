@@ -4,7 +4,7 @@ using System.Runtime.InteropServices;
 namespace Raylib_CSharp.CSharp.Interact;
 
 public static partial class Input {
-    
+
     /// <summary>
     /// Register all input events.
     /// </summary>

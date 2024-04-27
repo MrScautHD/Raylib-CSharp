@@ -5,7 +5,7 @@ namespace Raylib_CSharp.CSharp.Rendering.Textures;
 
 [StructLayout(LayoutKind.Sequential)]
 public struct Texture2D {
-    
+
     /// <summary>
     /// OpenGL texture id.
     /// </summary>

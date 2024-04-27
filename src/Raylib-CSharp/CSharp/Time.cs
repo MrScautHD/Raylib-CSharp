@@ -4,7 +4,7 @@ using System.Runtime.InteropServices;
 namespace Raylib_CSharp.CSharp;
 
 public static partial class Time {
-    
+
     /// <summary>
     /// Set target FPS (maximum).
     /// </summary>
@@ -12,7 +12,7 @@ public static partial class Time {
     [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
     public static partial void SetTargetFPS(int fps);
-    
+
     /// <summary>
     /// Get time in seconds for last frame drawn (delta time).
     /// </summary>
@@ -20,7 +20,7 @@ public static partial class Time {
     [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
     public static partial float GetFrameTime();
-    
+
     /// <summary>
     /// Get elapsed time in seconds since InitWindow().
     /// </summary>
@@ -36,7 +36,7 @@ public static partial class Time {
     [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
     public static partial int GetFPS();
-    
+
     /// <summary>
     /// Wait for some time (halt program execution).
     /// </summary>

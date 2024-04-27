@@ -1,7 +1,7 @@
 namespace Raylib_CSharp.CSharp.Rendering.Gl.FrameBuffer;
 
 public enum FramebufferAttachTextureType {
-    
+
     /// <summary>
     /// Framebuffer texture attachment type: cubemap, +X side
     /// </summary>

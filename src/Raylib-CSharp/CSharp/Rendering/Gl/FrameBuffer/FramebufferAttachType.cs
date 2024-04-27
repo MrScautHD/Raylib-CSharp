@@ -1,7 +1,7 @@
 namespace Raylib_CSharp.CSharp.Rendering.Gl.FrameBuffer;
 
 public enum FramebufferAttachType {
-    
+
     /// <summary>
     /// Framebuffer attachment type: color 0
     /// </summary>
@@ -21,7 +21,7 @@ public enum FramebufferAttachType {
     /// Framebuffer attachment type: color 3
     /// </summary>
     ColorChannel3,
-    
+
     /// <summary>
     /// Framebuffer attachment type: color 4
     /// </summary>

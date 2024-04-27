@@ -4,7 +4,7 @@ namespace Raylib_CSharp.CSharp.Audio;
 
 [StructLayout(LayoutKind.Sequential)]
 public struct Music {
-    
+
     /// <summary>
     /// Audio stream.
     /// </summary>

@@ -1,7 +1,7 @@
 namespace Raylib_CSharp.CSharp.Fonts;
 
 public enum FontType {
-    
+
     /// <summary>
     /// Default font generation, anti-aliased.
     /// </summary>

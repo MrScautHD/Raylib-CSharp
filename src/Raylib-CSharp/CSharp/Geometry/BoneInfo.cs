@@ -4,7 +4,7 @@ namespace Raylib_CSharp.CSharp.Geometry;
 
 [StructLayout(LayoutKind.Sequential)]
 public struct BoneInfo {
-    
+
     /// <summary>
     /// Bone name.
     /// </summary>

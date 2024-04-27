@@ -5,7 +5,7 @@ namespace Raylib_CSharp.CSharp.Vr;
 
 [StructLayout(LayoutKind.Sequential)]
 public struct VrStereoConfig {
-    
+
     /// <summary>
     /// VR projection matrices (per eye).
     /// </summary>

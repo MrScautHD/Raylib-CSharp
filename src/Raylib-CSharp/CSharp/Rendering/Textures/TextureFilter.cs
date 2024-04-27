@@ -1,7 +1,7 @@
 namespace Raylib_CSharp.CSharp.Rendering.Textures;
 
 public enum TextureFilter {
-    
+
     /// <summary>
     /// No filter, just pixel approximation.
     /// </summary>
@@ -30,5 +30,5 @@ public enum TextureFilter {
     /// <summary>
     /// Anisotropic filtering 16x.
     /// </summary>
-    Anisotropic16X,
+    Anisotropic16X
 }

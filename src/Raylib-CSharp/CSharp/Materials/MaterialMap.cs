@@ -1,12 +1,12 @@
 using System.Runtime.InteropServices;
-using Raylib_CSharp.CSharp.Rendering.Textures;
 using Raylib_CSharp.CSharp.Misc;
+using Raylib_CSharp.CSharp.Rendering.Textures;
 
 namespace Raylib_CSharp.CSharp.Materials;
 
 [StructLayout(LayoutKind.Sequential)]
 public struct MaterialMap {
-    
+
     /// <summary>
     /// Material map texture.
     /// </summary>

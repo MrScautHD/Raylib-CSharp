@@ -2,14 +2,14 @@ using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 using Raylib_CSharp.CSharp.Camera.Cam2D;
 using Raylib_CSharp.CSharp.Camera.Cam3D;
-using Raylib_CSharp.CSharp.Vr;
 using Raylib_CSharp.CSharp.Misc;
 using Raylib_CSharp.CSharp.Rendering.Shaders;
+using Raylib_CSharp.CSharp.Vr;
 
 namespace Raylib_CSharp.CSharp.Rendering;
 
 public partial class Graphics {
-    
+
     /// <summary>
     /// Set background color (framebuffer clear color).
     /// </summary>
@@ -24,7 +24,7 @@ public partial class Graphics {
     [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
     public static partial void BeginDrawing();
-    
+
     /// <summary>
     /// End canvas drawing and swap buffers (double buffering).
     /// </summary>
@@ -38,7 +38,7 @@ public partial class Graphics {
     [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
     public static partial void BeginMode2D(Camera2D camera);
-    
+
     /// <summary>
     /// Ends 2D mode with custom camera.
     /// </summary>
@@ -136,7 +136,7 @@ public partial class Graphics {
     [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
     public static partial void EndVrStereoMode();
-    
+
     /// <summary>
     /// Swap back buffer with front buffer (screen drawing).
     /// </summary>

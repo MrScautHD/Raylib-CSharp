@@ -1,7 +1,7 @@
 namespace Raylib_CSharp.CSharp.Rendering.Textures;
 
 public enum TextureWrap {
-    
+
     /// <summary>
     /// Repeats texture in tiled mode.
     /// </summary>

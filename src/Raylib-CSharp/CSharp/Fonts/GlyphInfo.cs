@@ -5,7 +5,7 @@ namespace Raylib_CSharp.CSharp.Fonts;
 
 [StructLayout(LayoutKind.Sequential)]
 public struct GlyphInfo {
-    
+
     /// <summary>
     /// Character value (Unicode).
     /// </summary>

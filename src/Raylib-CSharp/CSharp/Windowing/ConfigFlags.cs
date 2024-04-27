@@ -2,7 +2,7 @@ namespace Raylib_CSharp.CSharp.Windowing;
 
 [Flags]
 public enum ConfigFlags : uint {
-    
+
     /// <summary>
     /// Set to try enabling V-Sync on GPU.
     /// </summary>
@@ -81,5 +81,5 @@ public enum ConfigFlags : uint {
     /// <summary>
     /// Set to try enabling interlaced video format (for V3D).
     /// </summary>
-    InterlacedHint = 0x00010000,
+    InterlacedHint = 0x00010000
 }

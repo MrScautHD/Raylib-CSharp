@@ -5,7 +5,7 @@ namespace Raylib_CSharp.CSharp.Rendering;
 
 [StructLayout(LayoutKind.Sequential)]
 public struct RenderTexture2D {
-    
+
     /// <summary>
     /// OpenGL framebuffer object id.
     /// </summary>

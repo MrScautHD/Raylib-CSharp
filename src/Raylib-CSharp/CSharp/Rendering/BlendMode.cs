@@ -1,7 +1,7 @@
 namespace Raylib_CSharp.CSharp.Rendering;
 
 public enum BlendMode {
-    
+
     /// <summary>
     /// Blend textures considering alpha (default).
     /// </summary>

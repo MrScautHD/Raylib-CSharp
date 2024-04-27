@@ -8,7 +8,7 @@ using Raylib_CSharp.CSharp.Marshallers;
 namespace Raylib_CSharp.CSharp.Windowing;
 
 public static partial class Window {
-    
+
     /// <summary>
     /// Initialize window and OpenGL context.
     /// </summary>
@@ -18,7 +18,7 @@ public static partial class Window {
     [LibraryImport(Raylib.Name, EntryPoint = "InitWindow", StringMarshalling = StringMarshalling.Utf8)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
     public static partial void Init(int width, int height, string title);
-    
+
     /// <summary>
     /// Close window and unload OpenGL context.
     /// </summary>
@@ -34,7 +34,7 @@ public static partial class Window {
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
     [return: MarshalAs(UnmanagedType.Bool)]
     public static partial bool ShouldClose();
-    
+
     /// <summary>
     /// Check if window has been initialized successfully.
     /// </summary>
@@ -43,7 +43,7 @@ public static partial class Window {
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
     [return: MarshalAs(UnmanagedType.Bool)]
     public static partial bool IsReady();
-    
+
     /// <summary>
     /// Check if window is currently fullscreen.
     /// </summary>
@@ -52,7 +52,7 @@ public static partial class Window {
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
     [return: MarshalAs(UnmanagedType.Bool)]
     public static partial bool IsFullscreen();
-    
+
     /// <summary>
     /// Check if window is currently hidden (only PLATFORM_DESKTOP).
     /// </summary>
@@ -61,7 +61,7 @@ public static partial class Window {
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
     [return: MarshalAs(UnmanagedType.Bool)]
     public static partial bool IsHidden();
-    
+
     /// <summary>
     /// Check if window is currently minimized (only PLATFORM_DESKTOP).
     /// </summary>
@@ -125,7 +125,7 @@ public static partial class Window {
     [LibraryImport(Raylib.Name, EntryPoint = "ClearWindowState")]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
     public static partial void ClearState(ConfigFlags flag);
-    
+
     /// <summary>
     /// Toggle window state: fullscreen/windowed (only PLATFORM_DESKTOP).
     /// </summary>
@@ -387,7 +387,7 @@ public static partial class Window {
     [LibraryImport(Raylib.Name, EntryPoint = "SetClipboardText", StringMarshalling = StringMarshalling.Utf8)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
     public static partial void SetClipboardText(string text);
-    
+
     /// <summary>
     /// Get clipboard text content.
     /// </summary>

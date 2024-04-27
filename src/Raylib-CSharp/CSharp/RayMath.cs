@@ -5,7 +5,7 @@ using System.Runtime.InteropServices;
 namespace Raylib_CSharp.CSharp;
 
 public static partial class RayMath {
-    
+
     public const float Deg2Rad = MathF.PI / 180.0f;
     public const float Rad2Deg = 180.0f / MathF.PI;
 
@@ -512,7 +512,7 @@ public static partial class RayMath {
     [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
     public static partial Vector3 Vector3Divide(Vector3 v1, Vector3 v2);
-    
+
     /// <summary>
     /// Normalize provided vector.
     /// </summary>

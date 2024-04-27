@@ -1,7 +1,7 @@
 namespace Raylib_CSharp.CSharp.Rendering;
 
 public enum NPatchLayout {
-    
+
     /// <summary>
     /// Npatch defined by 3x3 tiles.
     /// </summary>

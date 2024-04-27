@@ -1,7 +1,7 @@
 namespace Raylib_CSharp.CSharp.Interact;
 
 public enum KeyboardKey {
-    
+
     /// <summary>
     /// Key: NULL, used for no key pressed.
     /// </summary>

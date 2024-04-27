@@ -5,7 +5,7 @@ namespace Raylib_CSharp.CSharp.Geometry;
 
 [StructLayout(LayoutKind.Sequential)]
 public struct ModelAnimation {
-    
+
     /// <summary>
     /// Number of bones.
     /// </summary>

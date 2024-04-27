@@ -1,7 +1,7 @@
 namespace Raylib_CSharp.CSharp.Rendering.Gl;
 
 public enum DrawMode {
-    
+
     /// <summary>
     /// GL_LINES.
     /// </summary>

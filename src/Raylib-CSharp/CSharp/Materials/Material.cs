@@ -5,7 +5,7 @@ namespace Raylib_CSharp.CSharp.Materials;
 
 [StructLayout(LayoutKind.Sequential)]
 public struct Material {
-    
+
     /// <summary>
     /// Material shader.
     /// </summary>

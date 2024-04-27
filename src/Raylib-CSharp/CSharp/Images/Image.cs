@@ -4,7 +4,7 @@ namespace Raylib_CSharp.CSharp.Images;
 
 [StructLayout(LayoutKind.Sequential)]
 public struct Image {
-    
+
     /// <summary>
     /// Image raw data.
     /// </summary>

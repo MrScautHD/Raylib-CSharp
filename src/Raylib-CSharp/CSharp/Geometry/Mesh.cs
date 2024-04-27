@@ -2,27 +2,22 @@ using System.Runtime.InteropServices;
 
 namespace Raylib_CSharp.CSharp.Geometry;
 
+/// <summary>
+/// Mesh, vertex data and vao/vbo.
+/// </summary>
 [StructLayout(LayoutKind.Sequential)]
-public struct Mesh {
-    
-    /// <summary>
-    /// Mesh, vertex data and vao/vbo.
-    /// </summary>
-    public Mesh(int vertexCount, int triangleCount) {
-        this.VertexCount = vertexCount;
-        this.TriangleCount = triangleCount;
-    }
+public struct Mesh(int vertexCount, int triangleCount) {
 
     /// <summary>
     /// Number of vertices stored in arrays.
     /// </summary>
-    public int VertexCount;
+    public int VertexCount = vertexCount;
 
     /// <summary>
     /// Number of triangles stored (indexed or not).
     /// </summary>
-    public int TriangleCount;
-    
+    public int TriangleCount = triangleCount;
+
     /// <summary>
     /// Vertex position (XYZ - 3 components per vertex) (shader-location = 0).
     /// </summary>
@@ -57,7 +52,7 @@ public struct Mesh {
     /// Vertex indices (in case vertex data comes indexed).
     /// </summary>
     public unsafe ushort* Indices;
-    
+
     /// <summary>
     /// Animated vertex positions (after bones transformations).
     /// </summary>
@@ -77,7 +72,7 @@ public struct Mesh {
     /// Vertex bone weight, up to 4 bones influence by vertex (skinning).
     /// </summary>
     public unsafe float* BoneWeights;
-    
+
     /// <summary>
     /// OpenGL Vertex Array Object id.
     /// </summary>

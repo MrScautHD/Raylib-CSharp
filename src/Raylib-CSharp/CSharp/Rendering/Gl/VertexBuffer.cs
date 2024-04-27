@@ -4,7 +4,7 @@ namespace Raylib_CSharp.CSharp.Rendering.Gl;
 
 [StructLayout(LayoutKind.Sequential)]
 public struct VertexBuffer {
-    
+
     /// <summary>
     /// Number of elements in the buffer (QUADS).
     /// </summary>

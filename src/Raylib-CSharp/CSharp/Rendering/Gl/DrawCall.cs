@@ -4,7 +4,7 @@ namespace Raylib_CSharp.CSharp.Rendering.Gl;
 
 [StructLayout(LayoutKind.Sequential)]
 public struct DrawCall {
-    
+
     /// <summary>
     /// Drawing mode: LINES, TRIANGLES, QUADS.
     /// </summary>

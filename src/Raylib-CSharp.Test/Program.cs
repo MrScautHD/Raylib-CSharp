@@ -5,9 +5,9 @@ using Raylib_CSharp.CSharp.Rendering;
 using Raylib_CSharp.CSharp.Windowing;
 
 Console.WriteLine("Hello, World!");
-Window.Init(1280, 720, "Raylib-CSharp");
+RlWindow.Init(1280, 720, "Raylib-CSharp");
 
-while (!Window.ShouldClose()) {
+while (!RlWindow.ShouldClose()) {
    Graphics.BeginDrawing();
    Graphics.ClearBackground(Color.SkyBlue);
    

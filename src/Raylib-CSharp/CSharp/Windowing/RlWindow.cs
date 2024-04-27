@@ -7,7 +7,7 @@ using Raylib_CSharp.CSharp.Marshallers;
 
 namespace Raylib_CSharp.CSharp.Windowing;
 
-public static partial class Window {
+public static partial class RlWindow {
     
     /// <summary>
     /// Initialize window and OpenGL context.

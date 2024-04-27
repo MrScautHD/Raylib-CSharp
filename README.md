@@ -13,8 +13,12 @@
 🪙 Installation - [Nuget](https://www.nuget.org/packages/Raylib-CSharp)
 ==================================================================
 ```
-dotnet add package Sparkle --version 1.0.0
+dotnet add package Raylib-CSharp --version 1.0.0
 ```
+
+❗ IMPORTEND
+==================================================================
+Ensure that you integrate the [`CMake.props`](https://github.com/MrScautHD/Raylib-CSharp/blob/main/src/Raylib-CSharp/CMake.props) file into your project setup to facilitate the building process for the .dlls.
 
 ‍💻 Platforms
 =============

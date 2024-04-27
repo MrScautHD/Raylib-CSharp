@@ -43,11 +43,4 @@ public static partial class Time {
     [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
     public static partial void WaitTime(double seconds);
-
-    /// <summary>
-    /// Register all input events.
-    /// </summary>
-    [LibraryImport(Raylib.Name)]
-    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial void PollInputEvents();
 }

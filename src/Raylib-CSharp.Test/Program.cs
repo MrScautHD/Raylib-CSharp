@@ -5,7 +5,7 @@ using Raylib_CSharp.CSharp.Rendering;
 using Raylib_CSharp.CSharp.Windowing;
 
 Console.WriteLine("Hello, World!");
-Window.Init(1280, 720, "Test");
+Window.Init(1280, 720, "Raylib-CSharp");
 
 while (!Window.ShouldClose()) {
    Graphics.BeginDrawing();

@@ -43,7 +43,7 @@
 
     <!-- Build Raylib -->
     <Target Name="BuildRaylib" BeforeTargets="BeforeBuild">
-        <Exec Command="cmake @(ConfigureArgs, ' ') $(CMakeExtraArgs)" />
+        <Exec Command="cmake @(ConfigureArgs, ' ')" />
         <Exec Command="cmake --build $(IntermediateOutputPath)native --config $(Configuration)" />
     </Target>
 

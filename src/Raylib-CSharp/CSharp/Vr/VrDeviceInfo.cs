@@ -1,6 +1,6 @@
 using System.Runtime.InteropServices;
 
-namespace Raylib_CSharp.CSharp.Interact;
+namespace Raylib_CSharp.CSharp.Vr;
 
 [StructLayout(LayoutKind.Sequential)]
 public struct VrDeviceInfo {

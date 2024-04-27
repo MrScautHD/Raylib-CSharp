@@ -1,7 +1,7 @@
 using System.Numerics;
 using System.Runtime.InteropServices;
 
-namespace Raylib_CSharp.CSharp.Rendering;
+namespace Raylib_CSharp.CSharp.Collision;
 
 [StructLayout(LayoutKind.Sequential)]
 public struct BoundingBox {

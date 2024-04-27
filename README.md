@@ -8,7 +8,7 @@
 [![Activity](https://img.shields.io/github/commit-activity/w/MrScautHD/Raylib-CSharp?style=flat-square&logo=Github&label=Activity)](https://github.com/MrScautHD/Raylib-CSharp/activity)
 [![Stars](https://img.shields.io/github/stars/MrScautHD/Raylib-CSharp?style=flat-square&logo=Github&label=Stars)](https://github.com/MrScautHD/Raylib-CSharp/stargazers)
 
-__Raylib-CS__ is a fully managed binding over Raylib.
+__Raylib-CSharp__ is a fully managed binding over Raylib.
 
 ---
 

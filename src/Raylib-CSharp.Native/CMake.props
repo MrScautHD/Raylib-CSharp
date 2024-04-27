@@ -1,0 +1,57 @@
+<Project>
+    <PropertyGroup>
+        <RlVersion>5.0</RlVersion>
+    </PropertyGroup>
+
+    <PropertyGroup Condition="$([MSBuild]::IsOSPlatform('Windows'))">
+        <RlName>$(Configuration)/raylib.dll</RlName>
+    </PropertyGroup>
+
+    <PropertyGroup Condition="$([MSBuild]::IsOSPlatform('Linux'))">
+        <RlName>libraylib.dylib</RlName>
+    </PropertyGroup>
+
+    <PropertyGroup Condition="$([MSBuild]::IsOSPlatform('OSX'))">
+        <RlName>libraylib.so</RlName>
+    </PropertyGroup>
+
+    <!-- Download Raylib -->
+    <Target Name="DownloadRaylib" BeforeTargets="UnZipRaylib">
+        <DownloadFile DestinationFolder="$(IntermediateOutputPath)"
+                      SourceUrl="https://github.com/raysan5/raylib/archive/refs/tags/$(RlVersion).zip"
+                      DestinationFileName="raylib-$(RlVersion).zip"
+                      Condition="!Exists('$(IntermediateOutputPath)raylib-$(RlVersion).zip')" />
+    </Target>
+
+    <!-- UnZip Raylib -->
+    <Target Name="UnZipRaylib" BeforeTargets="BuildRaylib">
+        <Unzip DestinationFolder="$(IntermediateOutputPath)"
+               SourceFiles="$(IntermediateOutputPath)raylib-$(RlVersion).zip"
+               OverwriteReadOnlyFiles="true"
+               Condition="!Exists('$(IntermediateOutputPath)raylib-$(RlVersion)')" />
+    </Target>
+    
+    <!-- Configure Args -->
+    <ItemGroup>
+        <ConfigureArgs Include="-S $(IntermediateOutputPath)raylib-$(RlVersion)" />
+        <ConfigureArgs Include="-B $(IntermediateOutputPath)native" />
+        <ConfigureArgs Include="-D CMAKE_BUILD_TYPE=$(Configuration)" />
+        <ConfigureArgs Include="-D BUILD_SHARED_LIBS=ON" />
+        <ConfigureArgs Include="-D BUILD_EXAMPLES=OFF" />
+        <ConfigureArgs Include="-D GRAPHICS=GRAPHICS_API_OPENGL_33" />
+    </ItemGroup>
+
+    <!-- Build Raylib -->
+    <Target Name="BuildRaylib" BeforeTargets="BeforeBuild">
+        <Exec Command="cmake @(ConfigureArgs, ' ') $(CMakeExtraArgs)" />
+        <Exec Command="cmake --build $(IntermediateOutputPath)native --config $(Configuration)" />
+    </Target>
+
+    <!-- Store .dll into the project -->
+    <ItemGroup>
+        <Content Include="$(IntermediateOutputPath)native/raylib/$(RlName)">
+            <Link>%(Filename)%(Extension)</Link>
+            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </Content>
+    </ItemGroup>
+</Project>

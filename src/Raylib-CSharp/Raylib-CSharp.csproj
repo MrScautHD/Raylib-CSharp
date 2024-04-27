@@ -1,0 +1,19 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net8.0</TargetFramework>
+        <RootNamespace>Raylib_CSharp</RootNamespace>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+        <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    </PropertyGroup>
+    
+    <PropertyGroup>
+        <Title>Raylib-CSharp</Title>
+        <Authors>MrScautHD</Authors>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\Raylib-CSharp.Native\Raylib-CSharp.Native.csproj" />
+    </ItemGroup>
+</Project>

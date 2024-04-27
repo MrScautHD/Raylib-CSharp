@@ -28,7 +28,7 @@ public static partial class Raylib {
     [LibraryImport(Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
     public static partial void SetConfigFlags(ConfigFlags flags);
-    
+
     /// <summary>
     /// Open URL with default system browser (if available).
     /// </summary>

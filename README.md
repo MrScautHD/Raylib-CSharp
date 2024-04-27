@@ -10,7 +10,7 @@
 [<img src="https://github.com/MrScautHD/Sparkle/assets/65916181/87b291cd-6506-4fb5-b032-abf3170a28c4" alt="discord" width="186" height="60">](https://discord.gg/7XKw6YQa76)
 [<img src="https://github.com/MrScautHD/Sparkle/assets/65916181/de09f016-db11-4554-aa56-4d1bd6c2464f" alt="sponsor" width="186" height="60">](https://github.com/sponsors/MrScautHD)
 
-🪙 Installation - [Nuget](https://www.nuget.org/packages/Sparkle)
+🪙 Installation - [Nuget](https://www.nuget.org/packages/Raylib-CSharp)
 ==================================================================
 ```
 dotnet add package Sparkle --version 1.0.0
@@ -24,6 +24,6 @@ dotnet add package Sparkle --version 1.0.0
 
 🧑 Contributors
 ==================
-<a href="https://github.com/mrscauthd/sparkle/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=mrscauthd/sparkle&max=500&columns=20&anon=1" />
+<a href="https://github.com/mrscauthd/Raylib-CSharp/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=mrscauthd/Raylib-CSharp&max=500&columns=20&anon=1" />
 </a>

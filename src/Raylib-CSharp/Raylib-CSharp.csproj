@@ -13,7 +13,6 @@
         <Authors>MrScautHD</Authors>
     </PropertyGroup>
 
-    <ItemGroup>
-      <ProjectReference Include="..\Raylib-CSharp.Native\Raylib-CSharp.Native.csproj" />
-    </ItemGroup>
+    <!-- Raylib CMake -->
+    <Import Project="CMake.props" />
 </Project>

@@ -17,7 +17,7 @@ while (!Window.ShouldClose()) {
    Vector3 vector32 = new Vector3(2, 2, 2);
 
    unsafe {
-      RayMath.Vector3OrthoNormalize(&vector3, &vector32);
+      RayMath.Vector3OrthoNormalize(ref vector3, ref vector32);
    }
 
    Console.WriteLine("Vector 1: " + vector3);

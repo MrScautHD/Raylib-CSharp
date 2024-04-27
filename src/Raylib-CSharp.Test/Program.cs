@@ -5,15 +5,15 @@ using Raylib_CSharp.CSharp.Rendering;
 using Raylib_CSharp.CSharp.Windowing;
 
 Console.WriteLine("Hello, World!");
-Window.Init(1280, 720, "Raylib-CSharp");
+RlWindow.Init(1280, 720, "Raylib-CSharp");
 
-while (!Window.ShouldClose()) {
-    Graphics.BeginDrawing();
-    Graphics.ClearBackground(Color.SkyBlue);
-
-    Graphics.EndDrawing();
-
-    Quaternion quaternion = Quaternion.CreateFromYawPitchRoll(10, 10, 10);
+while (!RlWindow.ShouldClose()) {
+   Graphics.BeginDrawing();
+   Graphics.ClearBackground(Color.SkyBlue);
+   
+   Graphics.EndDrawing();
+   
+   Quaternion quaternion = Quaternion.CreateFromYawPitchRoll(10, 10, 10);
 
     RayMath.QuaternionToAxisAngle(quaternion, out Vector3 axis, out float angle);
 

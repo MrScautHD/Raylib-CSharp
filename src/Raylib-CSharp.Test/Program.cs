@@ -2,12 +2,13 @@
 using Raylib_CSharp.CSharp;
 using Raylib_CSharp.CSharp.Misc;
 using Raylib_CSharp.CSharp.Rendering;
+using Raylib_CSharp.CSharp.Rendering.Shaders;
 using Raylib_CSharp.CSharp.Windowing;
 
 Console.WriteLine("Hello, World!");
-RlWindow.Init(1280, 720, "Raylib-CSharp");
+Window.Init(1280, 720, "Raylib-CSharp");
 
-while (!RlWindow.ShouldClose()) {
+while (!Window.ShouldClose()) {
    Graphics.BeginDrawing();
    Graphics.ClearBackground(Color.SkyBlue);
    
@@ -26,4 +27,6 @@ while (!RlWindow.ShouldClose()) {
 
     Console.WriteLine("Vector 1: " + vector3);
     Console.WriteLine("Vector 2: " + vector32);
+    
+    ShaderManager.SetValue(new Shader(), 1, 1, ShaderUniformDataType.Vec2);
 }

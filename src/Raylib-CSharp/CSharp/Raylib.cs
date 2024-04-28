@@ -36,4 +36,68 @@ public static partial class Raylib {
     [LibraryImport(Name, StringMarshalling = StringMarshalling.Utf8)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
     public static partial void OpenUrl(string url);
+
+    /// <summary>
+    /// Set the seed for the random number generator.
+    /// </summary>
+    /// <param name="seed">The seed value to set.</param>
+    [LibraryImport(Name)]
+    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
+    public static partial void SetRandomSeed(int seed);
+
+    /// <summary>
+    /// Get a random value between min and max (both included).
+    /// </summary>
+    /// <param name="min">The minimum value of the range (inclusive).</param>
+    /// <param name="max">The maximum value of the range (inclusive).</param>
+    /// <returns>A random integer value between the minimum and maximum values.</returns>
+    [LibraryImport(Name)]
+    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
+    public static partial int GetRandomValue(int min, int max);
+
+    /// <summary>
+    /// Load random values sequence, no values repeated.
+    /// </summary>
+    /// <param name="count">The number of random values to generate.</param>
+    /// <param name="min">The minimum value in the range (inclusive).</param>
+    /// <param name="max">The maximum value in the range (inclusive).</param>
+    /// <returns>A pointer to an array of random integers.</returns>
+    [LibraryImport(Name)]
+    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
+    public static unsafe partial int* LoadRandomSequence(int count, int min, int max);
+
+    /// <summary>
+    /// Unload random values sequence.
+    /// </summary>
+    /// <param name="sequence">Pointer to the array containing the random sequence.</param>
+    [LibraryImport(Name)]
+    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
+    public static unsafe partial void UnloadRandomSequence(int* sequence);
+
+    /// <summary>
+    /// Internal memory allocator.
+    /// </summary>
+    /// <param name="size">The size of the memory block to allocate.</param>
+    /// <returns>A pointer to the allocated memory block.</returns>
+    [LibraryImport(Name)]
+    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
+    public static unsafe partial void* MemAlloc(int size);
+    
+    /// <summary>
+    /// Internal memory reallocator.
+    /// </summary>
+    /// <param name="ptr">A pointer to the block of memory to be allocate, in bytes..</param>
+    /// <param name="size">The size of the memory block to allocate, in bytes.</param>
+    /// <returns>A pointer to the allocated memory block.</returns>
+    [LibraryImport(Name)]
+    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
+    public static unsafe partial void* MemAlloc(void* ptr, int size);
+
+    /// <summary>
+    /// Internal memory free.
+    /// </summary>
+    /// <param name="ptr">A pointer to the block of memory to be freed.</param>
+    [LibraryImport(Name)]
+    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
+    public static unsafe partial void MemFree(void* ptr);
 }

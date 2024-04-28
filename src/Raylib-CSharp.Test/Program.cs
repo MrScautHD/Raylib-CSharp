@@ -1,7 +1,10 @@
-﻿using Raylib_CSharp.CSharp.IO;
+﻿using System.Numerics;
+using Raylib_CSharp.CSharp;
+using Raylib_CSharp.CSharp.IO;
 using Raylib_CSharp.CSharp.Logging;
 using Raylib_CSharp.CSharp.Misc;
 using Raylib_CSharp.CSharp.Rendering;
+using Raylib_CSharp.CSharp.Rendering.Shaders;
 using Raylib_CSharp.CSharp.Windowing;
 
 Console.WriteLine("Hello, World!");
@@ -48,12 +51,12 @@ Logger.Message += (level, text) => {
 Window.Init(1280, 720, "Raylib-CSharp");
 
 while (!Window.ShouldClose()) {
-   Graphics.BeginDrawing();
-   Graphics.ClearBackground(Color.SkyBlue);
+    Graphics.BeginDrawing();
+    Graphics.ClearBackground(Color.SkyBlue);
 
-   Graphics.EndDrawing();
-/*
-   Quaternion quaternion = Quaternion.CreateFromYawPitchRoll(10, 10, 10);
+    Graphics.EndDrawing();
+
+    Quaternion quaternion = Quaternion.CreateFromYawPitchRoll(10, 10, 10);
 
     RayMath.QuaternionToAxisAngle(quaternion, out Vector3 axis, out float angle);
 
@@ -71,5 +74,4 @@ while (!Window.ShouldClose()) {
 
     float[] texture2Ds = { 1, 2, 3 };
     ShaderManager.SetValueV(new Shader(), 1, texture2Ds, ShaderUniformDataType.Float);
-*/
 }

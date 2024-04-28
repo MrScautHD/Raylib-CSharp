@@ -115,6 +115,7 @@ public class StringFormatter {
                 return string.Empty;
             }
 
+            // Allocate buffer.
             utf8Buffer = Marshal.AllocHGlobal(byteSize);
             VsPrintFWindows(utf8Buffer, format, args);
 
@@ -171,12 +172,14 @@ public class StringFormatter {
         IntPtr utf8Buffer = IntPtr.Zero;
 
         try {
+            // Get size of args.
             int byteSize = VsnPrintFLinux(IntPtr.Zero, UIntPtr.Zero, format, args) + 1;
 
             if (byteSize <= 1) {
                 return string.Empty;
             }
 
+            // Allocate buffer and print into buffer.
             utf8Buffer = Marshal.AllocHGlobal(byteSize);
             VsPrintFLinux(utf8Buffer, format, args);
 
@@ -199,9 +202,9 @@ public class StringFormatter {
         IntPtr utf8Buffer = IntPtr.Zero;
 
         try {
-            int count = VasPrintFOsx(&utf8Buffer, format, args);
+            int byteSize = VasPrintFOsx(&utf8Buffer, format, args);
 
-            if (count == -1) {
+            if (byteSize == -1) {
                 return string.Empty;
             }
 

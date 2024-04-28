@@ -49,7 +49,7 @@ public static partial class Logger {
     /// <param name="logLevel">The level of the log message.</param>
     /// <param name="text">The log message.</param>
     /// <param name="args">Additional arguments.</param>
-    [UnmanagedCallersOnly(CallConvs = new[] { typeof(CallConvCdecl) })]
+    [UnmanagedCallersOnly(CallConvs = [typeof(CallConvCdecl)])]
     private static unsafe void TraceLogCallback(int logLevel, sbyte* text, sbyte* args) {
         string msg = _formatter!.GetMessage((IntPtr) text, (IntPtr) args);
 

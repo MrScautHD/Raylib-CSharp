@@ -2,21 +2,26 @@ using System.Runtime.InteropServices;
 
 namespace Raylib_CSharp.CSharp.Geometry;
 
-/// <summary>
-/// Mesh, vertex data and vao/vbo.
-/// </summary>
 [StructLayout(LayoutKind.Sequential)]
-public struct Mesh(int vertexCount, int triangleCount) {
+public struct Mesh {
+
+    /// <summary>
+    /// Mesh, vertex data and vao/vbo.
+    /// </summary>
+    public Mesh(int vertexCount, int triangleCount) {
+        this.VertexCount = vertexCount;
+        this.TriangleCount = triangleCount;
+    }
 
     /// <summary>
     /// Number of vertices stored in arrays.
     /// </summary>
-    public int VertexCount = vertexCount;
+    public int VertexCount;
 
     /// <summary>
     /// Number of triangles stored (indexed or not).
     /// </summary>
-    public int TriangleCount = triangleCount;
+    public int TriangleCount;
 
     /// <summary>
     /// Vertex position (XYZ - 3 components per vertex) (shader-location = 0).

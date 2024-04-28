@@ -2,31 +2,28 @@ using System.Runtime.InteropServices;
 
 namespace Raylib_CSharp.CSharp.Misc;
 
-/// <summary>
-/// Color, 4 components, R8G8B8A8 (32bit).
-/// </summary>
 [StructLayout(LayoutKind.Sequential)]
-public struct Color(byte r, byte g, byte b, byte a) {
+public struct Color {
 
     /// <summary>
     /// Color red value.
     /// </summary>
-    public byte R = r;
+    public byte R;
 
     /// <summary>
     /// Color green value.
     /// </summary>
-    public byte G = g;
+    public byte G;
 
     /// <summary>
     /// Color blue value.
     /// </summary>
-    public byte B = b;
+    public byte B;
 
     /// <summary>
     /// Color alpha value.
     /// </summary>
-    public byte A = a;
+    public byte A;
 
     public static readonly Color LightGray = new(200, 200, 200, 255);
     public static readonly Color Gray = new(130, 130, 130, 255);
@@ -55,7 +52,17 @@ public struct Color(byte r, byte g, byte b, byte a) {
     public static readonly Color Magenta = new(255, 0, 255, 255);
     public static readonly Color RayWhite = new(245, 245, 245, 255);
 
-    public override readonly string ToString() {
+    /// <summary>
+    /// Color, 4 components, R8G8B8A8 (32bit).
+    /// </summary>
+    public Color(byte r, byte g, byte b, byte a) {
+        this.R = r;
+        this.G = g;
+        this.B = b;
+        this.A = a;
+    }
+
+    public override string ToString() {
         return $"R:{this.R} G:{this.G} B:{this.B} A:{this.A}";
     }
 }

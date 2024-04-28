@@ -109,6 +109,7 @@ public class StringFormatter {
         IntPtr utf8Buffer = IntPtr.Zero;
 
         try {
+            // Get size of args.
             int byteSize = VsnPrintFWindows(IntPtr.Zero, UIntPtr.Zero, format, args) + 1;
 
             if (byteSize <= 1) {
@@ -202,6 +203,7 @@ public class StringFormatter {
         IntPtr utf8Buffer = IntPtr.Zero;
 
         try {
+            // Get size of args.
             int byteSize = VasPrintFOsx(&utf8Buffer, format, args);
 
             if (byteSize == -1) {

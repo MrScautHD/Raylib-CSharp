@@ -8,10 +8,13 @@ public static partial class Logger {
     public delegate bool OnMessage(TraceLogLevel logLevel, string text);
     public static event OnMessage? Message;
 
+    private static StringFormatter? _formatter;
+
     /// <summary>
     /// Initializes the logger by setting the trace log callback.
     /// </summary>
     public static unsafe void Init() {
+        _formatter = new StringFormatter();
         SetTraceLogCallback(&TraceLogCallback);
     }
 
@@ -48,7 +51,7 @@ public static partial class Logger {
     /// <param name="args">Additional arguments.</param>
     [UnmanagedCallersOnly(CallConvs = new[] { typeof(CallConvCdecl) })]
     private static unsafe void TraceLogCallback(int logLevel, sbyte* text, sbyte* args) {
-        string msg = new StringFormatter().GetMessage((IntPtr) text, (IntPtr) args);
+        string msg = _formatter!.GetMessage((IntPtr) text, (IntPtr) args);
 
         OnMessage? message = Message;
 

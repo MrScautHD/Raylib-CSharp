@@ -126,31 +126,6 @@ public class StringFormatter {
     }
 
     /// <summary>
-    /// Formats a message string using the specified format and arguments on macOS platform.
-    /// </summary>
-    /// <param name="format">A pointer to a null-terminated string that specifies the format of the output.</param>
-    /// <param name="args">A pointer to a list of arguments.</param>
-    /// <returns>
-    /// The formatted message as a string. If the formatting fails, returns an empty string.
-    /// </returns>
-    private unsafe string OsxPrintF(IntPtr format, IntPtr args) {
-        IntPtr utf8Buffer = IntPtr.Zero;
-
-        try {
-            int count = VasPrintFOsx(&utf8Buffer, format, args);
-
-            if (count == -1) {
-                return string.Empty;
-            }
-
-            return Marshal.PtrToStringUTF8(utf8Buffer) ?? string.Empty;
-        }
-        finally {
-            Marshal.FreeHGlobal(utf8Buffer);
-        }
-    }
-
-    /// <summary>
     /// Formats a message string using the specified format and arguments on Linux 64-bit platform.
     /// </summary>
     /// <param name="format">A pointer to a null-terminated string that specifies the format of the output.</param>
@@ -206,6 +181,31 @@ public class StringFormatter {
             VsPrintFLinux(utf8Buffer, format, args);
 
             return Marshal.PtrToStringUTF8(utf8Buffer)!;
+        }
+        finally {
+            Marshal.FreeHGlobal(utf8Buffer);
+        }
+    }
+
+    /// <summary>
+    /// Formats a message string using the specified format and arguments on macOS platform.
+    /// </summary>
+    /// <param name="format">A pointer to a null-terminated string that specifies the format of the output.</param>
+    /// <param name="args">A pointer to a list of arguments.</param>
+    /// <returns>
+    /// The formatted message as a string. If the formatting fails, returns an empty string.
+    /// </returns>
+    private unsafe string OsxPrintF(IntPtr format, IntPtr args) {
+        IntPtr utf8Buffer = IntPtr.Zero;
+
+        try {
+            int count = VasPrintFOsx(&utf8Buffer, format, args);
+
+            if (count == -1) {
+                return string.Empty;
+            }
+
+            return Marshal.PtrToStringUTF8(utf8Buffer) ?? string.Empty;
         }
         finally {
             Marshal.FreeHGlobal(utf8Buffer);

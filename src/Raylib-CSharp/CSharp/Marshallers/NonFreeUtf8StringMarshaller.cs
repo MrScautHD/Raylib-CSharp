@@ -14,6 +14,11 @@ public static class NonFreeUtf8StringMarshaller {
         return Utf8StringMarshaller.ConvertToManaged(unmanaged);
     }
 
+    /// <summary>
+    /// Converts a managed string to a null-terminated UTF-8 string in unmanaged memory.
+    /// </summary>
+    /// <param name="managed">The managed string to be converted.</param>
+    /// <returns>A pointer to the null-terminated UTF-8 string in unmanaged memory.</returns>
     public static unsafe byte* ConvertToUnmanaged(string managed) {
         return Utf8StringMarshaller.ConvertToUnmanaged(managed);
     }

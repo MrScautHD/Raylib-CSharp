@@ -82,7 +82,7 @@ public static partial class Raylib {
     [LibraryImport(Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
     public static unsafe partial void* MemAlloc(int size);
-    
+
     /// <summary>
     /// Internal memory reallocator.
     /// </summary>

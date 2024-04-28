@@ -1,8 +1,10 @@
 ﻿using System.Numerics;
+using System.Runtime.InteropServices;
 using Raylib_CSharp.CSharp;
 using Raylib_CSharp.CSharp.Misc;
 using Raylib_CSharp.CSharp.Rendering;
 using Raylib_CSharp.CSharp.Rendering.Shaders;
+using Raylib_CSharp.CSharp.Rendering.Textures;
 using Raylib_CSharp.CSharp.Windowing;
 
 Console.WriteLine("Hello, World!");
@@ -28,5 +30,8 @@ while (!Window.ShouldClose()) {
     Console.WriteLine("Vector 1: " + vector3);
     Console.WriteLine("Vector 2: " + vector32);
     
-    ShaderManager.SetValue(new Shader(), 1, 1, ShaderUniformDataType.Vec2);
+    ShaderManager.SetValue(new Shader(), 1, true, ShaderUniformDataType.Float);
+    
+    float[] texture2Ds = { 1, 2, 3 };
+    ShaderManager.SetValueV(new Shader(), 1, texture2Ds, ShaderUniformDataType.Float);
 }

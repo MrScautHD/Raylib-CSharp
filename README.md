@@ -12,8 +12,7 @@ __Raylib-CSharp__ is a fully managed binding over Raylib.
 
 ---
 
-# 🪙 Installation
-## ☁️ [Nuget](https://www.nuget.org/packages/Raylib-CSharp)
+# 🪙 Installation - [Nuget](https://www.nuget.org/packages/Raylib-CSharp)
 ```
 dotnet add package Raylib-CSharp --version 1.0.0
 ```
@@ -21,7 +20,7 @@ dotnet add package Raylib-CSharp --version 1.0.0
 > [!IMPORTANT]
 > Ensure that you integrate the [`CMake.props`](https://github.com/MrScautHD/Raylib-CSharp/blob/main/src/Raylib-CSharp/CMake.props) file into your project setup to facilitate the building process for the .dlls.
 
-## 📖 From source
+# 📖 Installation - From source
 1. Clone this repository.
 2. Add `Raylib-CSharp.csproj` as a reference to your project.
 

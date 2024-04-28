@@ -4,7 +4,7 @@ using System.Runtime.InteropServices;
 namespace Raylib_CSharp.CSharp.Vr;
 
 public static partial class VrManager {
-    
+
     /// <summary>
     /// Load VR stereo config for VR simulator device parameters.
     /// </summary>

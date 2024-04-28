@@ -6,7 +6,7 @@ using Raylib_CSharp.CSharp.Rendering.Textures;
 namespace Raylib_CSharp.CSharp.Rendering.Shaders;
 
 public static partial class ShaderManager {
-    
+
     /// <summary>
     /// Load shader from files and bind default locations.
     /// </summary>
@@ -90,7 +90,7 @@ public static partial class ShaderManager {
     [LibraryImport(Raylib.Name, EntryPoint = "SetShaderValueV")]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
     private static unsafe partial void SetValueV(Shader shader, int locIndex, void* values, ShaderUniformDataType uniformType, int count);
-    
+
     /// <summary>
     /// Set shader uniform value vector.
     /// </summary>

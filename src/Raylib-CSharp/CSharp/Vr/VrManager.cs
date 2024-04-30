@@ -10,15 +10,15 @@ public static partial class VrManager {
     /// </summary>
     /// <param name="device">The VR device information.</param>
     /// <returns>The loaded VR stereo configuration.</returns>
-    [LibraryImport(Raylib.Name, EntryPoint = "LoadVrStereoConfig")]
+    [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial VrStereoConfig LoadStereoConfig(VrDeviceInfo device);
+    public static partial VrStereoConfig LoadVrStereoConfig(VrDeviceInfo device);
 
     /// <summary>
     /// Unload VR stereo config.
     /// </summary>
     /// <param name="config">The VR stereo configuration to unload.</param>
-    [LibraryImport(Raylib.Name, EntryPoint = "UnloadVrStereoConfig")]
+    [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial void UnloadStereoConfig(VrStereoConfig config);
+    public static partial void UnloadVrStereoConfig(VrStereoConfig config);
 }

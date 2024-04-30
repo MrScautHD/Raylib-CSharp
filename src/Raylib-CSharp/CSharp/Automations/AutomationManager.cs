@@ -30,6 +30,7 @@ public static partial class AutomationManager {
     /// <returns>Returns true if the export was successful; otherwise, returns false.</returns>
     [LibraryImport(Raylib.Name, StringMarshalling = StringMarshalling.Utf8)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
+    [return: MarshalAs(UnmanagedType.Bool)]
     public static partial bool ExportAutomationEventList(AutomationEventList list, string fileName);
 
     /// <summary>

@@ -1,5 +1,6 @@
 ﻿using System.Numerics;
 using Raylib_CSharp.CSharp;
+using Raylib_CSharp.CSharp.Automations;
 using Raylib_CSharp.CSharp.Logging;
 using Raylib_CSharp.CSharp.Misc;
 using Raylib_CSharp.CSharp.Rendering;

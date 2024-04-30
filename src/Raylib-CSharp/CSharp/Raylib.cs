@@ -43,7 +43,7 @@ public static partial class Raylib {
     /// <param name="seed">The seed value to set.</param>
     [LibraryImport(Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial void SetRandomSeed(int seed);
+    public static partial void SetRandomSeed(uint seed);
 
     /// <summary>
     /// Get a random value between min and max (both included).

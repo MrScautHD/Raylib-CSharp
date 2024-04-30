@@ -15,7 +15,7 @@ public static partial class FileManager {
     /// <returns>A pointer to the loaded data.</returns>
     [LibraryImport(Raylib.Name, StringMarshalling = StringMarshalling.Utf8)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static unsafe partial byte* LoadFileData(string fileName, int* dataSize);
+    public static unsafe partial byte* LoadFileData(string fileName, uint* dataSize);
 
     /// <summary>
     /// Unload file data allocated by LoadFileData().
@@ -35,7 +35,7 @@ public static partial class FileManager {
     [LibraryImport(Raylib.Name, StringMarshalling = StringMarshalling.Utf8)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
     [return: MarshalAs(UnmanagedType.Bool)]
-    public static unsafe partial bool SaveFileData(string fileName, byte* data, int dataSize);
+    public static unsafe partial bool SaveFileData(string fileName, byte* data, uint dataSize);
 
     /// <summary>
     /// Export data to code (.h), returns true on success.
@@ -47,7 +47,7 @@ public static partial class FileManager {
     [LibraryImport(Raylib.Name, StringMarshalling = StringMarshalling.Utf8)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
     [return: MarshalAs(UnmanagedType.Bool)]
-    public static unsafe partial bool ExportDataAsCode(byte* data, int dataSize, string fileName);
+    public static unsafe partial bool ExportDataAsCode(byte* data, uint dataSize, string fileName);
 
     /// <summary>
     /// Load text data from file (read), returns a '\0' terminated string.

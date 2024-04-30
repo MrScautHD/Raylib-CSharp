@@ -11,7 +11,7 @@ void TakeScreenshot(string fileName);                 // Takes a screenshot of c
 void SetConfigFlags(ConfigFlag flags);                // Setup init configuration flags (view FLAGS)
 void OpenURL(string url);                             // Open URL with default system browser (if available)
 
-void SetRandomSeed(int seed);                         // Set the seed for the random number generator
+void SetRandomSeed(uint seed);                         // Set the seed for the random number generator
 int GetRandomValue(int min, int max);                 // Get a random value between min and max (both included)
 int* LoadRandomSequence(int count, int min, int max); // Load random values sequence, no values repeated
 void UnloadRandomSequence(int* sequence);             // Unload random values sequence
@@ -200,10 +200,10 @@ void SetTraceLogLevel(TraceLogLevel logLevel);        // Set the current thresho
 
 ## FileManager
 ```cs
-byte* LoadFileData(string fileName, int* dataSize);   // Load file data as byte array (read)
+byte* LoadFileData(string fileName, uint* dataSize);   // Load file data as byte array (read)
 void UnloadFileData(byte* data);                      // Unload file data allocated by LoadFileData()
-bool SaveFileData(string fileName, byte* data, int dataSize);         // Save data to file from byte array (write), returns true on success
-bool ExportDataAsCode(byte* data, int dataSize, string fileName);     // Export data to code (.h), returns true on success
+bool SaveFileData(string fileName, byte* data, uint dataSize);         // Save data to file from byte array (write), returns true on success
+bool ExportDataAsCode(byte* data, uint dataSize, string fileName);     // Export data to code (.h), returns true on success
 string LoadFileText(string fileName);                 // Load text data from file (read), returns a '\0' terminated string
 void UnloadFileText(string text);                     // Unload file text data allocated by LoadFileText()
 bool SaveFileText(string fileName, string text);      // Save text data to file (write), string must be '\0' terminated, returns true on success
@@ -698,6 +698,8 @@ struct VrStereoConfig                                 // VrStereoConfig, VR ster
 
 ## Enums
 ```cs
+enum AutomationEventType
+
 enum CameraMode
 enum CameraProjection
 

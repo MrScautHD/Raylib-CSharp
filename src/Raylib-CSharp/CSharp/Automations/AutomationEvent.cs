@@ -13,7 +13,7 @@ public struct AutomationEvent {
     /// <summary>
     /// Event type (AutomationEventType).
     /// </summary>
-    public int Type;
+    public AutomationEventType Type;
 
     /// <summary>
     /// Event parameters (if required).

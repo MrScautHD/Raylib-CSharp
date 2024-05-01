@@ -64,7 +64,7 @@ public static partial class CameraManager {
     /// <param name="moveInWorldPlane">Specifies whether to move the camera in the world plane or camera plane.</param>
     [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial void CameraMoveForward(ref Camera3D camera, float distance, bool moveInWorldPlane);
+    public static partial void CameraMoveForward(ref Camera3D camera, float distance, [MarshalAs(UnmanagedType.Bool)] bool moveInWorldPlane);
 
     /// <summary>
     /// Moves the camera in its up direction.
@@ -83,7 +83,7 @@ public static partial class CameraManager {
     /// <param name="moveInWorldPlane">Move the camera in world plane coordinates (relative to pivot).</param>
     [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial void CameraMoveRight(ref Camera3D camera, float distance, bool moveInWorldPlane);
+    public static partial void CameraMoveRight(ref Camera3D camera, float distance, [MarshalAs(UnmanagedType.Bool)] bool moveInWorldPlane);
 
     /// <summary>
     /// Moves the camera position closer/farther to/from the camera target.
@@ -103,7 +103,7 @@ public static partial class CameraManager {
     /// If false, it will rotate around its position.</param>
     [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial void CameraYaw(ref Camera3D camera, float angle, bool rotateAroundTarget);
+    public static partial void CameraYaw(ref Camera3D camera, float angle, [MarshalAs(UnmanagedType.Bool)] bool rotateAroundTarget);
 
     /// <summary>
     /// Rotates the camera around its right vector, pitch is "looking up and down".
@@ -115,7 +115,7 @@ public static partial class CameraManager {
     /// <param name="rotateUp">If set to true, the camera will rotate around the World's up vector instead of its local up vector.</param>
     [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial void CameraPitch(ref Camera3D camera, float angle, bool lockView, bool rotateAroundTarget, bool rotateUp);
+    public static partial void CameraPitch(ref Camera3D camera, float angle, [MarshalAs(UnmanagedType.Bool)] bool lockView, [MarshalAs(UnmanagedType.Bool)] bool rotateAroundTarget, [MarshalAs(UnmanagedType.Bool)] bool rotateUp);
 
     /// <summary>
     /// Rotates the camera around its forward vector.
@@ -132,7 +132,7 @@ public static partial class CameraManager {
     /// <param name="camera">The camera to get the view matrix from.</param>
     [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial void GetCameraViewMatrix(ref Camera3D camera);
+    public static partial Matrix4x4 GetCameraViewMatrix(ref Camera3D camera);
 
     /// <summary>
     /// Returns the camera projection matrix.
@@ -141,7 +141,7 @@ public static partial class CameraManager {
     /// <param name="aspect">The aspect ratio of the camera.</param>
     [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial void GetCameraProjectionMatrix(ref Camera3D camera, float aspect);
+    public static partial Matrix4x4 GetCameraProjectionMatrix(ref Camera3D camera, float aspect);
 
     /// <summary>
     /// Get a ray trace from mouse position.

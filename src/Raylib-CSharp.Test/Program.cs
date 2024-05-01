@@ -5,9 +5,9 @@ using Raylib_CSharp.CSharp.Camera.Cam3D;
 using Raylib_CSharp.CSharp.Fonts;
 using Raylib_CSharp.CSharp.Geometry.Managers;
 using Raylib_CSharp.CSharp.Logging;
-using Raylib_CSharp.CSharp.Misc;
-using Raylib_CSharp.CSharp.Rendering;
-using Raylib_CSharp.CSharp.Rendering.Shaders;
+using Raylib_CSharp.CSharp.Colors;
+using Raylib_CSharp.CSharp.Textures;
+using Raylib_CSharp.CSharp.Shaders;
 using Raylib_CSharp.CSharp.Windowing;
 
 Console.WriteLine("Hello, World!");

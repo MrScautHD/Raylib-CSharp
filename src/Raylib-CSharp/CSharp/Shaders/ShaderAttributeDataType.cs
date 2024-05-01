@@ -1,4 +1,4 @@
-namespace Raylib_CSharp.CSharp.Rendering.Shaders;
+namespace Raylib_CSharp.CSharp.Shaders;
 
 public enum ShaderAttributeDataType {
 

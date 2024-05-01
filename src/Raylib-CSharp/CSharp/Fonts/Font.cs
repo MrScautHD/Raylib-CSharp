@@ -1,6 +1,6 @@
 using System.Drawing;
 using System.Runtime.InteropServices;
-using Raylib_CSharp.CSharp.Rendering.Textures;
+using Raylib_CSharp.CSharp.Textures;
 
 namespace Raylib_CSharp.CSharp.Fonts;
 

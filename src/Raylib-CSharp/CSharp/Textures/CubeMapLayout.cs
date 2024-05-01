@@ -1,4 +1,4 @@
-namespace Raylib_CSharp.CSharp.Rendering.Textures;
+namespace Raylib_CSharp.CSharp.Textures;
 
 public enum CubeMapLayout {
 

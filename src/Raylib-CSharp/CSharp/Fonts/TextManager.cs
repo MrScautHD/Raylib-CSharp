@@ -5,7 +5,7 @@ using System.Runtime.InteropServices;
 using System.Runtime.InteropServices.Marshalling;
 using Raylib_CSharp.CSharp.Images;
 using Raylib_CSharp.CSharp.Marshallers;
-using Color = Raylib_CSharp.CSharp.Misc.Color;
+using Color = Raylib_CSharp.CSharp.Colors.Color;
 
 namespace Raylib_CSharp.CSharp.Fonts;
 

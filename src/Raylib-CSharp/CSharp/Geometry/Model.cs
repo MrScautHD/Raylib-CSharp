@@ -1,7 +1,7 @@
 using System.Numerics;
 using System.Runtime.InteropServices;
 using Raylib_CSharp.CSharp.Materials;
-using Raylib_CSharp.CSharp.Misc;
+using Raylib_CSharp.CSharp.Colors;
 
 namespace Raylib_CSharp.CSharp.Geometry;
 

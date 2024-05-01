@@ -1,4 +1,4 @@
-namespace Raylib_CSharp.CSharp.Rendering.Gl;
+namespace Raylib_CSharp.CSharp.Textures.Gl;
 
 public enum MatrixMode {
 

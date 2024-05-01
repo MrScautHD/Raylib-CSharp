@@ -1,5 +1,5 @@
 using System.Runtime.InteropServices;
-using Raylib_CSharp.CSharp.Rendering.Shaders;
+using Raylib_CSharp.CSharp.Shaders;
 
 namespace Raylib_CSharp.CSharp.Materials;
 

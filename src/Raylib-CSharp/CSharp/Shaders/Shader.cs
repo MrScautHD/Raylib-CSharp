@@ -1,6 +1,6 @@
 using System.Runtime.InteropServices;
 
-namespace Raylib_CSharp.CSharp.Rendering.Shaders;
+namespace Raylib_CSharp.CSharp.Shaders;
 
 [StructLayout(LayoutKind.Sequential)]
 public struct Shader {

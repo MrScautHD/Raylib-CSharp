@@ -1,4 +1,4 @@
-namespace Raylib_CSharp.CSharp.Rendering;
+namespace Raylib_CSharp.CSharp.Textures;
 
 public enum BlendMode {
 

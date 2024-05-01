@@ -1,7 +1,7 @@
 using System.Numerics;
 using System.Runtime.InteropServices;
 
-namespace Raylib_CSharp.CSharp.Misc;
+namespace Raylib_CSharp.CSharp;
 
 [StructLayout(LayoutKind.Sequential)]
 public struct Transform {

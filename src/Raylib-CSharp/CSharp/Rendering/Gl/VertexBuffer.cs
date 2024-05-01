@@ -1,6 +1,6 @@
 using System.Runtime.InteropServices;
 
-namespace Raylib_CSharp.CSharp.Rendering.Gl;
+namespace Raylib_CSharp.CSharp.Textures.Gl;
 
 [StructLayout(LayoutKind.Sequential)]
 public struct VertexBuffer {

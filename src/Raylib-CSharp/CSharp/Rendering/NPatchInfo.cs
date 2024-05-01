@@ -1,7 +1,7 @@
 using System.Drawing;
 using System.Runtime.InteropServices;
 
-namespace Raylib_CSharp.CSharp.Rendering;
+namespace Raylib_CSharp.CSharp.Textures;
 
 [StructLayout(LayoutKind.Sequential)]
 public struct NPatchInfo {

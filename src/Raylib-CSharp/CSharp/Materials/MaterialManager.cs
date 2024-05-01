@@ -1,8 +1,8 @@
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
-using Raylib_CSharp.CSharp.Misc;
-using Raylib_CSharp.CSharp.Rendering.Shaders;
-using Raylib_CSharp.CSharp.Rendering.Textures;
+using Raylib_CSharp.CSharp.Colors;
+using Raylib_CSharp.CSharp.Shaders;
+using Raylib_CSharp.CSharp.Textures;
 
 namespace Raylib_CSharp.CSharp.Materials;
 

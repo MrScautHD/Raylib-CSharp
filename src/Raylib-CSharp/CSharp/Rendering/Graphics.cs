@@ -2,11 +2,11 @@ using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 using Raylib_CSharp.CSharp.Camera.Cam2D;
 using Raylib_CSharp.CSharp.Camera.Cam3D;
-using Raylib_CSharp.CSharp.Misc;
-using Raylib_CSharp.CSharp.Rendering.Shaders;
+using Raylib_CSharp.CSharp.Colors;
+using Raylib_CSharp.CSharp.Shaders;
 using Raylib_CSharp.CSharp.Vr;
 
-namespace Raylib_CSharp.CSharp.Rendering;
+namespace Raylib_CSharp.CSharp.Textures;
 
 public static partial class Graphics {
 

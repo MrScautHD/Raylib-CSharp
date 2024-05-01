@@ -5,9 +5,9 @@ using System.Runtime.InteropServices;
 using Raylib_CSharp.CSharp.Camera.Cam3D;
 using Raylib_CSharp.CSharp.Collision;
 using Raylib_CSharp.CSharp.Materials;
-using Raylib_CSharp.CSharp.Rendering.Shaders;
-using Raylib_CSharp.CSharp.Rendering.Textures;
-using Color = Raylib_CSharp.CSharp.Misc.Color;
+using Raylib_CSharp.CSharp.Shaders;
+using Raylib_CSharp.CSharp.Textures;
+using Color = Raylib_CSharp.CSharp.Colors.Color;
 
 namespace Raylib_CSharp.CSharp.Geometry.Managers;
 

@@ -2,8 +2,8 @@ using System.Drawing;
 using System.Numerics;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
-using Raylib_CSharp.CSharp.Rendering.Textures;
-using Color = Raylib_CSharp.CSharp.Misc.Color;
+using Raylib_CSharp.CSharp.Textures;
+using Color = Raylib_CSharp.CSharp.Colors.Color;
 
 namespace Raylib_CSharp.CSharp.Shapes;
 

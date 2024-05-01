@@ -40,7 +40,7 @@ public enum MaterialMapIndex {
     /// <summary>
     /// Cubemap material (NOTE: Uses GL_TEXTURE_CUBE_MAP).
     /// </summary>
-    CubeMap,
+    Cubemap,
 
     /// <summary>
     /// Irradiance material (NOTE: Uses GL_TEXTURE_CUBE_MAP).

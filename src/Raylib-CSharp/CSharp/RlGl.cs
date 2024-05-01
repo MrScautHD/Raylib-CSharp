@@ -403,14 +403,14 @@ public static partial class RlGl {
     /// <param name="id">The ID of the cubemap texture to enable.</param>
     [LibraryImport(Raylib.Name, EntryPoint = "rlEnableTextureCubemap")]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial void EnableTextureCubeMap(uint id);
+    public static partial void EnableTextureCubemap(uint id);
 
     /// <summary>
     /// Disable texture cubemap.
     /// </summary>
     [LibraryImport(Raylib.Name, EntryPoint = "rlDisableTextureCubemap")]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial void DisableTextureCubeMap();
+    public static partial void DisableTextureCubemap();
 
     /// <summary>
     /// Set texture parameters (filter, wrap).

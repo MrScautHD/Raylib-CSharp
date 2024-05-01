@@ -115,7 +115,7 @@ public enum ShaderLocationIndex {
     /// <summary>
     /// Shader location: samplerCube texture: cubemap
     /// </summary>
-    MapCubeMap,
+    MapCubemap,
 
     /// <summary>
     /// Shader location: samplerCube texture: irradiance

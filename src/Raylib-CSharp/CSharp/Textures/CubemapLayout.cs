@@ -1,6 +1,6 @@
 namespace Raylib_CSharp.CSharp.Textures;
 
-public enum CubeMapLayout {
+public enum CubemapLayout {
 
     /// <summary>
     /// Automatically detect layout type.

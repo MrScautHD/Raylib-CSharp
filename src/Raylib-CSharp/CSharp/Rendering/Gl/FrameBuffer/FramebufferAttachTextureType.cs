@@ -5,32 +5,32 @@ public enum FramebufferAttachTextureType {
     /// <summary>
     /// Framebuffer texture attachment type: cubemap, +X side
     /// </summary>
-    CubeMapPositiveX = 0,
+    CubemapPositiveX = 0,
 
     /// <summary>
     /// Framebuffer texture attachment type: cubemap, -X side
     /// </summary>
-    CubeMapNegativeX,
+    CubemapNegativeX,
 
     /// <summary>
     /// Framebuffer texture attachment type: cubemap, +Y side
     /// </summary>
-    CubeMapPositiveY,
+    CubemapPositiveY,
 
     /// <summary>
     /// Framebuffer texture attachment type: cubemap, -Y side
     /// </summary>
-    CubeMapNegativeY,
+    CubemapNegativeY,
 
     /// <summary>
     /// Framebuffer texture attachment type: cubemap, +Z side
     /// </summary>
-    CubeMapPositiveZ,
+    CubemapPositiveZ,
 
     /// <summary>
     /// Framebuffer texture attachment type: cubemap, -Z side
     /// </summary>
-    CubeMapNegativeZ,
+    CubemapNegativeZ,
 
     /// <summary>
     /// Framebuffer texture attachment type: texture2d

@@ -73,7 +73,7 @@ public partial class StringFormatter {
     /// </returns>
     [LibraryImport(LibSystem, EntryPoint = "vasprintf")]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    private static unsafe partial int VasPrintFOsx(IntPtr* buffer, IntPtr format, IntPtr args);
+    private static partial int VasPrintFOsx(ref IntPtr buffer, IntPtr format, IntPtr args);
 
     /// <summary>
     /// Retrieves a formatted message string using the specified format and arguments based on the current platform.
@@ -205,12 +205,12 @@ public partial class StringFormatter {
     /// <returns>
     /// The formatted message as a string. If the formatting fails, returns an empty string.
     /// </returns>
-    private unsafe string OsxPrintF(IntPtr format, IntPtr args) {
+    private string OsxPrintF(IntPtr format, IntPtr args) {
         IntPtr utf8Buffer = IntPtr.Zero;
 
         try {
             // Get size of args.
-            int byteSize = VasPrintFOsx(&utf8Buffer, format, args);
+            int byteSize = VasPrintFOsx(ref utf8Buffer, format, args);
 
             if (byteSize == -1) {
                 return string.Empty;

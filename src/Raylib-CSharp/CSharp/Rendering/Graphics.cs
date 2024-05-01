@@ -4,6 +4,7 @@ using Raylib_CSharp.CSharp.Camera.Cam2D;
 using Raylib_CSharp.CSharp.Camera.Cam3D;
 using Raylib_CSharp.CSharp.Colors;
 using Raylib_CSharp.CSharp.Shaders;
+using Raylib_CSharp.CSharp.Textures;
 using Raylib_CSharp.CSharp.Vr;
 
 namespace Raylib_CSharp.CSharp.Rendering;

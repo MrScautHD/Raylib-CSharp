@@ -191,20 +191,20 @@ public static partial class MeshManager {
     /// <summary>
     /// Generate heightMap mesh from image data.
     /// </summary>
-    /// <param name="heightMap">The heightMap image used to generate the mesh</param>
+    /// <param name="heightmap">The heightMap image used to generate the mesh</param>
     /// <param name="size">The size of the mesh</param>
     /// <returns>The generated mesh</returns>
     [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial Mesh GenMeshHeightMap(Image heightMap, Vector3 size);
+    public static partial Mesh GenMeshHeightmap(Image heightmap, Vector3 size);
 
     /// <summary>
     /// Generate cubes-based map mesh from image data.
     /// </summary>
-    /// <param name="cubicMap">The image to generate the cubic map from</param>
+    /// <param name="cubicmap">The image to generate the cubic map from</param>
     /// <param name="cubeSize">The size of each cube in the cubic map</param>
     /// <returns>The generated cubic map mesh</returns>
     [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial Mesh GenMeshCubicMap(Image cubicMap, Vector3 cubeSize);
+    public static partial Mesh GenMeshCubicmap(Image cubicmap, Vector3 cubeSize);
 }

@@ -9,7 +9,7 @@ public static partial class Time {
     /// Set target FPS (maximum).
     /// </summary>
     /// <param name="fps">The desired frames-per-second.</param>
-    [LibraryImport(Raylib.Name)]
+    [LibraryImport(Raylib.Name, EntryPoint = "SetTargetFPS")]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
     public static partial void SetTargetFps(int fps);
 
@@ -33,9 +33,9 @@ public static partial class Time {
     /// Get current FPS.
     /// </summary>
     /// <returns>The frames-per-second value.</returns>
-    [LibraryImport(Raylib.Name)]
+    [LibraryImport(Raylib.Name, EntryPoint = "GetFPS")]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial int GetFPS();
+    public static partial int GetFps();
 
     /// <summary>
     /// Wait for some time (halt program execution).

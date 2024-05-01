@@ -430,7 +430,7 @@ public static partial class RlGl {
     /// <param name="value">The value of the parameter to set.</param>
     [LibraryImport(Raylib.Name, EntryPoint = "rlCubemapParameters")]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial void CubeMapParameters(uint id, int param, int value);
+    public static partial void CubemapParameters(uint id, int param, int value);
 
     /// <summary>
     /// Enable shader program.
@@ -1025,7 +1025,7 @@ public static partial class RlGl {
     /// <returns>The handle of the loaded texture.</returns>
     [LibraryImport(Raylib.Name, EntryPoint = "rlLoadTextureCubemap")]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static unsafe partial uint LoadTextureCubeMap(void* data, int size, PixelFormat format);
+    public static unsafe partial uint LoadTextureCubemap(void* data, int size, PixelFormat format);
 
     /// <summary>
     /// Update GPU texture with new data.

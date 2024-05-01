@@ -302,7 +302,7 @@ public static partial class ImageManager {
     /// </summary>
     /// <param name="image">The image to resize and fill.</param>
     /// <param name="fill">The color to fill the resized image with.</param>
-    [LibraryImport(Raylib.Name)]
+    [LibraryImport(Raylib.Name, EntryPoint = "ImageToPOT")]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
     public static partial void ImageToPot(ref Image image, Color fill);
 

@@ -1,7 +1,6 @@
 using System.Runtime.InteropServices;
-using Raylib_CSharp.CSharp.Textures;
 
-namespace Raylib_CSharp.CSharp;
+namespace Raylib_CSharp.CSharp.Textures;
 
 [StructLayout(LayoutKind.Sequential)]
 public struct RenderTexture2D {

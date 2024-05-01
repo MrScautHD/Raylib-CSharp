@@ -136,9 +136,9 @@ public static partial class TextManager {
     /// </summary>
     /// <param name="posX">The x-coordinate of the position to draw the FPS counter.</param>
     /// <param name="posY">The y-coordinate of the position to draw the FPS counter.</param>
-    [LibraryImport(Raylib.Name)]
+    [LibraryImport(Raylib.Name, EntryPoint = "DrawFPS")]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial void DrawFPS(int posX, int posY);
+    public static partial void DrawFps(int posX, int posY);
 
     /// <summary>
     /// Draw text (using default font).
@@ -272,7 +272,7 @@ public static partial class TextManager {
     /// <param name="codepoints">An array of codepoints.</param>
     /// <param name="length">The length of the codepoints array.</param>
     /// <returns>The loaded UTF-8 string.</returns>
-    [LibraryImport(Raylib.Name)]
+    [LibraryImport(Raylib.Name, EntryPoint = "LoadUTF8")]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
     [return: MarshalUsing(typeof(NonFreeUtf8StringMarshaller))]
     public static unsafe partial string LoadUtf8(int* codepoints, int length);
@@ -281,7 +281,7 @@ public static partial class TextManager {
     /// Unload UTF-8 text encoded from codepoints array.
     /// </summary>
     /// <param name="text">The UTF-8 encoded string to unload.</param>
-    [LibraryImport(Raylib.Name, StringMarshalling = StringMarshalling.Utf8)]
+    [LibraryImport(Raylib.Name, EntryPoint = "UnloadUTF8", StringMarshalling = StringMarshalling.Utf8)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
     public static partial void UnloadUtf8(string text);
 
@@ -347,7 +347,7 @@ public static partial class TextManager {
     /// <param name="codepoint">The Unicode code point to convert.</param>
     /// <param name="utf8Size">The size of the resulting UTF-8 string, in bytes.</param>
     /// <returns>The UTF-8 string representation of the given code point.</returns>
-    [LibraryImport(Raylib.Name)]
+    [LibraryImport(Raylib.Name, EntryPoint = "CodepointToUTF8")]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
     [return: MarshalUsing(typeof(NonFreeUtf8StringMarshaller))]
     public static partial string CodepointToUtf8(int codepoint, out int utf8Size);

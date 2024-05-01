@@ -1,5 +1,4 @@
-﻿using System.Drawing;
-using System.Numerics;
+﻿using System.Numerics;
 using Raylib_CSharp.CSharp;
 using Raylib_CSharp.CSharp.Camera;
 using Raylib_CSharp.CSharp.Camera.Cam3D;
@@ -73,7 +72,7 @@ while (!Window.ShouldClose()) {
     ModelManager.DrawCube(Vector3.UnitY / 2, 1, 1, 1, Color.Green);
     Graphics.EndMode3D();
 
-    TextManager.DrawFPS(50, 50);
+    TextManager.DrawFps(50, 50);
     TextManager.DrawText(TextManager.TextReplace("Raylib-CSharp-1.0.0", "2.0.0", "1.0.0"), 500, 500, 58, Color.Red);
 
     Graphics.EndDrawing();

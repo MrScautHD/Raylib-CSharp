@@ -36,7 +36,7 @@ public static partial class TextureManager {
     /// <returns>The loaded cube map texture.</returns>
     [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial Texture2D LoadTextureCubeMap(Image image, CubeMapLayout layout);
+    public static partial Texture2D LoadTextureCubemap(Image image, CubeMapLayout layout);
 
     /// <summary>
     /// Load texture for rendering (framebuffer).

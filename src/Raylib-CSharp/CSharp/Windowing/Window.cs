@@ -129,7 +129,7 @@ public static partial class Window {
     /// <summary>
     /// Toggle window state: fullscreen/windowed (only PLATFORM_DESKTOP).
     /// </summary>
-    [LibraryImport(Raylib.Name, EntryPoint = "ToggleFullscreen")]
+    [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
     public static partial void ToggleFullscreen();
 
@@ -256,7 +256,7 @@ public static partial class Window {
     /// Get current screen width.
     /// </summary>
     /// <returns>The width of the screen in pixels.</returns>
-    [LibraryImport(Raylib.Name, EntryPoint = "GetScreenWidth")]
+    [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
     public static partial int GetScreenWidth();
 
@@ -264,7 +264,7 @@ public static partial class Window {
     /// Get current screen height.
     /// </summary>
     /// <returns>The height of the screen in pixels.</returns>
-    [LibraryImport(Raylib.Name, EntryPoint = "GetScreenHeight")]
+    [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
     public static partial int GetScreenHeight();
 
@@ -272,7 +272,7 @@ public static partial class Window {
     /// Get current render width (it considers HiDPI).
     /// </summary>
     /// <returns>The width of the window's render area.</returns>
-    [LibraryImport(Raylib.Name, EntryPoint = "GetRenderWidth")]
+    [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
     public static partial int GetRenderWidth();
 
@@ -280,7 +280,7 @@ public static partial class Window {
     /// Get current render height (it considers HiDPI).
     /// </summary>
     /// <returns>The height of the rendering context.</returns>
-    [LibraryImport(Raylib.Name, EntryPoint = "GetRenderHeight")]
+    [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
     public static partial int GetRenderHeight();
 
@@ -288,7 +288,7 @@ public static partial class Window {
     /// Get number of connected monitors.
     /// </summary>
     /// <returns>The number of monitors connected to the system.</returns>
-    [LibraryImport(Raylib.Name, EntryPoint = "GetMonitorCount")]
+    [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
     public static partial int GetMonitorCount();
 
@@ -296,7 +296,7 @@ public static partial class Window {
     /// Get current connected monitor.
     /// </summary>
     /// <returns>The index of the current monitor.</returns>
-    [LibraryImport(Raylib.Name, EntryPoint = "GetCurrentMonitor")]
+    [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
     public static partial int GetCurrentMonitor();
 
@@ -305,7 +305,7 @@ public static partial class Window {
     /// </summary>
     /// <param name="monitor">The index of the monitor.</param>
     /// <returns>The position of the monitor.</returns>
-    [LibraryImport(Raylib.Name, EntryPoint = "GetCurrentMonitor")]
+    [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
     public static partial Vector2 GetMonitorPosition(int monitor);
 
@@ -314,7 +314,7 @@ public static partial class Window {
     /// </summary>
     /// <param name="monitor">The monitor index.</param>
     /// <returns>The width of the monitor in pixels.</returns>
-    [LibraryImport(Raylib.Name, EntryPoint = "GetMonitorWidth")]
+    [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
     public static partial int GetMonitorWidth(int monitor);
 
@@ -323,7 +323,7 @@ public static partial class Window {
     /// </summary>
     /// <param name="monitor">The index of the monitor. Default value is 0.</param>
     /// <returns>The height of the specified monitor.</returns>
-    [LibraryImport(Raylib.Name, EntryPoint = "GetMonitorHeight")]
+    [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
     public static partial int GetMonitorHeight(int monitor);
 
@@ -332,7 +332,7 @@ public static partial class Window {
     /// </summary>
     /// <param name="monitor">The index of the monitor to retrieve the width from.</param>
     /// <returns>The physical width of the monitor in pixels.</returns>
-    [LibraryImport(Raylib.Name, EntryPoint = "GetMonitorPhysicalWidth")]
+    [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
     public static partial int GetMonitorPhysicalWidth(int monitor);
 
@@ -341,7 +341,7 @@ public static partial class Window {
     /// </summary>
     /// <param name="monitor">The index of the monitor.</param>
     /// <returns>The physical height of the monitor.</returns>
-    [LibraryImport(Raylib.Name, EntryPoint = "GetMonitorPhysicalHeight")]
+    [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
     public static partial int GetMonitorPhysicalHeight(int monitor);
 
@@ -350,7 +350,7 @@ public static partial class Window {
     /// </summary>
     /// <param name="monitor">The index of the monitor to retrieve the refresh rate from.</param>
     /// <returns>The refresh rate of the specified monitor in Hz.</returns>
-    [LibraryImport(Raylib.Name, EntryPoint = "GetMonitorRefreshRate")]
+    [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
     public static partial int GetMonitorRefreshRate(int monitor);
 
@@ -375,7 +375,7 @@ public static partial class Window {
     /// </summary>
     /// <param name="monitor">The index of the monitor.</param>
     /// <returns>The name of the monitor.</returns>
-    [LibraryImport(Raylib.Name, EntryPoint = "GetMonitorName")]
+    [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
     [return: MarshalUsing(typeof(NonFreeUtf8StringMarshaller))]
     public static partial string GetMonitorName(int monitor);
@@ -384,7 +384,7 @@ public static partial class Window {
     /// Set clipboard text content.
     /// </summary>
     /// <param name="text">The text to set as the clipboard content.</param>
-    [LibraryImport(Raylib.Name, EntryPoint = "SetClipboardText", StringMarshalling = StringMarshalling.Utf8)]
+    [LibraryImport(Raylib.Name, StringMarshalling = StringMarshalling.Utf8)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
     public static partial void SetClipboardText(string text);
 
@@ -392,7 +392,7 @@ public static partial class Window {
     /// Get clipboard text content.
     /// </summary>
     /// <returns>The text stored in the clipboard as a Unicode string.</returns>
-    [LibraryImport(Raylib.Name, EntryPoint = "GetClipboardText")]
+    [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
     [return: MarshalUsing(typeof(NonFreeUtf8StringMarshaller))]
     public static partial string GetClipboardText();
@@ -400,14 +400,14 @@ public static partial class Window {
     /// <summary>
     /// Enable waiting for events on EndDrawing(), no automatic event polling.
     /// </summary>
-    [LibraryImport(Raylib.Name, EntryPoint = "EnableEventWaiting")]
+    [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
     public static partial void EnableEventWaiting();
 
     /// <summary>
     /// Disable waiting for events on EndDrawing(), automatic events polling.
     /// </summary>
-    [LibraryImport(Raylib.Name, EntryPoint = "DisableEventWaiting")]
+    [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
     public static partial void DisableEventWaiting();
 }

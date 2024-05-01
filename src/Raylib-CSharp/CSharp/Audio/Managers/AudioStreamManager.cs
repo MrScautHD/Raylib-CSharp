@@ -158,7 +158,6 @@ public static partial class AudioStreamManager {
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
     public static unsafe partial void DetachAudioStreamProcessor(AudioStream stream, delegate* unmanaged[Cdecl]<void*, uint, void> processor);
 
-
     /// <summary>
     /// Attach audio stream processor to the entire audio pipeline, receives the samples as floats.
     /// </summary>

@@ -394,6 +394,8 @@ public static partial class Input {
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
     public static partial int GetTouchPointCount();
 
+    //TODO ADD Gestures
+
     /// <summary>
     /// Register all input events.
     /// </summary>

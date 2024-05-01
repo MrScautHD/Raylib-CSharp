@@ -1,6 +1,6 @@
 using System.Runtime.InteropServices;
 
-namespace Raylib_CSharp.CSharp.Textures.Gl;
+namespace Raylib_CSharp.CSharp.Rendering.Gl;
 
 [StructLayout(LayoutKind.Sequential)]
 public struct RenderBatch {

@@ -1,4 +1,4 @@
-namespace Raylib_CSharp.CSharp.Textures.Gl;
+namespace Raylib_CSharp.CSharp.Rendering.Gl;
 
 public enum GlVersion {
 

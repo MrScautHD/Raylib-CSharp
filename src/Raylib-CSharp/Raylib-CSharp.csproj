@@ -17,7 +17,7 @@
         <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
         <GenerateDocumentationFile>true</GenerateDocumentationFile>
         <NoWarn>$(NoWarn);1591</NoWarn>
-        <Description>Raylib C# Wrapper </Description>
+        <Description>A fast, Cross-platform Raylib C# Wrapper.</Description>
         <PackageProjectUrl>https://www.nuget.org/packages/Raylib-CSharp</PackageProjectUrl>
         <PackageLicenseUrl>https://github.com/MrScautHD/Raylib-CSharp/blob/main/LICENSE</PackageLicenseUrl>
         <RepositoryUrl>https://github.com/MrScautHD/Raylib-CSharp</RepositoryUrl>

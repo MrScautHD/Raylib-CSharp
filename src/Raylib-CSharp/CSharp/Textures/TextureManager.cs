@@ -3,6 +3,7 @@ using System.Numerics;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 using Raylib_CSharp.CSharp.Images;
+using Raylib_CSharp.CSharp.Rendering;
 using Color = Raylib_CSharp.CSharp.Colors.Color;
 
 namespace Raylib_CSharp.CSharp.Textures;

@@ -1,4 +1,4 @@
-namespace Raylib_CSharp.CSharp.Textures.Gl.FrameBuffer;
+namespace Raylib_CSharp.CSharp.Rendering.Gl.FrameBuffer;
 
 public enum FramebufferAttachTextureType {
 

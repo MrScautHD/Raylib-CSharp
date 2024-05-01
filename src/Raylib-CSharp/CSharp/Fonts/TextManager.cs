@@ -87,7 +87,7 @@ public static partial class TextManager {
     /// <returns>A pointer to the loaded font data.</returns>
     [LibraryImport(Raylib.Name, StringMarshalling = StringMarshalling.Utf8)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static unsafe partial GlyphInfo* LoadFontData(string fileData, int dataSize, int fontSize, int* codepoints, int codepointCount, int type);
+    public static unsafe partial GlyphInfo* LoadFontData(string fileData, int dataSize, int fontSize, int* codepoints, int codepointCount, FontType type);
 
     /// <summary>
     /// Generate image font atlas using chars info.

@@ -4,9 +4,9 @@ using System.Runtime.InteropServices;
 using System.Runtime.InteropServices.Marshalling;
 using Raylib_CSharp.CSharp.Images;
 using Raylib_CSharp.CSharp.Marshallers;
-using Raylib_CSharp.CSharp.Textures;
-using Raylib_CSharp.CSharp.Textures.Gl;
-using Raylib_CSharp.CSharp.Textures.Gl.FrameBuffer;
+using Raylib_CSharp.CSharp.Rendering;
+using Raylib_CSharp.CSharp.Rendering.Gl;
+using Raylib_CSharp.CSharp.Rendering.Gl.FrameBuffer;
 using Raylib_CSharp.CSharp.Shaders;
 
 namespace Raylib_CSharp.CSharp;

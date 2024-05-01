@@ -6,7 +6,7 @@ using Raylib_CSharp.CSharp.Colors;
 using Raylib_CSharp.CSharp.Shaders;
 using Raylib_CSharp.CSharp.Vr;
 
-namespace Raylib_CSharp.CSharp.Textures;
+namespace Raylib_CSharp.CSharp.Rendering;
 
 public static partial class Graphics {
 

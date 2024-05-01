@@ -1,8 +1,9 @@
+using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
 namespace Raylib_CSharp.CSharp.Logging;
 
-public class StringFormatter {
+public partial class StringFormatter {
 
     private const string Msvcrt = "msvcrt";
     private const string Libc = "libc";
@@ -15,8 +16,9 @@ public class StringFormatter {
     /// <param name="format">Pointer to the format string.</param>
     /// <param name="args">Pointer to the arguments.</param>
     /// <returns>The number of characters written to the buffer.</returns>
-    [DllImport(Msvcrt, EntryPoint = "vsprintf", CallingConvention = CallingConvention.Cdecl)]
-    private static extern int VsPrintFWindows(IntPtr buffer, IntPtr format, IntPtr args);
+    [LibraryImport(Msvcrt, EntryPoint = "vsprintf")]
+    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
+    private static partial int VsPrintFWindows(IntPtr buffer, IntPtr format, IntPtr args);
 
     /// <summary>
     /// Formats a message string using the specified format and arguments on Windows platform.
@@ -28,8 +30,9 @@ public class StringFormatter {
     /// <returns>
     /// The formatted message as a string. If the formatting fails, returns an empty string.
     /// </returns>
-    [DllImport(Msvcrt, EntryPoint = "vsnprintf", CallingConvention = CallingConvention.Cdecl)]
-    private static extern int VsnPrintFWindows(IntPtr buffer, UIntPtr size, IntPtr format, IntPtr args);
+    [LibraryImport(Msvcrt, EntryPoint = "vsnprintf")]
+    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
+    private static partial int VsnPrintFWindows(IntPtr buffer, UIntPtr size, IntPtr format, IntPtr args);
 
     /// <summary>
     /// Formats a message string using the specified format and arguments on Linux platform.
@@ -40,8 +43,9 @@ public class StringFormatter {
     /// <returns>
     /// The formatted message as a string. If the formatting fails, returns an empty string.
     /// </returns>
-    [DllImport(Libc, EntryPoint = "vsprintf", CallingConvention = CallingConvention.Cdecl)]
-    private static extern int VsPrintFLinux(IntPtr buffer, IntPtr format, IntPtr args);
+    [LibraryImport(Libc, EntryPoint = "vsprintf")]
+    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
+    private static partial int VsPrintFLinux(IntPtr buffer, IntPtr format, IntPtr args);
 
     /// <summary>
     /// Formats a message string using the specified format and arguments on Linux platform.
@@ -54,8 +58,9 @@ public class StringFormatter {
     /// The number of characters written to the buffer (excluding the null terminator) if the formatting succeeds;
     /// otherwise, returns a negative value to indicate an error occurred.
     /// </returns>
-    [DllImport(Libc, EntryPoint = "vsnprintf", CallingConvention = CallingConvention.Cdecl)]
-    private static extern int VsnPrintFLinux(IntPtr buffer, UIntPtr size, IntPtr format, IntPtr args);
+    [LibraryImport(Libc, EntryPoint = "vsnprintf")]
+    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
+    private static partial int VsnPrintFLinux(IntPtr buffer, UIntPtr size, IntPtr format, IntPtr args);
 
     /// <summary>
     /// Formats a message string using the specified format and arguments on macOS platform.
@@ -66,8 +71,9 @@ public class StringFormatter {
     /// <returns>
     /// The formatted message as a string. If the formatting fails, returns an empty string.
     /// </returns>
-    [DllImport(LibSystem, EntryPoint = "vasprintf", CallingConvention = CallingConvention.Cdecl)]
-    private static extern unsafe int VasPrintFOsx(IntPtr* buffer, IntPtr format, IntPtr args);
+    [LibraryImport(LibSystem, EntryPoint = "vasprintf")]
+    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
+    private static unsafe partial int VasPrintFOsx(IntPtr* buffer, IntPtr format, IntPtr args);
 
     /// <summary>
     /// Retrieves a formatted message string using the specified format and arguments based on the current platform.

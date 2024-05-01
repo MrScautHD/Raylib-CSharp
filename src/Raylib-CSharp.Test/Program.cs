@@ -2,6 +2,7 @@
 using Raylib_CSharp.CSharp;
 using Raylib_CSharp.CSharp.Camera;
 using Raylib_CSharp.CSharp.Camera.Cam3D;
+using Raylib_CSharp.CSharp.Fonts;
 using Raylib_CSharp.CSharp.Geometry.Managers;
 using Raylib_CSharp.CSharp.Logging;
 using Raylib_CSharp.CSharp.Misc;
@@ -70,6 +71,9 @@ while (!Window.ShouldClose()) {
     ModelManager.DrawGrid(100, 1);
     ModelManager.DrawCube(Vector3.UnitY / 2, 1, 1, 1, Color.Green);
     Graphics.EndMode3D();
+
+    TextManager.DrawFPS(50, 50);
+    TextManager.DrawText(TextManager.TextReplace("Raylib-CSharp-1.0.0", "2.0.0", "1.0.0"), 500, 500, 58, Color.Red);
 
     Graphics.EndDrawing();
 

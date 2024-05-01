@@ -646,7 +646,7 @@ public static partial class RayMath {
     /// <returns>The unprojected vector.</returns>
     [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial Vector3 Vector3Unproject(Vector3 source, Matrix4x4 projection, Matrix4x4 view);
+    public static partial Vector3 Vector3UnProject(Vector3 source, Matrix4x4 projection, Matrix4x4 view);
 
     /// <summary>
     /// Invert the given vector.

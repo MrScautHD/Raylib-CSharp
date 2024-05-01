@@ -403,14 +403,14 @@ public static partial class RlGl {
     /// <param name="id">The ID of the cubemap texture to enable.</param>
     [LibraryImport(Raylib.Name, EntryPoint = "rlEnableTextureCubemap")]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial void EnableTextureCubemap(uint id);
+    public static partial void EnableTextureCubeMap(uint id);
 
     /// <summary>
     /// Disable texture cubemap.
     /// </summary>
     [LibraryImport(Raylib.Name, EntryPoint = "rlDisableTextureCubemap")]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial void DisableTextureCubemap();
+    public static partial void DisableTextureCubeMap();
 
     /// <summary>
     /// Set texture parameters (filter, wrap).
@@ -430,7 +430,7 @@ public static partial class RlGl {
     /// <param name="value">The value of the parameter to set.</param>
     [LibraryImport(Raylib.Name, EntryPoint = "rlCubemapParameters")]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial void CubemapParameters(uint id, int param, int value);
+    public static partial void CubeMapParameters(uint id, int param, int value);
 
     /// <summary>
     /// Enable shader program.
@@ -548,7 +548,7 @@ public static partial class RlGl {
     /// <param name="mode">The cull face mode to set.</param>
     [LibraryImport(Raylib.Name, EntryPoint = "rlSetCullFace")]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial void SetCullFace(int mode);
+    public static partial void SetCullFace(CullMode mode);
 
     /// <summary>
     /// Enable scissor test.
@@ -930,7 +930,7 @@ public static partial class RlGl {
     /// <param name="pointer">A pointer to the attribute data.</param>
     [LibraryImport(Raylib.Name, EntryPoint = "rlSetVertexAttribute")]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static unsafe partial void SetVertexAttribute(uint index, int compSize, int type, bool normalized, int stride, void* pointer);
+    public static unsafe partial void SetVertexAttribute(uint index, int compSize, int type, [MarshalAs(UnmanagedType.Bool)] bool normalized, int stride, void* pointer);
 
     /// <summary>
     /// Set vertex attribute divisor.
@@ -950,7 +950,7 @@ public static partial class RlGl {
     /// <param name="count">The number of components in the vertex attribute.</param>
     [LibraryImport(Raylib.Name, EntryPoint = "rlSetVertexAttributeDefault")]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static unsafe partial void SetVertexAttributeDefault(int locIndex, void* value, int attribType, int count);
+    public static unsafe partial void SetVertexAttributeDefault(int locIndex, void* value, ShaderAttributeDataType attribType, int count);
 
     /// <summary>
     /// Draw vertex array.
@@ -1025,7 +1025,7 @@ public static partial class RlGl {
     /// <returns>The handle of the loaded texture.</returns>
     [LibraryImport(Raylib.Name, EntryPoint = "rlLoadTextureCubemap")]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static unsafe partial uint LoadTextureCubemap(void* data, int size, PixelFormat format);
+    public static unsafe partial uint LoadTextureCubeMap(void* data, int size, PixelFormat format);
 
     /// <summary>
     /// Update GPU texture with new data.
@@ -1273,7 +1273,7 @@ public static partial class RlGl {
     /// <returns>The ID of the loaded shader buffer.</returns>
     [LibraryImport(Raylib.Name, EntryPoint = "rlLoadShaderBuffer")]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static unsafe partial uint LoadShaderBuffer(uint size, void* data, int usageHint); // TODO CHECK THE *Void
+    public static unsafe partial uint LoadShaderBuffer(uint size, void* data, int usageHint);
 
     /// <summary>
     /// Unload shader storage buffer object (SSBO).

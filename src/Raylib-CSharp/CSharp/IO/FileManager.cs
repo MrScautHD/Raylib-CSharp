@@ -35,7 +35,7 @@ public static partial class FileManager {
     [LibraryImport(Raylib.Name, StringMarshalling = StringMarshalling.Utf8)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
     [return: MarshalAs(UnmanagedType.Bool)]
-    public static unsafe partial bool SaveFileData(string fileName, byte* data, uint dataSize);
+    public static unsafe partial bool SaveFileData(string fileName, void* data, uint dataSize);
 
     /// <summary>
     /// Export data to code (.h), returns true on success.

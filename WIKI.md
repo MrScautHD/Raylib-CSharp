@@ -202,7 +202,7 @@ void SetTraceLogLevel(TraceLogLevel logLevel);        // Set the current thresho
 ```cs
 byte* LoadFileData(string fileName, uint* dataSize);   // Load file data as byte array (read)
 void UnloadFileData(byte* data);                      // Unload file data allocated by LoadFileData()
-bool SaveFileData(string fileName, byte* data, uint dataSize);         // Save data to file from byte array (write), returns true on success
+bool SaveFileData(string fileName, void* data, uint dataSize);         // Save data to file from byte array (write), returns true on success
 bool ExportDataAsCode(byte* data, uint dataSize, string fileName);     // Export data to code (.h), returns true on success
 string LoadFileText(string fileName);                 // Load text data from file (read), returns a '\0' terminated string
 void UnloadFileText(string text);                     // Unload file text data allocated by LoadFileText()
@@ -722,6 +722,7 @@ enum MaterialMapIndex
 enum FramebufferAttachTextureType
 enum FramebufferAttachType
 
+enum CullMode
 enum DrawMode
 enum GlVersion
 enum MatrixMode

@@ -9,7 +9,7 @@ public struct NPatchInfo {
     /// <summary>
     /// Texture source rectangle.
     /// </summary>
-    public Rectangle Source;
+    public RectangleF Source;
 
     /// <summary>
     /// Left border offset.

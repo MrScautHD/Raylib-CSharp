@@ -11,7 +11,7 @@ public static partial class Time {
     /// <param name="fps">The desired frames-per-second.</param>
     [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial void SetTargetFPS(int fps);
+    public static partial void SetTargetFps(int fps);
 
     /// <summary>
     /// Get time in seconds for last frame drawn (delta time).

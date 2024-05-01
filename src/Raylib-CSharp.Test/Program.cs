@@ -1,14 +1,15 @@
-﻿using System.Numerics;
+﻿using System.Drawing;
+using System.Numerics;
 using Raylib_CSharp.CSharp;
 using Raylib_CSharp.CSharp.Camera;
 using Raylib_CSharp.CSharp.Camera.Cam3D;
 using Raylib_CSharp.CSharp.Fonts;
 using Raylib_CSharp.CSharp.Geometry.Managers;
 using Raylib_CSharp.CSharp.Logging;
-using Raylib_CSharp.CSharp.Colors;
 using Raylib_CSharp.CSharp.Rendering;
 using Raylib_CSharp.CSharp.Shaders;
 using Raylib_CSharp.CSharp.Windowing;
+using Color = Raylib_CSharp.CSharp.Colors.Color;
 
 Console.WriteLine("Hello, World!");
 

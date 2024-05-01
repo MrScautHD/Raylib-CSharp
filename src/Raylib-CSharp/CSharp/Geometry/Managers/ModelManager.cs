@@ -427,7 +427,7 @@ public static partial class ModelManager {
     /// <param name="tint">The tint color to be applied to the billboard.</param>
     [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial void DrawBillboardRec(Camera3D camera, Texture2D texture, Rectangle source, Vector3 position, Vector2 size, Color tint);
+    public static partial void DrawBillboardRec(Camera3D camera, Texture2D texture, RectangleF source, Vector3 position, Vector2 size, Color tint);
 
     /// <summary>
     /// Draw a billboard texture defined by source and rotation.
@@ -443,7 +443,7 @@ public static partial class ModelManager {
     /// <param name="tint">The color tint of the billboard.</param>
     [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial void DrawBillboardPro(Camera3D camera, Texture2D texture, Rectangle source, Vector3 position, Vector3 up, Vector2 size, Vector2 origin, float rotation, Color tint);
+    public static partial void DrawBillboardPro(Camera3D camera, Texture2D texture, RectangleF source, Vector3 position, Vector3 up, Vector2 size, Vector2 origin, float rotation, Color tint);
 
     /// <summary>
     /// Check collision between two spheres.

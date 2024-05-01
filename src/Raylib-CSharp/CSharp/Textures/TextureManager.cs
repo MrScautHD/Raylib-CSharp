@@ -101,7 +101,7 @@ public static partial class TextureManager {
     /// <param name="pixels">A pointer to the new pixel data.</param>
     [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static unsafe partial void UpdateTextureRec(Texture2D texture, Rectangle rec, void* pixels);
+    public static unsafe partial void UpdateTextureRec(Texture2D texture, RectangleF rec, void* pixels);
 
     /// <summary>
     /// Generate GPU mipmaps for a texture.
@@ -171,7 +171,7 @@ public static partial class TextureManager {
     /// <param name="tint">The color tint to apply to the texture.</param>
     [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial void DrawTextureRec(Texture2D texture, Rectangle source, Vector2 position, Color tint);
+    public static partial void DrawTextureRec(Texture2D texture, RectangleF source, Vector2 position, Color tint);
 
     /// <summary>
     /// Draw a part of a texture defined by a rectangle with 'pro' parameters.
@@ -184,7 +184,7 @@ public static partial class TextureManager {
     /// <param name="tint">The color tint of the texture.</param>
     [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial void DrawTexturePro(Texture2D texture, Rectangle source, Rectangle dest, Vector2 origin, float rotation, Color tint);
+    public static partial void DrawTexturePro(Texture2D texture, RectangleF source, RectangleF dest, Vector2 origin, float rotation, Color tint);
 
     /// <summary>
     /// Draws a texture (or part of it) that stretches or shrinks nicely.
@@ -197,5 +197,5 @@ public static partial class TextureManager {
     /// <param name="tint">The color tint.</param>
     [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial void DrawTextureNPatch(Texture2D texture, NPatchInfo nPatchInfo, Rectangle dest, Vector2 origin, float rotation, Color tint);
+    public static partial void DrawTextureNPatch(Texture2D texture, NPatchInfo nPatchInfo, RectangleF dest, Vector2 origin, float rotation, Color tint);
 }

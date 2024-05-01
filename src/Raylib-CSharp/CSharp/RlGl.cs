@@ -790,7 +790,7 @@ public static partial class RlGl {
     /// </summary>
     [LibraryImport(Raylib.Name, EntryPoint = "rlGetShaderLocsDefault")]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static unsafe partial int* rlGetShaderLocsDefault();
+    public static unsafe partial int* GetShaderLocsDefault();
 
     /// <summary>
     /// Load a render batch system.
@@ -1243,7 +1243,7 @@ public static partial class RlGl {
     /// <param name="locs">A pointer to an array of integers representing the location of each shader uniform.</param>
     [LibraryImport(Raylib.Name, EntryPoint = "rlSetShader")]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static unsafe partial void rlSetShader(uint id, int* locs);
+    public static unsafe partial void SetShader(uint id, int* locs);
 
     /// <summary>
     /// Load compute shader program.
@@ -1252,7 +1252,7 @@ public static partial class RlGl {
     /// <returns>The ID of the loaded compute shader program.</returns>
     [LibraryImport(Raylib.Name, EntryPoint = "rlLoadComputeShaderProgram")]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial uint rlLoadComputeShaderProgram(uint shaderId);
+    public static partial uint LoadComputeShaderProgram(uint shaderId);
 
     /// <summary>
     /// Dispatch compute shader (equivalent to *draw* for graphics pipeline).
@@ -1262,7 +1262,7 @@ public static partial class RlGl {
     /// <param name="groupZ">The number of groups in the Z dimension.</param>
     [LibraryImport(Raylib.Name, EntryPoint = "rlComputeShaderDispatch")]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial void rlComputeShaderDispatch(uint groupX, uint groupY, uint groupZ);
+    public static partial void ComputeShaderDispatch(uint groupX, uint groupY, uint groupZ);
 
     /// <summary>
     /// Load shader storage buffer object (SSBO).
@@ -1360,7 +1360,7 @@ public static partial class RlGl {
     /// <returns>The current projection matrix.</returns>
     [LibraryImport(Raylib.Name, EntryPoint = "rlGetMatrixProjection")]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial Matrix4x4 rlGetMatrixProjection();
+    public static partial Matrix4x4 GetMatrixProjection();
 
     /// <summary>
     /// Get internal accumulated transform matrix.
@@ -1368,7 +1368,7 @@ public static partial class RlGl {
     /// <returns>The current matrix transformation as a Matrix4x4.</returns>
     [LibraryImport(Raylib.Name, EntryPoint = "rlGetMatrixTransform")]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial Matrix4x4 rlGetMatrixTransform();
+    public static partial Matrix4x4 GetMatrixTransform();
 
     /// <summary>
     /// Get internal projection matrix for stereo render (selected eye).

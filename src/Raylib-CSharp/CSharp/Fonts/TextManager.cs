@@ -101,7 +101,7 @@ public static partial class TextManager {
     /// <returns>The generated font atlas image.</returns>
     [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static unsafe partial Image GenImageFontAtlas(GlyphInfo* glyphs, Rectangle** glyphRecs, int glyphCount, int fontSize, int padding, int packMethod);
+    public static unsafe partial Image GenImageFontAtlas(GlyphInfo* glyphs, RectangleF** glyphRecs, int glyphCount, int fontSize, int padding, int packMethod);
 
     /// <summary>
     /// Unload font chars info data (RAM).
@@ -264,7 +264,7 @@ public static partial class TextManager {
     /// <returns>The glyph atlas rectangle for the specified codepoint.</returns>
     [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial Rectangle GetGlyphAtlasRec(Font font, int codepoint);
+    public static partial RectangleF GetGlyphAtlasRec(Font font, int codepoint);
 
     /// <summary>
     /// Load UTF-8 text encoded from codepoints array.

@@ -16,7 +16,7 @@ public static partial class ShapeManager {
     /// <param name="source">The source rectangle of the texture.</param>
     [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial void SetShapesTexture(Texture2D texture, Rectangle source);
+    public static partial void SetShapesTexture(Texture2D texture, RectangleF source);
 
     /// <summary>
     /// Draw a pixel.
@@ -252,7 +252,7 @@ public static partial class ShapeManager {
     /// <param name="color"> The color of the rectangle.</param>
     [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial void DrawRectangleRec(Rectangle rec, Color color);
+    public static partial void DrawRectangleRec(RectangleF rec, Color color);
 
     /// <summary>
     /// Draw a color-filled rectangle with pro parameters.
@@ -263,7 +263,7 @@ public static partial class ShapeManager {
     /// <param name="color">The color to fill the rectangle with.</param>
     [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial void DrawRectanglePro(Rectangle rec, Vector2 origin, float rotation, Color color);
+    public static partial void DrawRectanglePro(RectangleF rec, Vector2 origin, float rotation, Color color);
 
     /// <summary>
     /// Draw a vertical-gradient-filled rectangle.
@@ -301,7 +301,7 @@ public static partial class ShapeManager {
     /// <param name="col4">The color at the bottom-left corner of the rectangle.</param>
     [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial void DrawRectangleGradientEx(Rectangle rec, Color col1, Color col2, Color col3, Color col4);
+    public static partial void DrawRectangleGradientEx(RectangleF rec, Color col1, Color col2, Color col3, Color col4);
 
     /// <summary>
     /// Draw rectangle outline.
@@ -323,7 +323,7 @@ public static partial class ShapeManager {
     /// <param name="color">The color of the lines.</param>
     [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial void DrawRectangleLinesEx(Rectangle rec, float lineThick, Color color);
+    public static partial void DrawRectangleLinesEx(RectangleF rec, float lineThick, Color color);
 
     /// <summary>
     /// Draw rectangle with rounded edges.
@@ -334,7 +334,7 @@ public static partial class ShapeManager {
     /// <param name="color">The color of the rectangle.</param>
     [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial void DrawRectangleRounded(Rectangle rec, float roundness, int segments, Color color);
+    public static partial void DrawRectangleRounded(RectangleF rec, float roundness, int segments, Color color);
 
     /// <summary>
     /// Draw rectangle with rounded edges outline.
@@ -346,7 +346,7 @@ public static partial class ShapeManager {
     /// <param name="color">The color of the rectangle and its corners.</param>
     [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial void DrawRectangleRoundedLines(Rectangle rec, float roundness, int segments, float lineThick, Color color);
+    public static partial void DrawRectangleRoundedLines(RectangleF rec, float roundness, int segments, float lineThick, Color color);
 
     /// <summary>
     /// Draw triangle outline (vertex in counter-clockwise order!).
@@ -615,7 +615,7 @@ public static partial class ShapeManager {
     [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
     [return: MarshalAs(UnmanagedType.Bool)]
-    public static partial bool CheckCollisionRecs(Rectangle rec1, Rectangle rec2);
+    public static partial bool CheckCollisionRecs(RectangleF rec1, RectangleF rec2);
 
     /// <summary>
     /// Check collision between two circles.
@@ -640,7 +640,7 @@ public static partial class ShapeManager {
     [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
     [return: MarshalAs(UnmanagedType.Bool)]
-    public static partial bool CheckCollisionCircleRec(Vector2 center, float radius, Rectangle rec);
+    public static partial bool CheckCollisionCircleRec(Vector2 center, float radius, RectangleF rec);
 
     /// <summary>
     /// Check if point is inside rectangle.
@@ -651,7 +651,7 @@ public static partial class ShapeManager {
     [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
     [return: MarshalAs(UnmanagedType.Bool)]
-    public static partial bool CheckCollisionPointRec(Vector2 point, Rectangle rec);
+    public static partial bool CheckCollisionPointRec(Vector2 point, RectangleF rec);
 
     /// <summary>
     /// Check if point is inside circle.
@@ -725,5 +725,5 @@ public static partial class ShapeManager {
     /// <returns>The collision rectangle.</returns>
     [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial Rectangle GetCollisionRec(Rectangle rec1, Rectangle rec2);
+    public static partial RectangleF GetCollisionRec(RectangleF rec1, RectangleF rec2);
 }

@@ -30,7 +30,7 @@ public struct Font {
     /// <summary>
     /// Rectangles in texture for the glyphs.
     /// </summary>
-    public unsafe Rectangle* Recs;
+    public unsafe RectangleF* Recs;
 
     /// <summary>
     /// Glyphs info data.

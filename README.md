@@ -14,7 +14,7 @@ __Raylib-CSharp__ is a fully managed binding over Raylib.
 
 # 🪙 Installation - [Nuget](https://www.nuget.org/packages/Raylib-CSharp)
 ```
-dotnet add package Raylib-CSharp --version 1.0.4
+dotnet add package Raylib-CSharp --version 1.0.5
 ```
 
 > [!IMPORTANT]

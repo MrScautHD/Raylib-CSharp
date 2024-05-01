@@ -16,7 +16,7 @@ public static partial class MeshManager {
     /// <param name="dynamic">Determines if the mesh data should be uploaded as dynamic or static</param>
     [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial void UploadMesh(ref Mesh mesh, bool dynamic);
+    public static partial void UploadMesh(ref Mesh mesh, [MarshalAs(UnmanagedType.Bool)] bool dynamic);
 
     /// <summary>
     /// Update mesh vertex data in GPU for a specific buffer index.

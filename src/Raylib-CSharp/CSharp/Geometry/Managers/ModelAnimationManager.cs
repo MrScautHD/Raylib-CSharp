@@ -11,7 +11,7 @@ public static partial class ModelAnimationManager {
     /// <param name="fileName">The name of the file to load animations from.</param>
     /// <param name="animCount">The number of animations loaded from the file.</param>
     /// <returns>Pointer to the loaded model animations.</returns>
-    [LibraryImport(Raylib.Name)]
+    [LibraryImport(Raylib.Name, StringMarshalling = StringMarshalling.Utf8)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
     public static unsafe partial ModelAnimation* LoadModelAnimations(string fileName, out int animCount);
 

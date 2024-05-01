@@ -112,7 +112,7 @@ public static partial class ShaderManager {
     /// <param name="mat">The matrix value to set.</param>
     [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    private static partial void SetShaderValueMatrix(Shader shader, int locIndex, Matrix4x4 mat);
+    public static partial void SetShaderValueMatrix(Shader shader, int locIndex, Matrix4x4 mat);
 
     /// <summary>
     /// Set shader uniform value for texture (sampler2d).
@@ -122,7 +122,7 @@ public static partial class ShaderManager {
     /// <param name="texture">The texture to set the value to.</param>
     [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    private static partial void SetShaderValueTexture(Shader shader, int locIndex, Texture2D texture);
+    public static partial void SetShaderValueTexture(Shader shader, int locIndex, Texture2D texture);
 
     /// <summary>
     /// Unload shader from GPU memory (VRAM).
@@ -130,5 +130,5 @@ public static partial class ShaderManager {
     /// <param name="shader">The shader to unload.</param>
     [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    private static partial void UnloadShader(Shader shader);
+    public static partial void UnloadShader(Shader shader);
 }

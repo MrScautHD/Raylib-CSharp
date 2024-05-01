@@ -218,7 +218,7 @@ public static partial class Input {
     /// <returns>The movement value of the specified axis. This value ranges between -1.0f and 1.0f.</returns>
     [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial float GetGamepadAxisMovement(int gamepad, int axis);
+    public static partial float GetGamepadAxisMovement(int gamepad, GamepadAxis axis);
 
     /// <summary>
     /// Set internal gamepad mappings (SDL_GameControllerDB).
@@ -394,7 +394,71 @@ public static partial class Input {
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
     public static partial int GetTouchPointCount();
 
-    //TODO ADD Gestures
+    /// <summary>
+    /// Enable a set of gestures using flags.
+    /// </summary>
+    /// <param name="flags">The bitwise OR of the gestures to enable.</param>
+    [LibraryImport(Raylib.Name)]
+    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
+    public static partial void SetGesturesEnabled(Gesture flags);
+
+    /// <summary>
+    /// Check if a gesture have been detected.
+    /// </summary>
+    /// <param name="gesture">The gesture to check for detection.</param>
+    /// <returns>True if the specified gesture is detected, false otherwise.</returns>
+    [LibraryImport(Raylib.Name)]
+    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
+    [return: MarshalAs(UnmanagedType.Bool)]
+    public static partial bool IsGestureDetected(Gesture gesture);
+
+    /// <summary>
+    /// Get latest detected gesture.
+    /// </summary>
+    /// <returns>The type of gesture detected.</returns>
+    [LibraryImport(Raylib.Name)]
+    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
+    public static partial int GetGestureDetected();
+
+    /// <summary>
+    /// Get gesture hold time in milliseconds.
+    /// </summary>
+    /// <returns>The hold duration of the gesture in seconds.</returns>
+    [LibraryImport(Raylib.Name)]
+    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
+    public static partial float GetGestureHoldDuration();
+
+    /// <summary>
+    /// Get gesture drag vector.
+    /// </summary>
+    /// <returns>The direction vector of the drag gesture.</returns>
+    [LibraryImport(Raylib.Name)]
+    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
+    public static partial Vector2 GetGestureDragVector();
+
+    /// <summary>
+    /// Get gesture drag angle.
+    /// </summary>
+    /// <returns>The drag angle of the gesture in degrees.</returns>
+    [LibraryImport(Raylib.Name)]
+    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
+    public static partial float GetGestureDragAngle();
+
+    /// <summary>
+    /// Get gesture pinch delta.
+    /// </summary>
+    /// <returns>The pinch gesture vector.</returns>
+    [LibraryImport(Raylib.Name)]
+    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
+    public static partial Vector2 GetGesturePinchVector();
+
+    /// <summary>
+    /// Get gesture pinch angle.
+    /// </summary>
+    /// <returns>The angle of the pinch gesture.</returns>
+    [LibraryImport(Raylib.Name)]
+    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
+    public static partial float GetGesturePinchAngle();
 
     /// <summary>
     /// Register all input events.

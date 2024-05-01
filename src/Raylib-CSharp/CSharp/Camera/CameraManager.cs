@@ -30,6 +30,120 @@ public static partial class CameraManager {
     public static partial void UpdateCameraPro(ref Camera3D camera, Vector3 movement, Vector3 rotation, float zoom);
 
     /// <summary>
+    /// Returns the cameras forward vector (normalized).
+    /// </summary>
+    /// <param name="camera">The camera to get the forward vector from.</param>
+    /// <returns>The forward vector of the camera.</returns>
+    [LibraryImport(Raylib.Name)]
+    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
+    public static partial Vector3 GetCameraForward(ref Camera3D camera);
+
+    /// <summary>
+    /// Returns the cameras up vector (normalized).
+    /// </summary>
+    /// <param name="camera">The camera.</param>
+    /// <returns>The "up" vector of the camera.</returns>
+    [LibraryImport(Raylib.Name)]
+    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
+    public static partial Vector3 GetCameraUp(ref Camera3D camera);
+
+    /// <summary>
+    /// Returns the cameras right vector (normalized).
+    /// </summary>
+    /// <param name="camera">The camera to get the right vector from.</param>
+    /// <returns>The right vector of the camera.</returns>
+    [LibraryImport(Raylib.Name)]
+    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
+    public static partial Vector3 GetCameraRight(ref Camera3D camera);
+
+    /// <summary>
+    /// Moves the camera in its forward direction.
+    /// </summary>
+    /// <param name="camera">The camera to move.</param>
+    /// <param name="distance">The distance to move the camera forward.</param>
+    /// <param name="moveInWorldPlane">Specifies whether to move the camera in the world plane or camera plane.</param>
+    [LibraryImport(Raylib.Name)]
+    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
+    public static partial void CameraMoveForward(ref Camera3D camera, float distance, bool moveInWorldPlane);
+
+    /// <summary>
+    /// Moves the camera in its up direction.
+    /// </summary>
+    /// <param name="camera">The camera to move.</param>
+    /// <param name="distance">The distance to move the camera up.</param>
+    [LibraryImport(Raylib.Name)]
+    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
+    public static partial void CameraMoveUp(ref Camera3D camera, float distance);
+
+    /// <summary>
+    /// Moves the camera target in its current right direction.
+    /// </summary>
+    /// <param name="camera">The camera to move.</param>
+    /// <param name="distance">The distance to move the camera to the right.</param>
+    /// <param name="moveInWorldPlane">Move the camera in world plane coordinates (relative to pivot).</param>
+    [LibraryImport(Raylib.Name)]
+    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
+    public static partial void CameraMoveRight(ref Camera3D camera, float distance, bool moveInWorldPlane);
+
+    /// <summary>
+    /// Moves the camera position closer/farther to/from the camera target.
+    /// </summary>
+    /// <param name="camera">The camera to move.</param>
+    /// <param name="delta">The time interval.</param>
+    [LibraryImport(Raylib.Name)]
+    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
+    public static partial void CameraMoveToTarget(ref Camera3D camera, float delta);
+
+    /// <summary>
+    /// Rotates the camera around its up vector.
+    /// </summary>
+    /// <param name="camera">The camera to yaw.</param>
+    /// <param name="angle">The yaw angle in degrees.</param>
+    /// <param name="rotateAroundTarget">If true, the camera will rotate around its target.
+    /// If false, it will rotate around its position.</param>
+    [LibraryImport(Raylib.Name)]
+    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
+    public static partial void CameraYaw(ref Camera3D camera, float angle, bool rotateAroundTarget);
+
+    /// <summary>
+    /// Rotates the camera around its right vector, pitch is "looking up and down".
+    /// </summary>
+    /// <param name="camera">The camera to rotate.</param>
+    /// <param name="angle">The angle to rotate. Positive values rotate counterclockwise, negative values rotate clockwise.</param>
+    /// <param name="lockView">If set to true, the camera view will remain locked (parallel to the ground) during rotation.</param>
+    /// <param name="rotateAroundTarget">If set to true, the camera will rotate around the target according to its position and orientation.</param>
+    /// <param name="rotateUp">If set to true, the camera will rotate around the World's up vector instead of its local up vector.</param>
+    [LibraryImport(Raylib.Name)]
+    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
+    public static partial void CameraPitch(ref Camera3D camera, float angle, bool lockView, bool rotateAroundTarget, bool rotateUp);
+
+    /// <summary>
+    /// Rotates the camera around its forward vector.
+    /// </summary>
+    /// <param name="camera">The camera to roll.</param>
+    /// <param name="angle">The angle in degrees to roll the camera.</param>
+    [LibraryImport(Raylib.Name)]
+    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
+    public static partial void CameraRoll(ref Camera3D camera, float angle);
+
+    /// <summary>
+    /// Returns the camera view matrix.
+    /// </summary>
+    /// <param name="camera">The camera to get the view matrix from.</param>
+    [LibraryImport(Raylib.Name)]
+    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
+    public static partial void GetCameraViewMatrix(ref Camera3D camera);
+
+    /// <summary>
+    /// Returns the camera projection matrix.
+    /// </summary>
+    /// <param name="camera">The camera to retrieve the projection matrix from.</param>
+    /// <param name="aspect">The aspect ratio of the camera.</param>
+    [LibraryImport(Raylib.Name)]
+    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
+    public static partial void GetCameraProjectionMatrix(ref Camera3D camera, float aspect);
+
+    /// <summary>
     /// Get a ray trace from mouse position.
     /// </summary>
     /// <param name="mousePosition">The position of the mouse in screen coordinates.</param>
@@ -75,7 +189,7 @@ public static partial class CameraManager {
     /// <returns>The world position (3D) corresponding to the screen position (2D).</returns>
     [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial Vector2 GetScreenToWorld2D(Vector3 position, Camera2D camera);
+    public static partial Vector2 GetScreenToWorld2D(Vector2 position, Camera2D camera);
 
     /// <summary>
     /// Get size position for a 3d world space position.

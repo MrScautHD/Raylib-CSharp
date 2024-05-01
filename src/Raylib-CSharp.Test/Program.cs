@@ -1,6 +1,8 @@
 ﻿using System.Numerics;
 using Raylib_CSharp.CSharp;
-using Raylib_CSharp.CSharp.Automations;
+using Raylib_CSharp.CSharp.Camera;
+using Raylib_CSharp.CSharp.Camera.Cam3D;
+using Raylib_CSharp.CSharp.Geometry.Managers;
 using Raylib_CSharp.CSharp.Logging;
 using Raylib_CSharp.CSharp.Misc;
 using Raylib_CSharp.CSharp.Rendering;
@@ -50,9 +52,24 @@ Logger.Message += (level, text) => {
 
 Window.Init(1280, 720, "Raylib-CSharp");
 
+Camera3D camera3D = new Camera3D() {
+    FovY = 70,
+    Position = new Vector3(10, 10, 10),
+    Target = Vector3.Zero,
+    Projection = CameraProjection.Perspective,
+    Up = Vector3.UnitY
+};
+
 while (!Window.ShouldClose()) {
+    CameraManager.UpdateCamera(ref camera3D, CameraMode.Orbital);
+
     Graphics.BeginDrawing();
     Graphics.ClearBackground(Color.SkyBlue);
+
+    Graphics.BeginMode3D(camera3D);
+    ModelManager.DrawGrid(100, 1);
+    ModelManager.DrawCube(Vector3.UnitY / 2, 1, 1, 1, Color.Green);
+    Graphics.EndMode3D();
 
     Graphics.EndDrawing();
 

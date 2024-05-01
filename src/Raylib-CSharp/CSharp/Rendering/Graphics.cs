@@ -8,7 +8,7 @@ using Raylib_CSharp.CSharp.Vr;
 
 namespace Raylib_CSharp.CSharp.Rendering;
 
-public partial class Graphics {
+public static partial class Graphics {
 
     /// <summary>
     /// Set background color (framebuffer clear color).

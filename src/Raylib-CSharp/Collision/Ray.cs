@@ -7,14 +7,6 @@ namespace Raylib_CSharp.Collision;
 public struct Ray {
 
     /// <summary>
-    /// Ray, ray for RayCasting.
-    /// </summary>
-    public Ray(Vector3 position, Vector3 direction) {
-        this.Position = position;
-        this.Direction = direction;
-    }
-
-    /// <summary>
     /// Ray position (origin).
     /// </summary>
     public Vector3 Position;
@@ -23,4 +15,12 @@ public struct Ray {
     /// Ray direction.
     /// </summary>
     public Vector3 Direction;
+
+    /// <summary>
+    /// Ray, ray for RayCasting.
+    /// </summary>
+    public Ray(Vector3 position, Vector3 direction) {
+        this.Position = position;
+        this.Direction = direction;
+    }
 }

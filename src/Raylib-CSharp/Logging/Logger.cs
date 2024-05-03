@@ -41,7 +41,7 @@ public static partial class Logger {
     /// <param name="callback">A pointer to an unmanaged function that matches the signature of the callback function.</param>
     [LibraryImport(Raylib.Name, StringMarshalling = StringMarshalling.Utf8)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    private static unsafe partial void SetTraceLogCallback(delegate* unmanaged[Cdecl]<int, sbyte*, sbyte*, void> callback);
+    private static unsafe partial void SetTraceLogCallback(delegate* unmanaged[Cdecl]<int, nint, nint, void> callback);
 
     /// <summary>
     /// Callback method that is called whenever a new log message is generated.
@@ -50,8 +50,8 @@ public static partial class Logger {
     /// <param name="text">The log message.</param>
     /// <param name="args">Additional arguments.</param>
     [UnmanagedCallersOnly(CallConvs = [typeof(CallConvCdecl)])]
-    private static unsafe void TraceLogCallback(int logLevel, sbyte* text, sbyte* args) {
-        string msg = _formatter!.GetMessage((IntPtr) text, (IntPtr) args);
+    private static void TraceLogCallback(int logLevel, nint text, nint args) {
+        string msg = _formatter!.GetMessage(text, args);
 
         OnMessage? message = Message;
 

@@ -7,14 +7,6 @@ namespace Raylib_CSharp.Collision;
 public struct BoundingBox {
 
     /// <summary>
-    /// Bounding box type.
-    /// </summary>
-    public BoundingBox(Vector3 min, Vector3 max) {
-        this.Min = min;
-        this.Max = max;
-    }
-
-    /// <summary>
     /// Minimum vertex box-corner.
     /// </summary>
     public Vector3 Min;
@@ -23,4 +15,12 @@ public struct BoundingBox {
     /// Maximum vertex box-corner.
     /// </summary>
     public Vector3 Max;
+
+    /// <summary>
+    /// Bounding box type.
+    /// </summary>
+    public BoundingBox(Vector3 min, Vector3 max) {
+        this.Min = min;
+        this.Max = max;
+    }
 }

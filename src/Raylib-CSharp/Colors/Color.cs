@@ -8,26 +8,6 @@ namespace Raylib_CSharp.Colors;
 [StructLayout(LayoutKind.Sequential)]
 public partial struct Color {
 
-    /// <summary>
-    /// Color red value.
-    /// </summary>
-    public byte R;
-
-    /// <summary>
-    /// Color green value.
-    /// </summary>
-    public byte G;
-
-    /// <summary>
-    /// Color blue value.
-    /// </summary>
-    public byte B;
-
-    /// <summary>
-    /// Color alpha value.
-    /// </summary>
-    public byte A;
-
     public static readonly Color LightGray = new(200, 200, 200, 255);
     public static readonly Color Gray = new(130, 130, 130, 255);
     public static readonly Color DarkGray = new(80, 80, 80, 255);
@@ -54,6 +34,26 @@ public partial struct Color {
     public static readonly Color Blank = new(0, 0, 0, 0);
     public static readonly Color Magenta = new(255, 0, 255, 255);
     public static readonly Color RayWhite = new(245, 245, 245, 255);
+
+    /// <summary>
+    /// Color red value.
+    /// </summary>
+    public byte R;
+
+    /// <summary>
+    /// Color green value.
+    /// </summary>
+    public byte G;
+
+    /// <summary>
+    /// Color blue value.
+    /// </summary>
+    public byte B;
+
+    /// <summary>
+    /// Color alpha value.
+    /// </summary>
+    public byte A;
 
     /// <summary>
     /// Color, 4 components, R8G8B8A8 (32bit).

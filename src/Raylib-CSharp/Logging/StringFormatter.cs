@@ -18,7 +18,7 @@ public partial class StringFormatter {
     /// <returns>The number of characters written to the buffer.</returns>
     [LibraryImport(Msvcrt, EntryPoint = "vsprintf")]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    private static partial int VsPrintFWindows(IntPtr buffer, IntPtr format, IntPtr args);
+    private static partial int VsPrintFWindows(nint buffer, nint format, nint args);
 
     /// <summary>
     /// Formats a message string using the specified format and arguments on Windows platform.
@@ -32,7 +32,7 @@ public partial class StringFormatter {
     /// </returns>
     [LibraryImport(Msvcrt, EntryPoint = "vsnprintf")]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    private static partial int VsnPrintFWindows(IntPtr buffer, UIntPtr size, IntPtr format, IntPtr args);
+    private static partial int VsnPrintFWindows(nint buffer, nuint size, nint format, nint args);
 
     /// <summary>
     /// Formats a message string using the specified format and arguments on Linux platform.
@@ -45,7 +45,7 @@ public partial class StringFormatter {
     /// </returns>
     [LibraryImport(Libc, EntryPoint = "vsprintf")]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    private static partial int VsPrintFLinux(IntPtr buffer, IntPtr format, IntPtr args);
+    private static partial int VsPrintFLinux(nint buffer, nint format, nint args);
 
     /// <summary>
     /// Formats a message string using the specified format and arguments on Linux platform.
@@ -60,7 +60,7 @@ public partial class StringFormatter {
     /// </returns>
     [LibraryImport(Libc, EntryPoint = "vsnprintf")]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    private static partial int VsnPrintFLinux(IntPtr buffer, UIntPtr size, IntPtr format, IntPtr args);
+    private static partial int VsnPrintFLinux(nint buffer, nuint size, nint format, nint args);
 
     /// <summary>
     /// Formats a message string using the specified format and arguments on macOS platform.
@@ -73,7 +73,7 @@ public partial class StringFormatter {
     /// </returns>
     [LibraryImport(LibSystem, EntryPoint = "vasprintf")]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    private static partial int VasPrintFOsx(ref IntPtr buffer, IntPtr format, IntPtr args);
+    private static partial int VasPrintFOsx(ref nint buffer, nint format, nint args);
 
     /// <summary>
     /// Retrieves a formatted message string using the specified format and arguments based on the current platform.
@@ -83,12 +83,12 @@ public partial class StringFormatter {
     /// <returns>
     /// The formatted message as a string. If the formatting fails, returns an empty string.
     /// </returns>
-    public string GetMessage(IntPtr format, IntPtr args) {
+    public string GetMessage(nint format, nint args) {
         if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows)) {
             return this.WindowsPrintF(format, args);
         }
         else if (RuntimeInformation.IsOSPlatform(OSPlatform.Linux)) {
-            if (IntPtr.Size == 8) {
+            if (nint.Size == 8) {
                 return this.Linux64PrintF(format, args);
             }
             else {
@@ -111,12 +111,12 @@ public partial class StringFormatter {
     /// <returns>
     /// The formatted message as a string. If the formatting fails, returns an empty string.
     /// </returns>
-    private string WindowsPrintF(IntPtr format, IntPtr args) {
-        IntPtr utf8Buffer = IntPtr.Zero;
+    private string WindowsPrintF(nint format, nint args) {
+        nint utf8Buffer = nint.Zero;
 
         try {
             // Get size of args.
-            int byteSize = VsnPrintFWindows(IntPtr.Zero, UIntPtr.Zero, format, args) + 1;
+            int byteSize = VsnPrintFWindows(nint.Zero, nuint.Zero, format, args) + 1;
 
             if (byteSize <= 1) {
                 return string.Empty;
@@ -141,9 +141,9 @@ public partial class StringFormatter {
     /// <returns>
     /// The formatted message as a string. If the formatting fails, returns an empty string.
     /// </returns>
-    private string Linux64PrintF(IntPtr format, IntPtr args) {
-        IntPtr listPointer = IntPtr.Zero;
-        IntPtr utf8Buffer = IntPtr.Zero;
+    private string Linux64PrintF(nint format, nint args) {
+        nint listPointer = nint.Zero;
+        nint utf8Buffer = nint.Zero;
 
         try {
             VaListLinux64 str = Marshal.PtrToStructure<VaListLinux64>(args);
@@ -151,7 +151,7 @@ public partial class StringFormatter {
             // Get size of args.
             listPointer = Marshal.AllocHGlobal(Marshal.SizeOf(str));
             Marshal.StructureToPtr(str, listPointer, false);
-            int byteSize = VsnPrintFLinux(IntPtr.Zero, UIntPtr.Zero, format, listPointer) + 1;
+            int byteSize = VsnPrintFLinux(nint.Zero, nuint.Zero, format, listPointer) + 1;
 
             // Allocate buffer.
             Marshal.StructureToPtr(str, listPointer, false);
@@ -175,12 +175,12 @@ public partial class StringFormatter {
     /// <returns>
     /// The formatted message as a string. If the formatting fails, returns an empty string.
     /// </returns>
-    private string Linux86PrintF(IntPtr format, IntPtr args) {
-        IntPtr utf8Buffer = IntPtr.Zero;
+    private string Linux86PrintF(nint format, nint args) {
+        nint utf8Buffer = nint.Zero;
 
         try {
             // Get size of args.
-            int byteSize = VsnPrintFLinux(IntPtr.Zero, UIntPtr.Zero, format, args) + 1;
+            int byteSize = VsnPrintFLinux(nint.Zero, nuint.Zero, format, args) + 1;
 
             if (byteSize <= 1) {
                 return string.Empty;
@@ -205,8 +205,8 @@ public partial class StringFormatter {
     /// <returns>
     /// The formatted message as a string. If the formatting fails, returns an empty string.
     /// </returns>
-    private string OsxPrintF(IntPtr format, IntPtr args) {
-        IntPtr utf8Buffer = IntPtr.Zero;
+    private string OsxPrintF(nint format, nint args) {
+        nint utf8Buffer = nint.Zero;
 
         try {
             // Get size of args.
@@ -230,7 +230,7 @@ public partial class StringFormatter {
     private struct VaListLinux64 {
         private uint _gpOffset;
         private uint _fpOffset;
-        private IntPtr _overflowArgsArea;
-        private IntPtr _regSaveArea;
+        private nint _overflowArgsArea;
+        private nint _regSaveArea;
     }
 }

@@ -1,7 +1,6 @@
 ﻿using System.Numerics;
 using Raylib_CSharp.Camera.Cam3D;
 using Raylib_CSharp.Colors;
-using Raylib_CSharp.Fonts;
 using Raylib_CSharp.Geometry;
 using Raylib_CSharp.Geometry.Managers;
 using Raylib_CSharp.Logging;
@@ -71,7 +70,7 @@ while (!Window.ShouldClose()) {
     ModelManager.DrawModel(model, Vector3.UnitY / 2, 1, Color.Alpha(Color.Green, 0.5F));
     Graphics.EndMode3D();
 
-    TextManager.DrawFps(50, 50);
+    Graphics.DrawFps(50, 50);
 
     Graphics.EndDrawing();
 }

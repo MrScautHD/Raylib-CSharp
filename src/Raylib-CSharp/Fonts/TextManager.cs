@@ -1,270 +1,12 @@
-using System.Drawing;
 using System.Numerics;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 using System.Runtime.InteropServices.Marshalling;
-using Raylib_CSharp.Images;
 using Raylib_CSharp.Marshallers;
-using Color = Raylib_CSharp.Colors.Color;
 
 namespace Raylib_CSharp.Fonts;
 
 public static partial class TextManager {
-
-    /// <summary>
-    /// Get the default Font.
-    /// </summary>
-    /// <returns>The default font.</returns>
-    [LibraryImport(Raylib.Name)]
-    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial Font GetFontDefault();
-
-    /// <summary>
-    /// Load font from file into GPU memory (VRAM).
-    /// </summary>
-    /// <param name="fileName">The path of the font file.</param>
-    /// <returns>The loaded font.</returns>
-    [LibraryImport(Raylib.Name, StringMarshalling = StringMarshalling.Utf8)]
-    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial Font LoadFont(string fileName);
-
-    /// <summary>
-    /// Load font from file with extended parameters, use NULL for codepoints and 0 for codepointCount to load the default character set.
-    /// </summary>
-    /// <param name="fileName">The path to the font file.</param>
-    /// <param name="fontSize">The font size.</param>
-    /// <param name="codepoints">An array of codepoints to load from the font.</param>
-    /// <param name="codepointCount">The number of codepoints to load.</param>
-    /// <returns>A Font object representing the loaded font.</returns>
-    [LibraryImport(Raylib.Name, StringMarshalling = StringMarshalling.Utf8)]
-    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static unsafe partial Font LoadFontEx(string fileName, int fontSize, int* codepoints, int codepointCount);
-
-    /// <summary>
-    /// Load font from Image (XNA style).
-    /// </summary>
-    /// <param name="image">The image containing the font characters.</param>
-    /// <param name="key">The color key used to identify the font characters.</param>
-    /// <param name="firstChar">The ASCII value of the first character in the font characters.</param>
-    /// <returns>The loaded font.</returns>
-    [LibraryImport(Raylib.Name)]
-    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial Font LoadFontFromImage(Image image, Color key, int firstChar);
-
-    /// <summary>
-    /// Load font from memory buffer, fileType refers to extension: i.e. '.ttf'.
-    /// </summary>
-    /// <param name="fileType">The type of the font file.</param>
-    /// <param name="fileData">The memory buffer containing the font data.</param>
-    /// <param name="dataSize">The size of the font data in bytes.</param>
-    /// <param name="fontSize">The size of the font.</param>
-    /// <param name="codepoints">The codepoints used to generate the font.</param>
-    /// <param name="codepointCount">The number of codepoints used.</param>
-    /// <returns>True if the font was successfully loaded, false otherwise.</returns>
-    [LibraryImport(Raylib.Name, StringMarshalling = StringMarshalling.Utf8)]
-    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static unsafe partial Font LoadFontFromMemory(string fileType, byte* fileData, int dataSize, int fontSize, int* codepoints, int codepointCount);
-
-    /// <summary>
-    /// Check if a font is ready.
-    /// </summary>
-    /// <param name="font">The font to check.</param>
-    /// <returns>True if the font is ready to be used, false otherwise.</returns>
-    [LibraryImport(Raylib.Name)]
-    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    [return: MarshalAs(UnmanagedType.Bool)]
-    public static partial bool IsFontReady(Font font);
-
-    /// <summary>
-    /// Load font data for further use.
-    /// </summary>
-    /// <param name="fileData">The file data in memory.</param>
-    /// <param name="dataSize">The size of the file data.</param>
-    /// <param name="fontSize">The size of the font.</param>
-    /// <param name="codepoints">An array of Unicode code points to load with font data.</param>
-    /// <param name="codepointCount">The number of Unicode code points to load.</param>
-    /// <param name="type">The type of font data to load.</param>
-    /// <returns>A pointer to the loaded font data.</returns>
-    [LibraryImport(Raylib.Name, StringMarshalling = StringMarshalling.Utf8)]
-    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static unsafe partial GlyphInfo* LoadFontData(string fileData, int dataSize, int fontSize, int* codepoints, int codepointCount, FontType type);
-
-    /// <summary>
-    /// Generate image font atlas using chars info.
-    /// </summary>
-    /// <param name="glyphs">An array of glyph information.</param>
-    /// <param name="glyphRecs">A pointer to an array of glyph rectangles.</param>
-    /// <param name="glyphCount">The number of glyphs.</param>
-    /// <param name="fontSize">The size of the font.</param>
-    /// <param name="padding">The amount of padding between glyphs.</param>
-    /// <param name="packMethod">The method used for packing the glyphs.</param>
-    /// <returns>The generated font atlas image.</returns>
-    [LibraryImport(Raylib.Name)]
-    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static unsafe partial Image GenImageFontAtlas(GlyphInfo* glyphs, RectangleF** glyphRecs, int glyphCount, int fontSize, int padding, int packMethod);
-
-    /// <summary>
-    /// Unload font chars info data (RAM).
-    /// </summary>
-    /// <param name="glyphs">Pointer to the GlyphInfo structure.</param>
-    /// <param name="glyphCount">The number of glyphs.</param>
-    [LibraryImport(Raylib.Name)]
-    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static unsafe partial void UnloadFontData(GlyphInfo glyphs, int glyphCount);
-
-    /// <summary>
-    /// Unload font from GPU memory (VRAM).
-    /// </summary>
-    /// <param name="font">The Font to unload.</param>
-    [LibraryImport(Raylib.Name)]
-    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial void UnloadFont(Font font);
-
-    /// <summary>
-    /// Export font as code file, returns true on success.
-    /// </summary>
-    /// <param name="font">The font to export.</param>
-    /// <param name="fileName">The name of the file to save the exported code.</param>
-    /// <returns>True if the export was successful, false otherwise.</returns>
-    [LibraryImport(Raylib.Name, StringMarshalling = StringMarshalling.Utf8)]
-    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    [return: MarshalAs(UnmanagedType.Bool)]
-    public static partial bool ExportFontAsCode(Font font, string fileName);
-
-    /// <summary>
-    /// Draw current FPS.
-    /// </summary>
-    /// <param name="posX">The x-coordinate of the position to draw the FPS counter.</param>
-    /// <param name="posY">The y-coordinate of the position to draw the FPS counter.</param>
-    [LibraryImport(Raylib.Name, EntryPoint = "DrawFPS")]
-    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial void DrawFps(int posX, int posY);
-
-    /// <summary>
-    /// Draw text (using default font).
-    /// </summary>
-    /// <param name="text">The text string to be drawn.</param>
-    /// <param name="posX">The x-coordinate of the starting position of the text.</param>
-    /// <param name="posY">The y-coordinate of the starting position of the text.</param>
-    /// <param name="fontSize">The font size of the text.</param>
-    /// <param name="color">The color of the text.</param>
-    [LibraryImport(Raylib.Name, StringMarshalling = StringMarshalling.Utf8)]
-    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial void DrawText(string text, int posX, int posY, int fontSize, Color color);
-
-    /// <summary>
-    /// Draw text using font and additional parameters.
-    /// </summary>
-    /// <param name="font">The font to use for drawing the text.</param>
-    /// <param name="text">The text to draw.</param>
-    /// <param name="position">The position of the text.</param>
-    /// <param name="fontSize">The size of the font.</param>
-    /// <param name="spacing">The spacing between characters.</param>
-    /// <param name="tint">The color tint to apply to the text.</param
-    [LibraryImport(Raylib.Name, StringMarshalling = StringMarshalling.Utf8)]
-    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial void DrawTextEx(Font font, string text, Vector2 position, float fontSize, float spacing, Color tint);
-
-    /// <summary>
-    /// Draw text using Font and pro parameters (rotation).
-    /// </summary>
-    /// <param name="font">The font to use for drawing the text.</param>
-    /// <param name="text">The text to be drawn.</param>
-    /// <param name="position">The position where the text will be drawn on the screen.</param>
-    /// <param name="origin">The origin of the text. Defaults to (0, 0).</param>
-    /// <param name="rotation">The rotation angle of the text. Defaults to 0.</param>
-    /// <param name="fontSize">The size of the font. Defaults to 10.</param>
-    /// <param name="spacing">The spacing between characters. Defaults to 0.</param>
-    /// <param name="tint">The color to tint the text. Defaults to white (RGB: 255, 255, 255).</param
-    [LibraryImport(Raylib.Name, StringMarshalling = StringMarshalling.Utf8)]
-    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial void DrawTextPro(Font font, string text, Vector2 position, Vector2 origin, float rotation, float fontSize, float spacing, Color tint);
-
-    /// <summary>
-    /// Draw one character (codepoint).
-    /// </summary>
-    /// <param name="font">The font to use for drawing the codepoint.</param>
-    /// <param name="codepoint">The Unicode codepoint to draw.</param>
-    /// <param name="position">The position at which to draw the codepoint.</param>
-    /// <param name="fontSize">The size of the codepoint to be drawn.</param>
-    /// <param name="tint">The tint color to apply to the codepoint.</param
-    [LibraryImport(Raylib.Name)]
-    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial void DrawTextCodepoint(Font font, int codepoint, Vector2 position, float fontSize, Color tint);
-
-    /// <summary>
-    /// Draw multiple character (codepoint).
-    /// </summary>
-    /// <param name="font">The font to use for drawing.</param>
-    /// <param name="codepoints">An array of codepoints to draw.</param>
-    /// <param name="codepointCount">The number of codepoints in the array.</param>
-    /// <param name="position">The position to draw the text.</param>
-    /// <param name="fontSize">The size of the font.</param>
-    /// <param name="spacing">The spacing between characters.</param>
-    /// <param name="tint">The tint color to apply to the text.</param>
-    [LibraryImport(Raylib.Name)]
-    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static unsafe partial void DrawTextCodepoints(Font font, int* codepoints, int codepointCount, Vector2 position, float fontSize, float spacing, Color tint);
-
-    /// <summary>
-    /// Set vertical line spacing when drawing with line-breaks.
-    /// </summary>
-    /// <param name="spacing">The amount of spacing between lines. Positive values increase the spacing, negative values decrease the spacing.</param
-    [LibraryImport(Raylib.Name)]
-    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial void SetTextLineSpacing(int spacing);
-
-    /// <summary>
-    /// Measure string width for default font.
-    /// </summary>
-    /// <param name="text">The text to measure.</param>
-    /// <param name="fontSize">The font size to use for rendering the text.</param>
-    /// <returns>The width in pixels of the rendered text.</returns>
-    [LibraryImport(Raylib.Name, StringMarshalling = StringMarshalling.Utf8)]
-    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial int MeasureText(string text, int fontSize);
-
-    /// <summary>
-    /// Measure string size for Font.
-    /// </summary>
-    /// <param name="font">The font used to measure the text.</param>
-    /// <param name="text">The text to measure.</param>
-    /// <param name="fontSize">The size of the font.</param>
-    /// <param name="spacing">The spacing between characters.</param>
-    /// <returns>The size of the measured text.</returns>
-    [LibraryImport(Raylib.Name, StringMarshalling = StringMarshalling.Utf8)]
-    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial Vector2 MeasureTextEx(Font font, string text, float fontSize, float spacing);
-
-    /// <summary>
-    /// Get glyph index position in font for a codepoint (unicode character), fallback to '?' if not found.
-    /// </summary>
-    /// <param name="font">The font.</param>
-    /// <param name="codepoint">The codepoint.</param>
-    /// <returns>The glyph index.</returns>
-    [LibraryImport(Raylib.Name)]
-    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial int GetGlyphIndex(Font font, int codepoint);
-
-    /// <summary>
-    /// Get glyph font info data for a codepoint (unicode character), fallback to '?' if not found.
-    /// </summary>
-    /// <param name="font">The font to get glyph information from.</param>
-    /// <param name="codepoint">The codepoint of the glyph.</param>
-    /// <returns>The glyph information for the specified codepoint.</returns>
-    [LibraryImport(Raylib.Name)]
-    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial GlyphInfo GetGlyphInfo(Font font, int codepoint);
-
-    /// <summary>
-    /// Get glyph rectangle in font atlas for a codepoint (unicode character), fallback to '?' if not found.
-    /// </summary>
-    /// <param name="font">The font.</param>
-    /// <param name="codepoint">The codepoint.</param>
-    /// <returns>The glyph atlas rectangle for the specified codepoint.</returns>
-    [LibraryImport(Raylib.Name)]
-    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial RectangleF GetGlyphAtlasRec(Font font, int codepoint);
 
     /// <summary>
     /// Load UTF-8 text encoded from codepoints array.
@@ -353,6 +95,36 @@ public static partial class TextManager {
     public static partial string CodepointToUtf8(int codepoint, out int utf8Size);
 
     /// <summary>
+    /// Set vertical line spacing when drawing with line-breaks.
+    /// </summary>
+    /// <param name="spacing">The amount of spacing between lines. Positive values increase the spacing, negative values decrease the spacing.</param
+    [LibraryImport(Raylib.Name)]
+    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
+    public static partial void SetTextLineSpacing(int spacing);
+
+    /// <summary>
+    /// Measure string width for default font.
+    /// </summary>
+    /// <param name="text">The text to measure.</param>
+    /// <param name="fontSize">The font size to use for rendering the text.</param>
+    /// <returns>The width in pixels of the rendered text.</returns>
+    [LibraryImport(Raylib.Name, StringMarshalling = StringMarshalling.Utf8)]
+    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
+    public static partial int MeasureText(string text, int fontSize);
+
+    /// <summary>
+    /// Measure string size for Font.
+    /// </summary>
+    /// <param name="font">The font used to measure the text.</param>
+    /// <param name="text">The text to measure.</param>
+    /// <param name="fontSize">The size of the font.</param>
+    /// <param name="spacing">The spacing between characters.</param>
+    /// <returns>The size of the measured text.</returns>
+    [LibraryImport(Raylib.Name, StringMarshalling = StringMarshalling.Utf8)]
+    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
+    public static partial Vector2 MeasureTextEx(Font font, string text, float fontSize, float spacing);
+
+    /// <summary>
     /// Copy one string to another, returns bytes copied.
     /// </summary>
     /// <param name="dst">The destination string.</param>
@@ -370,7 +142,7 @@ public static partial class TextManager {
     /// <returns>True if the two strings are equal, false otherwise.</returns>
     [LibraryImport(Raylib.Name, StringMarshalling = StringMarshalling.Utf8)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    [return: MarshalAs(UnmanagedType.Bool)]
+    [return: MarshalAs(UnmanagedType.I1)]
     public static partial bool TextIsEqual(string text1, string text2);
 
     /// <summary>

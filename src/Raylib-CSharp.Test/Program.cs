@@ -1,6 +1,5 @@
 ﻿using System.Numerics;
 using Raylib_CSharp.Camera.Cam3D;
-using Raylib_CSharp.Camera;
 using Raylib_CSharp.Colors;
 using Raylib_CSharp.Fonts;
 using Raylib_CSharp.Geometry;
@@ -62,14 +61,14 @@ Camera3D camera3D = new Camera3D() {
 };
 
 while (!Window.ShouldClose()) {
-    CameraManager.UpdateCamera(ref camera3D, CameraMode.Orbital);
+    Camera3D.Update(ref camera3D, CameraMode.Orbital);
 
     Graphics.BeginDrawing();
     Graphics.ClearBackground(Color.SkyBlue);
 
     Graphics.BeginMode3D(camera3D);
     ModelManager.DrawGrid(100, 1);
-    ModelManager.DrawModel(model, Vector3.UnitY / 2, 1, Color.White);
+    ModelManager.DrawModel(model, Vector3.UnitY / 2, 1, Color.Alpha(Color.Green, 0.5F));
     Graphics.EndMode3D();
 
     TextManager.DrawFps(50, 50);

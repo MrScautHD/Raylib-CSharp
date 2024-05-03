@@ -58,6 +58,10 @@ public partial struct Color {
     /// <summary>
     /// Color, 4 components, R8G8B8A8 (32bit).
     /// </summary>
+    /// <param name="r">Red component value.</param>
+    /// <param name="g">Green component value.</param>
+    /// <param name="b">Blue component value.</param>
+    /// <param name="a">Alpha component value.</param>
     public Color(byte r, byte g, byte b, byte a) {
         this.R = r;
         this.G = g;

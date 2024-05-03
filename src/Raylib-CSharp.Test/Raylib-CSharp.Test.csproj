@@ -12,4 +12,11 @@
     <ItemGroup>
         <ProjectReference Include="..\Raylib-CSharp\Raylib-CSharp.csproj"/>
     </ItemGroup>
+
+    <!-- Content -->
+    <ItemGroup>
+        <Content Include="content/**/*">
+            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </Content>
+    </ItemGroup>
 </Project>

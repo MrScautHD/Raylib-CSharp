@@ -1,14 +1,24 @@
 ﻿using System.Numerics;
-using Raylib_CSharp.CSharp;
-using Raylib_CSharp.CSharp.Camera;
-using Raylib_CSharp.CSharp.Camera.Cam3D;
-using Raylib_CSharp.CSharp.Fonts;
-using Raylib_CSharp.CSharp.Geometry.Managers;
-using Raylib_CSharp.CSharp.Logging;
-using Raylib_CSharp.CSharp.Rendering;
-using Raylib_CSharp.CSharp.Shaders;
-using Raylib_CSharp.CSharp.Windowing;
-using Color = Raylib_CSharp.CSharp.Colors.Color;
+using Raylib_CSharp.Camera.Cam3D;
+using Raylib_CSharp;
+using Raylib_CSharp.Camera;
+using Raylib_CSharp.Fonts;
+using Raylib_CSharp.Geometry.Managers;
+using Raylib_CSharp.Logging;
+using Raylib_CSharp.Rendering;
+using Raylib_CSharp.Shaders;
+using Raylib_CSharp.Windowing;
+using Raylib_CSharp.Logging;
+using Raylib_CSharp.Shaders;
+using CameraManager = Raylib_CSharp.Camera.CameraManager;
+using Color = Raylib_CSharp.Colors.Color;
+using Graphics = Raylib_CSharp.Rendering.Graphics;
+using Logger = Raylib_CSharp.Logging.Logger;
+using ModelManager = Raylib_CSharp.Geometry.Managers.ModelManager;
+using RayMath = Raylib_CSharp.RayMath;
+using ShaderManager = Raylib_CSharp.Shaders.ShaderManager;
+using TextManager = Raylib_CSharp.Fonts.TextManager;
+using Window = Raylib_CSharp.Windowing.Window;
 
 Console.WriteLine("Hello, World!");
 

@@ -34,8 +34,8 @@ public static partial class FileManager {
     /// <returns>True if the data was saved successfully, false otherwise.</returns>
     [LibraryImport(Raylib.Name, StringMarshalling = StringMarshalling.Utf8)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    [return: MarshalAs(UnmanagedType.Bool)]
-    public static unsafe partial bool SaveFileData(string fileName, void* data, uint dataSize);
+    [return: MarshalAs(UnmanagedType.I1)]
+    public static partial bool SaveFileData(string fileName, nint data, uint dataSize);
 
     /// <summary>
     /// Export data to code (.h), returns true on success.
@@ -46,7 +46,7 @@ public static partial class FileManager {
     /// <returns>True if the data was successfully exported and saved as code, false otherwise.</returns>
     [LibraryImport(Raylib.Name, StringMarshalling = StringMarshalling.Utf8)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    [return: MarshalAs(UnmanagedType.Bool)]
+    [return: MarshalAs(UnmanagedType.I1)]
     public static unsafe partial bool ExportDataAsCode(byte* data, uint dataSize, string fileName);
 
     /// <summary>
@@ -75,7 +75,7 @@ public static partial class FileManager {
     /// <returns>True if the text was saved successfully, false otherwise.</returns>
     [LibraryImport(Raylib.Name, StringMarshalling = StringMarshalling.Utf8)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    [return: MarshalAs(UnmanagedType.Bool)]
+    [return: MarshalAs(UnmanagedType.I1)]
     public static partial bool SaveFileText(string fileName, string text);
 
     /// <summary>
@@ -85,7 +85,7 @@ public static partial class FileManager {
     /// <returns>Returns true if the file exists; otherwise, false.</returns>
     [LibraryImport(Raylib.Name, StringMarshalling = StringMarshalling.Utf8)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    [return: MarshalAs(UnmanagedType.Bool)]
+    [return: MarshalAs(UnmanagedType.I1)]
     public static partial bool FileExists(string fileName);
 
     /// <summary>
@@ -95,7 +95,7 @@ public static partial class FileManager {
     /// <returns>True if the directory exists, false otherwise.</returns>
     [LibraryImport(Raylib.Name, StringMarshalling = StringMarshalling.Utf8)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    [return: MarshalAs(UnmanagedType.Bool)]
+    [return: MarshalAs(UnmanagedType.I1)]
     public static partial bool DirectoryExists(string dirPath);
 
     /// <summary>
@@ -106,7 +106,7 @@ public static partial class FileManager {
     /// <returns>True if the filename has the specified extension, false otherwise.</returns>
     [LibraryImport(Raylib.Name, StringMarshalling = StringMarshalling.Utf8)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    [return: MarshalAs(UnmanagedType.Bool)]
+    [return: MarshalAs(UnmanagedType.I1)]
     public static partial bool IsFileExtension(string fileName, string ext);
 
     /// <summary>
@@ -193,7 +193,7 @@ public static partial class FileManager {
     /// <returns>True if the directory was changed successfully, false otherwise.</returns>
     [LibraryImport(Raylib.Name, StringMarshalling = StringMarshalling.Utf8)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    [return: MarshalAs(UnmanagedType.Bool)]
+    [return: MarshalAs(UnmanagedType.I1)]
     public static partial bool ChangeDirectory(string dir);
 
     /// <summary>
@@ -203,7 +203,7 @@ public static partial class FileManager {
     /// <returns>Returns true if the given path is a file, otherwise false.</returns>
     [LibraryImport(Raylib.Name, StringMarshalling = StringMarshalling.Utf8)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    [return: MarshalAs(UnmanagedType.Bool)]
+    [return: MarshalAs(UnmanagedType.I1)]
     public static partial bool IsPathFile(string path);
 
     /// <summary>
@@ -220,11 +220,11 @@ public static partial class FileManager {
     /// </summary>
     /// <param name="basePath">The base path of the directory to load files from.</param>
     /// <param name="filter">The filter used to match the file names.</param>
-    /// <param name="scanSubdirs">Determines whether to scan subdirectories.</param>
+    /// <param name="scanSubDirs">Determines whether to scan subdirectories.</param>
     /// <returns>A list of file paths.</returns>
     [LibraryImport(Raylib.Name, StringMarshalling = StringMarshalling.Utf8)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial FilePathList LoadDirectoryFilesEx(string basePath, string filter, [MarshalAs(UnmanagedType.Bool)] bool scanSubdirs);
+    public static partial FilePathList LoadDirectoryFilesEx(string basePath, string filter, [MarshalAs(UnmanagedType.I1)] bool scanSubDirs);
 
     /// <summary>
     /// Unload filepaths.
@@ -240,7 +240,7 @@ public static partial class FileManager {
     /// <returns>True if a file has been dropped, false otherwise.</returns>
     [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    [return: MarshalAs(UnmanagedType.Bool)]
+    [return: MarshalAs(UnmanagedType.I1)]
     public static partial bool IsFileDropped();
 
     /// <summary>

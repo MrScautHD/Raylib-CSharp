@@ -2,11 +2,11 @@ using Raylib_CSharp.Marshallers;
 
 namespace Raylib_CSharp.Spans;
 
-public unsafe struct StringArraySpan {
+public readonly unsafe struct StringArraySpan {
 
-    private sbyte** _pointer;
+    private readonly sbyte** _pointer;
 
-    private int _count;
+    private readonly int _count;
 
     /// <summary>
     /// Initializes a new instance of the StringArraySpan struct with the specified pointer and count.
@@ -23,7 +23,7 @@ public unsafe struct StringArraySpan {
     /// </summary>
     /// <param name="index">The index of the string to get.</param>
     /// <returns>The string at the specified index.</returns>
-    public readonly string this[int index] {
+    public string this[int index] {
         get {
             if (index >= this._count) {
                 throw new IndexOutOfRangeException();

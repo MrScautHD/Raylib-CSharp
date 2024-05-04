@@ -32,7 +32,7 @@ public static partial class Window {
     /// <returns>true if the window should close, false otherwise.</returns>
     [LibraryImport(Raylib.Name, EntryPoint = "WindowShouldClose")]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    [return: MarshalAs(UnmanagedType.Bool)]
+    [return: MarshalAs(UnmanagedType.I1)]
     public static partial bool ShouldClose();
 
     /// <summary>
@@ -41,7 +41,7 @@ public static partial class Window {
     /// <returns>True if the window and OpenGL context are ready, false otherwise</returns>
     [LibraryImport(Raylib.Name, EntryPoint = "IsWindowReady")]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    [return: MarshalAs(UnmanagedType.Bool)]
+    [return: MarshalAs(UnmanagedType.I1)]
     public static partial bool IsReady();
 
     /// <summary>
@@ -50,7 +50,7 @@ public static partial class Window {
     /// <returns>True if the window is in fullscreen mode, false otherwise.</returns>
     [LibraryImport(Raylib.Name, EntryPoint = "IsWindowFullscreen")]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    [return: MarshalAs(UnmanagedType.Bool)]
+    [return: MarshalAs(UnmanagedType.I1)]
     public static partial bool IsFullscreen();
 
     /// <summary>
@@ -59,7 +59,7 @@ public static partial class Window {
     /// <returns>True if the window is hidden, false otherwise.</returns>
     [LibraryImport(Raylib.Name, EntryPoint = "IsWindowHidden")]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    [return: MarshalAs(UnmanagedType.Bool)]
+    [return: MarshalAs(UnmanagedType.I1)]
     public static partial bool IsHidden();
 
     /// <summary>
@@ -70,7 +70,7 @@ public static partial class Window {
     /// </returns>
     [LibraryImport(Raylib.Name, EntryPoint = "IsWindowMinimized")]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    [return: MarshalAs(UnmanagedType.Bool)]
+    [return: MarshalAs(UnmanagedType.I1)]
     public static partial bool IsMinimized();
 
     /// <summary>
@@ -79,7 +79,7 @@ public static partial class Window {
     /// <returns>True if the window is maximized, false otherwise.</returns>
     [LibraryImport(Raylib.Name, EntryPoint = "IsWindowMaximized")]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    [return: MarshalAs(UnmanagedType.Bool)]
+    [return: MarshalAs(UnmanagedType.I1)]
     public static partial bool IsMaximized();
 
     /// <summary>
@@ -88,7 +88,7 @@ public static partial class Window {
     /// <returns>true if the window has input focus, false otherwise.</returns>
     [LibraryImport(Raylib.Name, EntryPoint = "IsWindowFocused")]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    [return: MarshalAs(UnmanagedType.Bool)]
+    [return: MarshalAs(UnmanagedType.I1)]
     public static partial bool IsFocused();
 
     /// <summary>
@@ -97,7 +97,7 @@ public static partial class Window {
     /// <returns>true if the window has been resized, false otherwise.</returns>
     [LibraryImport(Raylib.Name, EntryPoint = "IsWindowResized")]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    [return: MarshalAs(UnmanagedType.Bool)]
+    [return: MarshalAs(UnmanagedType.I1)]
     public static partial bool IsResized();
 
     /// <summary>
@@ -107,7 +107,7 @@ public static partial class Window {
     /// <returns>true if the window state flag is set, false otherwise.</returns>
     [LibraryImport(Raylib.Name, EntryPoint = "IsWindowState")]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    [return: MarshalAs(UnmanagedType.Bool)]
+    [return: MarshalAs(UnmanagedType.I1)]
     public static partial bool IsState(ConfigFlags flag);
 
     /// <summary>
@@ -250,7 +250,7 @@ public static partial class Window {
     /// <returns>The handle of the window.</returns>
     [LibraryImport(Raylib.Name, EntryPoint = "GetWindowHandle")]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static unsafe partial void* GetHandle();
+    public static unsafe partial nint GetHandle();
 
     /// <summary>
     /// Get current screen width.

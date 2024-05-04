@@ -89,7 +89,7 @@ unsafe {
 FilePathList test = FileManager.LoadDirectoryFiles("content");
 Logger.TraceLog(TraceLogLevel.Error, "Path: " + test.Paths[0]);
 
-MaterialManager.UnloadMaterial(model.Materials[0]);
+Material.Unload(model.Materials[0]);
 model.MaterialCount = 0;
 
 Model.Unload(model);

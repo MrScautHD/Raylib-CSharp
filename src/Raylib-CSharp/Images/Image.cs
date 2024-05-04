@@ -487,7 +487,7 @@ public partial struct Image {
     /// <param name="color">The color to tint the image with.</param>
     [LibraryImport(Raylib.Name, EntryPoint = "ImageColorTint")]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial void ColorTint(ref Image image, Color color);
+    public static partial void TintColor(ref Image image, Color color);
 
     /// <summary>
     /// Modify image color: invert.
@@ -503,7 +503,7 @@ public partial struct Image {
     /// <param name="image">The color image to convert.</param>
     [LibraryImport(Raylib.Name, EntryPoint = "ImageColorGrayscale")]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial void ColorGrayscale(ref Image image);
+    public static partial void GrayscaleColor(ref Image image);
 
     /// <summary>
     /// Modify image color: contrast (-100 to 100).

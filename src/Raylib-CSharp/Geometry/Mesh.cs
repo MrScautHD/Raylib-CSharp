@@ -137,7 +137,7 @@ public partial struct Mesh {
     /// <param name="offset">Offset in bytes to offset the mesh data</param>
     [LibraryImport(Raylib.Name, EntryPoint = "UpdateMeshBuffer")]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static unsafe partial void UpdateBuffer(Mesh mesh, int index, void* data, int dataSize, int offset);
+    public static unsafe partial void UpdateBuffer(Mesh mesh, int index, nint data, int dataSize, int offset);
 
     /// <summary>
     /// Unload mesh data from CPU and GPU.

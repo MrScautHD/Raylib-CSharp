@@ -301,7 +301,7 @@ public static partial class RlGl {
     /// <returns>Returns true if the vertex array object was enabled successfully, false otherwise.</returns>
     [LibraryImport(Raylib.Name, EntryPoint = "rlEnableVertexArray")]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    [return: MarshalAs(UnmanagedType.Bool)]
+    [return: MarshalAs(UnmanagedType.I1)]
     public static partial bool EnableVertexArray(uint vaoId);
 
     /// <summary>
@@ -364,7 +364,7 @@ public static partial class RlGl {
     /// <param name="buffer">The buffer to enable.</param>
     [LibraryImport(Raylib.Name, EntryPoint = "rlEnableStatePointer")]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static unsafe partial void EnableStatePointer(int vertexAttribType, void* buffer);
+    public static partial void EnableStatePointer(int vertexAttribType, nint buffer);
 
     /// <summary>
     /// Disable attribute state pointer.
@@ -577,7 +577,7 @@ public static partial class RlGl {
 
     /// <summary>
     /// Enable wire mode.
-    /// </summary
+    /// </summary>
     [LibraryImport(Raylib.Name, EntryPoint = "rlEnableWireMode")]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
     public static partial void EnableWireMode();
@@ -646,7 +646,7 @@ public static partial class RlGl {
     /// <returns>Returns true if stereo rendering is enabled, false otherwise.</returns>
     [LibraryImport(Raylib.Name, EntryPoint = "rlIsStereoRenderEnabled")]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    [return: MarshalAs(UnmanagedType.Bool)]
+    [return: MarshalAs(UnmanagedType.I1)]
     public static partial bool IsStereoRenderEnabled();
 
     /// <summary>
@@ -727,7 +727,7 @@ public static partial class RlGl {
     /// <param name="loader">Pointer to the loader object.</param>
     [LibraryImport(Raylib.Name, EntryPoint = "rlLoadExtensions")]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static unsafe partial void LoadExtensions(void* loader);
+    public static partial void LoadExtensions(nint loader);
 
     /// <summary>
     /// Get current OpenGL version.
@@ -740,7 +740,7 @@ public static partial class RlGl {
     /// <summary>
     /// Set current framebuffer width.
     /// </summary>
-    /// <param name="width">The width of the framebuffer.</param
+    /// <param name="width">The width of the framebuffer.</param>
     [LibraryImport(Raylib.Name, EntryPoint = "rlSetFramebufferWidth")]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
     public static partial void SetFramebufferWidth(int width);
@@ -840,7 +840,7 @@ public static partial class RlGl {
     /// <returns>True if the render batch limit has been reached, false otherwise.</returns>
     [LibraryImport(Raylib.Name, EntryPoint = "rlCheckRenderBatchLimit")]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    [return: MarshalAs(UnmanagedType.Bool)]
+    [return: MarshalAs(UnmanagedType.I1)]
     public static partial bool CheckRenderBatchLimit(int vCount);
 
     /// <summary>
@@ -868,7 +868,7 @@ public static partial class RlGl {
     /// <returns>The ID of the vertex buffer in GPU memory.</returns>
     [LibraryImport(Raylib.Name, EntryPoint = "rlLoadVertexBuffer")]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static unsafe partial uint LoadVertexBuffer(void* buffer, int size, [MarshalAs(UnmanagedType.Bool)] bool dynamic);
+    public static partial uint LoadVertexBuffer(nint buffer, int size, [MarshalAs(UnmanagedType.I1)] bool dynamic);
 
     /// <summary>
     /// Load a new attributes element buffer.
@@ -879,7 +879,7 @@ public static partial class RlGl {
     /// <returns>The ID of the loaded vertex buffer element.</returns>
     [LibraryImport(Raylib.Name, EntryPoint = "rlLoadVertexBufferElement")]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static unsafe partial uint LoadVertexBufferElement(void* buffer, int size, [MarshalAs(UnmanagedType.Bool)] bool dynamic);
+    public static partial uint LoadVertexBufferElement(nint buffer, int size, [MarshalAs(UnmanagedType.I1)] bool dynamic);
 
     /// <summary>
     /// Update GPU buffer with new data.
@@ -890,7 +890,7 @@ public static partial class RlGl {
     /// <param name="offset">The offset, in bytes, where the new data should be copied into the buffer.</param>
     [LibraryImport(Raylib.Name, EntryPoint = "rlUpdateVertexBuffer")]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static unsafe partial void UpdateVertexBuffer(uint bufferId, void* data, int dataSize, int offset);
+    public static partial void UpdateVertexBuffer(uint bufferId, nint data, int dataSize, int offset);
 
     /// <summary>
     /// Updates a portion of the vertex buffer with new data.
@@ -901,7 +901,7 @@ public static partial class RlGl {
     /// <param name="offset">The offset within the vertex buffer to update.</param>
     [LibraryImport(Raylib.Name, EntryPoint = "rlUpdateVertexBufferElements")]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static unsafe partial void UpdateVertexBufferElements(uint id, void* data, int dataSize, int offset);
+    public static partial void UpdateVertexBufferElements(uint id, nint data, int dataSize, int offset);
 
     /// <summary>
     /// Unload vertex array object (VAO).
@@ -930,7 +930,7 @@ public static partial class RlGl {
     /// <param name="pointer">A pointer to the attribute data.</param>
     [LibraryImport(Raylib.Name, EntryPoint = "rlSetVertexAttribute")]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static unsafe partial void SetVertexAttribute(uint index, int compSize, int type, [MarshalAs(UnmanagedType.Bool)] bool normalized, int stride, void* pointer);
+    public static partial void SetVertexAttribute(uint index, int compSize, int type, [MarshalAs(UnmanagedType.I1)] bool normalized, int stride, nint pointer);
 
     /// <summary>
     /// Set vertex attribute divisor.
@@ -950,7 +950,7 @@ public static partial class RlGl {
     /// <param name="count">The number of components in the vertex attribute.</param>
     [LibraryImport(Raylib.Name, EntryPoint = "rlSetVertexAttributeDefault")]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static unsafe partial void SetVertexAttributeDefault(int locIndex, void* value, ShaderAttributeDataType attribType, int count);
+    public static partial void SetVertexAttributeDefault(int locIndex, nint value, ShaderAttributeDataType attribType, int count);
 
     /// <summary>
     /// Draw vertex array.
@@ -969,7 +969,7 @@ public static partial class RlGl {
     /// <param name="buffer">A pointer to the vertex buffer containing the elements.</param>
     [LibraryImport(Raylib.Name, EntryPoint = "rlDrawVertexArrayElements")]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static unsafe partial void DrawVertexArrayElements(int offset, int count, void* buffer);
+    public static partial void DrawVertexArrayElements(int offset, int count, nint buffer);
 
     /// <summary>
     /// Draw vertex array instanced.
@@ -990,7 +990,7 @@ public static partial class RlGl {
     /// <param name="instances">Number of instances to draw</param>
     [LibraryImport(Raylib.Name, EntryPoint = "rlDrawVertexArrayElementsInstanced")]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static unsafe partial void DrawVertexArrayElementsInstanced(int offset, int count, void* buffer, int instances);
+    public static partial void DrawVertexArrayElementsInstanced(int offset, int count, nint buffer, int instances);
 
     /// <summary>
     /// Load texture in GPU.
@@ -1003,7 +1003,7 @@ public static partial class RlGl {
     /// <returns>The ID of the loaded texture.</returns>
     [LibraryImport(Raylib.Name, EntryPoint = "rlLoadTexture")]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static unsafe partial uint LoadTexture(void* data, int width, int height, PixelFormat format, int mipmapCount);
+    public static partial uint LoadTexture(nint data, int width, int height, PixelFormat format, int mipmapCount);
 
     /// <summary>
     /// Load depth texture/renderbuffer (to be attached to fbo).
@@ -1014,7 +1014,7 @@ public static partial class RlGl {
     /// <returns>The ID of the loaded depth texture/renderbuffer</returns>
     [LibraryImport(Raylib.Name, EntryPoint = "rlLoadTextureDepth")]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial uint LoadTextureDepth(int width, int height, [MarshalAs(UnmanagedType.Bool)] bool useRenderBuffer);
+    public static partial uint LoadTextureDepth(int width, int height, [MarshalAs(UnmanagedType.I1)] bool useRenderBuffer);
 
     /// <summary>
     /// Load texture cubemap.
@@ -1025,7 +1025,7 @@ public static partial class RlGl {
     /// <returns>The handle of the loaded texture.</returns>
     [LibraryImport(Raylib.Name, EntryPoint = "rlLoadTextureCubemap")]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static unsafe partial uint LoadTextureCubemap(void* data, int size, PixelFormat format);
+    public static partial uint LoadTextureCubemap(nint data, int size, PixelFormat format);
 
     /// <summary>
     /// Update GPU texture with new data.
@@ -1039,7 +1039,7 @@ public static partial class RlGl {
     /// <param name="data">A pointer to the new pixel data to update.</param>
     [LibraryImport(Raylib.Name, EntryPoint = "rlUpdateTexture")]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static unsafe partial void UpdateTexture(uint id, int offsetX, int offsetY, int width, int height, PixelFormat format, void* data);
+    public static partial void UpdateTexture(uint id, int offsetX, int offsetY, int width, int height, PixelFormat format, nint data);
 
     /// <summary>
     /// Get OpenGL internal formats.
@@ -1065,7 +1065,7 @@ public static partial class RlGl {
     /// <summary>
     /// Unload texture from GPU memory.
     /// </summary>
-    /// <param name="id">The ID of the texture to unload.</param
+    /// <param name="id">The ID of the texture to unload.</param>
     [LibraryImport(Raylib.Name, EntryPoint = "rlUnloadTexture")]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
     public static partial void UnloadTexture(uint id);
@@ -1093,7 +1093,7 @@ public static partial class RlGl {
     /// </returns>
     [LibraryImport(Raylib.Name, EntryPoint = "rlReadTexturePixels")]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static unsafe partial void* ReadTexturePixels(uint id, int width, int height, PixelFormat format);
+    public static partial nint ReadTexturePixels(uint id, int width, int height, PixelFormat format);
 
     /// <summary>
     /// Read screen pixel data (color buffer).
@@ -1135,7 +1135,7 @@ public static partial class RlGl {
     /// <returns>true if the framebuffer is complete, false otherwise.</returns>
     [LibraryImport(Raylib.Name, EntryPoint = "rlFramebufferComplete")]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    [return: MarshalAs(UnmanagedType.Bool)]
+    [return: MarshalAs(UnmanagedType.I1)]
     public static partial bool FramebufferComplete(uint id);
 
     /// <summary>
@@ -1216,7 +1216,7 @@ public static partial class RlGl {
     /// <param name="count">The number of elements in the uniform variable.</param>
     [LibraryImport(Raylib.Name, EntryPoint = "rlSetUniform")]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static unsafe partial void SetUniform(int locIndex, void* value, ShaderUniformDataType uniformType, int count);
+    public static partial void SetUniform(int locIndex, nint value, ShaderUniformDataType uniformType, int count);
 
     /// <summary>
     /// Set shader value matrix.
@@ -1273,7 +1273,7 @@ public static partial class RlGl {
     /// <returns>The ID of the loaded shader buffer.</returns>
     [LibraryImport(Raylib.Name, EntryPoint = "rlLoadShaderBuffer")]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static unsafe partial uint LoadShaderBuffer(uint size, void* data, int usageHint);
+    public static partial uint LoadShaderBuffer(uint size, nint data, int usageHint);
 
     /// <summary>
     /// Unload shader storage buffer object (SSBO).
@@ -1292,7 +1292,7 @@ public static partial class RlGl {
     /// <param name="offset">The offset in bytes from the beginning of the shader buffer object where the data will be updated.</param>
     [LibraryImport(Raylib.Name, EntryPoint = "rlUpdateShaderBuffer")]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static unsafe partial void UpdateShaderBuffer(uint id, void* data, uint dataSize, uint offset);
+    public static partial void UpdateShaderBuffer(uint id, nint data, uint dataSize, uint offset);
 
     /// <summary>
     /// Bind SSBO buffer.
@@ -1312,7 +1312,7 @@ public static partial class RlGl {
     /// <param name="offset">The offset at which to start reading from the buffer.</param>
     [LibraryImport(Raylib.Name, EntryPoint = "rlReadShaderBuffer")]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static unsafe partial void ReadShaderBuffer(uint id, void* dest, uint count, uint offset);
+    public static partial void ReadShaderBuffer(uint id, nint dest, uint count, uint offset);
 
     /// <summary>
     /// Copy SSBO data between buffers.
@@ -1344,7 +1344,7 @@ public static partial class RlGl {
     /// <param name="readOnly">A flag indicating if the texture should be read-only.</param>
     [LibraryImport(Raylib.Name, EntryPoint = "rlBindImageTexture")]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial void BindImageTexture(uint id, uint index, PixelFormat format, [MarshalAs(UnmanagedType.Bool)] bool readOnly);
+    public static partial void BindImageTexture(uint id, uint index, PixelFormat format, [MarshalAs(UnmanagedType.I1)] bool readOnly);
 
     /// <summary>
     /// Get internal modelView matrix.

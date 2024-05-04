@@ -25,7 +25,7 @@ public static partial class AudioDevice {
     /// <returns>Returns true if the audio device is ready; otherwise, false.</returns>
     [LibraryImport(Raylib.Name, EntryPoint = "IsAudioDeviceReady")]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    [return: MarshalAs(UnmanagedType.Bool)]
+    [return: MarshalAs(UnmanagedType.I1)]
     public static partial bool IsReady();
 
     /// <summary>

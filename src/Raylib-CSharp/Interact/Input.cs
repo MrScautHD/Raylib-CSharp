@@ -28,7 +28,7 @@ public static partial class Input {
     /// <returns>True if the cursor is hidden, false otherwise.</returns>
     [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    [return: MarshalAs(UnmanagedType.Bool)]
+    [return: MarshalAs(UnmanagedType.I1)]
     public static partial bool IsCursorHidden();
 
     /// <summary>
@@ -50,7 +50,7 @@ public static partial class Input {
     /// </summary>
     [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    [return: MarshalAs(UnmanagedType.Bool)]
+    [return: MarshalAs(UnmanagedType.I1)]
     public static partial bool IsCursorOnScreen();
 
     /// <summary>
@@ -60,7 +60,7 @@ public static partial class Input {
     /// <returns>Returns true if the key is pressed down, otherwise false.</returns>
     [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    [return: MarshalAs(UnmanagedType.Bool)]
+    [return: MarshalAs(UnmanagedType.I1)]
     public static partial bool IsKeyPressed(KeyboardKey key);
 
     /// <summary>
@@ -70,7 +70,7 @@ public static partial class Input {
     /// <returns>Returns true if the key is being pressed and repeated; otherwise, false</returns>
     [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    [return: MarshalAs(UnmanagedType.Bool)]
+    [return: MarshalAs(UnmanagedType.I1)]
     public static partial bool IsKeyPressedRepeat(KeyboardKey key);
 
     /// <summary>
@@ -80,7 +80,7 @@ public static partial class Input {
     /// <returns>True if the key is currently being pressed; otherwise, false.</returns>
     [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    [return: MarshalAs(UnmanagedType.Bool)]
+    [return: MarshalAs(UnmanagedType.I1)]
     public static partial bool IsKeyDown(KeyboardKey key);
 
     /// <summary>
@@ -90,7 +90,7 @@ public static partial class Input {
     /// <returns>Returns true if the key is released, otherwise false</returns>
     [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    [return: MarshalAs(UnmanagedType.Bool)]
+    [return: MarshalAs(UnmanagedType.I1)]
     public static partial bool IsKeyReleased(KeyboardKey key);
 
     /// <summary>
@@ -100,7 +100,7 @@ public static partial class Input {
     /// <returns>A boolean value indicating whether the key is up or not.</returns>
     [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    [return: MarshalAs(UnmanagedType.Bool)]
+    [return: MarshalAs(UnmanagedType.I1)]
     public static partial bool IsKeyUp(KeyboardKey key);
 
     /// <summary>
@@ -136,7 +136,7 @@ public static partial class Input {
     /// <returns>True if the gamepad is available, false otherwise.</returns>
     [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    [return: MarshalAs(UnmanagedType.Bool)]
+    [return: MarshalAs(UnmanagedType.I1)]
     public static partial bool IsGamepadAvailable(int gamepad);
 
     /// <summary>
@@ -157,7 +157,7 @@ public static partial class Input {
     /// <returns>True if the button is currently pressed; otherwise, false.</returns>
     [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    [return: MarshalAs(UnmanagedType.Bool)]
+    [return: MarshalAs(UnmanagedType.I1)]
     public static partial bool IsGamepadButtonPressed(int gamepad, GamepadButton button);
 
     /// <summary>
@@ -168,7 +168,7 @@ public static partial class Input {
     /// <returns>True if the button is being pressed down, false otherwise.</returns>
     [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    [return: MarshalAs(UnmanagedType.Bool)]
+    [return: MarshalAs(UnmanagedType.I1)]
     public static partial bool IsGamepadButtonDown(int gamepad, GamepadButton button);
 
     /// <summary>
@@ -179,7 +179,7 @@ public static partial class Input {
     /// <returns>True if the gamepad button has been released, false otherwise</returns>
     [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    [return: MarshalAs(UnmanagedType.Bool)]
+    [return: MarshalAs(UnmanagedType.I1)]
     public static partial bool IsGamepadButtonReleased(int gamepad, GamepadButton button);
 
     /// <summary>
@@ -190,7 +190,7 @@ public static partial class Input {
     /// <returns>Returns true if the gamepad button is not being held down; otherwise, false.</returns>
     [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    [return: MarshalAs(UnmanagedType.Bool)]
+    [return: MarshalAs(UnmanagedType.I1)]
     public static partial bool IsGamepadButtonUp(int gamepad, GamepadButton button);
 
     /// <summary>
@@ -236,7 +236,7 @@ public static partial class Input {
     /// <returns>Returns true if the specified mouse button is currently pressed; otherwise, false.</returns>
     [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    [return: MarshalAs(UnmanagedType.Bool)]
+    [return: MarshalAs(UnmanagedType.I1)]
     public static partial bool IsMouseButtonPressed(MouseButton button);
 
     /// <summary>
@@ -246,7 +246,7 @@ public static partial class Input {
     /// <returns>True if the mouse button is currently being pressed down; otherwise, false.</returns>
     [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    [return: MarshalAs(UnmanagedType.Bool)]
+    [return: MarshalAs(UnmanagedType.I1)]
     public static partial bool IsMouseButtonDown(MouseButton button);
 
     /// <summary>
@@ -256,7 +256,7 @@ public static partial class Input {
     /// <returns>True if the mouse button was released, otherwise false.</returns>
     [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    [return: MarshalAs(UnmanagedType.Bool)]
+    [return: MarshalAs(UnmanagedType.I1)]
     public static partial bool IsMouseButtonReleased(MouseButton button);
 
     /// <summary>
@@ -266,7 +266,7 @@ public static partial class Input {
     /// <returns>true if the mouse button is up; otherwise, false.</returns>
     [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    [return: MarshalAs(UnmanagedType.Bool)]
+    [return: MarshalAs(UnmanagedType.I1)]
     public static partial bool IsMouseButtonUp(MouseButton button);
 
     /// <summary>
@@ -409,7 +409,7 @@ public static partial class Input {
     /// <returns>True if the specified gesture is detected, false otherwise.</returns>
     [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    [return: MarshalAs(UnmanagedType.Bool)]
+    [return: MarshalAs(UnmanagedType.I1)]
     public static partial bool IsGestureDetected(Gesture gesture);
 
     /// <summary>

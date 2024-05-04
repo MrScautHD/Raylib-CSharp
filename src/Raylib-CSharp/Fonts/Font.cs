@@ -96,7 +96,7 @@ public partial struct Font {
     /// <returns>True if the font was successfully loaded, false otherwise.</returns>
     [LibraryImport(Raylib.Name, EntryPoint = "LoadFontFromMemory", StringMarshalling = StringMarshalling.Utf8)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static unsafe partial Font LoadFromMemory(string fileType, sbyte* fileData, int dataSize, int fontSize, int* codepoints, int codepointCount);
+    public static unsafe partial Font LoadFromMemory(string fileType, byte* fileData, int dataSize, int fontSize, int* codepoints, int codepointCount);
 
     /// <summary>
     /// Check if a font is ready.

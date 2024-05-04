@@ -49,7 +49,7 @@ public partial struct Wave {
     /// <returns>Wave structure containing loaded data</returns>
     [LibraryImport(Raylib.Name, EntryPoint = "LoadWaveFromMemory", StringMarshalling = StringMarshalling.Utf8)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static unsafe partial Wave LoadFromMemory(string fileType, sbyte* fileData, int dataSize);
+    public static unsafe partial Wave LoadFromMemory(string fileType, byte* fileData, int dataSize);
 
     /// <summary>
     /// Checks if wave data is ready.

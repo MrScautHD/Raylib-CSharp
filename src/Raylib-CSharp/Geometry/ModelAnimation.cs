@@ -55,7 +55,7 @@ public partial struct ModelAnimation {
 
     public unsafe fixed sbyte NamePtr[32];
 
-        /// <summary>
+    /// <summary>
     /// Load model animations from file.
     /// </summary>
     /// <param name="fileName">The name of the file to load animations from.</param>

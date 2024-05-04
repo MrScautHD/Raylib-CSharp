@@ -8,7 +8,7 @@ public struct Image {
     /// <summary>
     /// Image raw data.
     /// </summary>
-    public unsafe void* Data;
+    public nint DataPtr;
 
     /// <summary>
     /// Image base width.

@@ -25,17 +25,23 @@ public struct Model {
     /// <summary>
     /// Meshes array.
     /// </summary>
-    public unsafe Mesh* Meshes;
+    public unsafe Span<Mesh> Meshes => new(this.MeshesPtr, this.MeshCount);
+
+    public unsafe Mesh* MeshesPtr;
 
     /// <summary>
     /// Materials array.
     /// </summary>
-    public unsafe Material* Materials;
+    public unsafe Span<Material> Materials => new(this.MaterialsPtr, this.MaterialCount);
+
+    public unsafe Material* MaterialsPtr;
 
     /// <summary>
     /// Mesh material number.
     /// </summary>
-    public unsafe int* MeshMaterial;
+    public unsafe Span<int> MeshMaterial => new(this.MeshMaterialPtr, this.MeshCount);
+
+    public unsafe int* MeshMaterialPtr;
 
     /// <summary>
     /// Number of bones.
@@ -45,10 +51,14 @@ public struct Model {
     /// <summary>
     /// Bones information (skeleton).
     /// </summary>
-    public unsafe BoneInfo* Bones;
+    public unsafe Span<BoneInfo> Bones => new(this.BonesPtr, this.BoneCount);
+
+    public unsafe BoneInfo* BonesPtr;
 
     /// <summary>
     /// Bones base transformation (pose).
     /// </summary>
-    public unsafe Transform* BindPose;
+    public unsafe Span<Transform> BindPose => new(this.BindPosePtr, this.BoneCount);
+
+    public unsafe Transform* BindPosePtr;
 }

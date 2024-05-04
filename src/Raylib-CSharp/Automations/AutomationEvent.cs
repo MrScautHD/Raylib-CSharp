@@ -18,5 +18,13 @@ public struct AutomationEvent {
     /// <summary>
     /// Event parameters (if required).
     /// </summary>
-    public unsafe fixed int Params[4];
+    public unsafe Span<int> Params {
+        get {
+            fixed (int* paramsPtr = this.ParamsPtr) {
+                return new(paramsPtr, 4);
+            }
+        }
+    }
+
+    public unsafe fixed int ParamsPtr[4];
 }

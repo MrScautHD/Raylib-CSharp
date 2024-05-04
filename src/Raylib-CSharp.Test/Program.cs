@@ -1,7 +1,9 @@
 ﻿using System.Numerics;
+using Raylib_CSharp;
 using Raylib_CSharp.Camera.Cam3D;
 using Raylib_CSharp.Colors;
 using Raylib_CSharp.Geometry;
+using Raylib_CSharp.Geometry.Animation;
 using Raylib_CSharp.Geometry.Managers;
 using Raylib_CSharp.Logging;
 using Raylib_CSharp.Materials;
@@ -75,10 +77,12 @@ while (!Window.ShouldClose()) {
     Graphics.EndDrawing();
 }
 
-unsafe {
-    MaterialManager.UnloadMaterial(model.Materials[0]);
-    model.Materials[0].Maps = null;
-}
+ModelAnimation animation = new ModelAnimation();
+Transform transform = animation.FramePosesCollection[1][1];
+
+
+MaterialManager.UnloadMaterial(model.Materials[0]);
+model.MaterialCount = 0;
 
 ModelManager.UnloadModel(model);
 

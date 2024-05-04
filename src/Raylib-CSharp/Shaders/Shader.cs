@@ -13,5 +13,7 @@ public struct Shader {
     /// <summary>
     /// Shader locations array (RL_MAX_SHADER_LOCATIONS).
     /// </summary>
-    public unsafe int* Locs;
+    public unsafe Span<int> Locs => new(this.LocsPtr, 32);
+
+    public unsafe int* LocsPtr;
 }

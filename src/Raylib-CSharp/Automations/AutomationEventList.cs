@@ -18,5 +18,7 @@ public struct AutomationEventList {
     /// <summary>
     /// Events entries.
     /// </summary>
-    public unsafe AutomationEvent* Events;
+    public unsafe Span<AutomationEvent> Events => new(this.EventsPtr, this.Capacity);
+
+    public unsafe AutomationEvent* EventsPtr;
 }

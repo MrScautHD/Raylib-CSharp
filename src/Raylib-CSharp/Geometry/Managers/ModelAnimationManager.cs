@@ -1,5 +1,6 @@
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
+using Raylib_CSharp.Geometry.Animation;
 
 namespace Raylib_CSharp.Geometry.Managers;
 

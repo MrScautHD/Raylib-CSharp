@@ -1,4 +1,5 @@
 using System.Runtime.InteropServices;
+using Raylib_CSharp.Spans;
 
 namespace Raylib_CSharp.IO;
 
@@ -18,5 +19,7 @@ public struct FilePathList {
     /// <summary>
     /// FilePaths entries.
     /// </summary>
-    public unsafe byte** Paths;
+    public unsafe StringArraySpan Paths => new(this.PathsPtr, (int) this.Count);
+
+    public unsafe sbyte** PathsPtr;
 }

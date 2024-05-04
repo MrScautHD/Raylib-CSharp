@@ -5,6 +5,8 @@ using Raylib_CSharp.Camera.Cam2D;
 using Raylib_CSharp.Camera.Cam3D;
 using Raylib_CSharp.Colors;
 using Raylib_CSharp.Fonts;
+using Raylib_CSharp.Geometry;
+using Raylib_CSharp.Materials;
 using Raylib_CSharp.Shaders;
 using Raylib_CSharp.Textures;
 using Raylib_CSharp.Vr;
@@ -223,4 +225,27 @@ public static partial class Graphics {
     [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
     public static unsafe partial void DrawTextCodepoints(Font font, int* codepoints, int codepointCount, Vector2 position, float fontSize, float spacing, Color tint);
+
+    /* --------------------------------- Mesh Drawing --------------------------------- */
+
+    /// <summary>
+    /// Draw a 3d mesh with material and transform.
+    /// </summary>
+    /// <param name="mesh">The mesh to draw</param>
+    /// <param name="material">The material to use for rendering</param>
+    /// <param name="transform">The transformation matrix to apply to the mesh</param>
+    [LibraryImport(Raylib.Name, EntryPoint = "DrawMesh")]
+    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
+    public static partial void DrawMesh(Mesh mesh, Material material, Matrix4x4 transform);
+
+    /// <summary>
+    /// Draw multiple mesh instances with material and different transforms.
+    /// </summary>
+    /// <param name="mesh">The mesh to be drawn.</param>
+    /// <param name="material">The material to be applied to the mesh.</param>
+    /// <param name="transforms">An array of transform matrices for each instance.</param>
+    /// <param name="instances">The number of instances to be drawn.</param>
+    [LibraryImport(Raylib.Name, EntryPoint = "DrawMeshInstanced")]
+    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
+    public static unsafe partial void DrawMeshInstanced(Mesh mesh, Material material, Matrix4x4* transforms, int instances);
 }

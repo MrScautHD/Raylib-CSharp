@@ -19,6 +19,8 @@ public struct BoundingBox {
     /// <summary>
     /// Bounding box type.
     /// </summary>
+    /// <param name="min">Minimum corner of the bounding box.</param>
+    /// <param name="max">Maximum corner of the bounding box.</param>
     public BoundingBox(Vector3 min, Vector3 max) {
         this.Min = min;
         this.Max = max;

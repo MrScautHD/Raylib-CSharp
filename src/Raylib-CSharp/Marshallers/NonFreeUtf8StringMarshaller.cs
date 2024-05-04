@@ -1,3 +1,4 @@
+using System.Runtime.InteropServices;
 using System.Runtime.InteropServices.Marshalling;
 
 namespace Raylib_CSharp.Marshallers;
@@ -10,8 +11,8 @@ public static class NonFreeUtf8StringMarshaller {
     /// </summary>
     /// <param name="unmanaged">A pointer to the null-terminated UTF-8 string in unmanaged memory.</param>
     /// <returns>The managed string representation of the UTF-8 string.</returns>
-    public static unsafe string? ConvertToManaged(byte* unmanaged) {
-        return Utf8StringMarshaller.ConvertToManaged(unmanaged);
+    public static string ConvertToManaged(nint unmanaged) {
+        return Marshal.PtrToStringUTF8(unmanaged) ?? string.Empty;
     }
 
     /// <summary>
@@ -19,7 +20,7 @@ public static class NonFreeUtf8StringMarshaller {
     /// </summary>
     /// <param name="managed">The managed string to be converted.</param>
     /// <returns>A pointer to the null-terminated UTF-8 string in unmanaged memory.</returns>
-    public static unsafe byte* ConvertToUnmanaged(string managed) {
-        return Utf8StringMarshaller.ConvertToUnmanaged(managed);
+    public static nint ConvertToUnmanaged(string managed) {
+        return Marshal.StringToCoTaskMemUTF8(managed);
     }
 }

@@ -33,12 +33,16 @@ public partial struct Font {
     /// <summary>
     /// Rectangles in texture for the glyphs.
     /// </summary>
-    public unsafe RectangleF* Recs;
+    public unsafe Span<RectangleF> Recs => new(this.RecsPtr, this.GlyphCount);
+
+    public unsafe RectangleF* RecsPtr;
 
     /// <summary>
     /// Glyphs info data.
     /// </summary>
-    public unsafe GlyphInfo* Glyphs;
+    public unsafe Span<GlyphInfo> Glyphs => new(this.GlyphsPtr, this.GlyphCount);
+
+    public unsafe GlyphInfo* GlyphsPtr;
 
     /// <summary>
     /// Get the default Font.

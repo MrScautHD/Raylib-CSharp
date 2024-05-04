@@ -170,7 +170,7 @@ public partial struct Font {
     /// <param name="font">The font.</param>
     /// <param name="codepoint">The codepoint.</param>
     /// <returns>The glyph index.</returns>
-    [LibraryImport(Raylib.Name, EntryPoint = "GetGlyphIndex")]
+    [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
     public static partial int GetGlyphIndex(Font font, int codepoint);
 
@@ -180,7 +180,7 @@ public partial struct Font {
     /// <param name="font">The font to get glyph information from.</param>
     /// <param name="codepoint">The codepoint of the glyph.</param>
     /// <returns>The glyph information for the specified codepoint.</returns>
-    [LibraryImport(Raylib.Name, EntryPoint = "GetGlyphInfo")]
+    [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
     public static partial GlyphInfo GetGlyphInfo(Font font, int codepoint);
 
@@ -190,7 +190,7 @@ public partial struct Font {
     /// <param name="font">The font.</param>
     /// <param name="codepoint">The codepoint.</param>
     /// <returns>The glyph atlas rectangle for the specified codepoint.</returns>
-    [LibraryImport(Raylib.Name, EntryPoint = "GetGlyphAtlasRec")]
+    [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
     public static partial RectangleF GetGlyphAtlasRec(Font font, int codepoint);
 }

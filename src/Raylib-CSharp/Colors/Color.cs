@@ -79,7 +79,7 @@ public partial struct Color {
     /// <param name="color">The color to fade.</param>
     /// <param name="alpha">The new alpha value.</param>
     /// <returns>The faded color.</returns>
-    [LibraryImport(Raylib.Name, EntryPoint = "Fade")]
+    [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
     public static partial Color Fade(Color color, float alpha);
 
@@ -196,7 +196,7 @@ public partial struct Color {
     /// <param name="srcPtr">Pointer to the start of the image buffer.</param>
     /// <param name="format">The pixel format of the image buffer.</param>
     /// <returns>The color of the pixel.</returns>
-    [LibraryImport(Raylib.Name, EntryPoint = "GetPixelColor")]
+    [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
     public static partial Color GetPixelColor(nint srcPtr, PixelFormat format);
 
@@ -206,7 +206,7 @@ public partial struct Color {
     /// <param name="dstPtr">Pointer to the destination image data.</param>
     /// <param name="color">The color to set.</param>
     /// <param name="format">The pixel format of the image.</param>
-    [LibraryImport(Raylib.Name, EntryPoint = "SetPixelColor")]
+    [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
     public static partial void SetPixelColor(nint dstPtr, Color color, PixelFormat format);
 
@@ -217,7 +217,7 @@ public partial struct Color {
     /// <param name="height">The height of the pixel data.</param>
     /// <param name="format">The pixel format of the pixel data.</param>
     /// <returns>The size of the pixel data in bytes.</returns>
-    [LibraryImport(Raylib.Name, EntryPoint = "GetPixelDataSize")]
+    [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
     public static partial int GetPixelDataSize(int width, int height, PixelFormat format);
 }

@@ -1,14 +1,15 @@
+using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
 namespace Raylib_CSharp.Automations;
 
 [StructLayout(LayoutKind.Sequential)]
-public struct AutomationEvent {
+public partial struct AutomationEvent {
 
     /// <summary>
     /// Event frame.
     /// </summary>
-    public int Frame;
+    public uint Frame;
 
     /// <summary>
     /// Event type (AutomationEventType).
@@ -27,4 +28,34 @@ public struct AutomationEvent {
     }
 
     public unsafe fixed int ParamsPtr[4];
+
+    /// <summary>
+    /// Set automation event internal base frame to start recording.
+    /// </summary>
+    /// <param name="frame">The base frame to set.</param>
+    [LibraryImport(Raylib.Name, EntryPoint = "SetAutomationEventBaseFrame")]
+    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
+    public static partial void SetBaseFrame(int frame);
+
+    /// <summary>
+    /// Start recording automation events (AutomationEventList must be set).
+    /// </summary>
+    [LibraryImport(Raylib.Name, EntryPoint = "StartAutomationEventRecording")]
+    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
+    public static partial void StartRecording();
+
+    /// <summary>
+    /// Stop recording automation events.
+    /// </summary>
+    [LibraryImport(Raylib.Name, EntryPoint = "StopAutomationEventRecording")]
+    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
+    public static partial void StopRecording();
+
+    /// <summary>
+    /// Play a recorded automation event.
+    /// </summary>
+    /// <param name="automationEvent">The automation event to play.</param>
+    [LibraryImport(Raylib.Name, EntryPoint = "PlayAutomationEvent")]
+    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
+    public static partial void Play(AutomationEvent automationEvent);
 }

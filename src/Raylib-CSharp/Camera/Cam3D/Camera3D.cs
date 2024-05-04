@@ -189,7 +189,7 @@ public partial struct Camera3D {
     /// <param name="mousePosition">The position of the mouse in screen coordinates.</param>
     /// <param name="camera">The camera to use for the ray calculation.</param>
     /// <returns>The ray from the mouse position in world space coordinates.</returns>
-    [LibraryImport(Raylib.Name, EntryPoint = "GetMouseRay")]
+    [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
     public static partial Ray GetMouseRay(Vector2 mousePosition, Camera3D camera);
 
@@ -208,7 +208,7 @@ public partial struct Camera3D {
     /// <param name="position">The world position to convert.</param>
     /// <param name="camera">The camera to use for the conversion.</param>
     /// <returns>The screen coordinates of the world position.</returns>
-    [LibraryImport(Raylib.Name, EntryPoint = "GetWorldToScreen")]
+    [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
     public static partial Vector2 GetWorldToScreen(Vector3 position, Camera3D camera);
 
@@ -220,7 +220,7 @@ public partial struct Camera3D {
     /// <param name="width">The width of the screen.</param>
     /// <param name="height">The height of the screen.</param>
     /// <returns>The screen-space coordinates as a Vector2.</returns>
-    [LibraryImport(Raylib.Name, EntryPoint = "GetWorldToScreenEx")]
+    [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
     public static partial Vector2 GetWorldToScreenEx(Vector3 position, Camera3D camera, int width, int height);
 }

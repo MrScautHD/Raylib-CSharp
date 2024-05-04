@@ -3,8 +3,8 @@ using Raylib_CSharp;
 using Raylib_CSharp.Camera.Cam3D;
 using Raylib_CSharp.Colors;
 using Raylib_CSharp.Geometry;
-using Raylib_CSharp.Geometry.Animation;
-using Raylib_CSharp.Geometry.Managers;
+using Raylib_CSharp.Images;
+using Raylib_CSharp.IO;
 using Raylib_CSharp.Logging;
 using Raylib_CSharp.Materials;
 using Raylib_CSharp.Rendering;
@@ -51,7 +51,7 @@ Logger.Message += (level, text) => {
 
 Window.Init(1280, 720, "Raylib-CSharp");
 
-Model model = ModelManager.LoadModel("content/model.glb");
+Model model = Model.Load("content/model.glb");
 
 Camera3D camera3D = new Camera3D() {
     FovY = 70,
@@ -61,6 +61,8 @@ Camera3D camera3D = new Camera3D() {
     Up = Vector3.UnitY
 };
 
+Image testImage = Image.GenColor(100, 100, Color.Green);
+
 while (!Window.ShouldClose()) {
     Camera3D.Update(ref camera3D, CameraMode.Orbital);
 
@@ -68,8 +70,8 @@ while (!Window.ShouldClose()) {
     Graphics.ClearBackground(Color.SkyBlue);
 
     Graphics.BeginMode3D(camera3D);
-    ModelManager.DrawGrid(100, 1);
-    ModelManager.DrawModel(model, Vector3.UnitY / 2, 1, Color.Alpha(Color.Green, 0.5F));
+    Graphics.DrawGrid(100, 1);
+    Graphics.DrawModel(model, Vector3.UnitY / 2, 1, Color.Alpha(Color.Green, 0.5F));
     Graphics.EndMode3D();
 
     Graphics.DrawFps(50, 50);
@@ -77,13 +79,19 @@ while (!Window.ShouldClose()) {
     Graphics.EndDrawing();
 }
 
-ModelAnimation animation = new ModelAnimation();
-Transform transform = animation.FramePosesCollection[1][1];
+unsafe {
+    ModelAnimation animation = ModelAnimation.Load("content/model.glb", out int count)[1];
 
+    Transform transform = animation.FramePosesCollection[1][1];
+    Logger.TraceLog(TraceLogLevel.Error, "Test : " + transform.Translation);
+}
+
+FilePathList test = FileManager.LoadDirectoryFiles("content");
+Logger.TraceLog(TraceLogLevel.Error, "Path: " + test.Paths[0]);
 
 MaterialManager.UnloadMaterial(model.Materials[0]);
 model.MaterialCount = 0;
 
-ModelManager.UnloadModel(model);
+Model.Unload(model);
 
 Window.Close();

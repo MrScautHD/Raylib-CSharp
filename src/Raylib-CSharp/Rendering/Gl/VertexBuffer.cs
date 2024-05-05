@@ -36,9 +36,9 @@ public struct VertexBuffer {
     /// <summary>
     /// Vertex indices (in case vertex data comes indexed) (6 indices per quad).
     /// </summary>
-    public unsafe Span<uint> Indices => new(this.ColorsPtr, this.ElementCount * 6);
+    public unsafe Span<uint> Indices => new(this.IndicesPtr, this.ElementCount * 6);
 
-    public nint IndicesPtr;
+    public unsafe uint* IndicesPtr;
 
     /// <summary>
     /// OpenGL Vertex Array Object id.

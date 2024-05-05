@@ -71,7 +71,7 @@ Console.WriteLine(animation[1].Name + "");
 Font font = Font.Load("content/fontoe.ttf");
 ReadOnlySpan<byte> fileData = FileManager.LoadFileData("content/fontoe.ttf");
 ReadOnlySpan<int> codepoints = TextManager.LoadCodepoints("HELLOO i like you :)");
-ReadOnlySpan<GlyphInfo> info = Font.LoadData(fileData, 18, codepoints, FontType.Default);
+ReadOnlySpan<GlyphInfo> info = Font.LoadData(fileData, 18, 95, FontType.Default);
 
 Console.WriteLine(info.Length + "");
 

@@ -10,7 +10,7 @@ public static partial class Raylib {
 
     public const string Name = "raylib";
 
-    public static readonly Version Version = new(1, 0, 0);
+    public static readonly Version Version = new(2, 0, 0);
     public static readonly Version RlVersion = new(5, 0, 0);
 
     /// <summary>

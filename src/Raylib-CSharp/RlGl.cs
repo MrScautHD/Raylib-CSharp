@@ -18,7 +18,7 @@ public static partial class RlGl {
     public const int DefaultBatchDrawCalls = 256;
     public const int DefaultBatchMaxTextureUnits  = 4;
     public const int MaxMatrixStackSize = 32;
-    public const int MaxShaderLocations  = 32;
+    public const int MaxShaderLocations = 32;
     public const float CullDistanceNear = 0.01F;
     public const float CullDistanceFar = 1000.0F;
 
@@ -793,6 +793,13 @@ public static partial class RlGl {
     public static unsafe partial int* GetShaderLocsDefault();
 
     /// <summary>
+    /// Get default shader locations.
+    /// </summary>
+    public static unsafe ReadOnlySpan<int> GetShaderLocsDefaultSpan() {
+        return new ReadOnlySpan<int>(GetShaderLocsDefault(), MaxShaderLocations);
+    }
+
+    /// <summary>
     /// Load a render batch system.
     /// </summary>
     /// <param name="numBuffers">The number of buffers in the render batch.</param>
@@ -1050,7 +1057,7 @@ public static partial class RlGl {
     /// <param name="glType">A pointer to the variable that will receive the OpenGL type.</param>
     [LibraryImport(Raylib.Name, EntryPoint = "rlGetGlTextureFormats")]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static unsafe partial void GetGlTextureFormats(PixelFormat format, uint* glInternalFormat, uint* glFormat, uint* glType);
+    public static unsafe partial void GetGlTextureFormats(PixelFormat format, out uint glInternalFormat, out uint glFormat, out uint glType);
 
     /// <summary>
     /// Get name string for pixel format.
@@ -1081,6 +1088,21 @@ public static partial class RlGl {
     [LibraryImport(Raylib.Name, EntryPoint = "rlGenTextureMipmaps")]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
     public static unsafe partial void GenTextureMipmaps(uint id, int width, int height, PixelFormat format, int* mipmaps);
+
+    /// <summary>
+    /// Generate mipmap data for selected texture.
+    /// </summary>
+    /// <param name="id">The ID of the texture.</param>
+    /// <param name="width">The width of the texture.</param>
+    /// <param name="height">The height of the texture.</param>
+    /// <param name="format">The pixel format of the texture.</param>
+    /// <param name="mipmaps">The output array of mipmaps.</param>
+    public static unsafe void GenTextureMipmaps(uint id, int width, int height, PixelFormat format, out ReadOnlySpan<int> mipmaps) {
+        int mipmapsPtr;
+        GenTextureMipmaps(id, width, height, format, &mipmapsPtr);
+
+        mipmaps = new ReadOnlySpan<int>(&mipmapsPtr, 1 + (int) Math.Floor(Math.Log(Math.Max(width, height)) / Math.Log(2)));
+    }
 
     /// <summary>
     /// Read texture pixel data.
@@ -1244,6 +1266,17 @@ public static partial class RlGl {
     [LibraryImport(Raylib.Name, EntryPoint = "rlSetShader")]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
     public static unsafe partial void SetShader(uint id, int* locs);
+
+    /// <summary>
+    /// Set shader currently active (id and locations).
+    /// </summary>
+    /// <param name="id">The ID of the shader program to set.</param>
+    /// <param name="locs">The locations of the shader program's uniforms.</param>
+    public static unsafe void SetShader(uint id, Span<int> locs) {
+        fixed (int* locsPtr = locs) {
+            SetShader(id, locsPtr);
+        }
+    }
 
     /// <summary>
     /// Load compute shader program.

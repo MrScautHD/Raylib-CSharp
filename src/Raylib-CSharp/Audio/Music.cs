@@ -52,6 +52,18 @@ public partial struct Music {
     public static unsafe partial Music LoadFromMemory(string fileType, byte* data, int dataSize);
 
     /// <summary>
+    /// Load music stream from data.
+    /// </summary>
+    /// <param name="fileType">The file type of the music.</param>
+    /// <param name="data">A Span to the memory containing the music data.</param>
+    /// <returns>The loaded music stream.</returns>
+    public static unsafe Music LoadFromMemory(string fileType, ReadOnlySpan<byte> data) {
+        fixed (byte* dataPtr = data) {
+            return LoadFromMemory(fileType, dataPtr, data.Length);
+        }
+    }
+
+    /// <summary>
     /// Checks if a music stream is ready.
     /// </summary>
     /// <param name="music">The music stream to check.</param>

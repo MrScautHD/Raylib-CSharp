@@ -52,6 +52,18 @@ public partial struct Wave {
     public static unsafe partial Wave LoadFromMemory(string fileType, byte* fileData, int dataSize);
 
     /// <summary>
+    /// Load wave from memory buffer, fileType refers to extension: i.e. '.wav'.
+    /// </summary>
+    /// <param name="fileType">Type of the file containing wave data</param>
+    /// <param name="fileData">A Span to the memory block containing wave data</param>
+    /// <returns>Wave structure containing loaded data</returns>
+    public static unsafe Wave LoadFromMemory(string fileType, byte[] fileData) {
+        fixed (byte* fileDataPtr = fileData) {
+            return LoadFromMemory(fileType, fileDataPtr, fileData.Length);
+        }
+    }
+
+    /// <summary>
     /// Checks if wave data is ready.
     /// </summary>
     /// <param name="wave">The wave structure to check.</param>
@@ -131,10 +143,29 @@ public partial struct Wave {
     public static unsafe partial float* LoadSamples(Wave wave);
 
     /// <summary>
+    /// Load samples data from wave as a 32bit float data array.
+    /// </summary>
+    /// <param name="wave">The wave data to load the samples from.</param>
+    /// <returns>A Span to the loaded samples.</returns>
+    public static unsafe ReadOnlySpan<float> LoadSamplesSpan(Wave wave) {
+        return new Span<float>(LoadSamples(wave), (int) (wave.FrameCount * wave.Channels));
+    }
+
+    /// <summary>
     /// Unload samples data loaded with LoadWaveSamples().
     /// </summary>
     /// <param name="samples">Pointer to the samples data</param>
     [LibraryImport(Raylib.Name, EntryPoint = "UnloadWaveSamples")]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
     public static unsafe partial void UnloadSamples(float* samples);
+
+    /// <summary>
+    /// Unload samples data loaded with LoadWaveSamples().
+    /// </summary>
+    /// <param name="samples">A Span to the samples data</param>
+    public static unsafe void UnloadSamplesSpan(ReadOnlySpan<float> samples) {
+        fixed (float* ptr = samples) {
+            UnloadSamples(ptr);
+        }
+    }
 }

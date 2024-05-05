@@ -171,11 +171,21 @@ public static partial class Window {
     /// <summary>
     /// Set icon for window (multiple images, RGBA 32bit, only PLATFORM_DESKTOP).
     /// </summary>
-    /// <param name="image">The array of images representing the icons.</param>
+    /// <param name="images">The array of images representing the icons.</param>
     /// <param name="count">The number of icons in the array.</param>
     [LibraryImport(Raylib.Name, EntryPoint = "SetWindowIcons")]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static unsafe partial void SetIcons(Image* image, int count);
+    public static unsafe partial void SetIcons(Image* images, int count);
+
+    /// <summary>
+    /// Set icon for window (multiple images, RGBA 32bit, only PLATFORM_DESKTOP).
+    /// </summary>
+    /// <param name="images">The collection of images to be used as icons.</param>
+    public static unsafe void SetIcons(Span<Image> images) {
+        fixed (Image* imagesPtr = images) {
+            SetIcons(imagesPtr, images.Length);
+        }
+    }
 
     /// <summary>
     /// Set title for window (only PLATFORM_DESKTOP and PLATFORM_WEB).

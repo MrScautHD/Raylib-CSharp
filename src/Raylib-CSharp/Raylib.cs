@@ -67,12 +67,33 @@ public static partial class Raylib {
     public static unsafe partial int* LoadRandomSequence(int count, int min, int max);
 
     /// <summary>
+    /// Load random values sequence, no values repeated.
+    /// </summary>
+    /// <param name="count">The number of random values to generate.</param>
+    /// <param name="min">The minimum value in the range (inclusive).</param>
+    /// <param name="max">The maximum value in the range (inclusive).</param>
+    /// <returns>A span of random integers.</returns>
+    public static unsafe ReadOnlySpan<int> LoadRandomSequenceSpan(int count, int min, int max) {
+        return new ReadOnlySpan<int>(LoadRandomSequence(count, min, max), count);
+    }
+
+    /// <summary>
     /// Unload random values sequence.
     /// </summary>
     /// <param name="sequence">Pointer to the array containing the random sequence.</param>
     [LibraryImport(Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
     public static unsafe partial void UnloadRandomSequence(int* sequence);
+
+    /// <summary>
+    /// Unload random values sequence.
+    /// </summary>
+    /// <param name="sequence">The memory span containing the random sequence.</param>
+    public static unsafe void UnloadRandomSequenceSpan(ReadOnlySpan<int> sequence) {
+        fixed (int* sequencePtr = sequence) {
+            UnloadRandomSequence(sequencePtr);
+        }
+    }
 
     /// <summary>
     /// Internal memory allocator.

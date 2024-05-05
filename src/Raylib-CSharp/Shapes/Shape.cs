@@ -154,6 +154,18 @@ public static partial class Shape {
     public static unsafe partial bool CheckCollisionPointPoly(Vector2 point, Vector2* points, int pointCount);
 
     /// <summary>
+    /// Check if point is within a polygon described by array of vertices.
+    /// </summary>
+    /// <param name="point">The point to check for collision.</param>
+    /// <param name="points">The array of points that define the polygon.</param>
+    /// <returns>True if the point collides with the polygon, otherwise false.</returns>
+    public static unsafe bool CheckCollisionPointPoly(Vector2 point, Span<Vector2> points) {
+        fixed (Vector2* pointsPtr = points) {
+            return CheckCollisionPointPoly(point, pointsPtr, points.Length);
+        }
+    }
+
+    /// <summary>
     /// Check the collision between two lines defined by two points each, returns collision point by reference.
     /// </summary>
     /// <param name="startPos1">The start position of the first line.</param>

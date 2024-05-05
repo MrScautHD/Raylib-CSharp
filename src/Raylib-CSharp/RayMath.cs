@@ -873,7 +873,7 @@ public static partial class RayMath {
     /// <param name="aspect">The aspect ratio of the view, defined as the width divided by the height.</param>
     /// <param name="nearPlane">The distance to the near clipping plane.</param>
     /// <param name="farPlane">The distance to the far clipping plane.</param>
-    /// <returns>The perspective projection matrix.</returns
+    /// <returns>The perspective projection matrix.</returns>
     [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
     public static partial Matrix4x4 MatrixPerspective(double fovY, double aspect, double nearPlane, double farPlane);

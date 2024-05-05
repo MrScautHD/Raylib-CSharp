@@ -20,6 +20,17 @@ public static partial class TextManager {
     public static unsafe partial string LoadUtf8(int* codepoints, int length);
 
     /// <summary>
+    /// Load UTF-8 text encoded from codepoints array.
+    /// </summary>
+    /// <param name="codepoints">An array of codepoints.</param>
+    /// <returns>The loaded UTF-8 string.</returns>
+    public static unsafe string LoadUtf8(ReadOnlySpan<int> codepoints) {
+        fixed (int* codepointsPtr = codepoints) {
+            return LoadUtf8(codepointsPtr, codepoints.Length);
+        }
+    }
+
+    /// <summary>
     /// Unload UTF-8 text encoded from codepoints array.
     /// </summary>
     /// <param name="text">The UTF-8 encoded string to unload.</param>
@@ -32,18 +43,37 @@ public static partial class TextManager {
     /// </summary>
     /// <param name="text">The text from which to load the codepoints.</param>
     /// <param name="count">The number of codepoints loaded.</param>
-    /// <returns>An array of integers representing the codepoints.</returns>
+    /// <returns>A Pointer of integers representing the codepoints.</returns>
     [LibraryImport(Raylib.Name, StringMarshalling = StringMarshalling.Utf8)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
     public static unsafe partial int* LoadCodepoints(string text, out int count);
 
     /// <summary>
+    /// Load all codepoints from a UTF-8 text string, codepoints count returned by parameter.
+    /// </summary>
+    /// <param name="text">The text from which to load the codepoints.</param>
+    /// <returns>A Span of integers representing the codepoints.</returns>
+    public static unsafe ReadOnlySpan<int> LoadCodepoints(string text) {
+        return new ReadOnlySpan<int>(LoadCodepoints(text, out int count), count);
+    }
+
+    /// <summary>
     /// Unload codepoints data from memory.
     /// </summary>
-    /// <param name="codepoints">The array of codepoints to unload.</param>
+    /// <param name="codepoints">The Pointer of codepoints to unload.</param>
     [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
     public static unsafe partial void UnloadCodepoints(int* codepoints);
+
+    /// <summary>
+    /// Unload codepoints data from memory.
+    /// </summary>
+    /// <param name="codepoints">The Span of codepoints to unload.</param>
+    public static unsafe void UnloadCodepoints(ReadOnlySpan<int> codepoints) {
+        fixed (int* codepointsPtr = codepoints) {
+            UnloadCodepoints(codepointsPtr);
+        }
+    }
 
     /// <summary>
     /// Get total number of codepoints in a UTF-8 encoded string.
@@ -97,7 +127,7 @@ public static partial class TextManager {
     /// <summary>
     /// Set vertical line spacing when drawing with line-breaks.
     /// </summary>
-    /// <param name="spacing">The amount of spacing between lines. Positive values increase the spacing, negative values decrease the spacing.</param
+    /// <param name="spacing">The amount of spacing between lines. Positive values increase the spacing, negative values decrease the spacing.</param>
     [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
     public static partial void SetTextLineSpacing(int spacing);
@@ -213,6 +243,16 @@ public static partial class TextManager {
     public static unsafe partial string TextJoin(sbyte** textList, int count, string delimiter);
 
     /// <summary>
+    /// Join text strings with delimiter.
+    /// </summary>
+    /// <param name="textList">An array of strings.</param>
+    /// <param name="delimiter">The delimiter used to join the strings.</param>
+    /// <returns>The joined string.</returns>
+    public static string TextJoin(string[] textList, string delimiter) {
+        return string.Join(delimiter, textList);
+    }
+
+    /// <summary>
     /// Split text into multiple strings.
     /// </summary>
     /// <param name="text">The string to split.</param>
@@ -222,6 +262,16 @@ public static partial class TextManager {
     [LibraryImport(Raylib.Name, StringMarshalling = StringMarshalling.Utf8)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
     public static unsafe partial sbyte** TextSplit(string text, string delimiter, out int count);
+
+    /// <summary>
+    /// Split text into multiple strings.
+    /// </summary>
+    /// <param name="text">The string to split.</param>
+    /// <param name="delimiter">The delimiter used to split the string.</param>
+    /// <returns>An array of substrings.</returns>
+    public static string[] TextSplit(string text, string delimiter) {
+        return text.Split(delimiter);
+    }
 
     /// <summary>
     /// Append text at specific position and move cursor!.

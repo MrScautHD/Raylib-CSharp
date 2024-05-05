@@ -1,13 +1,18 @@
 ﻿using System.Numerics;
+using System.Text;
 using Raylib_CSharp;
+using Raylib_CSharp.Audio;
 using Raylib_CSharp.Camera.Cam3D;
 using Raylib_CSharp.Colors;
+using Raylib_CSharp.Fonts;
 using Raylib_CSharp.Geometry;
 using Raylib_CSharp.Images;
 using Raylib_CSharp.IO;
 using Raylib_CSharp.Logging;
 using Raylib_CSharp.Materials;
 using Raylib_CSharp.Rendering;
+using Raylib_CSharp.Spans;
+using Raylib_CSharp.Textures;
 using Raylib_CSharp.Windowing;
 
 Logger.Init();
@@ -53,6 +58,37 @@ Window.Init(1280, 720, "Raylib-CSharp");
 
 Model model = Model.Load("content/model.glb");
 
+//Material[] materials = Material.Load("content/iqm/guy.iqm", out int materialCount);
+//
+//Logger.TraceLog(TraceLogLevel.Error, materialCount + "");
+
+
+ReadOnlySpan<ModelAnimation> animation = ModelAnimation.Load("content/model.glb");
+Console.WriteLine(animation[1].Name + "");
+
+
+// LOAD DATA
+Font font = Font.Load("content/fontoe.ttf");
+ReadOnlySpan<byte> fileData = FileManager.LoadFileData("content/fontoe.ttf");
+ReadOnlySpan<int> codepoints = TextManager.LoadCodepoints("HELLOO i like you :)");
+ReadOnlySpan<GlyphInfo> info = Font.LoadData(fileData, 18, codepoints, FontType.Default);
+
+Console.WriteLine(info.Length + "");
+
+Image image = Font.GenImageAtlas(info, font.Recs, 18, 4, 0);
+Texture2D texture = Texture2D.LoadFromImage(image);
+Image.Unload(image);
+
+FileManager.UnloadFileData(fileData);
+TextManager.UnloadCodepoints(codepoints);
+Font.UnloadData(info);
+
+string[] testArray = new string[3];
+testArray[1] = "HELLOOOO";
+testArray[2] = "HEYYYYY";
+
+TextManager.TextJoin(testArray, "hello");
+
 Camera3D camera3D = new Camera3D() {
     FovY = 70,
     Position = new Vector3(10, 10, 10),
@@ -62,6 +98,9 @@ Camera3D camera3D = new Camera3D() {
 };
 
 Image testImage = Image.GenColor(100, 100, Color.Green);
+
+//Span<Matrix4x4> matrix = new(new Matrix4x4[1]);
+//matrix[1] = new Matrix4x4();
 
 while (!Window.ShouldClose()) {
     Camera3D.Update(ref camera3D, CameraMode.Orbital);
@@ -75,15 +114,9 @@ while (!Window.ShouldClose()) {
     Graphics.EndMode3D();
 
     Graphics.DrawFps(50, 50);
+    Graphics.DrawTexture(texture, 10, 10, Color.White);
 
     Graphics.EndDrawing();
-}
-
-unsafe {
-    ModelAnimation animation = ModelAnimation.Load("content/model.glb", out int count)[1];
-
-    Transform transform = animation.FramePosesCollection[1][1];
-    Logger.TraceLog(TraceLogLevel.Error, "Test : " + transform.Translation);
 }
 
 FilePathList test = FileManager.LoadDirectoryFiles("content");

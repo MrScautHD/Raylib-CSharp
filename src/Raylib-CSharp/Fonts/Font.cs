@@ -2,6 +2,7 @@ using System.Drawing;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 using Raylib_CSharp.Images;
+using Raylib_CSharp.Spans;
 using Raylib_CSharp.Textures;
 using Color = Raylib_CSharp.Colors.Color;
 
@@ -74,6 +75,19 @@ public partial struct Font {
     public static unsafe partial Font LoadEx(string fileName, int fontSize, int* codepoints, int codepointCount);
 
     /// <summary>
+    /// Load font from file with extended parameters, use NULL for codepoints and 0 for codepointCount to load the default character set.
+    /// </summary>
+    /// <param name="fileName">The path to the font file.</param>
+    /// <param name="fontSize">The font size.</param>
+    /// <param name="codepoints">An array of codepoints to load from the font.</param>
+    /// <returns>A Font object representing the loaded font.</returns>
+    public static unsafe Font LoadEx(string fileName, int fontSize, ReadOnlySpan<int> codepoints) {
+        fixed (int* codepointsPtr = codepoints) {
+            return LoadEx(fileName, fontSize, codepointsPtr, codepoints.Length);
+        }
+    }
+
+    /// <summary>
     /// Load font from Image (XNA style).
     /// </summary>
     /// <param name="image">The image containing the font characters.</param>
@@ -99,6 +113,22 @@ public partial struct Font {
     public static unsafe partial Font LoadFromMemory(string fileType, byte* fileData, int dataSize, int fontSize, int* codepoints, int codepointCount);
 
     /// <summary>
+    /// Load font from memory buffer, fileType refers to extension: i.e. '.ttf'.
+    /// </summary>
+    /// <param name="fileType">The type of the font file.</param>
+    /// <param name="fileData">The memory buffer containing the font data.</param>
+    /// <param name="fontSize">The size of the font.</param>
+    /// <param name="codepoints">The codepoints used to generate the font.</param>
+    /// <returns>True if the font was successfully loaded, false otherwise.</returns>
+    public static unsafe Font LoadFromMemory(string fileType, ReadOnlySpan<byte> fileData, int fontSize, ReadOnlySpan<int> codepoints) {
+        fixed (byte* fileDataPtr = fileData) {
+            fixed (int* codepointsPtr = codepoints) {
+                return LoadFromMemory(fileType, fileDataPtr, fileData.Length, fontSize, codepointsPtr, codepoints.Length);
+            }
+        }
+    }
+
+    /// <summary>
     /// Check if a font is ready.
     /// </summary>
     /// <param name="font">The font to check.</param>
@@ -118,9 +148,25 @@ public partial struct Font {
     /// <param name="codepointCount">The number of Unicode code points to load.</param>
     /// <param name="type">The type of font data to load.</param>
     /// <returns>A pointer to the loaded font data.</returns>
-    [LibraryImport(Raylib.Name, EntryPoint = "LoadFontData", StringMarshalling = StringMarshalling.Utf8)]
+    [LibraryImport(Raylib.Name, EntryPoint = "LoadFontData")]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static unsafe partial GlyphInfo* LoadData(string fileData, int dataSize, int fontSize, int* codepoints, int codepointCount, FontType type);
+    public static unsafe partial GlyphInfo* LoadData(byte* fileData, int dataSize, int fontSize, int* codepoints, int codepointCount, FontType type);
+
+    /// <summary>
+    /// Load font data for further use.
+    /// </summary>
+    /// <param name="fileData">The file data in memory.</param>
+    /// <param name="fontSize">The size of the font.</param>
+    /// <param name="codepoints">An array of Unicode code points to load with font data.</param>
+    /// <param name="type">The type of font data to load.</param>
+    /// <returns>A Span to the loaded font data.</returns>
+    public static unsafe ReadOnlySpan<GlyphInfo> LoadData(ReadOnlySpan<byte> fileData, int fontSize, ReadOnlySpan<int> codepoints, FontType type) { // TODO maybe do a own method for null
+        fixed (byte* fileDataPtr = fileData) {
+            fixed (int* codepointsPtr = codepoints) {
+                return new ReadOnlySpan<GlyphInfo>(LoadData(fileDataPtr, fileData.Length, fontSize, codepointsPtr, codepoints.Length, type), codepoints.Length);
+            }
+        }
+    }
 
     /// <summary>
     /// Generate image font atlas using chars info.
@@ -137,13 +183,40 @@ public partial struct Font {
     public static unsafe partial Image GenImageAtlas(GlyphInfo* glyphs, RectangleF** glyphRecs, int glyphCount, int fontSize, int padding, int packMethod);
 
     /// <summary>
+    /// Generate image font atlas using chars info.
+    /// </summary>
+    /// <param name="glyphs">An array of glyph information.</param>
+    /// <param name="glyphRecs">A pointer to an array of glyph rectangles.</param>
+    /// <param name="fontSize">The size of the font.</param>
+    /// <param name="padding">The amount of padding between glyphs.</param>
+    /// <param name="packMethod">The method used for packing the glyphs.</param>
+    /// <returns>The generated font atlas image.</returns>
+    public static unsafe Image GenImageAtlas(ReadOnlySpan<GlyphInfo> glyphs, ReadOnlySpan<RectangleF> glyphRecs, int fontSize, int padding, int packMethod) {
+        fixed (GlyphInfo* glyphsPtr = glyphs) {
+            fixed (RectangleF* glyphRecsPtr = glyphRecs) {
+                return GenImageAtlas(glyphsPtr, &glyphRecsPtr, glyphs.Length, fontSize, padding, packMethod);
+            }
+        }
+    }
+
+    /// <summary>
     /// Unload font chars info data (RAM).
     /// </summary>
     /// <param name="glyphs">Pointer to the GlyphInfo structure.</param>
     /// <param name="glyphCount">The number of glyphs.</param>
     [LibraryImport(Raylib.Name, EntryPoint = "UnloadFontData")]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static unsafe partial void UnloadData(GlyphInfo glyphs, int glyphCount);
+    public static unsafe partial void UnloadData(GlyphInfo* glyphs, int glyphCount);
+
+    /// <summary>
+    /// Unload font chars info data (RAM).
+    /// </summary>
+    /// <param name="glyphs">Pointer to the GlyphInfo structure.</param>
+    public static unsafe void UnloadData(ReadOnlySpan<GlyphInfo> glyphs) {
+        fixed (GlyphInfo* glyphsPtr = glyphs) {
+            UnloadData(glyphsPtr, glyphs.Length);
+        }
+    }
 
     /// <summary>
     /// Unload font from GPU memory (VRAM).

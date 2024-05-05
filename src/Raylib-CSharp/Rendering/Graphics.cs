@@ -7,7 +7,6 @@ using Raylib_CSharp.Camera.Cam3D;
 using Raylib_CSharp.Collision;
 using Raylib_CSharp.Fonts;
 using Raylib_CSharp.Geometry;
-using Raylib_CSharp.Images;
 using Raylib_CSharp.Materials;
 using Raylib_CSharp.Shaders;
 using Raylib_CSharp.Textures;
@@ -229,6 +228,21 @@ public static partial class Graphics {
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
     public static unsafe partial void DrawTextCodepoints(Font font, int* codepoints, int codepointCount, Vector2 position, float fontSize, float spacing, Color tint);
 
+    /// <summary>
+    /// Draw multiple character (codepoint).
+    /// </summary>
+    /// <param name="font">The font to use for drawing.</param>
+    /// <param name="codepoints">An array of codepoints to draw.</param>
+    /// <param name="position">The position to draw the text.</param>
+    /// <param name="fontSize">The size of the font.</param>
+    /// <param name="spacing">The spacing between characters.</param>
+    /// <param name="tint">The tint color to apply to the text.</param>
+    public static unsafe void DrawTextCodepoints(Font font, ReadOnlySpan<int> codepoints, Vector2 position, float fontSize, float spacing, Color tint) {
+        fixed (int* codepointsPtr = codepoints) {
+            DrawTextCodepoints(font, codepointsPtr, codepoints.Length, position, fontSize, spacing, tint);
+        }
+    }
+
     /* --------------------------------- Mesh Drawing --------------------------------- */
 
     /// <summary>
@@ -251,6 +265,19 @@ public static partial class Graphics {
     [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
     public static unsafe partial void DrawMeshInstanced(Mesh mesh, Material material, Matrix4x4* transforms, int instances);
+
+
+    /// <summary>
+    /// Draw multiple mesh instances with material and different transforms.
+    /// </summary>
+    /// <param name="mesh">The mesh to be drawn.</param>
+    /// <param name="material">The material to be used for rendering.</param>
+    /// <param name="transforms">The transforms for each instance.</param>
+    public static unsafe void DrawMeshInstanced(Mesh mesh, Material material, Span<Matrix4x4> transforms) {
+        fixed (Matrix4x4* transformsPtr = transforms) {
+            DrawMeshInstanced(mesh, material, transformsPtr, transforms.Length);
+        }
+    }
 
     /* --------------------------------- Model Drawing --------------------------------- */
 
@@ -305,6 +332,17 @@ public static partial class Graphics {
     [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
     public static unsafe partial void DrawTriangle3D(Vector3* points, int pointCount, Color color);
+
+    /// <summary>
+    /// Draw a triangle strip defined by points.
+    /// </summary>
+    /// <param name="points">An array of points that represents the triangle vertices in 3D space.</param>
+    /// <param name="color">The color of the triangle.</param>
+    public static unsafe void DrawTriangle3D(Span<Vector3> points, Color color) {
+        fixed (Vector3* pointsPtr = points) {
+            DrawTriangle3D(pointsPtr, points.Length, color);
+        }
+    }
 
     /// <summary>
     /// Draw cube.
@@ -662,6 +700,17 @@ public static partial class Graphics {
     public static unsafe partial void DrawLineStrip(Vector2* points, int pointCount, Color color);
 
     /// <summary>
+    /// Draw lines sequence (using gl lines).
+    /// </summary>
+    /// <param name="points">The array of points defining the line strip.</param>
+    /// <param name="color">The color of the line strip.</param>
+    public static unsafe void DrawLineStrip(Span<Vector2> points, Color color) {
+        fixed (Vector2* pointsPtr = points) {
+            DrawLineStrip(pointsPtr, points.Length, color);
+        }
+    }
+
+    /// <summary>
     /// Draw line segment cubic-bezier in-out interpolation.
     /// </summary>
     /// <param name="startPos">The starting position of the curve.</param>
@@ -962,6 +1011,17 @@ public static partial class Graphics {
     public static unsafe partial void DrawTriangleFan(Vector2* points, int pointCount, Color color);
 
     /// <summary>
+    /// Draw a triangle fan defined by points (first vertex is the center).
+    /// </summary>
+    /// <param name="points">An array of Vector2 points that define the vertices of the triangle fan.</param>
+    /// <param name="color">The color of the triangle fan.</param>
+    public static unsafe void DrawTriangleFan(Span<Vector2> points, Color color) {
+        fixed (Vector2* pointsPtr = points) {
+            DrawTriangleFan(pointsPtr, points.Length, color);
+        }
+    }
+
+    /// <summary>
     /// Draw a triangle strip defined by points.
     /// </summary>
     /// <param name="points">The array of vertices defining the triangle strip.</param>
@@ -970,6 +1030,17 @@ public static partial class Graphics {
     [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
     public static unsafe partial void DrawTriangleStrip(Vector2* points, int pointCount, Color color);
+
+    /// <summary>
+    /// Draw a triangle strip defined by points.
+    /// </summary>
+    /// <param name="points">A span of Vector2 points representing the vertices of the triangle strip.</param>
+    /// <param name="color">The color to use for the triangle strip.</param>
+    public static unsafe void DrawTriangleStrip(Span<Vector2> points, Color color) {
+        fixed (Vector2* pointsPtr = points) {
+            DrawTriangleStrip(pointsPtr, points.Length, color);
+        }
+    }
 
     /// <summary>
     /// Draw a regular polygon (Vector version).
@@ -1020,6 +1091,18 @@ public static partial class Graphics {
     public static unsafe partial void DrawSplineLinear(Vector2* points, int pointCount, float thick, Color color);
 
     /// <summary>
+    /// Draw spline: Linear, minimum 2 points.
+    /// </summary>
+    /// <param name="points">The array of points to connect with the spline curve.</param>
+    /// <param name="thick">The thickness of the spline curve.</param>
+    /// <param name="color">The color of the spline curve.</param>
+    public static unsafe void DrawSplineLinear(Span<Vector2> points, float thick, Color color) {
+        fixed (Vector2* pointsPtr = points) {
+            DrawSplineLinear(pointsPtr, points.Length, thick, color);
+        }
+    }
+
+    /// <summary>
     /// Draw spline: B-Spline, minimum 4 points.
     /// </summary>
     /// <param name="points">Pointer to the array of control points.</param>
@@ -1029,6 +1112,18 @@ public static partial class Graphics {
     [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
     public static unsafe partial void DrawSplineBasis(Vector2* points, int pointCount, float thick, Color color);
+
+    /// <summary>
+    /// Draw spline: B-Spline, minimum 4 points.
+    /// </summary>
+    /// <param name="points">The control points of the spline basis curve.</param>
+    /// <param name="thick">The thickness of the spline basis curve.</param>
+    /// <param name="color">The color of the spline basis curve.</param>
+    public static unsafe void DrawSplineBasis(Span<Vector2> points, float thick, Color color) {
+        fixed (Vector2* pointsPtr = points) {
+            DrawSplineBasis(pointsPtr, points.Length, thick, color);
+        }
+    }
 
     /// <summary>
     /// Draw spline: Catmull-Rom, minimum 4 points.
@@ -1042,15 +1137,39 @@ public static partial class Graphics {
     public static unsafe partial void DrawSplineCatmullRom(Vector2* points, int pointCount, float thick, Color color);
 
     /// <summary>
+    /// Draw spline: Catmull-Rom, minimum 4 points.
+    /// </summary>
+    /// <param name="points">The array of control points for the spline.</param>
+    /// <param name="thick">The thickness of the spline.</param>
+    /// <param name="color">The color of the spline.</param>
+    public static unsafe void DrawSplineCatmullRom(Span<Vector2> points, float thick, Color color) {
+        fixed (Vector2* pointsPtr = points) {
+            DrawSplineCatmullRom(pointsPtr, points.Length, thick, color);
+        }
+    }
+
+    /// <summary>
     /// Draw spline: Quadratic Bezier, minimum 3 points (1 control point): [p1, c2, p3, c4...].
     /// </summary>
     /// <param name="points">The array of control points defining the spline.</param>
     /// <param name="pointCount">The number of control points in the array.</param>
     /// <param name="thick">The thickness of the spline.</param>
-    /// <param name="color">The color of the spline.</param
+    /// <param name="color">The color of the spline.</param>
     [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
     public static unsafe partial void DrawSplineBezierQuadratic(Vector2* points, int pointCount, float thick, Color color);
+
+    /// <summary>
+    /// Draw spline: Quadratic Bezier, minimum 3 points (1 control point): [p1, c2, p3, c4...].
+    /// </summary>
+    /// <param name="points">The control points of the spline.</param>
+    /// <param name="thick">The thickness of the spline.</param>
+    /// <param name="color">The color of the spline.</param>
+    public static unsafe void DrawSplineBezierQuadratic(Span<Vector2> points, float thick, Color color) {
+        fixed (Vector2* pointsPtr = points) {
+            DrawSplineBezierQuadratic(pointsPtr, points.Length, thick, color);
+        }
+    }
 
     /// <summary>
     /// Draw spline: Cubic Bezier, minimum 4 points (2 control points): [p1, c2, c3, p4, c5, c6...].
@@ -1062,6 +1181,18 @@ public static partial class Graphics {
     [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
     public static unsafe partial void DrawSplineBezierCubic(Vector2* points, int pointCount, float thick, Color color);
+
+    /// <summary>
+    /// Draw spline: Cubic Bezier, minimum 4 points (2 control points): [p1, c2, c3, p4, c5, c6...].
+    /// </summary>
+    /// <param name="points">The array of control points that define the spline.</param>
+    /// <param name="thick">The thickness of the spline.</param>
+    /// <param name="color">The color of the spline.</param>
+    public static unsafe void DrawSplineBezierCubic(Span<Vector2> points, float thick, Color color) {
+        fixed (Vector2* pointsPtr = points) {
+            DrawSplineBezierCubic(pointsPtr, points.Length, thick, color);
+        }
+    }
 
     /// <summary>
     /// Draw spline segment: Linear, 2 points.
@@ -1125,4 +1256,75 @@ public static partial class Graphics {
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
     public static partial void DrawSplineSegmentBezierCubic(Vector2 p1, Vector2 c2, Vector2 c3, Vector2 p4, float thick, Color color);
 
+    /* --------------------------------- Texture Drawing --------------------------------- */
+
+    /// <summary>
+    /// Draw a Texture2D.
+    /// </summary>
+    /// <param name="texture">The texture to draw.</param>
+    /// <param name="posX">The X coordinate of the position to draw the texture at.</param>
+    /// <param name="posY">The Y coordinate of the position to draw the texture at.</param>
+    /// <param name="tint">The tint color to apply to the texture (optional).</param>
+    [LibraryImport(Raylib.Name)]
+    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
+    public static partial void DrawTexture(Texture2D texture, int posX, int posY, Color tint);
+
+    /// <summary>
+    /// Draw a Texture2D with position defined as Vector2.
+    /// </summary>
+    /// <param name="texture">The texture to be drawn.</param>
+    /// <param name="position">The position where the texture will be drawn.</param>
+    /// <param name="tint">The color tint to apply to the texture.</param>
+    [LibraryImport(Raylib.Name)]
+    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
+    public static partial void DrawTextureV(Texture2D texture, Vector2 position, Color tint);
+
+    /// <summary>
+    /// Draw a Texture2D with extended parameters.
+    /// </summary>
+    /// <param name="texture">The texture to draw.</param>
+    /// <param name="position">The position where the texture will be drawn.</param>
+    /// <param name="rotation">The rotation angle of the texture, in degrees.</param>
+    /// <param name="scale">The scale factor to apply to the texture.</param>
+    /// <param name="tint">The tint color to apply to the texture.</param>
+    [LibraryImport(Raylib.Name)]
+    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
+    public static partial void DrawTextureEx(Texture2D texture, Vector2 position, float rotation, float scale, Color tint);
+
+    /// <summary>
+    /// Draw a part of a texture defined by a rectangle.
+    /// </summary>
+    /// <param name="texture">The texture to draw.</param>
+    /// <param name="source">The source rectangle to draw on the texture.</param>
+    /// <param name="position">The position where the texture will be drawn on the screen.</param>
+    /// <param name="tint">The color tint to apply to the texture.</param>
+    [LibraryImport(Raylib.Name)]
+    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
+    public static partial void DrawTextureRec(Texture2D texture, RectangleF source, Vector2 position, Color tint);
+
+    /// <summary>
+    /// Draw a part of a texture defined by a rectangle with 'pro' parameters.
+    /// </summary>
+    /// <param name="texture">The texture to be drawn.</param>
+    /// <param name="source">The source rectangle inside the texture.</param>
+    /// <param name="dest">The destination rectangle on the screen.</param>
+    /// <param name="origin">The origin point for rotation and scaling.</param>
+    /// <param name="rotation">The rotation angle in degrees.</param>
+    /// <param name="tint">The color tint of the texture.</param>
+    [LibraryImport(Raylib.Name)]
+    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
+    public static partial void DrawTexturePro(Texture2D texture, RectangleF source, RectangleF dest, Vector2 origin, float rotation, Color tint);
+
+    /// <summary>
+    /// Draws a texture (or part of it) that stretches or shrinks nicely.
+    /// </summary>
+    /// <param name="texture">The texture to be drawn.</param>
+    /// <param name="nPatchInfo">The nine-patch information.</param>
+    /// <param name="dest">The destination rectangle where the texture will be drawn.</param>
+    /// <param name="origin">The origin of the rotation.</param>
+    /// <param name="rotation">The rotation angle in degrees.</param>
+    /// <param name="tint">The color tint.</param>
+    [LibraryImport(Raylib.Name)]
+    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
+    public static partial void DrawTextureNPatch(Texture2D texture, NPatchInfo nPatchInfo, RectangleF dest, Vector2 origin, float rotation, Color tint);
 }

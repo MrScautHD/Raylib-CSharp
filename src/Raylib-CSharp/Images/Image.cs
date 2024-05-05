@@ -93,6 +93,18 @@ public partial struct Image {
     public static unsafe partial Image LoadFromMemory(string fileType, byte* fileData, int dataSize);
 
     /// <summary>
+    /// Load image from memory buffer, fileType refers to extension: i.e. '.png'.
+    /// </summary>
+    /// <param name="fileType">The type of the file to load the image from.</param>
+    /// <param name="fileData">The data of the file to load the image from.</param>
+    /// <returns>The loaded image.</returns>
+    public static unsafe Image LoadFromMemory(string fileType, ReadOnlySpan<byte> fileData) {
+        fixed (byte* fileDataPtr = fileData) {
+            return LoadFromMemory(fileType, fileDataPtr, fileData.Length);
+        }
+    }
+
+    /// <summary>
     /// Load image from GPU texture data.
     /// </summary>
     /// <param name="texture">The texture to load the image from.</param>
@@ -543,6 +555,15 @@ public partial struct Image {
     public static unsafe partial Color* LoadColors(Image image);
 
     /// <summary>
+    /// Load color data from image as a Color array (RGBA - 32bit).
+    /// </summary>
+    /// <param name="image">The image to load the color data from.</param>
+    /// <returns>The color data of the loaded image.</returns>
+    public static unsafe ReadOnlySpan<Color> LoadColorsSpan(Image image) {
+        return new ReadOnlySpan<Color>(LoadColors(image), image.Width * image.Height);
+    }
+
+    /// <summary>
     /// Load colors palette from image as a Color array (RGBA - 32bit).
     /// </summary>
     /// <param name="image">The image to load the color palette from.</param>
@@ -554,6 +575,16 @@ public partial struct Image {
     public static unsafe partial Color* LoadPalette(Image image, int maxPaletteSize, out int colorCount);
 
     /// <summary>
+    /// Load colors palette from image as a Color array (RGBA - 32bit).
+    /// </summary>
+    /// <param name="image">The image to load the color palette from.</param>
+    /// <param name="maxPaletteSize">The maximum number of colors in the palette.</param>
+    /// <returns>A pointer to the loaded color palette.</returns>
+    public static unsafe ReadOnlySpan<Color> LoadPalette(Image image, int maxPaletteSize) {
+        return new ReadOnlySpan<Color>(LoadPalette(image, maxPaletteSize, out int colorCount), colorCount);
+    }
+
+    /// <summary>
     /// Unload color data loaded with LoadImageColors().
     /// </summary>
     /// <param name="colors">Pointer to the colors of the image.</param>
@@ -562,12 +593,32 @@ public partial struct Image {
     public static unsafe partial void UnloadColors(Color* colors);
 
     /// <summary>
+    /// Unload color data loaded with LoadImageColors().
+    /// </summary>
+    /// <param name="colors">A Span to the colors of the image.</param>
+    public static unsafe void UnloadColors(ReadOnlySpan<Color> colors) {
+        fixed (Color* colorPtr = colors) {
+            UnloadColors(colorPtr);
+        }
+    }
+
+    /// <summary>
     /// Unload colors palette loaded with LoadImagePalette().
     /// </summary>
-    /// <param name="colors">A pointer to the array of colors representing the palette.</param>
+    /// <param name="colors">A pointer to the colors representing the palette.</param>
     [LibraryImport(Raylib.Name, EntryPoint = "UnloadImagePalette")]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
     public static unsafe partial void UnloadPalette(Color* colors);
+
+    /// <summary>
+    /// Unload colors palette loaded with LoadImagePalette().
+    /// </summary>
+    /// <param name="colors">A Span to the colors representing the palette.</param>
+    public static unsafe void UnloadPalette(ReadOnlySpan<Color> colors) {
+        fixed (Color* colorPtr = colors) {
+            UnloadPalette(colorPtr);
+        }
+    }
 
     /// <summary>
     /// Get image alpha border rectangle.

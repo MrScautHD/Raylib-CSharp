@@ -87,7 +87,7 @@ public partial struct Shader {
     /// <param name="uniformType">The data type of the uniform variable.</param>
     [LibraryImport(Raylib.Name, EntryPoint = "SetShaderValue")]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    private static unsafe partial void SetValue(Shader shader, int locIndex, void* value, ShaderUniformDataType uniformType);
+    public static unsafe partial void SetValue(Shader shader, int locIndex, void* value, ShaderUniformDataType uniformType);
 
     /// <summary>
     /// Set shader uniform value.
@@ -110,7 +110,7 @@ public partial struct Shader {
     /// <param name="count">The number of elements to set.</param>
     [LibraryImport(Raylib.Name, EntryPoint = "SetShaderValueV")]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    private static unsafe partial void SetValueV(Shader shader, int locIndex, void* values, ShaderUniformDataType uniformType, int count);
+    public static unsafe partial void SetValueV(Shader shader, int locIndex, void* values, ShaderUniformDataType uniformType, int count);
 
     /// <summary>
     /// Set shader uniform value vector.
@@ -119,9 +119,9 @@ public partial struct Shader {
     /// <param name="locIndex">The location index of the uniform variable.</param>
     /// <param name="values">The values to set.</param>
     /// <param name="uniformType">The data type of the uniform variable.</param>
-    public static unsafe void SetValueV<T>(Shader shader, int locIndex, T[] values, ShaderUniformDataType uniformType) where T : unmanaged {
-        fixed (T* valuePtr = values) {
-            SetValueV(shader, locIndex, valuePtr, uniformType, values.Length);
+    public static unsafe void SetValueV<T>(Shader shader, int locIndex, Span<T> values, ShaderUniformDataType uniformType) where T : unmanaged {
+        fixed (T* valuesPtr = values) {
+            SetValueV(shader, locIndex, valuesPtr, uniformType, values.Length);
         }
     }
 

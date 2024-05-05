@@ -15,7 +15,16 @@ public static partial class FileManager {
     /// <returns>A pointer to the loaded data.</returns>
     [LibraryImport(Raylib.Name, StringMarshalling = StringMarshalling.Utf8)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static unsafe partial byte* LoadFileData(string fileName, uint* dataSize);
+    public static unsafe partial byte* LoadFileData(string fileName, out uint dataSize);
+
+    /// <summary>
+    /// Load file data as byte array (read).
+    /// </summary>
+    /// <param name="fileName">The name of the file to load the data from.</param>
+    /// <returns>A Span to the loaded data.</returns>
+    public static unsafe ReadOnlySpan<byte> LoadFileData(string fileName) {
+        return new ReadOnlySpan<byte>(LoadFileData(fileName, out uint dataSize), (int) dataSize);
+    }
 
     /// <summary>
     /// Unload file data allocated by LoadFileData().
@@ -24,6 +33,16 @@ public static partial class FileManager {
     [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
     public static unsafe partial void UnloadFileData(byte* data);
+
+    /// <summary>
+    /// Unload file data allocated by LoadFileData().
+    /// </summary>
+    /// <param name="data">The Span to the data to unload.</param>
+    public static unsafe void UnloadFileData(ReadOnlySpan<byte> data) {
+        fixed (byte* dataPtr = data) {
+            UnloadFileData(dataPtr);
+        }
+    }
 
     /// <summary>
     /// Save data to file from byte array (write), returns true on success
@@ -48,6 +67,18 @@ public static partial class FileManager {
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
     [return: MarshalAs(UnmanagedType.I1)]
     public static unsafe partial bool ExportDataAsCode(byte* data, uint dataSize, string fileName);
+
+    /// <summary>
+    /// Export data to code (.h), returns true on success.
+    /// </summary>
+    /// <param name="data">A Span to the data to be exported.</param>
+    /// <param name="fileName">The name of the file to save the exported data to.</param>
+    /// <returns>True if the data was successfully exported and saved as code, false otherwise.</returns>
+    public static unsafe bool ExportDataAsCode(ReadOnlySpan<byte> data, string fileName) {
+        fixed (byte* dataPtr = data) {
+            return ExportDataAsCode(dataPtr, (uint) data.Length, fileName);
+        }
+    }
 
     /// <summary>
     /// Load text data from file (read), returns a '\0' terminated string.
@@ -277,7 +308,18 @@ public static partial class FileManager {
     /// <returns>A pointer to the compressed data.</returns>
     [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static unsafe partial byte* CompressData(byte* data, int dataSize, int* compDataSize);
+    public static unsafe partial byte* CompressData(byte* data, int dataSize, out int compDataSize);
+
+    /// <summary>
+    /// Compress data (DEFLATE algorithm), memory must be MemFree().
+    /// </summary>
+    /// <param name="data">A Span to the data to compress.</param>
+    /// <returns>A pointer to the compressed data.</returns>
+    public static unsafe ReadOnlySpan<byte> CompressData(ReadOnlySpan<byte> data) {
+        fixed (byte* dataPtr = data) {
+            return new ReadOnlySpan<byte>(CompressData(dataPtr, data.Length, out int compDataSize), compDataSize);
+        }
+    }
 
     /// <summary>
     /// Decompress data (DEFLATE algorithm), memory must be MemFree().
@@ -288,7 +330,18 @@ public static partial class FileManager {
     /// <returns>A pointer to the decompressed data.</returns>
     [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static unsafe partial byte* DecompressData(byte* compData, int compDataSize, int* dataSize);
+    public static unsafe partial byte* DecompressData(byte* compData, int compDataSize, out int dataSize);
+
+    /// <summary>
+    /// Decompress data (DEFLATE algorithm), memory must be MemFree().
+    /// </summary>
+    /// <param name="compData">The Span to the compressed data.</param>
+    /// <returns>A pointer to the decompressed data.</returns>
+    public static unsafe ReadOnlySpan<byte> DecompressData(ReadOnlySpan<byte> compData) {
+        fixed (byte* compDataPtr = compData) {
+            return new ReadOnlySpan<byte>(DecompressData(compDataPtr, compData.Length, out int dataSize), dataSize);
+        }
+    }
 
     /// <summary>
     /// Encode data to Base64 string, memory must be MemFree().
@@ -300,7 +353,19 @@ public static partial class FileManager {
     [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
     [return: MarshalUsing(typeof(NonFreeUtf8StringMarshaller))]
-    public static unsafe partial string EncodeDataBase64(byte* data, int dataSize, int* outputSize);
+    public static unsafe partial string EncodeDataBase64(byte* data, int dataSize, out int outputSize);
+
+    /// <summary>
+    /// Encode data to Base64 string, memory must be MemFree().
+    /// </summary>
+    /// <param name="data">A Span to the data to encode.</param>
+    /// <param name="outputSize">A pointer to an integer that will store the size of the encoded data.</param>
+    /// <returns>A base64 encoded string.</returns>
+    public static unsafe string EncodeDataBase64(ReadOnlySpan<byte> data, out int outputSize) {
+        fixed (byte* dataPtr = data) {
+            return EncodeDataBase64(dataPtr, data.Length, out outputSize);
+        }
+    }
 
     /// <summary>
     /// Decode Base64 string data, memory must be MemFree().
@@ -310,5 +375,16 @@ public static partial class FileManager {
     /// <returns>A pointer to the decoded byte array.</returns>
     [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static unsafe partial byte* DecodeDataBase64(byte* data, int* outputSize);
+    public static unsafe partial byte* DecodeDataBase64(byte* data, out int outputSize);
+
+    /// <summary>
+    /// Decode Base64 string data, memory must be MemFree().
+    /// </summary>
+    /// <param name="data">A Span to the base64 encoded byte array.</param>
+    /// <returns>A Span to the decoded byte array.</returns>
+    public static unsafe ReadOnlySpan<byte> DecodeDataBase64(ReadOnlySpan<byte> data) {
+        fixed (byte* dataPtr = data) {
+            return new ReadOnlySpan<byte>(DecodeDataBase64(dataPtr, out int outputSize), outputSize);
+        }
+    }
 }

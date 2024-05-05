@@ -60,10 +60,19 @@ public partial struct ModelAnimation {
     /// </summary>
     /// <param name="fileName">The name of the file to load animations from.</param>
     /// <param name="animCount">The number of animations loaded from the file.</param>
-    /// <returns>Pointer to the loaded model animations.</returns>
+    /// <returns>A Pointer to the loaded model animations.</returns>
     [LibraryImport(Raylib.Name, EntryPoint = "LoadModelAnimations", StringMarshalling = StringMarshalling.Utf8)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
     public static unsafe partial ModelAnimation* Load(string fileName, out int animCount);
+
+    /// <summary>
+    /// Load model animations from file.
+    /// </summary>
+    /// <param name="fileName">The name of the file to load animations from.</param>
+    /// <returns>A Span to the loaded model animations.</returns>
+    public static unsafe ReadOnlySpan<ModelAnimation> Load(string fileName) {
+        return new ReadOnlySpan<ModelAnimation>(Load(fileName, out int animCount), animCount);
+    }
 
     /// <summary>
     /// Update model animation pose.
@@ -91,6 +100,16 @@ public partial struct ModelAnimation {
     [LibraryImport(Raylib.Name, EntryPoint = "UnloadModelAnimation")]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
     public static unsafe partial void Unload(ModelAnimation* animations, int animCount);
+
+    /// <summary>
+    /// Unload animation array data.
+    /// </summary>
+    /// <param name="animations">The animations to unload.</param>
+    public static unsafe void Unload(ReadOnlySpan<ModelAnimation> animations) {
+        fixed (ModelAnimation* animationPtr = animations) {
+            Unload(animationPtr, animations.Length);
+        }
+    }
 
     /// <summary>
     /// Check model animation skeleton match.

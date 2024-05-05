@@ -45,6 +45,15 @@ public partial struct Material {
     public static unsafe partial Material* Load(string fileName, out int materialCount);
 
     /// <summary>
+    /// Load materials from model file.
+    /// </summary>
+    /// <param name="fileName">The name of the file to load materials from.</param>
+    /// <returns>A Span to the loaded materials.</returns>
+    public static unsafe ReadOnlySpan<Material> Load(string fileName) {
+        return new ReadOnlySpan<Material>(Load(fileName, out int materialCount), materialCount);
+    }
+
+    /// <summary>
     /// Load default material (Supports: DIFFUSE, SPECULAR, NORMAL maps).
     /// </summary>
     /// <returns>A pointer to the loaded material.</returns>

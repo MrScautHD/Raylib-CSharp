@@ -160,11 +160,25 @@ public partial struct Font {
     /// <param name="codepoints">An array of Unicode code points to load with font data.</param>
     /// <param name="type">The type of font data to load.</param>
     /// <returns>A Span to the loaded font data.</returns>
-    public static unsafe ReadOnlySpan<GlyphInfo> LoadData(ReadOnlySpan<byte> fileData, int fontSize, ReadOnlySpan<int> codepoints, FontType type) { // TODO maybe do a own method for null
+    public static unsafe ReadOnlySpan<GlyphInfo> LoadData(ReadOnlySpan<byte> fileData, int fontSize, ReadOnlySpan<int> codepoints, FontType type) {
         fixed (byte* fileDataPtr = fileData) {
             fixed (int* codepointsPtr = codepoints) {
                 return new ReadOnlySpan<GlyphInfo>(LoadData(fileDataPtr, fileData.Length, fontSize, codepointsPtr, codepoints.Length, type), codepoints.Length);
             }
+        }
+    }
+
+    /// <summary>
+    /// Load font data for further use.
+    /// </summary>
+    /// <param name="fileData">The byte array containing the font data.</param>
+    /// <param name="fontSize">The size of the font.</param>
+    /// <param name="codepointCount">The number of Unicode code points to load.</param>
+    /// <param name="type">The type of font to load.</param>
+    /// <returns>A read-only span of glyph information for the loaded codepoints.</returns>
+    public static unsafe ReadOnlySpan<GlyphInfo> LoadData(ReadOnlySpan<byte> fileData, int fontSize, int codepointCount, FontType type) {
+        fixed (byte* fileDataPtr = fileData) {
+            return new ReadOnlySpan<GlyphInfo>(LoadData(fileDataPtr, fileData.Length, fontSize, null, codepointCount, type), codepointCount);
         }
     }
 

@@ -2,6 +2,7 @@ using System.Numerics;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 using Raylib_CSharp.Collision;
+using Raylib_CSharp.Colors;
 using Raylib_CSharp.Images;
 
 namespace Raylib_CSharp.Geometry;
@@ -22,63 +23,63 @@ public partial struct Mesh {
     /// <summary>
     /// Vertex position (XYZ - 3 components per vertex) (shader-location = 0).
     /// </summary>
-    public unsafe Span<float> Vertices => new(this.VerticesPtr, this.VertexCount * 3);
+    public unsafe Span<Vector3> Vertices => new(this.VerticesPtr, this.VertexCount);
 
     public unsafe float* VerticesPtr;
 
     /// <summary>
     /// Vertex texture coordinates (UV - 2 components per vertex) (shader-location = 1).
     /// </summary>
-    public unsafe Span<float> TexCoords => new(this.TexCoordsPtr, this.VertexCount * 2);
+    public unsafe Span<Vector2> TexCoords => new(this.TexCoordsPtr, this.VertexCount);
 
     public unsafe float* TexCoordsPtr;
 
     /// <summary>
     /// Vertex texture second coordinates (UV - 2 components per vertex) (shader-location = 5).
     /// </summary>
-    public unsafe Span<float> TexCoords2 => new(this.TexCoords2Ptr, this.VertexCount * 2);
+    public unsafe Span<Vector2> TexCoords2 => new(this.TexCoords2Ptr, this.VertexCount);
 
     public unsafe float* TexCoords2Ptr;
 
     /// <summary>
     /// Vertex normals (XYZ - 3 components per vertex) (shader-location = 2).
     /// </summary>
-    public unsafe Span<float> Normals => new(this.NormalsPtr, this.VertexCount * 3);
+    public unsafe Span<Vector3> Normals => new(this.NormalsPtr, this.VertexCount);
 
     public unsafe float* NormalsPtr;
 
     /// <summary>
     /// Vertex tangents (XYZW - 4 components per vertex) (shader-location = 4).
     /// </summary>
-    public unsafe Span<float> Tangents => new(this.TangentsPtr, this.VertexCount * 4);
+    public unsafe Span<Vector4> Tangents => new(this.TangentsPtr, this.VertexCount);
 
     public unsafe float* TangentsPtr;
 
     /// <summary>
     /// Vertex colors (RGBA - 4 components per vertex) (shader-location = 3).
     /// </summary>
-    public unsafe Span<byte> Colors => new(this.ColorsPtr, this.VertexCount * 4);
+    public unsafe Span<Color> Colors => new(this.ColorsPtr, this.VertexCount);
 
     public unsafe byte* ColorsPtr;
 
     /// <summary>
     /// Vertex indices (in case vertex data comes indexed).
     /// </summary>
-    public unsafe Span<ushort> Indices => new(this.IndicesPtr, this.VertexCount * 3);
+    public unsafe Span<ushort> Indices => new(this.IndicesPtr, this.TriangleCount * 3);
 
     public unsafe ushort* IndicesPtr;
 
     /// <summary>
     /// Animated vertex positions (after bones transformations).
     /// </summary>
-    public unsafe Span<float> AnimVertices => new(this.AnimVerticesPtr, this.VertexCount * 3);
+    public unsafe Span<Vector3> AnimVertices => new(this.AnimVerticesPtr, this.VertexCount);
 
     public unsafe float* AnimVerticesPtr;
 
     /// <summary>
     /// Animated normals (after bones transformations).
     /// </summary>
-    public unsafe Span<byte> AnimNormals => new(this.AnimNormalsPtr, this.VertexCount * 3);
+    public unsafe Span<Vector3> AnimNormals => new(this.AnimNormalsPtr, this.VertexCount);
 
     public unsafe float* AnimNormalsPtr;
 
@@ -116,6 +117,90 @@ public partial struct Mesh {
     public Mesh(int vertexCount, int triangleCount) {
         this.VertexCount = vertexCount;
         this.TriangleCount = triangleCount;
+    }
+
+    /// <summary>
+    /// Allocates memory for the vertices of the Mesh.
+    /// </summary>
+    public unsafe void AllocVertices() {
+        this.VerticesPtr = Raylib.MemAlloc<float>(this.VertexCount * 3);
+    }
+
+    /// <summary>
+    /// Allocates memory for the texture coordinates of a mesh.
+    /// </summary>
+    public unsafe void AllocTexCoords() {
+        this.TexCoordsPtr = Raylib.MemAlloc<float>(this.VertexCount * 2);
+    }
+
+    /// <summary>
+    /// Allocates memory for the second set of texture coordinates of a mesh.
+    /// </summary>
+    public unsafe void AllocTexCoords2() {
+        this.TexCoords2Ptr = Raylib.MemAlloc<float>(this.VertexCount * 2);
+    }
+
+    /// <summary>
+    /// Allocates memory for the normal vectors of the mesh.
+    /// </summary>
+    public unsafe void AllocNormals() {
+        this.NormalsPtr = Raylib.MemAlloc<float>(this.VertexCount * 3);
+    }
+
+    /// <summary>
+    /// Allocates memory for tangents in the mesh.
+    /// </summary>
+    public unsafe void AllocTangents() {
+        this.TangentsPtr = Raylib.MemAlloc<float>(this.VertexCount * 4);
+    }
+
+    /// <summary>
+    /// Allocates memory for the colors of a mesh.
+    /// </summary>
+    public unsafe void AllocColors() {
+        this.ColorsPtr = Raylib.MemAlloc<byte>(this.VertexCount * 4);
+    }
+
+    /// <summary>
+    /// Allocates memory for the indices array in a mesh.
+    /// </summary>
+    public unsafe void AllocIndices() {
+        this.IndicesPtr = Raylib.MemAlloc<ushort>(this.TriangleCount * 3);
+    }
+
+    /// <summary>
+    /// Allocates memory for the animation vertices in a mesh.
+    /// </summary>
+    public unsafe void AllocAnimVertices() {
+        this.AnimVerticesPtr = Raylib.MemAlloc<float>(this.VertexCount * 3);
+    }
+
+    /// <summary>
+    /// Allocates memory for animated normals of a mesh.
+    /// </summary>
+    public unsafe void AllocAnimNormals() {
+        this.AnimNormalsPtr = Raylib.MemAlloc<float>(this.VertexCount * 3);
+    }
+
+    /// <summary>
+    /// Allocates memory for bone Ids of a mesh.
+    /// </summary>
+    public unsafe void AllocBoneIds() {
+        this.BoneIdsPtr = Raylib.MemAlloc<byte>(this.VertexCount * 4);
+    }
+
+    /// <summary>
+    /// Allocates memory for bone weights of a mesh.
+    /// </summary>
+    public unsafe void AllocBoneWeights() {
+        this.BoneWeightsPtr = Raylib.MemAlloc<float>(this.VertexCount * 4);
+    }
+
+    /// <summary>
+    /// Allocates memory for the VBO IDs of a mesh.
+    /// </summary>
+    public unsafe void AllocVboId() {
+        this.VboIdPtr = Raylib.MemAlloc<uint>(this.VertexCount * 7);
     }
 
     /// <summary>

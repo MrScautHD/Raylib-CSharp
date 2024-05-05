@@ -105,6 +105,15 @@ public static partial class Raylib {
     public static partial nint MemAlloc(int size);
 
     /// <summary>
+    /// Internal memory allocator.
+    /// </summary>
+    /// <param name="size">The size of the memory block to allocate.</param>
+    /// <returns>A pointer to the allocated memory block.</returns>
+    public static unsafe T* MemAlloc<T>(int size) where T : unmanaged {
+        return (T*) MemAlloc(size * sizeof(T));
+    }
+
+    /// <summary>
     /// Internal memory reallocator.
     /// </summary>
     /// <param name="ptr">A pointer to the block of memory to be allocate, in bytes..</param>
@@ -112,7 +121,17 @@ public static partial class Raylib {
     /// <returns>A pointer to the allocated memory block.</returns>
     [LibraryImport(Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial nint MemAlloc(nint ptr, int size);
+    public static partial nint MemRealloc(nint ptr, int size);
+
+    /// <summary>
+    /// Internal memory reallocator.
+    /// </summary>
+    /// <param name="ptr">A pointer to the block of memory to be allocate, in bytes..</param>
+    /// <param name="size">The size of the memory block to allocate, in bytes.</param>
+    /// <returns>A pointer to the allocated memory block.</returns>
+    public static unsafe T* MemRealloc<T>(T* ptr, int size) where T : unmanaged {
+        return (T*) MemRealloc((nint) ptr, size * sizeof(T));
+    }
 
     /// <summary>
     /// Internal memory free.
@@ -121,4 +140,12 @@ public static partial class Raylib {
     [LibraryImport(Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
     public static partial void MemFree(nint ptr);
+
+    /// <summary>
+    /// Internal memory free.
+    /// </summary>
+    /// <param name="ptr">A pointer to the block of memory to be freed.</param>
+    public static unsafe void MemFree<T>(T* ptr) where T : unmanaged {
+        MemFree((nint) ptr);
+    }
 }

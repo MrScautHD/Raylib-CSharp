@@ -2,7 +2,6 @@ using System.Drawing;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 using Raylib_CSharp.Images;
-using Raylib_CSharp.Spans;
 using Raylib_CSharp.Textures;
 using Color = Raylib_CSharp.Colors.Color;
 

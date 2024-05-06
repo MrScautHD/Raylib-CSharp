@@ -1,6 +1,6 @@
-using Raylib_CSharp.Marshallers;
+using Raylib_CSharp.Unsafe.Marshallers;
 
-namespace Raylib_CSharp.Spans;
+namespace Raylib_CSharp.Unsafe.Spans;
 
 public readonly unsafe struct StringArraySpan {
 

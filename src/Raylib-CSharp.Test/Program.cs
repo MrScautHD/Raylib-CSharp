@@ -1,7 +1,4 @@
 ﻿using System.Numerics;
-using System.Text;
-using Raylib_CSharp;
-using Raylib_CSharp.Audio;
 using Raylib_CSharp.Camera.Cam3D;
 using Raylib_CSharp.Colors;
 using Raylib_CSharp.Fonts;
@@ -11,7 +8,6 @@ using Raylib_CSharp.IO;
 using Raylib_CSharp.Logging;
 using Raylib_CSharp.Materials;
 using Raylib_CSharp.Rendering;
-using Raylib_CSharp.Spans;
 using Raylib_CSharp.Textures;
 using Raylib_CSharp.Windowing;
 

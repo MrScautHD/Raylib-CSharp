@@ -1,7 +1,7 @@
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
-using Raylib_CSharp.Marshallers;
-using Raylib_CSharp.Spans;
+using Raylib_CSharp.Unsafe;
+using Raylib_CSharp.Unsafe.Spans;
 
 namespace Raylib_CSharp.Geometry;
 
@@ -38,18 +38,14 @@ public partial struct ModelAnimation {
     public unsafe string Name {
         get {
             fixed (sbyte* namePtr = this.NamePtr) {
-                return NonFreeUtf8StringMarshaller.ConvertToManaged((nint) namePtr);
+                return FixedString.GetValue(namePtr);
             }
         }
 
         set {
-            nint unmanagedValue = NonFreeUtf8StringMarshaller.ConvertToUnmanaged(value);
-
             fixed (sbyte* namePtr = this.NamePtr) {
-                Buffer.MemoryCopy((void*) unmanagedValue, namePtr, 32, Math.Min(32, value.Length));
+                FixedString.SetValue(namePtr, 32, value);
             }
-
-            Marshal.FreeCoTaskMem(unmanagedValue);
         }
     }
 

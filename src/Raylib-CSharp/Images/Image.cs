@@ -4,8 +4,8 @@ using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 using System.Runtime.InteropServices.Marshalling;
 using Raylib_CSharp.Fonts;
-using Raylib_CSharp.Marshallers;
 using Raylib_CSharp.Textures;
+using Raylib_CSharp.Unsafe.Marshallers;
 using Color = Raylib_CSharp.Colors.Color;
 
 namespace Raylib_CSharp.Images;

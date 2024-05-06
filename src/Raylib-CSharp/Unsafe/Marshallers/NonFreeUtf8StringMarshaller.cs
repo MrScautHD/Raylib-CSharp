@@ -1,7 +1,7 @@
 using System.Runtime.InteropServices;
 using System.Runtime.InteropServices.Marshalling;
 
-namespace Raylib_CSharp.Marshallers;
+namespace Raylib_CSharp.Unsafe.Marshallers;
 
 [CustomMarshaller(typeof(string), MarshalMode.Default, typeof(NonFreeUtf8StringMarshaller))]
 public static class NonFreeUtf8StringMarshaller {

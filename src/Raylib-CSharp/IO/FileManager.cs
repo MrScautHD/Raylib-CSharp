@@ -1,7 +1,7 @@
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 using System.Runtime.InteropServices.Marshalling;
-using Raylib_CSharp.Marshallers;
+using Raylib_CSharp.Unsafe.Marshallers;
 
 namespace Raylib_CSharp.IO;
 

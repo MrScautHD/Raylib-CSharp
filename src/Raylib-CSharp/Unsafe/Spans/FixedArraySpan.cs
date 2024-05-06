@@ -1,4 +1,4 @@
-namespace Raylib_CSharp.Spans;
+namespace Raylib_CSharp.Unsafe.Spans;
 
 public readonly unsafe struct FixedArraySpan<T> where T : unmanaged {
 

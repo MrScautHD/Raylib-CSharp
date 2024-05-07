@@ -10,7 +10,7 @@ public static partial class Raylib {
 
     public const string Name = "raylib";
 
-    public static readonly Version Version = new(2, 0, 0);
+    public static readonly Version Version = new(2, 0, 1);
     public static readonly Version RlVersion = new(5, 0, 0);
 
     /// <summary>
@@ -33,7 +33,7 @@ public static partial class Raylib {
     /// Open URL with default system browser (if available).
     /// </summary>
     /// <param name="url">The URL to open.</param>
-    [LibraryImport(Name, StringMarshalling = StringMarshalling.Utf8)]
+    [LibraryImport(Name, EntryPoint = "OpenURL", StringMarshalling = StringMarshalling.Utf8)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
     public static partial void OpenUrl(string url);
 

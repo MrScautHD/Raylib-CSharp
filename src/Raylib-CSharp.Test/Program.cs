@@ -58,10 +58,8 @@ Model model = Model.Load("content/model.glb");
 //
 //Logger.TraceLog(TraceLogLevel.Error, materialCount + "");
 
-
 ReadOnlySpan<ModelAnimation> animation = ModelAnimation.Load("content/model.glb");
 Console.WriteLine(animation[1].Name + "");
-
 
 // LOAD DATA
 Font font = Font.Load("content/fontoe.ttf");

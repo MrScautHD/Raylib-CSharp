@@ -55,9 +55,9 @@ public partial struct Wave {
     /// Load wave from memory buffer, fileType refers to extension: i.e. '.wav'.
     /// </summary>
     /// <param name="fileType">Type of the file containing wave data</param>
-    /// <param name="fileData">A Span to the memory block containing wave data</param>
+    /// <param name="fileData">A array to the memory block containing wave data</param>
     /// <returns>Wave structure containing loaded data</returns>
-    public static unsafe Wave LoadFromMemory(string fileType, byte[] fileData) {
+    public static unsafe Wave LoadFromMemory(string fileType, ReadOnlySpan<byte> fileData) {
         fixed (byte* fileDataPtr = fileData) {
             return LoadFromMemory(fileType, fileDataPtr, fileData.Length);
         }
@@ -148,7 +148,7 @@ public partial struct Wave {
     /// <param name="wave">The wave data to load the samples from.</param>
     /// <returns>A Span to the loaded samples.</returns>
     public static unsafe ReadOnlySpan<float> LoadSamplesSpan(Wave wave) {
-        return new Span<float>(LoadSamples(wave), (int) (wave.FrameCount * wave.Channels));
+        return new ReadOnlySpan<float>(LoadSamples(wave), (int) (wave.FrameCount * wave.Channels));
     }
 
     /// <summary>

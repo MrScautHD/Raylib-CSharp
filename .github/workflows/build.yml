@@ -10,7 +10,7 @@ on:
     branches: [ "main" ]
 
 jobs:
-  
+    
   # Build for Linux
   build-linux:
     runs-on: ubuntu-latest
@@ -43,7 +43,7 @@ jobs:
           curl -Lso raylib.zip https://github.com/raysan5/raylib/archive/refs/tags/5.0.zip
           unzip -qq raylib.zip
           cmake -S raylib-5.0 \
-          -B build \
+          -B native \
           -D CMAKE_BUILD_TYPE=Release \
           -D BUILD_SHARED_LIBS=ON \
           -D BUILD_EXAMPLES=OFF \
@@ -51,7 +51,7 @@ jobs:
           -D CUSTOMIZE_BUILD=ON \
           -D SUPPORT_GIF_RECORDING=OFF \
           -D SUPPORT_SCREEN_CAPTURE=OFF
-          cmake --build build --config Release
+          cmake --build native --config Release
 
       # Upload Raylib
       - name: Upload Raylib

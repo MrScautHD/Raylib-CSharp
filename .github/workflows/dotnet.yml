@@ -1,16 +1,16 @@
 # This workflow will build a .NET project
 # For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-net
 
-name: .NET
+name: Build Raylib-CSharp
 
 on:
   push:
-    branches: [ "master" ]
+    branches: [ "main" ]
   pull_request:
-    branches: [ "*" ]
+    branches: [ "main" ]
 
 jobs:
-  build:
+  build-linux:
 
     runs-on: ubuntu-latest
 
@@ -20,6 +20,21 @@ jobs:
       uses: actions/setup-dotnet@v4
       with:
         dotnet-version: 8.0.x
+
+    - name: Build Raylib
+      run: |
+        curl -Lso raylib.zip https://github.com/raysan5/raylib/archive/refs/tags/5.0.zip
+        unzip -qq raylib.zip
+        cmake -S raylib-5.0 \
+        -B build \
+        -D CMAKE_BUILD_TYPE=$(Configuration) \
+        -D BUILD_SHARED_LIBS=ON \
+        -D BUILD_EXAMPLES=OFF \
+        -D CUSTOMIZE_BUILD=ON \
+        -D SUPPORT_GIF_RECORDING=OFF \
+        -D SUPPORT_SCREEN_CAPTURE=OFF
+        cmake --build build --config Release
+        
     - name: Restore dependencies
       run: dotnet restore
     - name: Build

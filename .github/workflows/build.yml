@@ -19,6 +19,20 @@ jobs:
         uses: actions/setup-dotnet@v4
         with:
           dotnet-version: 8.0.x
+      
+      # Setup dependencies
+      - name: Setup dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install \
+            libasound2-dev \
+            libx11-dev \
+            libxrandr-dev \
+            libxi-dev \
+            libgl1-mesa-dev \
+            libglu1-mesa-dev \
+            libxcursor-dev \
+            libxinerama-dev
 
       # Build Raylib
       - name: Build Raylib

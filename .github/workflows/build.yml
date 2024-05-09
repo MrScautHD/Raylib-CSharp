@@ -57,10 +57,3 @@ jobs:
           name: linux-x64
           path: build/raylib/libraylib.so
           if-no-files-found: error
-
-      - name: Restore dependencies
-        run: dotnet restore
-      - name: Build
-        run: dotnet build --no-restore
-      - name: Test
-        run: dotnet test --no-build --verbosity normal

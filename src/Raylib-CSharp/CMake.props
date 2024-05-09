@@ -4,7 +4,7 @@
     </PropertyGroup>
 
     <PropertyGroup Condition="$([MSBuild]::IsOSPlatform('Windows'))">
-        <RlName>raylib.dll</RlName>
+        <RlName>$(Configuration)/raylib.dll</RlName>
     </PropertyGroup>
 
     <PropertyGroup Condition="$([MSBuild]::IsOSPlatform('Linux'))">
@@ -39,7 +39,6 @@
         <ConfigureArgs Include="-D BUILD_SHARED_LIBS=ON" />
         <ConfigureArgs Include="-D BUILD_EXAMPLES=OFF" />
         <ConfigureArgs Include="-D CUSTOMIZE_BUILD=ON" />
-        <ConfigureArgs Include="-D GRAPHICS=GRAPHICS_API_OPENGL_33" />
         <ConfigureArgs Include="-D SUPPORT_GIF_RECORDING=OFF" />
         <ConfigureArgs Include="-D SUPPORT_SCREEN_CAPTURE=OFF" />
     </ItemGroup>
@@ -52,7 +51,7 @@
 
     <!-- Store .dll into the project -->
     <ItemGroup>
-        <Content Include="$(IntermediateOutputPath)native/raylib/$(Configuration)/$(RlName)">
+        <Content Include="$(IntermediateOutputPath)native/raylib/$(RlName)">
             <Link>%(Filename)%(Extension)</Link>
             <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
         </Content>

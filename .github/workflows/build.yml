@@ -27,10 +27,10 @@ jobs:
       - name: Setup dependencies
         run: |
           sudo apt-get update
-          sudo apt-get install \
+          sudo apt-get install -y \
             libasound2-dev \
-            libx11-dev \
             libxrandr-dev \
+            libx11-dev \
             libxi-dev \
             libgl1-mesa-dev \
             libglu1-mesa-dev \

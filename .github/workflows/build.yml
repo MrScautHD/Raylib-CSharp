@@ -28,7 +28,6 @@ jobs:
 
       # Build Raylib
       - name: Build Raylib
-        shell: bash
         run: |
           curl -Lso raylib.zip https://github.com/raysan5/raylib/archive/refs/tags/5.0.zip
           unzip -qq raylib.zip

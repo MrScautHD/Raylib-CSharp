@@ -24,6 +24,19 @@ jobs:
         uses: actions/setup-dotnet@v4
         with:
           dotnet-version: 8.0.x
+          
+      # Setup dependencies
+      - name: Setup dependencies
+        run: |
+          sudo apt-get install -y \
+            libasound2-dev \
+            libxrandr-dev \
+            libx11-dev \
+            libxi-dev \
+            libgl1-mesa-dev \
+            libglu1-mesa-dev \
+            libxcursor-dev \
+            libxinerama-dev
 
       # Restore dependencies
       - name: Restore dependencies

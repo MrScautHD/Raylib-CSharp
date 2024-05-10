@@ -157,7 +157,6 @@ jobs:
     
     # Run
     steps:
-        
       - uses: actions/checkout@v4
       
       # Setup .NET
@@ -190,5 +189,4 @@ jobs:
       # Publish NuGet package
       - name: Publish NuGet package
         if: github.event_name == 'release'
-        uses: actions/upload-artifact@v4
         run: dotnet nuget push **/*.nupkg --api-key ${{ secrets.NUGET_API_KEY }} --source https://api.nuget.org/v3/index.json

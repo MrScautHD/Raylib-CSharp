@@ -22,5 +22,5 @@
     </ItemGroup>
 
     <!-- Raylib CMake -->
-    <Import Project="CMake.props"/>
+    <!-- <Import Project="CMake.props"/> -->
 </Project>

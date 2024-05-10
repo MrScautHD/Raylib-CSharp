@@ -172,5 +172,5 @@ jobs:
 
       # Publish NuGet package
       - name: Publish NuGet package
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v3
         run: dotnet nuget push **/*.nupkg --api-key ${{ secrets.NUGET_API_KEY }} --source https://api.nuget.org/v3/index.json

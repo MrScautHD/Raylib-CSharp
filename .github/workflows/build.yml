@@ -10,7 +10,7 @@ on:
     branches: [ "main" ]
 
 env:
-  raylib_version: 5.0
+  raylib_version: '5.0'
 
 jobs:
   

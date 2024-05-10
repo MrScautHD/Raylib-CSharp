@@ -32,7 +32,7 @@
 
     <!-- Runtimes -->
     <ItemGroup>
-        <Content Include="runtimes/**/*" Pack="true">
+        <Content Include="runtimes/**/*" Pack="true" PackagePath="runtimes">
             <Link>runtimes/%(RecursiveDir)/%(Filename)%(Extension)</Link>
             <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
             <PackageCopyToOutput>true</PackageCopyToOutput>

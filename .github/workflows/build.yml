@@ -186,9 +186,9 @@ jobs:
 
       # Build and pack NuGet package
       - name: Build and pack NuGet package
-        run: dotnet pack --configuration Release
+        run: dotnet pack --configuration Release --output nuget
 
       # Publish NuGet package
       - name: Publish NuGet package
         if: github.event_name == 'release'
-        run: dotnet nuget push **/*.nupkg --api-key ${{ secrets.NUGET_API_KEY }} --source https://api.nuget.org/v3/index.json
+        run: dotnet nuget push nuget/* -s https://api.nuget.org/v3/index.json -k ${{ secrets.NUGET_API_KEY }}

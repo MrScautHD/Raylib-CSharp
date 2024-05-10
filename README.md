@@ -22,7 +22,7 @@ dotnet add package Raylib-CSharp --version 2.0.1
 2. Add `Raylib-CSharp.csproj` as a reference to your project.
 
 > [!IMPORTANT]
-> Ensure that you integrate the [`CMake.props`](https://github.com/MrScautHD/Raylib-CSharp/blob/main/src/Raylib-CSharp/CMake.props) file into your project setup to facilitate the building process for the .dlls.
+> Ensure that you integrate the [`CMake.props`](https://github.com/MrScautHD/Raylib-CSharp/blob/main/src/Raylib-CSharp.Test/CMake.props) file into your project setup to facilitate the building process for the .dlls.
 
 ---
 

@@ -5,7 +5,7 @@ name: Build Raylib-CSharp
 
 on:
   release:
-    types: [published]
+    types: [ "published" ]
   push:
     branches: [ "main" ]
   pull_request:

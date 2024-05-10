@@ -179,8 +179,8 @@ jobs:
             libxinerama-dev
 
       # Restore NuGet packages
-      #- name: Restore NuGet packages
-      #  run: dotnet restore
+      - name: Restore NuGet packages
+        run: dotnet restore
 
       # Build and pack NuGet package
       - name: Build and pack NuGet package

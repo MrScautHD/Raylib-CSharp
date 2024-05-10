@@ -30,6 +30,15 @@
         <None Include="icon.png" Pack="true" PackagePath="" />
     </ItemGroup>
 
+    <!-- Runtimes -->
+    <ItemGroup>
+        <Content Include="runtimes/**/*" Pack="true">
+            <Link>runtimes/%(RecursiveDir)/%(Filename)%(Extension)</Link>
+            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+            <PackageCopyToOutput>true</PackageCopyToOutput>
+        </Content>
+    </ItemGroup>
+
     <!-- Raylib CMake -->
     <!-- <Import Project="CMake.props"/> -->
 </Project>

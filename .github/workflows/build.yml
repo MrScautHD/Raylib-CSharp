@@ -160,6 +160,12 @@ jobs:
     # Run
     steps:
       - uses: actions/checkout@v4
+        
+      # Setup .NET
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 8.0.x
       
       # Setup dependencies
       - name: Setup dependencies
@@ -203,12 +209,6 @@ jobs:
         with:
           name: osx-x86_64
           path: src/Raylib-CSharp/runtimes/osx-x64/native
-
-      # Setup .NET
-      - name: Setup .NET
-        uses: actions/setup-dotnet@v4
-        with:
-          dotnet-version: 8.0.x
       
       # Build and pack NuGet package
       - name: Build and pack NuGet package

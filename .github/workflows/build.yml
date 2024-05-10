@@ -11,6 +11,32 @@ on:
 
 jobs:
   
+  # Build Raylib-CSharp
+  build:
+    runs-on: ubuntu-latest
+
+    # Run
+    steps:
+      - uses: actions/checkout@v4
+
+      # Setup .NET
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 8.0.x
+
+      # Restore dependencies
+      - name: Restore dependencies
+        run: dotnet restore
+
+      # Build Raylib-CSharp
+      - name: Build
+        run: dotnet build --no-restore
+
+      # Test
+      - name: Test
+        run: dotnet test --no-build --verbosity normal
+  
   # Build for Win
   build-win:
     runs-on: windows-latest
@@ -21,6 +47,8 @@ jobs:
     # Run
     steps:
       - uses: actions/checkout@v4
+        
+      # Setup .NET
       - name: Setup .NET
         uses: actions/setup-dotnet@v4
         with:
@@ -28,6 +56,7 @@ jobs:
 
       # Build Raylib
       - name: Build Raylib
+        shell: bash
         run: |
           curl -Lso raylib.zip https://github.com/raysan5/raylib/archive/refs/tags/5.0.zip
           unzip -qq raylib.zip
@@ -60,6 +89,8 @@ jobs:
     # Run
     steps:
       - uses: actions/checkout@v4
+        
+      # Setup .NET
       - name: Setup .NET
         uses: actions/setup-dotnet@v4
         with:
@@ -111,6 +142,8 @@ jobs:
     # Run
     steps:
       - uses: actions/checkout@v4
+        
+      # Setup .NET
       - name: Setup .NET
         uses: actions/setup-dotnet@v4
         with:
@@ -139,3 +172,25 @@ jobs:
           name: osx-${{ matrix.name }}
           path: native/raylib/libraylib.dylib
           if-no-files-found: error
+          
+  # Publish to Nuget
+  #publish-nuget:
+  #  needs:
+  #    - build-win
+  #    - build-linux
+  #    - build-osx
+  #  runs-on: ubuntu-latest
+  #  
+  #  steps:
+  #    - name: Checkout repository
+  #      uses: actions/checkout@v2
+#
+  #    - name: Setup .NET
+  #      uses: actions/setup-dotnet@v1
+  #      with:
+  #        dotnet-version: '3.1.x' # or '5.x', depending on your project's target framework
+#
+  #    - name: Publish NuGet package
+  #      run: dotnet nuget push ./path/to/your/project/bin/Release/*.nupkg --source <YourNuGetSource> --api-key ${{ secrets.NUGET_API_KEY }}
+  #      env:
+  #        NUGET_API_KEY: ${{ secrets.NUGET_API_KEY }}

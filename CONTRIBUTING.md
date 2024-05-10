@@ -2,7 +2,7 @@
 Ready to dive into and make contributions? You're in the right place!
 
 ## Pull Requests
-Raylib-CS is an open-source project, and we eagerly welcome contributions from capable coders like you! Your assistance is invaluable to us.
+Raylib-CSharp is an open-source project, and we eagerly welcome contributions from capable coders like you! Your assistance is invaluable to us.
 
 To ensure smooth integration, please adhere to the following guidelines when submitting your changes:
 

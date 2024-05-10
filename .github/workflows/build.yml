@@ -213,7 +213,7 @@ jobs:
       # Build and pack NuGet package
       - name: Build and pack NuGet package
         if: github.event_name == 'release'
-        run: dotnet pack Raylib-CSharp -p:PackageVersion=${{ github.event.release.tag_name }} --configuration Release --output nuget
+        run: dotnet pack src/Raylib-CSharp -p:PackageVersion=${{ github.event.release.tag_name }} --configuration Release --output nuget
 
       # Publish NuGet package
       - name: Publish NuGet package

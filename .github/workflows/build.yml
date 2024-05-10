@@ -192,4 +192,4 @@ jobs:
       # Publish NuGet package
       - name: Publish NuGet package
         if: github.event_name == 'release'
-        run: dotnet nuget push nuget/* -s https://api.nuget.org/v3/index.json -k ${{ secrets.NUGET_API_KEY }}
+        run: dotnet nuget push nuget/* --api-key ${{ secrets.NUGET_API_KEY }} --source https://api.nuget.org/v3/index.json

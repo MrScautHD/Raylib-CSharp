@@ -180,6 +180,36 @@ jobs:
             libxcursor-dev \
             libxinerama-dev
 
+      # Windows x86
+      - uses: actions/download-artifact@v4
+        with:
+          name: win-win32
+          path: Raylib-CSharp/runtimes/win-x86/native
+          
+      # Windows x64
+      - uses: actions/download-artifact@v4
+        with:
+          name: win-x64
+          path: Raylib-CSharp/runtimes/win-x64/native
+      
+      # Linux x64
+      - uses: actions/download-artifact@v4
+        with:
+          name: linux-x64
+          path: Raylib-CSharp/runtimes/linux-x64/native
+          
+      # OSX arm64
+      - uses: actions/download-artifact@v4
+        with:
+          name: osx-arm64
+          path: Raylib-CSharp/runtimes/osx-arm64/native
+          
+      # OSX x64
+      - uses: actions/download-artifact@v4
+        with:
+          name: osx-x86_64
+          path: Raylib-CSharp/runtimes/osx-x64/native
+
       # Restore NuGet packages
       - name: Restore NuGet packages
         run: dotnet restore
@@ -192,4 +222,4 @@ jobs:
       # Publish NuGet package
       - name: Publish NuGet package
         if: github.event_name == 'release'
-        run: dotnet nuget push nuget/* --api-key ${{ secrets.NUGET_API_KEY }} --source https://api.nuget.org/v3/index.json
+        run: dotnet nuget push nuget/*.nupkg --api-key ${{ secrets.NUGET_API_KEY }} --source https://api.nuget.org/v3/index.json --no-symbols true

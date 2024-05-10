@@ -187,7 +187,7 @@ jobs:
       # Build and pack NuGet package
       - name: Build and pack NuGet package
         if: github.event_name == 'release'
-        run: dotnet pack -p:PackageVersion='refs/tags/' --configuration Release --output nuget
+        run: dotnet pack -p:PackageVersion=${{ github.event.release.tag_name }} --configuration Release --output nuget
 
       # Publish NuGet package
       - name: Publish NuGet package

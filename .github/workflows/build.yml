@@ -210,10 +210,6 @@ jobs:
           name: osx-x86_64
           path: Raylib-CSharp/runtimes/osx-x64/native
 
-      # Restore NuGet packages
-      - name: Restore NuGet packages
-        run: dotnet restore
-
       # Build and pack NuGet package
       - name: Build and pack NuGet package
         if: github.event_name == 'release'

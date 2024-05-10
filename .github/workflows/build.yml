@@ -31,8 +31,9 @@ jobs:
         run: |
           curl -Lso raylib.zip https://github.com/raysan5/raylib/archive/refs/tags/5.0.zip
           unzip -qq raylib.zip
+          mkdir native
+          cd native
           cmake -S raylib-5.0 \
-          -A ${{ matrix.name }} \
           -B native \
           -D CMAKE_BUILD_TYPE=Release \
           -D BUILD_SHARED_LIBS=ON \
@@ -47,7 +48,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: win-${{ matrix.name }}
-          path: native/raylib/raylib.dll
+          path: native/raylib/Release/raylib.dll
           if-no-files-found: error
     
   # Build for Linux

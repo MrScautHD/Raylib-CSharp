@@ -186,7 +186,8 @@ jobs:
 
       # Build and pack NuGet package
       - name: Build and pack NuGet package
-        run: dotnet pack --configuration Release --output nuget
+        if: github.event_name == 'release'
+        run: dotnet pack -p:PackageVersion=${{ steps.get_version.outputs.VERSION }} --configuration Release --output nuget
 
       # Publish NuGet package
       - name: Publish NuGet package

@@ -146,31 +146,3 @@ jobs:
           name: osx-${{ matrix.name }}
           path: native/raylib/libraylib.dylib
           if-no-files-found: error
-          
-  # Publish to NuGet
-  publish-nuget:
-    runs-on: ubuntu-latest
-    needs: [build-win, build-linux, build-osx]
-    
-    # Run
-    steps:
-      - uses: actions/checkout@v4
-      
-      # Setup .NET
-      - name: Setup .NET
-        uses: actions/setup-dotnet@v4
-        with:
-          dotnet-version: 8.0.x
-
-      # Restore NuGet packages
-      - name: Restore NuGet packages
-        run: dotnet restore
-
-      # Build and pack NuGet package
-      - name: Build and pack NuGet package
-        run: dotnet pack --configuration Release
-
-      # Publish NuGet package
-      - name: Publish NuGet package
-        uses: actions/upload-artifact@v3
-        run: dotnet nuget push **/*.nupkg --api-key ${{ secrets.NUGET_API_KEY }} --source https://api.nuget.org/v3/index.json

@@ -61,15 +61,10 @@ jobs:
           
   # Build for OSX
   build-osx:
-    runs-on: osx-latest
+    runs-on: macos-latest
     strategy:
       matrix:
-        name: [arm64, x64]
-        include:
-          - name: arm64
-            arch: arm64
-          - name: x64
-            arch: x86_64
+        name: [arm64, x86_64]
     
     # Run
     steps:
@@ -99,6 +94,6 @@ jobs:
       - name: Upload Raylib
         uses: actions/upload-artifact@v4
         with:
-          name: osx-${{ matrix.name }}
+          name: osx-${{ matrix.arch }}
           path: native/raylib/libraylib.dylib
           if-no-files-found: error

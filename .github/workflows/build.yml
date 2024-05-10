@@ -64,7 +64,7 @@ jobs:
     runs-on: macos-latest
     strategy:
       matrix:
-        name: [arm64, x64]
+        name: [arm64, x86_64]
     
     # Run
     steps:
@@ -82,7 +82,7 @@ jobs:
           cmake -S raylib-5.0 \
           -B native \
           -D CMAKE_BUILD_TYPE=Release \
-          -D CMAKE_OSX_ARCHITECTURES=${{ matrix.arch }} \
+          -D CMAKE_OSX_ARCHITECTURES=${{ matrix.name }} \
           -D BUILD_SHARED_LIBS=ON \
           -D BUILD_EXAMPLES=OFF \
           -D CUSTOMIZE_BUILD=ON \
@@ -94,6 +94,6 @@ jobs:
       - name: Upload Raylib
         uses: actions/upload-artifact@v4
         with:
-          name: osx-${{ matrix.arch }}
+          name: osx-${{ matrix.name }}
           path: native/raylib/libraylib.dylib
           if-no-files-found: error

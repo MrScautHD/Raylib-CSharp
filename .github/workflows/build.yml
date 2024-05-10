@@ -16,7 +16,7 @@ jobs:
     runs-on: windows-latest
     strategy:
       matrix:
-        name: [x86, x64]
+        name: [win32, x64]
     
     # Run
     steps:

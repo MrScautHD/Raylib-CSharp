@@ -64,7 +64,7 @@ jobs:
     runs-on: macos-latest
     strategy:
       matrix:
-        name: [arm64, x86_64]
+        name: [arm64, x64]
     
     # Run
     steps:

@@ -38,7 +38,4 @@
             <PackageCopyToOutput>true</PackageCopyToOutput>
         </Content>
     </ItemGroup>
-
-    <!-- Raylib CMake -->
-    <!-- <Import Project="CMake.props"/> -->
 </Project>

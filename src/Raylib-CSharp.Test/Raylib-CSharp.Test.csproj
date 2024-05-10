@@ -20,4 +20,7 @@
             <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
         </Content>
     </ItemGroup>
+
+    <!-- Raylib CMake -->
+    <Import Project="CMake.props"/>
 </Project>

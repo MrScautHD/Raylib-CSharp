@@ -11,45 +11,6 @@ on:
 
 jobs:
   
-  # Build Raylib-CSharp
-  build:
-    runs-on: ubuntu-latest
-
-    # Run
-    steps:
-      - uses: actions/checkout@v4
-
-      # Setup .NET
-      - name: Setup .NET
-        uses: actions/setup-dotnet@v4
-        with:
-          dotnet-version: 8.0.x
-          
-      # Setup dependencies
-      - name: Setup dependencies
-        run: |
-          sudo apt-get install -y \
-            libasound2-dev \
-            libxrandr-dev \
-            libx11-dev \
-            libxi-dev \
-            libgl1-mesa-dev \
-            libglu1-mesa-dev \
-            libxcursor-dev \
-            libxinerama-dev
-
-      # Restore dependencies
-      - name: Restore dependencies
-        run: dotnet restore
-
-      # Build Raylib-CSharp
-      - name: Build
-        run: dotnet build --no-restore
-
-      # Test
-      - name: Test
-        run: dotnet test --no-build --verbosity normal
-  
   # Build for Win
   build-win:
     runs-on: windows-latest
@@ -186,24 +147,30 @@ jobs:
           path: native/raylib/libraylib.dylib
           if-no-files-found: error
           
-  # Publish to Nuget
-  #publish-nuget:
-  #  needs:
-  #    - build-win
-  #    - build-linux
-  #    - build-osx
-  #  runs-on: ubuntu-latest
-  #  
-  #  steps:
-  #    - name: Checkout repository
-  #      uses: actions/checkout@v2
-#
-  #    - name: Setup .NET
-  #      uses: actions/setup-dotnet@v1
-  #      with:
-  #        dotnet-version: '3.1.x' # or '5.x', depending on your project's target framework
-#
-  #    - name: Publish NuGet package
-  #      run: dotnet nuget push ./path/to/your/project/bin/Release/*.nupkg --source <YourNuGetSource> --api-key ${{ secrets.NUGET_API_KEY }}
-  #      env:
-  #        NUGET_API_KEY: ${{ secrets.NUGET_API_KEY }}
+  # Publish to NuGet
+  publish-nuget:
+    runs-on: ubuntu-latest
+    needs: [build-win, build-linux, build-osx]
+    
+    # Run
+    steps:
+      - uses: actions/checkout@v4
+      
+      # Setup .NET
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 8.0.x
+
+      # Restore NuGet packages
+      - name: Restore NuGet packages
+        run: dotnet restore
+
+      # Build and pack NuGet package
+      - name: Build and pack NuGet package
+        run: dotnet pack --configuration Release
+
+      # Publish NuGet package
+      - name: Publish NuGet package
+        uses: actions/upload-artifact@v4
+        run: dotnet nuget push **/*.nupkg --api-key ${{ secrets.NUGET_API_KEY }} --source https://api.nuget.org/v3/index.json

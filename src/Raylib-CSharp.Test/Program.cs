@@ -10,7 +10,6 @@ using Raylib_CSharp.Materials;
 using Raylib_CSharp.Rendering;
 using Raylib_CSharp.Textures;
 using Raylib_CSharp.Unsafe.Spans.Data;
-using Raylib_CSharp.Unsafe.Spans.Lists;
 using Raylib_CSharp.Windowing;
 
 Logger.Init();
@@ -57,15 +56,12 @@ Window.Init(1280, 720, "Raylib-CSharp");
 Model model = Model.Load("content/model.glb");
 
 ReadOnlySpan<ModelAnimation> animation = ModelAnimation.Load("content/model.glb");
-ReadOnlySpanData<ModelAnimation> data = new(animation);
 
-List<ReadOnlySpanData<ModelAnimation>> list = new List<ReadOnlySpanData<ModelAnimation>>();
+ReadOnlySpanData<ModelAnimation> data = new(animation);
+List<ReadOnlySpanData<ModelAnimation>> list = new();
 list.Add(data);
 
-//ReadOnlySpanList<ModelAnimation> spanList = new();
-//spanList.Add(data.GetSpan());
-
-//ModelAnimation.Unload(animation[1]);
+//ModelAnimation.Unload(animation[0]);
 
 unsafe {
     Console.WriteLine(list[0].GetSpan()[0].BonesPtr[1].Name + "");

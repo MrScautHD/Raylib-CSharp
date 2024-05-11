@@ -1,5 +1,5 @@
 using System.Runtime.InteropServices;
-using Raylib_CSharp.Unsafe.Spans;
+using Raylib_CSharp.Unsafe.Spans.Custom;
 
 namespace Raylib_CSharp.IO;
 

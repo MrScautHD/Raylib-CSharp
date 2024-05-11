@@ -1,7 +1,7 @@
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 using Raylib_CSharp.Unsafe;
-using Raylib_CSharp.Unsafe.Spans;
+using Raylib_CSharp.Unsafe.Spans.Custom;
 
 namespace Raylib_CSharp.Geometry;
 

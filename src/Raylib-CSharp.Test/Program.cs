@@ -55,14 +55,9 @@ Window.Init(1280, 720, "Raylib-CSharp");
 
 Model model = Model.Load("content/model.glb");
 
-//Material[] materials = Material.Load("content/iqm/guy.iqm", out int materialCount);
-//
-//Logger.TraceLog(TraceLogLevel.Error, materialCount + "");
-
 ReadOnlySpan<ModelAnimation> animation = ModelAnimation.Load("content/model.glb");
 
 ReadOnlySpanList<ModelAnimation> spanList = new();
-spanList.Add(animation);
 spanList.Add(animation);
 
 //ModelAnimation.Unload(animation[1]);

@@ -10,6 +10,7 @@ using Raylib_CSharp.Logging;
 using Raylib_CSharp.Materials;
 using Raylib_CSharp.Rendering;
 using Raylib_CSharp.Textures;
+using Raylib_CSharp.Unsafe;
 using Raylib_CSharp.Windowing;
 
 Logger.Init();
@@ -60,7 +61,16 @@ Model model = Model.Load("content/model.glb");
 //Logger.TraceLog(TraceLogLevel.Error, materialCount + "");
 
 ReadOnlySpan<ModelAnimation> animation = ModelAnimation.Load("content/model.glb");
-Console.WriteLine(animation[1].Name + "");
+
+SpanList<ModelAnimation> spanList = new();
+spanList.Add(animation);
+spanList.Add(animation);
+
+//ModelAnimation.Unload(animation[1]);
+
+unsafe {
+    Console.WriteLine(spanList[0][1].BonesPtr[1].Name + "");
+}
 
 // LOAD DATA
 Font font = Font.Load("content/fontoe.ttf");

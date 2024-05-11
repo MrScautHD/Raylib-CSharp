@@ -1,5 +1,4 @@
 ﻿using System.Numerics;
-using Raylib_CSharp.Audio;
 using Raylib_CSharp.Camera.Cam3D;
 using Raylib_CSharp.Colors;
 using Raylib_CSharp.Fonts;
@@ -10,7 +9,7 @@ using Raylib_CSharp.Logging;
 using Raylib_CSharp.Materials;
 using Raylib_CSharp.Rendering;
 using Raylib_CSharp.Textures;
-using Raylib_CSharp.Unsafe;
+using Raylib_CSharp.Unsafe.Lists;
 using Raylib_CSharp.Windowing;
 
 Logger.Init();
@@ -62,7 +61,7 @@ Model model = Model.Load("content/model.glb");
 
 ReadOnlySpan<ModelAnimation> animation = ModelAnimation.Load("content/model.glb");
 
-SpanList<ModelAnimation> spanList = new();
+ReadOnlySpanList<ModelAnimation> spanList = new();
 spanList.Add(animation);
 spanList.Add(animation);
 

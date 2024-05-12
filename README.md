@@ -39,6 +39,19 @@ dotnet add package Raylib-CSharp --version 3.0.2
 
 ---
 
+# 📖 Differences from [`Raylib-cs`](https://github.com/ChrisDill/Raylib-cs)
+
+| Raylib-cs                                                            | `Raylib-CSharp`                                                                                                                                                                   |
+| -------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| One Binding Class (`Raylib.cs`).                                     | Managed Classes like `Window, Music...`.                                                                                                                                          |
+| Uses `DllImport` and makes using pointers `requiered`.               | Use `LibraryImport` and using pointers is `optional`.                                                                                                                             |
+| Using one `Namespace`.                                               | Using multiple `Namepsaces`!                                                                                                                                                      |
+| Outdated code.                                                       | Modern up to date code!                                                                                                                                                                  |
+| .NET 5.0, 6.0 / C# 10                                                | .NET 8.0 / C# 12                                                                                                                                                                  |
+| Released 2018-07                                                     | Released 2024-05                                                                                                                                                                  |
+| License ZLib                                                         | License MIT                                                                                                                                                                       |
+| Raylib 5.0                                                           | Raylib 5.0                                                                                                                                                                        |
+
 # ✍️ Acknowledgement
 This library is available under the [MIT](https://choosealicense.com/licenses/mit) license.
 

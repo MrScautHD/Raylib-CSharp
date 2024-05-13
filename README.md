@@ -1,5 +1,5 @@
-<p align="center">
-  <img alt="Logo" src="https://github.com/MrScautHD/Raylib-CSharp/assets/72702101/f798360f-5c61-4b0b-b028-41b36c094fba)" />
+<p align="center" style="margin-bottom: 0px !important;">
+  <img width="512" src="https://github.com/MrScautHD/Raylib-CSharp/assets/65916181/6b01ab20-dbb1-40fc-a19f-acd7ae30c738" alt="Logo" align="center">
 </p>
 
 # Raylib-CSharp 🚀

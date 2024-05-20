@@ -99,7 +99,7 @@ public partial struct Texture2D {
     /// <param name="pixels">A pointer to the new pixel data.</param>
     [LibraryImport(Raylib.Name, EntryPoint = "UpdateTextureRec")]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static unsafe partial void UpdateRec(Texture2D texture, RectangleF rec, nint pixels);
+    public static unsafe partial void UpdateRec(Texture2D texture, Rectangle rec, nint pixels);
 
     /// <summary>
     /// Generate GPU mipmaps for a texture.

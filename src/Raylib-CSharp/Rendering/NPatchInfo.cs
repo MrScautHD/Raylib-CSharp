@@ -1,4 +1,3 @@
-using System.Drawing;
 using System.Runtime.InteropServices;
 
 namespace Raylib_CSharp.Rendering;
@@ -9,7 +8,7 @@ public struct NPatchInfo {
     /// <summary>
     /// Texture source rectangle.
     /// </summary>
-    public RectangleF Source;
+    public Rectangle Source;
 
     /// <summary>
     /// Left border offset.

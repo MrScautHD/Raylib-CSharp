@@ -608,7 +608,7 @@ public static partial class Graphics {
     /// <param name="tint">The tint color to be applied to the billboard.</param>
     [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial void DrawBillboardRec(Camera3D camera, Texture2D texture, RectangleF source, Vector3 position, Vector2 size, Color tint);
+    public static partial void DrawBillboardRec(Camera3D camera, Texture2D texture, Rectangle source, Vector3 position, Vector2 size, Color tint);
 
     /// <summary>
     /// Draw a billboard texture defined by source and rotation.
@@ -624,7 +624,7 @@ public static partial class Graphics {
     /// <param name="tint">The color tint of the billboard.</param>
     [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial void DrawBillboardPro(Camera3D camera, Texture2D texture, RectangleF source, Vector3 position, Vector3 up, Vector2 size, Vector2 origin, float rotation, Color tint);
+    public static partial void DrawBillboardPro(Camera3D camera, Texture2D texture, Rectangle source, Vector3 position, Vector3 up, Vector2 size, Vector2 origin, float rotation, Color tint);
 
     /* --------------------------------- Shape Drawing --------------------------------- */
 
@@ -635,7 +635,7 @@ public static partial class Graphics {
     /// <param name="source">The source rectangle of the texture.</param>
     [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial void SetShapesTexture(Texture2D texture, RectangleF source);
+    public static partial void SetShapesTexture(Texture2D texture, Rectangle source);
 
     /// <summary>
     /// Draw a pixel.
@@ -882,7 +882,7 @@ public static partial class Graphics {
     /// <param name="color"> The color of the rectangle.</param>
     [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial void DrawRectangleRec(RectangleF rec, Color color);
+    public static partial void DrawRectangleRec(Rectangle rec, Color color);
 
     /// <summary>
     /// Draw a color-filled rectangle with pro parameters.
@@ -893,7 +893,7 @@ public static partial class Graphics {
     /// <param name="color">The color to fill the rectangle with.</param>
     [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial void DrawRectanglePro(RectangleF rec, Vector2 origin, float rotation, Color color);
+    public static partial void DrawRectanglePro(Rectangle rec, Vector2 origin, float rotation, Color color);
 
     /// <summary>
     /// Draw a vertical-gradient-filled rectangle.
@@ -931,7 +931,7 @@ public static partial class Graphics {
     /// <param name="col4">The color at the bottom-left corner of the rectangle.</param>
     [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial void DrawRectangleGradientEx(RectangleF rec, Color col1, Color col2, Color col3, Color col4);
+    public static partial void DrawRectangleGradientEx(Rectangle rec, Color col1, Color col2, Color col3, Color col4);
 
     /// <summary>
     /// Draw rectangle outline.
@@ -953,7 +953,7 @@ public static partial class Graphics {
     /// <param name="color">The color of the lines.</param>
     [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial void DrawRectangleLinesEx(RectangleF rec, float lineThick, Color color);
+    public static partial void DrawRectangleLinesEx(Rectangle rec, float lineThick, Color color);
 
     /// <summary>
     /// Draw rectangle with rounded edges.
@@ -964,7 +964,7 @@ public static partial class Graphics {
     /// <param name="color">The color of the rectangle.</param>
     [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial void DrawRectangleRounded(RectangleF rec, float roundness, int segments, Color color);
+    public static partial void DrawRectangleRounded(Rectangle rec, float roundness, int segments, Color color);
 
     /// <summary>
     /// Draw rectangle with rounded edges outline.
@@ -976,7 +976,7 @@ public static partial class Graphics {
     /// <param name="color">The color of the rectangle and its corners.</param>
     [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial void DrawRectangleRoundedLines(RectangleF rec, float roundness, int segments, float lineThick, Color color);
+    public static partial void DrawRectangleRoundedLines(Rectangle rec, float roundness, int segments, float lineThick, Color color);
 
     /// <summary>
     /// Draw triangle outline (vertex in counter-clockwise order!).
@@ -1300,7 +1300,7 @@ public static partial class Graphics {
     /// <param name="tint">The color tint to apply to the texture.</param>
     [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial void DrawTextureRec(Texture2D texture, RectangleF source, Vector2 position, Color tint);
+    public static partial void DrawTextureRec(Texture2D texture, Rectangle source, Vector2 position, Color tint);
 
     /// <summary>
     /// Draw a part of a texture defined by a rectangle with 'pro' parameters.
@@ -1313,7 +1313,7 @@ public static partial class Graphics {
     /// <param name="tint">The color tint of the texture.</param>
     [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial void DrawTexturePro(Texture2D texture, RectangleF source, RectangleF dest, Vector2 origin, float rotation, Color tint);
+    public static partial void DrawTexturePro(Texture2D texture, Rectangle source, Rectangle dest, Vector2 origin, float rotation, Color tint);
 
     /// <summary>
     /// Draws a texture (or part of it) that stretches or shrinks nicely.
@@ -1326,5 +1326,5 @@ public static partial class Graphics {
     /// <param name="tint">The color tint.</param>
     [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial void DrawTextureNPatch(Texture2D texture, NPatchInfo nPatchInfo, RectangleF dest, Vector2 origin, float rotation, Color tint);
+    public static partial void DrawTextureNPatch(Texture2D texture, NPatchInfo nPatchInfo, Rectangle dest, Vector2 origin, float rotation, Color tint);
 }

@@ -33,9 +33,9 @@ public partial struct Font {
     /// <summary>
     /// Rectangles in texture for the glyphs.
     /// </summary>
-    public unsafe Span<RectangleF> Recs => new(this.RecsPtr, this.GlyphCount);
+    public unsafe Span<Rectangle> Recs => new(this.RecsPtr, this.GlyphCount);
 
-    public unsafe RectangleF* RecsPtr;
+    public unsafe Rectangle* RecsPtr;
 
     /// <summary>
     /// Glyphs info data.
@@ -193,7 +193,7 @@ public partial struct Font {
     /// <returns>The generated font atlas image.</returns>
     [LibraryImport(Raylib.Name, EntryPoint = "GenImageFontAtlas")]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static unsafe partial Image GenImageAtlas(GlyphInfo* glyphs, RectangleF** glyphRecs, int glyphCount, int fontSize, int padding, int packMethod);
+    public static unsafe partial Image GenImageAtlas(GlyphInfo* glyphs, Rectangle** glyphRecs, int glyphCount, int fontSize, int padding, int packMethod);
 
     /// <summary>
     /// Generate image font atlas using chars info.
@@ -204,9 +204,9 @@ public partial struct Font {
     /// <param name="padding">The amount of padding between glyphs.</param>
     /// <param name="packMethod">The method used for packing the glyphs.</param>
     /// <returns>The generated font atlas image.</returns>
-    public static unsafe Image GenImageAtlas(ReadOnlySpan<GlyphInfo> glyphs, ReadOnlySpan<RectangleF> glyphRecs, int fontSize, int padding, int packMethod) {
+    public static unsafe Image GenImageAtlas(ReadOnlySpan<GlyphInfo> glyphs, ReadOnlySpan<Rectangle> glyphRecs, int fontSize, int padding, int packMethod) {
         fixed (GlyphInfo* glyphsPtr = glyphs) {
-            fixed (RectangleF* glyphRecsPtr = glyphRecs) {
+            fixed (Rectangle* glyphRecsPtr = glyphRecs) {
                 return GenImageAtlas(glyphsPtr, &glyphRecsPtr, glyphs.Length, fontSize, padding, packMethod);
             }
         }
@@ -278,5 +278,5 @@ public partial struct Font {
     /// <returns>The glyph atlas rectangle for the specified codepoint.</returns>
     [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial RectangleF GetGlyphAtlasRec(Font font, int codepoint);
+    public static partial Rectangle GetGlyphAtlasRec(Font font, int codepoint);
 }

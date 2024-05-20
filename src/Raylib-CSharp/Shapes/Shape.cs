@@ -78,7 +78,7 @@ public static partial class Shape {
     [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
     [return: MarshalAs(UnmanagedType.I1)]
-    public static partial bool CheckCollisionRecs(RectangleF rec1, RectangleF rec2);
+    public static partial bool CheckCollisionRecs(Rectangle rec1, Rectangle rec2);
 
     /// <summary>
     /// Check collision between two circles.
@@ -103,7 +103,7 @@ public static partial class Shape {
     [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
     [return: MarshalAs(UnmanagedType.I1)]
-    public static partial bool CheckCollisionCircleRec(Vector2 center, float radius, RectangleF rec);
+    public static partial bool CheckCollisionCircleRec(Vector2 center, float radius, Rectangle rec);
 
     /// <summary>
     /// Check if point is inside rectangle.
@@ -114,7 +114,7 @@ public static partial class Shape {
     [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
     [return: MarshalAs(UnmanagedType.I1)]
-    public static partial bool CheckCollisionPointRec(Vector2 point, RectangleF rec);
+    public static partial bool CheckCollisionPointRec(Vector2 point, Rectangle rec);
 
     /// <summary>
     /// Check if point is inside circle.
@@ -200,5 +200,5 @@ public static partial class Shape {
     /// <returns>The collision rectangle.</returns>
     [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial RectangleF GetCollisionRec(RectangleF rec1, RectangleF rec2);
+    public static partial Rectangle GetCollisionRec(Rectangle rec1, Rectangle rec2);
 }

@@ -300,7 +300,7 @@ public partial struct Image {
     /// <returns>The new image containing the copied sub-rectangle.</returns>
     [LibraryImport(Raylib.Name, EntryPoint = "ImageFromImage")]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial Image FromImage(Image image, RectangleF rec);
+    public static partial Image FromImage(Image image, Rectangle rec);
 
     /// <summary>
     /// Create an image from text (default font).
@@ -351,7 +351,7 @@ public partial struct Image {
     /// <param name="crop">The rectangle defining the portion to crop.</param>
     [LibraryImport(Raylib.Name, EntryPoint = "ImageCrop")]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial void Crop(ref Image image, RectangleF crop);
+    public static partial void Crop(ref Image image, Rectangle crop);
 
     /// <summary>
     /// Crop image depending on alpha value.
@@ -628,7 +628,7 @@ public partial struct Image {
     /// <returns>The border rectangle with alpha values.</returns>
     [LibraryImport(Raylib.Name, EntryPoint = "GetImageAlphaBorder")]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial RectangleF GetAlphaBorder(Image image, float threshold);
+    public static partial Rectangle GetAlphaBorder(Image image, float threshold);
 
     /// <summary>
     /// Get image pixel color at (x, y) position.
@@ -773,7 +773,7 @@ public partial struct Image {
     /// <param name="color">The color to fill the rectangle with.</param>
     [LibraryImport(Raylib.Name, EntryPoint = "ImageDrawRectangleRec")]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial void DrawRectangleRec(ref Image dst, RectangleF rec, Color color);
+    public static partial void DrawRectangleRec(ref Image dst, Rectangle rec, Color color);
 
     /// <summary>
     /// Draw rectangle lines within an image.
@@ -784,7 +784,7 @@ public partial struct Image {
     /// <param name="color">The color of the lines.</param>
     [LibraryImport(Raylib.Name, EntryPoint = "ImageDrawRectangleLines")]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial void DrawRectangleLines(ref Image dst, RectangleF rec, int thick, Color color);
+    public static partial void DrawRectangleLines(ref Image dst, Rectangle rec, int thick, Color color);
 
     /// <summary>
     /// Draw a source image within a destination image (tint applied to source).
@@ -796,7 +796,7 @@ public partial struct Image {
     /// <param name="tint">The color tint to apply to the source image.</param>
     [LibraryImport(Raylib.Name, EntryPoint = "ImageDraw")]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial void Draw(ref Image dst, Image src, RectangleF srcRec, RectangleF dstRec, Color tint);
+    public static partial void Draw(ref Image dst, Image src, Rectangle srcRec, Rectangle dstRec, Color tint);
 
     /// <summary>
     /// Draw text (using default font) within an image (destination).

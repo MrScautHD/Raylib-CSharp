@@ -260,7 +260,7 @@ public static partial class Window {
     /// <returns>The handle of the window.</returns>
     [LibraryImport(Raylib.Name, EntryPoint = "GetWindowHandle")]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static unsafe partial nint GetHandle();
+    public static partial nint GetHandle();
 
     /// <summary>
     /// Get current screen width.

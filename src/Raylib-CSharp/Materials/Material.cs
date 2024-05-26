@@ -60,6 +60,12 @@ public partial struct Material {
     [LibraryImport(Raylib.Name, EntryPoint = "LoadMaterialDefault")]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
     public static partial Material LoadDefault();
+}
+
+/// <summary>
+/// Contains extension methods for the <see cref="Material"/> class.
+/// </summary>
+public static partial class MaterialExtensions {
 
     /// <summary>
     /// Check if a material is ready.
@@ -69,7 +75,8 @@ public partial struct Material {
     [LibraryImport(Raylib.Name, EntryPoint = "IsMaterialReady")]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
     [return: MarshalAs(UnmanagedType.I1)]
-    public static partial bool IsReady(Material material);
+    private static partial bool IsReady_(Material material);
+    public static bool IsReady(this Material material) => IsReady_(material);
 
     /// <summary>
     /// Unload material from GPU memory (VRAM).
@@ -77,16 +84,18 @@ public partial struct Material {
     /// <param name="material">The material to unload.</param>
     [LibraryImport(Raylib.Name, EntryPoint = "UnloadMaterial")]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial void Unload(Material material);
+    private static partial void Unload_(Material material);
+    public static void Unload(this Material material) => Unload_(material);
 
     /// <summary>
     /// Set the shader for a material.
     /// </summary>
     /// <param name="material">The material to set the shader for.</param>
     /// <param name="shader">The shader to set.</param>
-    public static void SetShader(ref Material material, Shader shader) {
+    private static void SetShader_(ref Material material, Shader shader) {
         material.Shader = shader;
     }
+    public static void SetShader(this ref Material material, Shader shader) => SetShader_(ref material, shader);
 
     /// <summary>
     /// Sets the texture for a specific material map.
@@ -94,9 +103,10 @@ public partial struct Material {
     /// <param name="material">The reference to the material to modify.</param>
     /// <param name="mapIndex">The index of the material map to modify.</param>
     /// <param name="texture">The texture to assign to the material map.</param>
-    public static void SetTexture(ref Material material, MaterialMapIndex mapIndex, Texture2D texture) {
+    private static void SetTexture_(ref Material material, MaterialMapIndex mapIndex, Texture2D texture) {
         material.Maps[(int) mapIndex].Texture = texture;
     }
+    public static void SetTexture(this ref Material material, MaterialMapIndex mapIndex, Texture2D texture) => SetTexture_(ref material, mapIndex, texture);
 
     /// <summary>
     /// Sets the color of a specific material map.
@@ -104,9 +114,10 @@ public partial struct Material {
     /// <param name="material">The material to modify.</param>
     /// <param name="mapIndex">The index of the material map.</param>
     /// <param name="color">The color to set for the material map.</param>
-    public static void SetColor(ref Material material, MaterialMapIndex mapIndex, Color color) {
+    private static void SetColor_(ref Material material, MaterialMapIndex mapIndex, Color color) {
         material.Maps[(int) mapIndex].Color = color;
     }
+    public static void SetColor(this ref Material material, MaterialMapIndex mapIndex, Color color) => SetColor_(ref material, mapIndex, color);
 
     /// <summary>
     /// Sets the value of a specific map in a material.
@@ -114,7 +125,8 @@ public partial struct Material {
     /// <param name="material">The material to modify.</param>
     /// <param name="mapIndex">The index of the map to modify.</param>
     /// <param name="value">The new value for the map.</param>
-    public static void SetValue(ref Material material, MaterialMapIndex mapIndex, float value) {
+    private static void SetValue_(ref Material material, MaterialMapIndex mapIndex, float value) {
         material.Maps[(int) mapIndex].Value = value;
     }
+    public static void SetValue(this ref Material material, MaterialMapIndex mapIndex, float value) => SetValue_(ref material, mapIndex, value);
 }

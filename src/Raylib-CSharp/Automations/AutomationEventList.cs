@@ -31,6 +31,12 @@ public partial struct AutomationEventList {
     [LibraryImport(Raylib.Name, EntryPoint = "LoadAutomationEventList", StringMarshalling = StringMarshalling.Utf8)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
     public static partial AutomationEventList Load(string fileName);
+}
+
+/// <summary>
+/// Contains extension methods for the <see cref="AutomationEventList"/> class.
+/// </summary>
+public static partial class AutomationEventListExtensions {
 
     /// <summary>
     /// Unload automation events list from file.
@@ -38,7 +44,8 @@ public partial struct AutomationEventList {
     /// <param name="list">The AutomationEventList to unload.</param>
     [LibraryImport(Raylib.Name, EntryPoint = "UnloadAutomationEventList")]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial void Unload(ref AutomationEventList list);
+    private static partial void Unload_(ref AutomationEventList list);
+    public static void Unload(this ref AutomationEventList list) => Unload_(ref list);
 
     /// <summary>
     /// Export automation events list as text file.
@@ -49,7 +56,8 @@ public partial struct AutomationEventList {
     [LibraryImport(Raylib.Name, EntryPoint = "ExportAutomationEventList", StringMarshalling = StringMarshalling.Utf8)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
     [return: MarshalAs(UnmanagedType.I1)]
-    public static partial bool Export(AutomationEventList list, string fileName);
+    private static partial bool Export_(AutomationEventList list, string fileName);
+    public static bool Export(this AutomationEventList list, string fileName) => Export_(list, fileName);
 
     /// <summary>
     /// Set automation event list to record to.
@@ -57,5 +65,6 @@ public partial struct AutomationEventList {
     /// <param name="list">The AutomationEventList to set.</param>
     [LibraryImport(Raylib.Name, EntryPoint = "SetAutomationEventList")]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial void Set(ref AutomationEventList list);
+    private static partial void Set_(ref AutomationEventList list);
+    public static void Set(this AutomationEventList list) => Set_(ref list);
 }

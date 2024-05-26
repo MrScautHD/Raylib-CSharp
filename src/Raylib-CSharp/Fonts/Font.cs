@@ -1,4 +1,3 @@
-using System.Drawing;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 using Raylib_CSharp.Images;
@@ -128,16 +127,6 @@ public partial struct Font {
     }
 
     /// <summary>
-    /// Check if a font is ready.
-    /// </summary>
-    /// <param name="font">The font to check.</param>
-    /// <returns>True if the font is ready to be used, false otherwise.</returns>
-    [LibraryImport(Raylib.Name, EntryPoint = "IsFontReady")]
-    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    [return: MarshalAs(UnmanagedType.I1)]
-    public static partial bool IsReady(Font font);
-
-    /// <summary>
     /// Load font data for further use.
     /// </summary>
     /// <param name="fileData">The file data in memory.</param>
@@ -230,6 +219,23 @@ public partial struct Font {
             UnloadData(glyphsPtr, glyphs.Length);
         }
     }
+}
+
+/// <summary>
+/// Contains extension methods for the <see cref="Font"/> class.
+/// </summary>
+public static partial class FontExtensions {
+
+    /// <summary>
+    /// Check if a font is ready.
+    /// </summary>
+    /// <param name="font">The font to check.</param>
+    /// <returns>True if the font is ready to be used, false otherwise.</returns>
+    [LibraryImport(Raylib.Name, EntryPoint = "IsFontReady")]
+    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
+    [return: MarshalAs(UnmanagedType.I1)]
+    private static partial bool IsReady_(Font font);
+    public static bool IsReady(this Font font) => IsReady_(font);
 
     /// <summary>
     /// Unload font from GPU memory (VRAM).
@@ -237,7 +243,8 @@ public partial struct Font {
     /// <param name="font">The Font to unload.</param>
     [LibraryImport(Raylib.Name, EntryPoint = "UnloadFont")]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial void Unload(Font font);
+    private static partial void Unload_(Font font);
+    public static void Unload(this Font font) => Unload_(font);
 
     /// <summary>
     /// Export font as code file, returns true on success.
@@ -248,7 +255,8 @@ public partial struct Font {
     [LibraryImport(Raylib.Name, EntryPoint = "ExportFontAsCode", StringMarshalling = StringMarshalling.Utf8)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
     [return: MarshalAs(UnmanagedType.I1)]
-    public static partial bool ExportAsCode(Font font, string fileName);
+    private static partial bool ExportAsCode_(Font font, string fileName);
+    public static bool ExportAsCode(this Font font, string fileName) => ExportAsCode_(font, fileName);
 
     /// <summary>
     /// Get glyph index position in font for a codepoint (unicode character), fallback to '?' if not found.
@@ -258,7 +266,8 @@ public partial struct Font {
     /// <returns>The glyph index.</returns>
     [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial int GetGlyphIndex(Font font, int codepoint);
+    private static partial int GetGlyphIndex_(Font font, int codepoint);
+    public static int GetGlyphIndex(this Font font, int codepoint) => GetGlyphIndex_(font, codepoint);
 
     /// <summary>
     /// Get glyph font info data for a codepoint (unicode character), fallback to '?' if not found.
@@ -268,7 +277,8 @@ public partial struct Font {
     /// <returns>The glyph information for the specified codepoint.</returns>
     [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial GlyphInfo GetGlyphInfo(Font font, int codepoint);
+    private static partial GlyphInfo GetGlyphInfo_(Font font, int codepoint);
+    public static GlyphInfo GetGlyphInfo(this Font font, int codepoint) => GetGlyphInfo_(font, codepoint);
 
     /// <summary>
     /// Get glyph rectangle in font atlas for a codepoint (unicode character), fallback to '?' if not found.
@@ -278,5 +288,6 @@ public partial struct Font {
     /// <returns>The glyph atlas rectangle for the specified codepoint.</returns>
     [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial Rectangle GetGlyphAtlasRec(Font font, int codepoint);
+    private static partial Rectangle GetGlyphAtlasRec_(Font font, int codepoint);
+    public static Rectangle GetGlyphAtlasRec(this Font font, int codepoint) => GetGlyphAtlasRec_(font, codepoint);
 }

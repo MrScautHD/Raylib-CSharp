@@ -77,7 +77,7 @@ Console.WriteLine(info.Length + "");
 
 Image image = Font.GenImageAtlas(info, font.Recs, 18, 4, 0);
 Texture2D texture = Texture2D.LoadFromImage(image);
-Image.Unload(image);
+image.Unload();
 
 FileManager.UnloadFileData(fileData);
 TextManager.UnloadCodepoints(codepoints);
@@ -97,13 +97,23 @@ Camera3D camera3D = new Camera3D() {
     Up = Vector3.UnitY
 };
 
+Color color = Color.Black;
+Color color1 = Color.Fade(color, 1);
+
+
+Font font2 = Font.GetDefault();
+
+//if (font2.IsReady()) {
+//
+//}
+
 Image testImage = Image.GenColor(100, 100, Color.Green);
 
 //Span<Matrix4x4> matrix = new(new Matrix4x4[1]);
 //matrix[1] = new Matrix4x4();
 
 while (!Window.ShouldClose()) {
-    Camera3D.Update(ref camera3D, CameraMode.Orbital);
+    camera3D.Update(CameraMode.Orbital);
 
     Graphics.BeginDrawing();
     Graphics.ClearBackground(Color.SkyBlue);
@@ -122,9 +132,9 @@ while (!Window.ShouldClose()) {
 FilePathList test = FileManager.LoadDirectoryFiles("content");
 Logger.TraceLog(TraceLogLevel.Error, "Path: " + test.Paths[0]);
 
-Material.Unload(model.Materials[0]);
+model.Materials[0].Unload();
 model.MaterialCount = 0;
 
-Model.Unload(model);
+model.Unload();
 
 Window.Close();

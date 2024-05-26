@@ -6,6 +6,8 @@ using Raylib_CSharp.Windowing;
 
 namespace Raylib_CSharp;
 
+// TODO: Remove temp methods like `Camera3D.Update_(....)` after this issue is fixed: https://github.com/dotnet/runtime/issues/102690
+
 public static partial class Raylib {
 
     public const string Name = "raylib";

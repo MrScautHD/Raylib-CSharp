@@ -50,6 +50,12 @@ public partial struct AutomationEvent {
     [LibraryImport(Raylib.Name, EntryPoint = "StopAutomationEventRecording")]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
     public static partial void StopRecording();
+}
+
+/// <summary>
+/// Contains extension methods for the <see cref="AutomationEvent"/> class.
+/// </summary>
+public static partial class AutomationEventExtensions {
 
     /// <summary>
     /// Play a recorded automation event.
@@ -57,5 +63,6 @@ public partial struct AutomationEvent {
     /// <param name="automationEvent">The automation event to play.</param>
     [LibraryImport(Raylib.Name, EntryPoint = "PlayAutomationEvent")]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial void Play(AutomationEvent automationEvent);
+    private static partial void Play_(AutomationEvent automationEvent);
+    public static void Play(this AutomationEvent automationEvent) => Play_(automationEvent);
 }

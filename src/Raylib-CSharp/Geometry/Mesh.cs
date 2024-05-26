@@ -204,63 +204,6 @@ public partial struct Mesh {
     }
 
     /// <summary>
-    /// Upload mesh vertex data in GPU and provide VAO/VBO ids.
-    /// </summary>
-    /// <param name="mesh">The mesh data to upload</param>
-    /// <param name="dynamic">Determines if the mesh data should be uploaded as dynamic or static</param>
-    [LibraryImport(Raylib.Name, EntryPoint = "UploadMesh")]
-    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial void Upload(ref Mesh mesh, [MarshalAs(UnmanagedType.I1)] bool dynamic);
-
-    /// <summary>
-    /// Update mesh vertex data in GPU for a specific buffer index.
-    /// </summary>
-    /// <param name="mesh">The mesh to update</param>
-    /// <param name="index">The index of the buffer to update</param>
-    /// <param name="data">A pointer to the new vertex data</param>
-    /// <param name="dataSize">The size of the new data in bytes</param>
-    /// <param name="offset">Offset in bytes to offset the mesh data</param>
-    [LibraryImport(Raylib.Name, EntryPoint = "UpdateMeshBuffer")]
-    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static unsafe partial void UpdateBuffer(Mesh mesh, int index, nint data, int dataSize, int offset);
-
-    /// <summary>
-    /// Unload mesh data from CPU and GPU.
-    /// </summary>
-    /// <param name="mesh">The mesh data to unload</param>
-    [LibraryImport(Raylib.Name, EntryPoint = "UnloadMesh")]
-    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial void Unload(Mesh mesh);
-
-    /// <summary>
-    /// Export mesh data to file, returns true on success.
-    /// </summary>
-    /// <param name="mesh">The mesh data to export.</param>
-    /// <param name="fileName">The name of the file to export the mesh to.</param>
-    /// <returns>Returns true if the export was successful, false otherwise.</returns>
-    [LibraryImport(Raylib.Name, EntryPoint = "ExportMesh", StringMarshalling = StringMarshalling.Utf8)]
-    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    [return: MarshalAs(UnmanagedType.I1)]
-    public static partial bool Export(Mesh mesh, string fileName);
-
-    /// <summary>
-    /// Compute mesh bounding box limits.
-    /// </summary>
-    /// <param name="mesh">The mesh to get the bounding box from</param>
-    /// <returns>The bounding box of the mesh</returns>
-    [LibraryImport(Raylib.Name, EntryPoint = "GetMeshBoundingBox")]
-    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial BoundingBox GetBoundingBox(Mesh mesh);
-
-    /// <summary>
-    /// Compute mesh tangents.
-    /// </summary>
-    /// <param name="mesh">The mesh to generate tangents for</param>
-    [LibraryImport(Raylib.Name, EntryPoint = "GenMeshTangents")]
-    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial void GenTangents(ref Mesh mesh);
-
-    /// <summary>
     /// Generate polygonal mesh.
     /// </summary>
     /// <param name="sides">The number of sides of the polygon</param>
@@ -380,4 +323,73 @@ public partial struct Mesh {
     [LibraryImport(Raylib.Name, EntryPoint = "GenMeshCubicmap")]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
     public static partial Mesh GenCubicmap(Image cubicmap, Vector3 cubeSize);
+}
+
+/// <summary>
+/// Contains extension methods for the <see cref="Mesh"/> class.
+/// </summary>
+public static partial class MeshExtensions {
+
+    /// <summary>
+    /// Upload mesh vertex data in GPU and provide VAO/VBO ids.
+    /// </summary>
+    /// <param name="mesh">The mesh data to upload</param>
+    /// <param name="dynamic">Determines if the mesh data should be uploaded as dynamic or static</param>
+    [LibraryImport(Raylib.Name, EntryPoint = "UploadMesh")]
+    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
+    private static partial void Upload_(ref Mesh mesh, [MarshalAs(UnmanagedType.I1)] bool dynamic);
+    public static void Upload(this ref Mesh mesh, bool dynamic) => Upload_(ref mesh, dynamic);
+
+    /// <summary>
+    /// Update mesh vertex data in GPU for a specific buffer index.
+    /// </summary>
+    /// <param name="mesh">The mesh to update</param>
+    /// <param name="index">The index of the buffer to update</param>
+    /// <param name="data">A pointer to the new vertex data</param>
+    /// <param name="dataSize">The size of the new data in bytes</param>
+    /// <param name="offset">Offset in bytes to offset the mesh data</param>
+    [LibraryImport(Raylib.Name, EntryPoint = "UpdateMeshBuffer")]
+    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
+    private static partial void UpdateBuffer_(Mesh mesh, int index, nint data, int dataSize, int offset);
+    public static void UpdateBuffer(this Mesh mesh, int index, nint data, int dataSize, int offset) => UpdateBuffer_(mesh, index, data, dataSize, offset);
+
+    /// <summary>
+    /// Unload mesh data from CPU and GPU.
+    /// </summary>
+    /// <param name="mesh">The mesh data to unload</param>
+    [LibraryImport(Raylib.Name, EntryPoint = "UnloadMesh")]
+    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
+    private static partial void Unload_(Mesh mesh);
+    public static void Unload(this Mesh mesh) => Unload_(mesh);
+
+    /// <summary>
+    /// Export mesh data to file, returns true on success.
+    /// </summary>
+    /// <param name="mesh">The mesh data to export.</param>
+    /// <param name="fileName">The name of the file to export the mesh to.</param>
+    /// <returns>Returns true if the export was successful, false otherwise.</returns>
+    [LibraryImport(Raylib.Name, EntryPoint = "ExportMesh", StringMarshalling = StringMarshalling.Utf8)]
+    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
+    [return: MarshalAs(UnmanagedType.I1)]
+    private static partial bool Export_(Mesh mesh, string fileName);
+    public static bool Export(this Mesh mesh, string fileName) => Export_(mesh, fileName);
+
+    /// <summary>
+    /// Compute mesh bounding box limits.
+    /// </summary>
+    /// <param name="mesh">The mesh to get the bounding box from</param>
+    /// <returns>The bounding box of the mesh</returns>
+    [LibraryImport(Raylib.Name, EntryPoint = "GetMeshBoundingBox")]
+    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
+    private static partial BoundingBox GetBoundingBox_(Mesh mesh);
+    public static BoundingBox GetBoundingBox(this Mesh mesh) => GetBoundingBox_(mesh);
+
+    /// <summary>
+    /// Compute mesh tangents.
+    /// </summary>
+    /// <param name="mesh">The mesh to generate tangents for</param>
+    [LibraryImport(Raylib.Name, EntryPoint = "GenMeshTangents")]
+    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
+    private static partial void GenTangents_(ref Mesh mesh);
+    public static void GenTangents(this ref Mesh mesh) => GenTangents_(ref mesh);
 }

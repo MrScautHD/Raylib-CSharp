@@ -30,6 +30,12 @@ public partial struct RenderTexture2D {
     [LibraryImport(Raylib.Name, EntryPoint = "LoadRenderTexture")]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
     public static partial RenderTexture2D Load(int width, int height);
+}
+
+/// <summary>
+/// Contains extension methods for the <see cref="RenderTexture2D"/> class.
+/// </summary>
+public static partial class RenderTexture2DExtensions {
 
     /// <summary>
     /// Check if a render texture is ready.
@@ -39,7 +45,8 @@ public partial struct RenderTexture2D {
     [LibraryImport(Raylib.Name, EntryPoint = "IsRenderTextureReady")]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
     [return: MarshalAs(UnmanagedType.I1)]
-    public static partial bool IsReady(RenderTexture2D target);
+    private static partial bool IsReady_(RenderTexture2D target);
+    public static bool IsReady(this RenderTexture2D target) => IsReady_(target);
 
     /// <summary>
     /// Unload render texture from GPU memory (VRAM).
@@ -47,5 +54,6 @@ public partial struct RenderTexture2D {
     /// <param name="target">The render texture to unload.</param>
     [LibraryImport(Raylib.Name, EntryPoint = "UnloadRenderTexture")]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial void Unload(RenderTexture2D target);
+    private static partial void Unload_(RenderTexture2D target);
+    public static void Unload(this RenderTexture2D target) => Unload_(target);
 }

@@ -42,6 +42,12 @@ public partial struct Sound {
     [LibraryImport(Raylib.Name, EntryPoint = "LoadSoundAlias")]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
     public static partial Sound LoadAlias(Sound source);
+}
+
+/// <summary>
+/// Contains extension methods for the <see cref="Sound"/> class.
+/// </summary>
+public static partial class SoundExtensions {
 
     /// <summary>
     /// Checks if a sound is ready.
@@ -51,7 +57,8 @@ public partial struct Sound {
     [LibraryImport(Raylib.Name, EntryPoint = "IsSoundReady")]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
     [return: MarshalAs(UnmanagedType.I1)]
-    public static partial bool IsReady(Sound sound);
+    private static partial bool IsReady_(Sound sound);
+    public static bool IsReady(this Sound sound) => IsReady_(sound);
 
     /// <summary>
     /// Update sound buffer with new data.
@@ -61,7 +68,8 @@ public partial struct Sound {
     /// <param name="sampleCount">The number of samples in the buffer.</param>
     [LibraryImport(Raylib.Name, EntryPoint = "UpdateSound")]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial void Update(Sound sound, nint data, int sampleCount);
+    private static partial void Update_(Sound sound, nint data, int sampleCount);
+    public static void Update(this Sound sound, nint data, int sampleCount) => Update_(sound, data, sampleCount);
 
     /// <summary>
     /// Unload sound.
@@ -69,7 +77,8 @@ public partial struct Sound {
     /// <param name="sound">The sound to unload.</param>
     [LibraryImport(Raylib.Name, EntryPoint = "UnloadSound")]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial void Unload(Sound sound);
+    private static partial void Unload_(Sound sound);
+    public static void Unload(this Sound sound) => Unload_(sound);
 
     /// <summary>
     /// Unload a sound alias (does not deallocate sample data).
@@ -77,7 +86,8 @@ public partial struct Sound {
     /// <param name="alias">The sound alias to unload.</param>
     [LibraryImport(Raylib.Name, EntryPoint = "UnloadSoundAlias")]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial void UnloadAlias(Sound alias);
+    private static partial void UnloadAlias_(Sound alias);
+    public static void UnloadAlias(this Sound alias) => UnloadAlias_(alias);
 
     /// <summary>
     /// Play a sound.
@@ -85,7 +95,8 @@ public partial struct Sound {
     /// <param name="sound">The sound to be played.</param>
     [LibraryImport(Raylib.Name, EntryPoint = "PlaySound")]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial void Play(Sound sound);
+    private static partial void Play_(Sound sound);
+    public static void Play(this Sound sound) => Play_(sound);
 
     /// <summary>
     /// Stop playing a sound.
@@ -93,7 +104,8 @@ public partial struct Sound {
     /// <param name="sound">The sound to stop.</param>
     [LibraryImport(Raylib.Name, EntryPoint = "StopSound")]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial void Stop(Sound sound);
+    private static partial void Stop_(Sound sound);
+    public static void Stop(this Sound sound) => Stop_(sound);
 
     /// <summary>
     /// Pause a sound.
@@ -101,7 +113,8 @@ public partial struct Sound {
     /// <param name="sound">The sound to pause.</param>
     [LibraryImport(Raylib.Name, EntryPoint = "PauseSound")]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial void Pause(Sound sound);
+    private static partial void Pause_(Sound sound);
+    public static void Pause(this Sound sound) => Pause_(sound);
 
     /// <summary>
     /// Resume a paused sound.
@@ -109,7 +122,8 @@ public partial struct Sound {
     /// <param name="sound">The sound to resume.</param>
     [LibraryImport(Raylib.Name, EntryPoint = "ResumeSound")]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial void Resume(Sound sound);
+    private static partial void Resume_(Sound sound);
+    public static void Resume(this Sound sound) => Resume_(sound);
 
     /// <summary>
     /// Check if a sound is currently playing.
@@ -119,7 +133,8 @@ public partial struct Sound {
     [LibraryImport(Raylib.Name, EntryPoint = "IsSoundPlaying")]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
     [return: MarshalAs(UnmanagedType.I1)]
-    public static partial bool IsPlaying(Sound sound);
+    private static partial bool IsPlaying_(Sound sound);
+    public static bool IsPlaying(this Sound sound) => IsPlaying_(sound);
 
     /// <summary>
     /// Set volume for a sound (1.0 is max level).
@@ -128,7 +143,8 @@ public partial struct Sound {
     /// <param name="volume">The volume value. Range is 0.0F to 1.0F.</param>
     [LibraryImport(Raylib.Name, EntryPoint = "SetSoundVolume")]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial void SetVolume(Sound sound, float volume);
+    private static partial void SetVolume_(Sound sound, float volume);
+    public static void SetVolume(this Sound sound, float volume) => SetVolume_(sound, volume);
 
     /// <summary>
     /// Set pitch for a sound (1.0 is base level).
@@ -137,7 +153,8 @@ public partial struct Sound {
     /// <param name="pitch">The pitch value to set.</param>
     [LibraryImport(Raylib.Name, EntryPoint = "SetSoundPitch")]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial void SetPitch(Sound sound, float pitch);
+    private static partial void SetPitch_(Sound sound, float pitch);
+    public static void SetPitch(this Sound sound, float pitch) => SetPitch_(sound, pitch);
 
     /// <summary>
     /// Set pan for a sound (0.5 is center).
@@ -146,5 +163,6 @@ public partial struct Sound {
     /// <param name="pan">The pan value to set, range -1.0F (left) to 1.0F (right), 0.0F for both center.</param>
     [LibraryImport(Raylib.Name, EntryPoint = "SetSoundPan")]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial void SetPan(Sound sound, float pan);
+    private static partial void SetPan_(Sound sound, float pan);
+    public static void SetPan(this Sound sound, float pan) => SetPan_(sound, pan);
 }

@@ -71,24 +71,6 @@ public partial struct ModelAnimation {
     }
 
     /// <summary>
-    /// Update model animation pose.
-    /// </summary>
-    /// <param name="model">The model containing the animation.</param>
-    /// <param name="anim">The animation to update.</param>
-    /// <param name="frame">The frame to update the animation to.</param>
-    [LibraryImport(Raylib.Name, EntryPoint = "UpdateModelAnimation")]
-    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial void Update(Model model, ModelAnimation anim, int frame);
-
-    /// <summary>
-    /// Unload animation data.
-    /// </summary>
-    /// <param name="anim">The model animation to unload.</param>
-    [LibraryImport(Raylib.Name, EntryPoint = "UnloadModelAnimation")]
-    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial void Unload(ModelAnimation anim);
-
-    /// <summary>
     /// Unload animation array data.
     /// </summary>
     /// <param name="animations">The animations to unload.</param>
@@ -106,15 +88,19 @@ public partial struct ModelAnimation {
             Unload(animationPtr, animations.Length);
         }
     }
+}
+
+/// <summary>
+/// Contains extension methods for the <see cref="ModelAnimation"/> class.
+/// </summary>
+public static partial class ModelAnimationExtensions {
 
     /// <summary>
-    /// Check model animation skeleton match.
+    /// Unload animation data.
     /// </summary>
-    /// <param name="model">The model to check the animation for.</param>
-    /// <param name="anim">The animation to check.</param>
-    /// <returns>True if the model animation is valid, otherwise false.</returns>
-    [LibraryImport(Raylib.Name, EntryPoint = "IsModelAnimationValid")]
+    /// <param name="anim">The model animation to unload.</param>
+    [LibraryImport(Raylib.Name, EntryPoint = "UnloadModelAnimation")]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    [return: MarshalAs(UnmanagedType.I1)]
-    public static partial bool IsValid(Model model, ModelAnimation anim);
+    private static partial void Unload_(ModelAnimation anim);
+    public static void Unload(this ModelAnimation anim) => Unload_(anim);
 }

@@ -42,15 +42,6 @@ public partial struct Camera2D {
     }
 
     /// <summary>
-    /// Get camera 2d transform matrix.
-    /// </summary>
-    /// <param name="camera">The Camera2D to get the transformation matrix for.</param>
-    /// <returns>The 2D transformation matrix.</returns>
-    [LibraryImport(Raylib.Name, EntryPoint = "GetCameraMatrix2D")]
-    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial Matrix4x4 GetMatrix(Camera2D camera);
-
-    /// <summary>
     /// Get the world space position for a 2d camera screen space position.
     /// </summary>
     /// <param name="position">The screen position (2D) to convert.</param>
@@ -69,4 +60,20 @@ public partial struct Camera2D {
     [LibraryImport(Raylib.Name, EntryPoint = "GetWorldToScreen2D")]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
     public static partial Vector2 GetWorldToScreen(Vector2 position, Camera2D camera);
+}
+
+/// <summary>
+/// Contains extension methods for the <see cref="Camera2D"/> class.
+/// </summary>
+public static partial class Camera2DExtensions {
+
+    /// <summary>
+    /// Get camera 2d transform matrix.
+    /// </summary>
+    /// <param name="camera">The Camera2D to get the transformation matrix for.</param>
+    /// <returns>The 2D transformation matrix.</returns>
+    [LibraryImport(Raylib.Name, EntryPoint = "GetCameraMatrix2D")]
+    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
+    private static partial Matrix4x4 GetMatrix_(Camera2D camera);
+    public static Matrix4x4 GetMatrix(this Camera2D camera) => GetMatrix_(camera);
 }

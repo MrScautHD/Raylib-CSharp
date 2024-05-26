@@ -1,11 +1,10 @@
-using System.Drawing;
 using System.Numerics;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
-namespace Raylib_CSharp.Shapes;
+namespace Raylib_CSharp.Collision;
 
-public static partial class Shape {
+public static partial class ShapeHelper {
 
     /// <summary>
     /// Get (evaluate) spline point: Linear.

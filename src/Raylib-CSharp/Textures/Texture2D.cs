@@ -1,10 +1,6 @@
-using System.Drawing;
-using System.Numerics;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 using Raylib_CSharp.Images;
-using Raylib_CSharp.Rendering;
-using Color = Raylib_CSharp.Colors.Color;
 
 namespace Raylib_CSharp.Textures;
 
@@ -63,6 +59,12 @@ public partial struct Texture2D {
     [LibraryImport(Raylib.Name, EntryPoint = "LoadTextureCubemap")]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
     public static partial Texture2D LoadCubemap(Image image, CubemapLayout layout);
+}
+
+/// <summary>
+/// Contains extension methods for the <see cref="Texture2D"/> class.
+/// </summary>
+public static partial class Texture2DExtensions {
 
     /// <summary>
     /// Check if a texture is ready.
@@ -72,7 +74,8 @@ public partial struct Texture2D {
     [LibraryImport(Raylib.Name, EntryPoint = "IsTextureReady")]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
     [return: MarshalAs(UnmanagedType.I1)]
-    public static partial bool IsReady(Texture2D texture);
+    private static partial bool IsReady_(Texture2D texture);
+    public static bool IsReady(this Texture2D texture) => IsReady_(texture);
 
     /// <summary>
     /// Unload texture from GPU memory (VRAM).
@@ -80,7 +83,8 @@ public partial struct Texture2D {
     /// <param name="texture">The texture to unload.</param>
     [LibraryImport(Raylib.Name, EntryPoint = "UnloadTexture")]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial void Unload(Texture2D texture);
+    private static partial void Unload_(Texture2D texture);
+    public static void Unload(this Texture2D texture) => Unload_(texture);
 
     /// <summary>
     /// Update GPU texture with new data.
@@ -89,7 +93,8 @@ public partial struct Texture2D {
     /// <param name="pixels">The pointer to the new texture data.</param>
     [LibraryImport(Raylib.Name, EntryPoint = "UpdateTexture")]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static unsafe partial void Update(Texture2D texture, nint pixels);
+    private static partial void Update_(Texture2D texture, nint pixels);
+    public static void Update(this Texture2D texture, nint pixels) => Update_(texture, pixels);
 
     /// <summary>
     /// Update GPU texture rectangle with new data.
@@ -99,7 +104,8 @@ public partial struct Texture2D {
     /// <param name="pixels">A pointer to the new pixel data.</param>
     [LibraryImport(Raylib.Name, EntryPoint = "UpdateTextureRec")]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static unsafe partial void UpdateRec(Texture2D texture, Rectangle rec, nint pixels);
+    private static partial void UpdateRec_(Texture2D texture, Rectangle rec, nint pixels);
+    public static void UpdateRec(this Texture2D texture, Rectangle rec, nint pixels) => UpdateRec_(texture, rec, pixels);
 
     /// <summary>
     /// Generate GPU mipmaps for a texture.
@@ -107,7 +113,8 @@ public partial struct Texture2D {
     /// <param name="texture">The texture to generate mipmaps for.</param>
     [LibraryImport(Raylib.Name, EntryPoint = "GenTextureMipmaps")]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial void GenMipmaps(ref Texture2D texture);
+    private static partial void GenMipmaps_(ref Texture2D texture);
+    public static void GenMipmaps(this Texture2D texture) => GenMipmaps_(ref texture);
 
     /// <summary>
     /// Set texture scaling filter mode.
@@ -116,7 +123,8 @@ public partial struct Texture2D {
     /// <param name="filter">The texture filter mode to set.</param>
     [LibraryImport(Raylib.Name, EntryPoint = "SetTextureFilter")]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial void SetFilter(Texture2D texture, TextureFilter filter);
+    private static partial void SetFilter_(Texture2D texture, TextureFilter filter);
+    public static void SetFilter(this Texture2D texture, TextureFilter filter) => SetFilter_(texture, filter);
 
     /// <summary>
     /// Set texture wrapping mode.
@@ -125,5 +133,6 @@ public partial struct Texture2D {
     /// <param name="wrap">The texture wrapping mode to set.</param>
     [LibraryImport(Raylib.Name, EntryPoint = "SetTextureWrap")]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial void SetWrap(Texture2D texture, TextureWrap wrap);
+    private static partial void SetWrap_(Texture2D texture, TextureWrap wrap);
+    public static void SetWrap(this Texture2D texture, TextureWrap wrap) => SetWrap_(texture, wrap);
 }

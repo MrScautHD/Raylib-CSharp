@@ -62,6 +62,12 @@ public partial struct Music {
             return LoadFromMemory(fileType, dataPtr, data.Length);
         }
     }
+}
+
+/// <summary>
+/// Contains extension methods for the <see cref="Music"/> class.
+/// </summary>
+public static partial class MusicExtensions {
 
     /// <summary>
     /// Checks if a music stream is ready.
@@ -71,7 +77,8 @@ public partial struct Music {
     [LibraryImport(Raylib.Name, EntryPoint = "IsMusicReady")]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
     [return: MarshalAs(UnmanagedType.I1)]
-    public static partial bool IsReady(Music music);
+    private static partial bool IsReady_(Music music);
+    public static bool IsReady(this Music music) => IsReady_(music);
 
     /// <summary>
     /// Unload music stream.
@@ -79,7 +86,8 @@ public partial struct Music {
     /// <param name="music">The music stream to unload.</param>
     [LibraryImport(Raylib.Name, EntryPoint = "UnloadMusicStream")]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial void Unload(Music music);
+    private static partial void Unload_(Music music);
+    public static void Unload(this Music music) => Unload_(music);
 
     /// <summary>
     /// Start music playing.
@@ -87,7 +95,8 @@ public partial struct Music {
     /// <param name="music">The music stream to play.</param>
     [LibraryImport(Raylib.Name, EntryPoint = "PlayMusicStream")]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial void Play(Music music);
+    private static partial void Play_(Music music);
+    public static void Play(this Music music) => Play_(music);
 
     /// <summary>
     /// Check if music is playing.
@@ -97,7 +106,8 @@ public partial struct Music {
     [LibraryImport(Raylib.Name, EntryPoint = "IsMusicStreamPlaying")]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
     [return: MarshalAs(UnmanagedType.I1)]
-    public static partial bool IsPlaying(Music music);
+    private static partial bool IsPlaying_(Music music);
+    public static bool IsPlaying(this Music music) => IsPlaying_(music);
 
     /// <summary>
     /// Updates buffers for music streaming.
@@ -105,7 +115,8 @@ public partial struct Music {
     /// <param name="music">The music stream to update.</param>
     [LibraryImport(Raylib.Name, EntryPoint = "UpdateMusicStream")]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial void Update(Music music);
+    private static partial void Update_(Music music);
+    public static void Update(this Music music) => Update_(music);
 
     /// <summary>
     /// Stop music playing.
@@ -113,7 +124,8 @@ public partial struct Music {
     /// <param name="music">The music stream to stop.</param>
     [LibraryImport(Raylib.Name, EntryPoint = "StopMusicStream")]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial void Stop(Music music);
+    private static partial void Stop_(Music music);
+    public static void Stop(this Music music) => Stop_(music);
 
     /// <summary>
     /// Pause music playing.
@@ -121,7 +133,8 @@ public partial struct Music {
     /// <param name="music">The music stream to pause.</param>
     [LibraryImport(Raylib.Name, EntryPoint = "PauseMusicStream")]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial void Pause(Music music);
+    private static partial void Pause_(Music music);
+    public static void Pause(this Music music) => Pause_(music);
 
     /// <summary>
     /// Resume playing paused music.
@@ -129,7 +142,8 @@ public partial struct Music {
     /// <param name="music">The music stream to resume.</param>
     [LibraryImport(Raylib.Name, EntryPoint = "ResumeMusicStream")]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial void Resume(Music music);
+    private static partial void Resume_(Music music);
+    public static void Resume(this Music music) => Resume_(music);
 
     /// <summary>
     /// Seek music to a position (in seconds).
@@ -138,7 +152,8 @@ public partial struct Music {
     /// <param name="position">The new position of the music stream.</param>
     [LibraryImport(Raylib.Name, EntryPoint = "SeekMusicStream")]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial void Seek(Music music, float position);
+    private static partial void Seek_(Music music, float position);
+    public static void Seek(this Music music, float position) => Seek_(music, position);
 
     /// <summary>
     /// Set volume for music (1.0 is max level).
@@ -147,7 +162,8 @@ public partial struct Music {
     /// <param name="volume">The desired volume, ranging from 0.0f (silence) to 1.0f (full volume).</param>
     [LibraryImport(Raylib.Name, EntryPoint = "SetMusicVolume")]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial void SetVolume(Music music, float volume);
+    private static partial void SetVolume_(Music music, float volume);
+    public static void SetVolume(this Music music, float volume) => SetVolume_(music, volume);
 
     /// <summary>
     /// Set pitch for a music (1.0 is base level).
@@ -156,7 +172,8 @@ public partial struct Music {
     /// <param name="pitch">The new pitch value to set.</param>
     [LibraryImport(Raylib.Name, EntryPoint = "SetMusicPitch")]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial void SetPitch(Music music, float pitch);
+    private static partial void SetPitch_(Music music, float pitch);
+    public static void SetPitch(this Music music, float pitch) => SetPitch_(music, pitch);
 
     /// <summary>
     /// Set pan for a music (0.5 is center).
@@ -165,7 +182,8 @@ public partial struct Music {
     /// <param name="pan">The panning effect value (-1.0f to 1.0f).</param>
     [LibraryImport(Raylib.Name, EntryPoint = "SetMusicPan")]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial void SetPan(Music music, float pan);
+    private static partial void SetPan_(Music music, float pan);
+    public static void SetPan(this Music music, float pan) => SetPan_(music, pan);
 
     /// <summary>
     /// Get music time length (in seconds).
@@ -174,7 +192,8 @@ public partial struct Music {
     /// <returns>The length of the music stream in seconds.</returns>
     [LibraryImport(Raylib.Name, EntryPoint = "GetMusicTimeLength")]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial float GetTimeLength(Music music);
+    private static partial float GetTimeLength_(Music music);
+    public static float GetTimeLength(this Music music) => GetTimeLength_(music);
 
     /// <summary>
     /// Get current music time played (in seconds).
@@ -183,5 +202,6 @@ public partial struct Music {
     /// <returns>The time played of the music stream.</returns>
     [LibraryImport(Raylib.Name, EntryPoint = "GetMusicTimePlayed")]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial float GetTimePlayed(Music music);
+    private static partial float GetTimePlayed_(Music music);
+    public static float GetTimePlayed(this Music music) => GetTimePlayed_(music);
 }

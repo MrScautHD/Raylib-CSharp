@@ -255,45 +255,6 @@ public partial struct Image {
     public static partial Image FromTextEx(Font font, string text, float fontSize, float spacing, Color tint);
 
     /// <summary>
-    /// Load color data from image as a Color array (RGBA - 32bit).
-    /// </summary>
-    /// <param name="image">The image to load the color data from.</param>
-    /// <returns>The color data of the loaded image.</returns>
-    [LibraryImport(Raylib.Name, EntryPoint = "LoadImageColors")]
-    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static unsafe partial Color* LoadColors(Image image);
-
-    /// <summary>
-    /// Load color data from image as a Color array (RGBA - 32bit).
-    /// </summary>
-    /// <param name="image">The image to load the color data from.</param>
-    /// <returns>The color data of the loaded image.</returns>
-    public static unsafe ReadOnlySpan<Color> LoadColorsSpan(Image image) {
-        return new ReadOnlySpan<Color>(LoadColors(image), image.Width * image.Height);
-    }
-
-    /// <summary>
-    /// Load colors palette from image as a Color array (RGBA - 32bit).
-    /// </summary>
-    /// <param name="image">The image to load the color palette from.</param>
-    /// <param name="maxPaletteSize">The maximum number of colors in the palette.</param>
-    /// <param name="colorCount">The actual number of colors in the palette.</param>
-    /// <returns>A pointer to the loaded color palette.</returns>
-    [LibraryImport(Raylib.Name, EntryPoint = "LoadImagePalette")]
-    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static unsafe partial Color* LoadPalette(Image image, int maxPaletteSize, out int colorCount);
-
-    /// <summary>
-    /// Load colors palette from image as a Color array (RGBA - 32bit).
-    /// </summary>
-    /// <param name="image">The image to load the color palette from.</param>
-    /// <param name="maxPaletteSize">The maximum number of colors in the palette.</param>
-    /// <returns>A pointer to the loaded color palette.</returns>
-    public static unsafe ReadOnlySpan<Color> LoadPalette(Image image, int maxPaletteSize) {
-        return new ReadOnlySpan<Color>(LoadPalette(image, maxPaletteSize, out int colorCount), colorCount);
-    }
-
-    /// <summary>
     /// Unload color data loaded with LoadImageColors().
     /// </summary>
     /// <param name="colors">Pointer to the colors of the image.</param>
@@ -655,6 +616,49 @@ public static partial class ImageExtensions {
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
     private static partial void ReplaceColor_(ref Image image, Color color, Color replace);
     public static void ReplaceColor(this ref Image image, Color color, Color replace) => ReplaceColor_(ref image, color, replace);
+
+    /// <summary>
+    /// Load color data from image as a Color array (RGBA - 32bit).
+    /// </summary>
+    /// <param name="image">The image to load the color data from.</param>
+    /// <returns>The color data of the loaded image.</returns>
+    [LibraryImport(Raylib.Name, EntryPoint = "LoadImageColors")]
+    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
+    private static unsafe partial Color* LoadColors_(Image image);
+    public static unsafe Color* LoadColors(this Image image) => LoadColors_(image);
+
+    /// <summary>
+    /// Load color data from image as a Color array (RGBA - 32bit).
+    /// </summary>
+    /// <param name="image">The image to load the color data from.</param>
+    /// <returns>The color data of the loaded image.</returns>
+    private static unsafe ReadOnlySpan<Color> LoadColorsSpan_(Image image) {
+        return new ReadOnlySpan<Color>(LoadColors(image), image.Width * image.Height);
+    }
+    public static ReadOnlySpan<Color> LoadColorsSpan(this Image image) => LoadColorsSpan_(image);
+
+    /// <summary>
+    /// Load colors palette from image as a Color array (RGBA - 32bit).
+    /// </summary>
+    /// <param name="image">The image to load the color palette from.</param>
+    /// <param name="maxPaletteSize">The maximum number of colors in the palette.</param>
+    /// <param name="colorCount">The actual number of colors in the palette.</param>
+    /// <returns>A pointer to the loaded color palette.</returns>
+    [LibraryImport(Raylib.Name, EntryPoint = "LoadImagePalette")]
+    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
+    private static unsafe partial Color* LoadPalette_(Image image, int maxPaletteSize, out int colorCount);
+    public static unsafe Color* LoadPalette(this Image image, int maxPaletteSize, out int colorCount) => LoadPalette_(image, maxPaletteSize, out colorCount);
+
+    /// <summary>
+    /// Load colors palette from image as a Color array (RGBA - 32bit).
+    /// </summary>
+    /// <param name="image">The image to load the color palette from.</param>
+    /// <param name="maxPaletteSize">The maximum number of colors in the palette.</param>
+    /// <returns>A pointer to the loaded color palette.</returns>
+    private static unsafe ReadOnlySpan<Color> LoadPalette_(Image image, int maxPaletteSize) {
+        return new ReadOnlySpan<Color>(LoadPalette_(image, maxPaletteSize, out int colorCount), colorCount);
+    }
+    public static ReadOnlySpan<Color> LoadPalette(this Image image, int maxPaletteSize) => LoadPalette_(image, maxPaletteSize);
 
     /// <summary>
     /// Get image alpha border rectangle.

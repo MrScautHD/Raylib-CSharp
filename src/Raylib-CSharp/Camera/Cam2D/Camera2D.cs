@@ -73,7 +73,7 @@ public static partial class Camera2DExtensions {
     /// <param name="camera">The Camera2D to get the transformation matrix for.</param>
     /// <returns>The 2D transformation matrix.</returns>
     [LibraryImport(Raylib.Name, EntryPoint = "GetCameraMatrix2D")]
-    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
+    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])] // TODO CHECK IF IT WOULD POSSIBLE TO DONE THE "THIS" With a custom marshaler or something like that...
     private static partial Matrix4x4 GetMatrix_(Camera2D camera);
     public static Matrix4x4 GetMatrix(this Camera2D camera) => GetMatrix_(camera);
 }

@@ -1,1 +1,0 @@
-This file, a Dynamic Link Library (DLL), is named `libraylib.so` specifically tailored for OSX systems.

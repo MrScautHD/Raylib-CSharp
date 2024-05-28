@@ -1,1 +1,0 @@
-This file, a Dynamic Link Library (DLL), is named `raylib.dll` specifically tailored for Windows systems.

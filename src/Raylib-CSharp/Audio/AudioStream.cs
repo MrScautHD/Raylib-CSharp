@@ -81,6 +81,8 @@ public static partial class AudioStreamExtensions {
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
     [return: MarshalAs(UnmanagedType.I1)]
     private static partial bool IsReady_(AudioStream stream);
+
+    /// <inheritdoc cref="AudioStreamExtensions.IsReady_"/>
     public static bool IsReady(this AudioStream stream) => IsReady_(stream);
 
     /// <summary>
@@ -90,6 +92,8 @@ public static partial class AudioStreamExtensions {
     [LibraryImport(Raylib.Name, EntryPoint = "UnloadAudioStream")]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
     private static partial void Unload_(AudioStream stream);
+
+    /// <inheritdoc cref="AudioStreamExtensions.Unload_"/>
     public static void Unload(this AudioStream stream) => Unload_(stream);
 
     /// <summary>
@@ -101,6 +105,8 @@ public static partial class AudioStreamExtensions {
     [LibraryImport(Raylib.Name, EntryPoint = "UpdateAudioStream")]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
     private static partial void Update_(AudioStream stream, nint data, int frameCount);
+
+    /// <inheritdoc cref="AudioStreamExtensions.Update_"/>
     public static void Update(this AudioStream stream, nint data, int frameCount) => Update_(stream, data, frameCount);
 
     /// <summary>
@@ -112,6 +118,8 @@ public static partial class AudioStreamExtensions {
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
     [return: MarshalAs(UnmanagedType.I1)]
     private static partial bool IsProcessed_(AudioStream stream);
+
+    /// <inheritdoc cref="AudioStreamExtensions.IsProcessed_"/>
     public static bool IsProcessed(this AudioStream stream) => IsProcessed_(stream);
 
     /// <summary>
@@ -121,6 +129,8 @@ public static partial class AudioStreamExtensions {
     [LibraryImport(Raylib.Name, EntryPoint = "PlayAudioStream")]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
     private static partial void Play_(AudioStream stream);
+
+    /// <inheritdoc cref="AudioStreamExtensions.Play_"/>
     public static void Play(this AudioStream stream) => Play_(stream);
 
     /// <summary>
@@ -130,6 +140,8 @@ public static partial class AudioStreamExtensions {
     [LibraryImport(Raylib.Name, EntryPoint = "PauseAudioStream")]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
     private static partial void Pause_(AudioStream stream);
+
+    /// <inheritdoc cref="AudioStreamExtensions.Pause_"/>
     public static void Pause(this AudioStream stream) => Pause_(stream);
 
     /// <summary>
@@ -139,6 +151,8 @@ public static partial class AudioStreamExtensions {
     [LibraryImport(Raylib.Name, EntryPoint = "ResumeAudioStream")]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
     private static partial void Resume_(AudioStream stream);
+
+    /// <inheritdoc cref="AudioStreamExtensions.Resume_"/>
     public static void Resume(this AudioStream stream) => Resume_(stream);
 
     /// <summary>
@@ -150,6 +164,8 @@ public static partial class AudioStreamExtensions {
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
     [return: MarshalAs(UnmanagedType.I1)]
     private static partial bool IsPlaying_(AudioStream stream);
+
+    /// <inheritdoc cref="AudioStreamExtensions.IsPlaying_"/>
     public static bool IsPlaying(this AudioStream stream) => IsPlaying_(stream);
 
     /// <summary>
@@ -159,6 +175,8 @@ public static partial class AudioStreamExtensions {
     [LibraryImport(Raylib.Name, EntryPoint = "StopAudioStream")]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
     private static partial void Stop_(AudioStream stream);
+
+    /// <inheritdoc cref="AudioStreamExtensions.Stop_"/>
     public static void Stop(this AudioStream stream) => Stop_(stream);
 
     /// <summary>
@@ -169,6 +187,8 @@ public static partial class AudioStreamExtensions {
     [LibraryImport(Raylib.Name, EntryPoint = "SetAudioStreamVolume")]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
     private static partial void SetVolume_(AudioStream stream, float volume);
+
+    /// <inheritdoc cref="AudioStreamExtensions.SetVolume_"/>
     public static void SetVolume(this AudioStream stream, float volume) => SetVolume_(stream, volume);
 
     /// <summary>
@@ -179,6 +199,8 @@ public static partial class AudioStreamExtensions {
     [LibraryImport(Raylib.Name, EntryPoint = "SetAudioStreamPitch")]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
     private static partial void SetPitch_(AudioStream stream, float pitch);
+
+    /// <inheritdoc cref="AudioStreamExtensions.SetPitch_"/>
     public static void SetPitch(this AudioStream stream, float pitch) => SetPitch_(stream, pitch);
 
     /// <summary>
@@ -189,6 +211,8 @@ public static partial class AudioStreamExtensions {
     [LibraryImport(Raylib.Name, EntryPoint = "SetAudioStreamPan")]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
     private static partial void SetPan_(AudioStream stream, float pan);
+
+    /// <inheritdoc cref="AudioStreamExtensions.SetPan_"/>
     public static void SetPan(this AudioStream stream, float pan) => SetPan_(stream, pan);
 
     /// <summary>
@@ -199,6 +223,8 @@ public static partial class AudioStreamExtensions {
     [LibraryImport(Raylib.Name, EntryPoint = "SetAudioStreamCallback")]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
     private static unsafe partial void SetCallback_(AudioStream stream, delegate* unmanaged[Cdecl]<nint, uint, void> callback);
+
+    /// <inheritdoc cref="AudioStreamExtensions.SetCallback_"/>
     public static unsafe void SetCallback(this AudioStream stream, delegate* unmanaged[Cdecl]<nint, uint, void> callback) => SetCallback_(stream, callback);
 
     /// <summary>
@@ -209,6 +235,8 @@ public static partial class AudioStreamExtensions {
     [LibraryImport(Raylib.Name, EntryPoint = "AttachAudioStreamProcessor")]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
     private static unsafe partial void AttachProcessor_(AudioStream stream, delegate* unmanaged[Cdecl]<nint, uint, void> processor);
+
+    /// <inheritdoc cref="AudioStreamExtensions.AttachProcessor_"/>
     public static unsafe void AttachProcessor(this AudioStream stream, delegate* unmanaged[Cdecl]<nint, uint, void> callback) => AttachProcessor_(stream, callback);
 
     /// <summary>
@@ -219,5 +247,7 @@ public static partial class AudioStreamExtensions {
     [LibraryImport(Raylib.Name, EntryPoint = "DetachAudioStreamProcessor")]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
     private static unsafe partial void DetachProcessor_(AudioStream stream, delegate* unmanaged[Cdecl]<nint, uint, void> processor);
+
+    /// <inheritdoc cref="AudioStreamExtensions.DetachProcessor_"/>
     public static unsafe void DetachProcessor(this AudioStream stream, delegate* unmanaged[Cdecl]<nint, uint, void> callback) => DetachProcessor_(stream, callback);
 }

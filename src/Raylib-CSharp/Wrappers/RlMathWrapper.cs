@@ -15,7 +15,7 @@ internal static partial class RlMathWrapper {
     /// <returns>The clamped value.</returns>
     [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial float Clamp(float value, float min, float max);
+    internal static partial float Clamp(float value, float min, float max);
 
     /// <summary>
     /// Calculate linear interpolation between two floats.
@@ -26,7 +26,7 @@ internal static partial class RlMathWrapper {
     /// <returns>The interpolated value.</returns>
     [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial float Lerp(float start, float end, float amount);
+    internal static partial float Lerp(float start, float end, float amount);
 
     /// <summary>
     /// Normalize input value within input range.
@@ -37,7 +37,7 @@ internal static partial class RlMathWrapper {
     /// <returns>The normalized value.</returns>
     [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial float Normalize(float value, float start, float end);
+    internal static partial float Normalize(float value, float start, float end);
 
     /// <summary>
     /// Remap input value within input range to output range.
@@ -50,7 +50,7 @@ internal static partial class RlMathWrapper {
     /// <returns>The remapped value.</returns>
     [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial float Remap(float value, float inputStart, float inputEnd, float outputStart, float outputEnd);
+    internal static partial float Remap(float value, float inputStart, float inputEnd, float outputStart, float outputEnd);
 
     /// <summary>
     /// Wrap input value from min to max.
@@ -61,7 +61,7 @@ internal static partial class RlMathWrapper {
     /// <returns>The wrapped value.</returns>
     [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial float Wrap(float value, float min, float max);
+    internal static partial float Wrap(float value, float min, float max);
 
     /// <summary>
     /// Check whether two given floats are almost equal.
@@ -71,7 +71,7 @@ internal static partial class RlMathWrapper {
     /// <returns>True if the two float values are equal, false otherwise.</returns>
     [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial int FloatEquals(float x, float y);
+    internal static partial int FloatEquals(float x, float y);
 
     /// <summary>
     /// Vector with components value 0.0f.
@@ -79,7 +79,7 @@ internal static partial class RlMathWrapper {
     /// <returns>A Vector2 with both components set to zero.</returns>
     [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial Vector2 Vector2Zero();
+    internal static partial Vector2 Vector2Zero();
 
     /// <summary>
     /// Vector with components value 1.0f.
@@ -87,7 +87,7 @@ internal static partial class RlMathWrapper {
     /// <returns>A Vector2 with both components set to 1.</returns>
     [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial Vector2 Vector2One();
+    internal static partial Vector2 Vector2One();
 
     /// <summary>
     /// Add two vectors (v1 + v2).
@@ -97,7 +97,7 @@ internal static partial class RlMathWrapper {
     /// <returns>The sum of the two Vector2 objects.</returns>
     [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial Vector2 Vector2Add(Vector2 v1, Vector2 v2);
+    internal static partial Vector2 Vector2Add(Vector2 v1, Vector2 v2);
 
     /// <summary>
     /// Add vector and float value.
@@ -107,7 +107,7 @@ internal static partial class RlMathWrapper {
     /// <returns>A new Vector2 with the added value.</returns>
     [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial Vector2 Vector2AddValue(Vector2 v, float add);
+    internal static partial Vector2 Vector2AddValue(Vector2 v, float add);
 
     /// <summary>
     /// Subtract two vectors (v1 - v2).
@@ -117,7 +117,7 @@ internal static partial class RlMathWrapper {
     /// <returns>The result of subtracting the components of v2 from v1.</returns>
     [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial Vector2 Vector2Subtract(Vector2 v1, Vector2 v2);
+    internal static partial Vector2 Vector2Subtract(Vector2 v1, Vector2 v2);
 
     /// <summary>
     /// Subtract vector by float value.
@@ -127,7 +127,7 @@ internal static partial class RlMathWrapper {
     /// <returns>The resulting Vector2 after subtracting the value.</returns>
     [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial Vector2 Vector2SubtractValue(Vector2 v, float sub);
+    internal static partial Vector2 Vector2SubtractValue(Vector2 v, float sub);
 
     /// <summary>
     /// Calculate vector length.
@@ -136,7 +136,7 @@ internal static partial class RlMathWrapper {
     /// <returns>The length of the vector.</returns>
     [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial float Vector2Length(Vector2 v);
+    internal static partial float Vector2Length(Vector2 v);
 
     /// <summary>
     /// Calculate vector square length.
@@ -145,7 +145,7 @@ internal static partial class RlMathWrapper {
     /// <returns>The squared length of the Vector2.</returns>
     [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial float Vector2LengthSqr(Vector2 v);
+    internal static partial float Vector2LengthSqr(Vector2 v);
 
     /// <summary>
     /// Calculate two vectors dot product.
@@ -155,7 +155,7 @@ internal static partial class RlMathWrapper {
     /// <returns>The dot product of the two Vector2.</returns>
     [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial float Vector2DotProduct(Vector2 v1, Vector2 v2);
+    internal static partial float Vector2DotProduct(Vector2 v1, Vector2 v2);
 
     /// <summary>
     /// Calculate distance between two vectors.
@@ -165,7 +165,7 @@ internal static partial class RlMathWrapper {
     /// <returns>The distance between the two Vector2 points.</returns>
     [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial float Vector2Distance(Vector2 v1, Vector2 v2);
+    internal static partial float Vector2Distance(Vector2 v1, Vector2 v2);
 
     /// <summary>
     /// Calculate square distance between two vectors.
@@ -175,7 +175,7 @@ internal static partial class RlMathWrapper {
     /// <returns>The squared distance between the two vectors.</returns>
     [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial float Vector2DistanceSqr(Vector2 v1, Vector2 v2);
+    internal static partial float Vector2DistanceSqr(Vector2 v1, Vector2 v2);
 
     /// <summary>
     /// Calculate angle between two vectors.
@@ -185,7 +185,7 @@ internal static partial class RlMathWrapper {
     /// <returns>The angle between the two vectors (in radians).</returns>
     [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial float Vector2Angle(Vector2 v1, Vector2 v2);
+    internal static partial float Vector2Angle(Vector2 v1, Vector2 v2);
 
     /// <summary>
     /// Calculate angle defined by a two vectors line.
@@ -195,7 +195,7 @@ internal static partial class RlMathWrapper {
     /// <returns>The angle between the line segment and the positive x-axis, in radians.</returns>
     [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial float Vector2LineAngle(Vector2 start, Vector2 end);
+    internal static partial float Vector2LineAngle(Vector2 start, Vector2 end);
 
     /// <summary>
     /// Scale vector (multiply by value).
@@ -205,7 +205,7 @@ internal static partial class RlMathWrapper {
     /// <returns>The scaled Vector2.</returns>
     [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial Vector2 Vector2Scale(Vector2 v, float scale);
+    internal static partial Vector2 Vector2Scale(Vector2 v, float scale);
 
     /// <summary>
     /// Multiply vector by vector.
@@ -215,7 +215,7 @@ internal static partial class RlMathWrapper {
     /// <returns>A new Vector2 resulting from the component-wise multiplication of v1 and v2.</returns>
     [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial Vector2 Vector2Multiply(Vector2 v1, Vector2 v2);
+    internal static partial Vector2 Vector2Multiply(Vector2 v1, Vector2 v2);
 
     /// <summary>
     /// Negate vector.
@@ -224,7 +224,7 @@ internal static partial class RlMathWrapper {
     /// <returns>The negated Vector2.</returns>
     [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial Vector2 Vector2Negate(Vector2 v);
+    internal static partial Vector2 Vector2Negate(Vector2 v);
 
     /// <summary>
     /// Divide vector by vector.
@@ -234,7 +234,7 @@ internal static partial class RlMathWrapper {
     /// <returns>The resulting Vector2 object when dividing each corresponding element of v1 and v2.</returns>
     [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial Vector2 Vector2Divide(Vector2 v1, Vector2 v2);
+    internal static partial Vector2 Vector2Divide(Vector2 v1, Vector2 v2);
 
     /// <summary>
     /// Normalize provided vector.
@@ -243,7 +243,7 @@ internal static partial class RlMathWrapper {
     /// <returns>The normalized Vector2.</returns>
     [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial Vector2 Vector2Normalize(Vector2 v);
+    internal static partial Vector2 Vector2Normalize(Vector2 v);
 
     /// <summary>
     /// Transforms a Vector2 by a given Matrix4x4.
@@ -253,7 +253,7 @@ internal static partial class RlMathWrapper {
     /// <returns>The transformed Vector2.</returns>
     [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial Vector2 Vector2Transform(Vector2 v, Matrix4x4 mat);
+    internal static partial Vector2 Vector2Transform(Vector2 v, Matrix4x4 mat);
 
     /// <summary>
     /// Calculate linear interpolation between two vectors.
@@ -264,7 +264,7 @@ internal static partial class RlMathWrapper {
     /// <returns>The interpolated vector.</returns>
     [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial Vector2 Vector2Lerp(Vector2 v1, Vector2 v2, float amount);
+    internal static partial Vector2 Vector2Lerp(Vector2 v1, Vector2 v2, float amount);
 
     /// <summary>
     /// Calculate reflected vector to normal.
@@ -274,7 +274,7 @@ internal static partial class RlMathWrapper {
     /// <returns>The reflected vector.</returns>
     [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial Vector2 Vector2Reflect(Vector2 v, Vector2 normal);
+    internal static partial Vector2 Vector2Reflect(Vector2 v, Vector2 normal);
 
     /// <summary>
     /// Rotate vector by angle.
@@ -284,7 +284,7 @@ internal static partial class RlMathWrapper {
     /// <returns>The rotated 2D vector.</returns>
     [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial Vector2 Vector2Rotate(Vector2 v, float angle);
+    internal static partial Vector2 Vector2Rotate(Vector2 v, float angle);
 
     /// <summary>
     /// Move Vector towards target.
@@ -295,7 +295,7 @@ internal static partial class RlMathWrapper {
     /// <returns>The new Vector2 position after moving towards the target within the maximum distance.</returns>
     [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial Vector2 Vector2MoveTowards(Vector2 v, Vector2 target, float maxDistance);
+    internal static partial Vector2 Vector2MoveTowards(Vector2 v, Vector2 target, float maxDistance);
 
     /// <summary>
     /// Invert the given vector.
@@ -304,7 +304,7 @@ internal static partial class RlMathWrapper {
     /// <returns>The inverted Vector2.</returns>
     [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial Vector2 Vector2Invert(Vector2 v);
+    internal static partial Vector2 Vector2Invert(Vector2 v);
 
     /// <summary>
     /// Clamp the components of the vector between.
@@ -315,7 +315,7 @@ internal static partial class RlMathWrapper {
     /// <returns>The clamped Vector2 value.</returns>
     [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial Vector2 Vector2Clamp(Vector2 v, Vector2 min, Vector2 max);
+    internal static partial Vector2 Vector2Clamp(Vector2 v, Vector2 min, Vector2 max);
 
     /// <summary>
     /// Clamp the magnitude of the vector between two min and max values.
@@ -326,7 +326,7 @@ internal static partial class RlMathWrapper {
     /// <returns>The clamped Vector2.</returns>
     [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial Vector2 Vector2ClampValue(Vector2 v, float min, float max);
+    internal static partial Vector2 Vector2ClampValue(Vector2 v, float min, float max);
 
     /// <summary>
     /// Check whether two given vectors are almost equal.
@@ -336,7 +336,7 @@ internal static partial class RlMathWrapper {
     /// <returns>True if the two Vector2 objects are equal; otherwise, false.</returns>
     [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial int Vector2Equals(Vector2 p, Vector2 q);
+    internal static partial int Vector2Equals(Vector2 p, Vector2 q);
 
     /// <summary>
     /// Vector with components value 0.0f.
@@ -344,7 +344,7 @@ internal static partial class RlMathWrapper {
     /// <returns>A Vector3 with all components set to zero.</returns>
     [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial Vector3 Vector3Zero();
+    internal static partial Vector3 Vector3Zero();
 
     /// <summary>
     /// Vector with components value 1.0f.
@@ -352,7 +352,7 @@ internal static partial class RlMathWrapper {
     /// <returns>A <see cref="Vector3"/> with all components set to 1.</returns>
     [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial Vector3 Vector3One();
+    internal static partial Vector3 Vector3One();
 
     /// <summary>
     /// Add two vectors.
@@ -362,7 +362,7 @@ internal static partial class RlMathWrapper {
     /// <returns>The sum of the two Vector3.</returns>
     [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial Vector3 Vector3Add(Vector3 v1, Vector3 v2);
+    internal static partial Vector3 Vector3Add(Vector3 v1, Vector3 v2);
 
     /// <summary>
     /// Add vector and float value.
@@ -372,7 +372,7 @@ internal static partial class RlMathWrapper {
     /// <returns>The resulting Vector3 after adding the value.</returns>
     [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial Vector3 Vector3AddValue(Vector3 v, float add);
+    internal static partial Vector3 Vector3AddValue(Vector3 v, float add);
 
     /// <summary>
     /// Subtract two vectors.
@@ -382,7 +382,7 @@ internal static partial class RlMathWrapper {
     /// <returns>The difference between the two vectors.</returns>
     [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial Vector3 Vector3Subtract(Vector3 v1, Vector3 v2);
+    internal static partial Vector3 Vector3Subtract(Vector3 v1, Vector3 v2);
 
     /// <summary>
     /// Subtract vector by float value.
@@ -392,7 +392,7 @@ internal static partial class RlMathWrapper {
     /// <returns>The resulting Vector3 after subtraction.</returns>
     [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial Vector3 Vector3SubtractValue(Vector3 v, float sub);
+    internal static partial Vector3 Vector3SubtractValue(Vector3 v, float sub);
 
     /// <summary>
     /// Multiply vector by scalar.
@@ -402,7 +402,7 @@ internal static partial class RlMathWrapper {
     /// <returns>The scaled vector.</returns>
     [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial Vector3 Vector3Scale(Vector3 v, float scalar);
+    internal static partial Vector3 Vector3Scale(Vector3 v, float scalar);
 
     /// <summary>
     /// Multiply vector by vector.
@@ -412,7 +412,7 @@ internal static partial class RlMathWrapper {
     /// <returns>The result of component-wise multiplication.</returns>
     [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial Vector3 Vector3Multiply(Vector3 v1, Vector3 v2);
+    internal static partial Vector3 Vector3Multiply(Vector3 v1, Vector3 v2);
 
     /// <summary>
     /// Calculate two vectors cross product.
@@ -422,7 +422,7 @@ internal static partial class RlMathWrapper {
     /// <returns>The cross product of <paramref name="v1"/> and <paramref name="v2"/>.</returns>
     [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial Vector3 Vector3CrossProduct(Vector3 v1, Vector3 v2);
+    internal static partial Vector3 Vector3CrossProduct(Vector3 v1, Vector3 v2);
 
     /// <summary>
     /// Calculate one vector perpendicular vector.
@@ -431,7 +431,7 @@ internal static partial class RlMathWrapper {
     /// <returns>The perpendicular vector of the input Vector3.</returns>
     [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial Vector3 Vector3Perpendicular(Vector3 v);
+    internal static partial Vector3 Vector3Perpendicular(Vector3 v);
 
     /// <summary>
     /// Calculate vector length.
@@ -440,7 +440,7 @@ internal static partial class RlMathWrapper {
     /// <returns>The length of the Vector3.</returns>
     [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial float Vector3Length(Vector3 v);
+    internal static partial float Vector3Length(Vector3 v);
 
     /// <summary>
     /// Calculate vector square length.
@@ -449,7 +449,7 @@ internal static partial class RlMathWrapper {
     /// <returns>The squared length of the Vector3.</returns>
     [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial float Vector3LengthSqr(Vector3 v);
+    internal static partial float Vector3LengthSqr(Vector3 v);
 
     /// <summary>
     /// Calculate two vectors dot product.
@@ -459,7 +459,7 @@ internal static partial class RlMathWrapper {
     /// <returns>The dot product of the two Vector3.</returns>
     [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial float Vector3DotProduct(Vector3 v1, Vector3 v2);
+    internal static partial float Vector3DotProduct(Vector3 v1, Vector3 v2);
 
     /// <summary>
     /// Calculate distance between two vectors.
@@ -469,7 +469,7 @@ internal static partial class RlMathWrapper {
     /// <returns>The distance between the two Vector3 points.</returns>
     [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial float Vector3Distance(Vector3 v1, Vector3 v2);
+    internal static partial float Vector3Distance(Vector3 v1, Vector3 v2);
 
     /// <summary>
     /// Calculate square distance between two vectors.
@@ -479,7 +479,7 @@ internal static partial class RlMathWrapper {
     /// <returns>The squared distance between v1 and v2.</returns>
     [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial float Vector3DistanceSqr(Vector3 v1, Vector3 v2);
+    internal static partial float Vector3DistanceSqr(Vector3 v1, Vector3 v2);
 
     /// <summary>
     /// Calculate angle between two vectors.
@@ -489,7 +489,7 @@ internal static partial class RlMathWrapper {
     /// <returns>The angle between the two Vector3.</returns>
     [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial float Vector3Angle(Vector3 v1, Vector3 v2);
+    internal static partial float Vector3Angle(Vector3 v1, Vector3 v2);
 
     /// <summary>
     /// Negate provided vector (invert direction).
@@ -498,7 +498,7 @@ internal static partial class RlMathWrapper {
     /// <returns>The negated vector.</returns>
     [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial Vector3 Vector3Negate(Vector3 v);
+    internal static partial Vector3 Vector3Negate(Vector3 v);
 
     /// <summary>
     /// Divide vector by vector.
@@ -508,7 +508,7 @@ internal static partial class RlMathWrapper {
     /// <returns>The component-wise division of v1 and v2 as a new Vector3 value.</returns>
     [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial Vector3 Vector3Divide(Vector3 v1, Vector3 v2);
+    internal static partial Vector3 Vector3Divide(Vector3 v1, Vector3 v2);
 
     /// <summary>
     /// Normalize provided vector.
@@ -517,7 +517,7 @@ internal static partial class RlMathWrapper {
     /// <returns>The normalized Vector3.</returns>
     [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial Vector3 Vector3Normalize(Vector3 v);
+    internal static partial Vector3 Vector3Normalize(Vector3 v);
 
     /// <summary>
     /// Calculate the projection of the vector v1 on to v2.
@@ -527,7 +527,7 @@ internal static partial class RlMathWrapper {
     /// <returns>The resulting projected vector.</returns>
     [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial Vector3 Vector3Project(Vector3 v1, Vector3 v2);
+    internal static partial Vector3 Vector3Project(Vector3 v1, Vector3 v2);
 
     /// <summary>
     /// Calculate the rejection of the vector v1 on to v2.
@@ -537,7 +537,7 @@ internal static partial class RlMathWrapper {
     /// <returns>The rejection vector.</returns>
     [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial Vector3 Vector3Reject(Vector3 v1, Vector3 v2);
+    internal static partial Vector3 Vector3Reject(Vector3 v1, Vector3 v2);
 
     /// <summary>
     /// Orthonormalize provided vectors.
@@ -548,7 +548,7 @@ internal static partial class RlMathWrapper {
     /// <param name="v2">The second vector to ortho-normalize.</param>
     [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial void Vector3OrthoNormalize(ref Vector3 v1, ref Vector3 v2);
+    internal static partial void Vector3OrthoNormalize(ref Vector3 v1, ref Vector3 v2);
 
     /// <summary>
     /// Transforms a Vector3 by a given Matrix4x4.
@@ -558,7 +558,7 @@ internal static partial class RlMathWrapper {
     /// <returns>The transformed Vector3.</returns>
     [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial Vector3 Vector3Transform(Vector3 v, Matrix4x4 mat);
+    internal static partial Vector3 Vector3Transform(Vector3 v, Matrix4x4 mat);
 
     /// <summary>
     /// Transform a vector by quaternion rotation.
@@ -568,7 +568,7 @@ internal static partial class RlMathWrapper {
     /// <returns>The rotated Vector3.</returns>
     [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial Vector3 Vector3RotateByQuaternion(Vector3 v, Quaternion q);
+    internal static partial Vector3 Vector3RotateByQuaternion(Vector3 v, Quaternion q);
 
     /// <summary>
     /// Rotates a vector around an axis.
@@ -579,7 +579,7 @@ internal static partial class RlMathWrapper {
     /// <returns>The rotated vector.</returns>
     [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial Vector3 Vector3RotateByAxisAngle(Vector3 v, Vector3 axis, float angle);
+    internal static partial Vector3 Vector3RotateByAxisAngle(Vector3 v, Vector3 axis, float angle);
 
     /// <summary>
     /// Calculate linear interpolation between two vectors.
@@ -590,7 +590,7 @@ internal static partial class RlMathWrapper {
     /// <returns>The interpolated Vector3 value.</returns>
     [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial Vector3 Vector3Lerp(Vector3 v1, Vector3 v2, float amount);
+    internal static partial Vector3 Vector3Lerp(Vector3 v1, Vector3 v2, float amount);
 
     /// <summary>
     /// Calculate reflected vector to normal.
@@ -600,7 +600,7 @@ internal static partial class RlMathWrapper {
     /// <returns>The reflected vector.</returns>
     [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial Vector3 Vector3Reflect(Vector3 v, Vector3 normal);
+    internal static partial Vector3 Vector3Reflect(Vector3 v, Vector3 normal);
 
     /// <summary>
     /// Get min value for each pair of components.
@@ -610,7 +610,7 @@ internal static partial class RlMathWrapper {
     /// <returns>The Vector3 with the minimum component values.</returns>
     [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial Vector3 Vector3Min(Vector3 v1, Vector3 v2);
+    internal static partial Vector3 Vector3Min(Vector3 v1, Vector3 v2);
 
     /// <summary>
     /// Get max value for each pair of components.
@@ -620,7 +620,7 @@ internal static partial class RlMathWrapper {
     /// <returns>The component-wise maximum vector.</returns>
     [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial Vector3 Vector3Max(Vector3 v1, Vector3 v2);
+    internal static partial Vector3 Vector3Max(Vector3 v1, Vector3 v2);
 
     /// <summary>
     /// Compute barycenter coordinates (u, v, w) for point p with respect to triangle (a, b, c).
@@ -632,7 +632,7 @@ internal static partial class RlMathWrapper {
     /// <returns>The barycenter of the triangle as a Vector3.</returns>
     [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial Vector3 Vector3Barycenter(Vector3 p, Vector3 a, Vector3 b, Vector3 c);
+    internal static partial Vector3 Vector3Barycenter(Vector3 p, Vector3 a, Vector3 b, Vector3 c);
 
     /// <summary>
     /// Projects a Vector3 from screen space into object space.
@@ -643,7 +643,7 @@ internal static partial class RlMathWrapper {
     /// <returns>The unprojected vector.</returns>
     [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial Vector3 Vector3UnProject(Vector3 source, Matrix4x4 projection, Matrix4x4 view);
+    internal static partial Vector3 Vector3UnProject(Vector3 source, Matrix4x4 projection, Matrix4x4 view);
 
     /// <summary>
     /// Invert the given vector.
@@ -652,7 +652,7 @@ internal static partial class RlMathWrapper {
     /// <returns>The inverted Vector3.</returns>
     [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial Vector3 Vector3Invert(Vector3 v);
+    internal static partial Vector3 Vector3Invert(Vector3 v);
 
     /// <summary>
     /// Clamp the components of the vector between.
@@ -664,7 +664,7 @@ internal static partial class RlMathWrapper {
     /// <returns>The clamped Vector3 value.</returns>
     [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial Vector3 Vector3Clamp(Vector3 v, Vector3 min, Vector3 max);
+    internal static partial Vector3 Vector3Clamp(Vector3 v, Vector3 min, Vector3 max);
 
     /// <summary>
     /// Clamp the magnitude of the vector between two values.
@@ -675,7 +675,7 @@ internal static partial class RlMathWrapper {
     /// <returns>A new Vector3 clamped to the specified range.</returns>
     [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial Vector3 Vector3ClampValue(Vector3 v, float min, float max);
+    internal static partial Vector3 Vector3ClampValue(Vector3 v, float min, float max);
 
     /// <summary>
     /// Check whether two given vectors are almost equal.
@@ -685,7 +685,7 @@ internal static partial class RlMathWrapper {
     /// <returns>Returns true if the two Vector3 objects are equal, otherwise returns false.</returns>
     [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial int Vector3Equals(Vector3 p, Vector3 q);
+    internal static partial int Vector3Equals(Vector3 p, Vector3 q);
 
     /// <summary>
     /// Compute the direction of a refracted ray.
@@ -696,7 +696,7 @@ internal static partial class RlMathWrapper {
     /// <returns>The refracted vector.</returns>
     [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial Vector3 Vector3Refract(Vector3 v, Vector3 n, float r);
+    internal static partial Vector3 Vector3Refract(Vector3 v, Vector3 n, float r);
 
     /// <summary>
     /// Compute matrix determinant.
@@ -705,7 +705,7 @@ internal static partial class RlMathWrapper {
     /// <returns>The determinant of the matrix.</returns>
     [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial float MatrixDeterminant(Matrix4x4 mat);
+    internal static partial float MatrixDeterminant(Matrix4x4 mat);
 
     /// <summary>
     /// Get the trace of the matrix (sum of the values along the diagonal).
@@ -714,7 +714,7 @@ internal static partial class RlMathWrapper {
     /// <returns>The sum of the elements on the main diagonal of the matrix.</returns>
     [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial float MatrixTrace(Matrix4x4 mat);
+    internal static partial float MatrixTrace(Matrix4x4 mat);
 
     /// <summary>
     /// Transposes provided matrix.
@@ -723,7 +723,7 @@ internal static partial class RlMathWrapper {
     /// <returns>The transposed matrix.</returns>
     [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial Matrix4x4 MatrixTranspose(Matrix4x4 mat);
+    internal static partial Matrix4x4 MatrixTranspose(Matrix4x4 mat);
 
     /// <summary>
     /// Invert provided matrix.
@@ -732,7 +732,7 @@ internal static partial class RlMathWrapper {
     /// <returns>The inverted matrix.</returns>
     [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial Matrix4x4 MatrixInvert(Matrix4x4 mat);
+    internal static partial Matrix4x4 MatrixInvert(Matrix4x4 mat);
 
     /// <summary>
     /// Get identity matrix.
@@ -740,7 +740,7 @@ internal static partial class RlMathWrapper {
     /// <returns>The identity matrix.</returns>
     [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial Matrix4x4 MatrixIdentity();
+    internal static partial Matrix4x4 MatrixIdentity();
 
     /// <summary>
     /// Add two matrices.
@@ -750,7 +750,7 @@ internal static partial class RlMathWrapper {
     /// <returns>The sum of the two matrices.</returns>
     [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial Matrix4x4 MatrixAdd(Matrix4x4 left, Matrix4x4 right);
+    internal static partial Matrix4x4 MatrixAdd(Matrix4x4 left, Matrix4x4 right);
 
     /// <summary>
     /// Subtract two matrices (left - right).
@@ -760,7 +760,7 @@ internal static partial class RlMathWrapper {
     /// <returns>The subtracted matrix.</returns>
     [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial Matrix4x4 MatrixSubtract(Matrix4x4 left, Matrix4x4 right);
+    internal static partial Matrix4x4 MatrixSubtract(Matrix4x4 left, Matrix4x4 right);
 
     /// <summary>
     /// Get two matrix multiplication.
@@ -770,7 +770,7 @@ internal static partial class RlMathWrapper {
     /// <returns>The result of the matrix multiplication.</returns>
     [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial Matrix4x4 MatrixMultiply(Matrix4x4 left, Matrix4x4 right);
+    internal static partial Matrix4x4 MatrixMultiply(Matrix4x4 left, Matrix4x4 right);
 
     /// <summary>
     /// Get translation matrix.
@@ -781,7 +781,7 @@ internal static partial class RlMathWrapper {
     /// <returns>The translated matrix.</returns>
     [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial Matrix4x4 MatrixTranslate(float x, float y, float z);
+    internal static partial Matrix4x4 MatrixTranslate(float x, float y, float z);
 
     /// <summary>
     /// Create rotation matrix from axis and angle.
@@ -791,7 +791,7 @@ internal static partial class RlMathWrapper {
     /// <returns>The rotated matrix.</returns>
     [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial Matrix4x4 MatrixRotate(Vector3 axis, float angle);
+    internal static partial Matrix4x4 MatrixRotate(Vector3 axis, float angle);
 
     /// <summary>
     /// Get x-rotation matrix.
@@ -800,7 +800,7 @@ internal static partial class RlMathWrapper {
     /// <returns>The rotated matrix.</returns>
     [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial Matrix4x4 MatrixRotateX(float angle);
+    internal static partial Matrix4x4 MatrixRotateX(float angle);
 
     /// <summary>
     /// Get y-rotation matrix.
@@ -809,7 +809,7 @@ internal static partial class RlMathWrapper {
     /// <returns>The rotated Matrix4x4.</returns>
     [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial Matrix4x4 MatrixRotateY(float angle);
+    internal static partial Matrix4x4 MatrixRotateY(float angle);
 
     /// <summary>
     /// Get z-rotation matrix.
@@ -818,7 +818,7 @@ internal static partial class RlMathWrapper {
     /// <returns>The resulting rotated Matrix.</returns>
     [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial Matrix4x4 MatrixRotateZ(float angle);
+    internal static partial Matrix4x4 MatrixRotateZ(float angle);
 
     /// <summary>
     /// Get xyz-rotation matrix.
@@ -827,7 +827,7 @@ internal static partial class RlMathWrapper {
     /// <returns>The rotated vector.</returns>
     [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial Matrix4x4 MatrixRotateXYZ(Vector3 angle);
+    internal static partial Matrix4x4 MatrixRotateXYZ(Vector3 angle);
 
     /// <summary>
     /// Get zyx-rotation matrix.
@@ -836,7 +836,7 @@ internal static partial class RlMathWrapper {
     /// <returns>A new matrix with the applied rotation.</returns>
     [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial Matrix4x4 MatrixRotateZYX(Vector3 angle);
+    internal static partial Matrix4x4 MatrixRotateZYX(Vector3 angle);
 
     /// <summary>
     /// Get scaling matrix.
@@ -847,7 +847,7 @@ internal static partial class RlMathWrapper {
     /// <returns>The scaled matrix.</returns>
     [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial Matrix4x4 MatrixScale(float x, float y, float z);
+    internal static partial Matrix4x4 MatrixScale(float x, float y, float z);
 
     /// <summary>
     /// Get perspective projection matrix.
@@ -861,7 +861,7 @@ internal static partial class RlMathWrapper {
     /// <returns>A Matrix4x4 representing the frustum perspective projection matrix.</returns>
     [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial Matrix4x4 MatrixFrustum(double left, double right, double bottom, double top, double near, double far);
+    internal static partial Matrix4x4 MatrixFrustum(double left, double right, double bottom, double top, double near, double far);
 
     /// <summary>
     /// Get perspective projection matrix.
@@ -873,7 +873,7 @@ internal static partial class RlMathWrapper {
     /// <returns>The perspective projection matrix.</returns>
     [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial Matrix4x4 MatrixPerspective(double fovY, double aspect, double nearPlane, double farPlane);
+    internal static partial Matrix4x4 MatrixPerspective(double fovY, double aspect, double nearPlane, double farPlane);
 
     /// <summary>
     /// Get orthographic projection matrix.
@@ -887,7 +887,7 @@ internal static partial class RlMathWrapper {
     /// <returns>The orthographic transform matrix.</returns>
     [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial Matrix4x4 MatrixOrtho(double left, double right, double bottom, double top, double nearPlane, double farPlane);
+    internal static partial Matrix4x4 MatrixOrtho(double left, double right, double bottom, double top, double nearPlane, double farPlane);
 
     /// <summary>
     /// Get camera look-at matrix (view matrix).
@@ -898,7 +898,7 @@ internal static partial class RlMathWrapper {
     /// <returns>The resulting view matrix.</returns>
     [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial Matrix4x4 MatrixLookAt(Vector3 eye, Vector3 target, Vector3 up);
+    internal static partial Matrix4x4 MatrixLookAt(Vector3 eye, Vector3 target, Vector3 up);
 
     /// <summary>
     /// Add two quaternions.
@@ -908,7 +908,7 @@ internal static partial class RlMathWrapper {
     /// <returns>The sum of the two quaternions.</returns>
     [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial Quaternion QuaternionAdd(Quaternion q1, Quaternion q2);
+    internal static partial Quaternion QuaternionAdd(Quaternion q1, Quaternion q2);
 
     /// <summary>
     /// Add quaternion and float value.
@@ -918,7 +918,7 @@ internal static partial class RlMathWrapper {
     /// <returns>The modified quaternion.</returns>
     [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial Quaternion QuaternionAddValue(Quaternion q, float add);
+    internal static partial Quaternion QuaternionAddValue(Quaternion q, float add);
 
     /// <summary>
     /// Subtract two quaternions.
@@ -928,7 +928,7 @@ internal static partial class RlMathWrapper {
     /// <returns>The resulting quaternion.</returns>
     [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial Quaternion QuaternionSubtract(Quaternion q1, Quaternion q2);
+    internal static partial Quaternion QuaternionSubtract(Quaternion q1, Quaternion q2);
 
     /// <summary>
     /// Subtract quaternion and float value.
@@ -938,7 +938,7 @@ internal static partial class RlMathWrapper {
     /// <returns>The resulting Quaternion after subtracting the value.</returns>
     [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial Quaternion QuaternionSubtractValue(Quaternion q, float sub);
+    internal static partial Quaternion QuaternionSubtractValue(Quaternion q, float sub);
 
     /// <summary>
     /// Get identity quaternion.
@@ -946,7 +946,7 @@ internal static partial class RlMathWrapper {
     /// <returns>The identity quaternion.</returns>
     [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial Quaternion QuaternionIdentity();
+    internal static partial Quaternion QuaternionIdentity();
 
     /// <summary>
     /// Computes the length of a quaternion.
@@ -955,7 +955,7 @@ internal static partial class RlMathWrapper {
     /// <returns>The length of the Quaternion.</returns>
     [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial float QuaternionLength(Quaternion q);
+    internal static partial float QuaternionLength(Quaternion q);
 
     /// <summary>
     /// Normalize provided quaternion.
@@ -964,7 +964,7 @@ internal static partial class RlMathWrapper {
     /// <returns>The normalized quaternion.</returns>
     [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial Quaternion QuaternionNormalize(Quaternion q);
+    internal static partial Quaternion QuaternionNormalize(Quaternion q);
 
     /// <summary>
     /// Invert provided quaternion.
@@ -973,7 +973,7 @@ internal static partial class RlMathWrapper {
     /// <returns>The inverted quaternion.</returns>
     [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial Quaternion QuaternionInvert(Quaternion q);
+    internal static partial Quaternion QuaternionInvert(Quaternion q);
 
     /// <summary>
     /// Calculate two quaternion multiplication.
@@ -983,7 +983,7 @@ internal static partial class RlMathWrapper {
     /// <returns>The result of multiplying the two quaternions.</returns>
     [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial Quaternion QuaternionMultiply(Quaternion q1, Quaternion q2);
+    internal static partial Quaternion QuaternionMultiply(Quaternion q1, Quaternion q2);
 
     /// <summary>
     /// Scale quaternion by float value.
@@ -993,7 +993,7 @@ internal static partial class RlMathWrapper {
     /// <returns>The scaled quaternion.</returns>
     [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial Quaternion QuaternionScale(Quaternion q, float mul);
+    internal static partial Quaternion QuaternionScale(Quaternion q, float mul);
 
     /// <summary>
     /// Divide two quaternions.
@@ -1003,7 +1003,7 @@ internal static partial class RlMathWrapper {
     /// <returns>The result of dividing q1 by q2.</returns>
     [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial Quaternion QuaternionDivide(Quaternion q1, Quaternion q2);
+    internal static partial Quaternion QuaternionDivide(Quaternion q1, Quaternion q2);
 
     /// <summary>
     /// Calculate linear interpolation between two quaternions.
@@ -1014,7 +1014,7 @@ internal static partial class RlMathWrapper {
     /// <returns>The interpolated quaternion</returns>
     [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial Quaternion QuaternionLerp(Quaternion q1, Quaternion q2, float amount);
+    internal static partial Quaternion QuaternionLerp(Quaternion q1, Quaternion q2, float amount);
 
     /// <summary>
     /// Calculate slerp-optimized interpolation between two quaternions.
@@ -1025,7 +1025,7 @@ internal static partial class RlMathWrapper {
     /// <returns>The interpolated quaternion.</returns>
     [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial Quaternion QuaternionNlerp(Quaternion q1, Quaternion q2, float amount);
+    internal static partial Quaternion QuaternionNlerp(Quaternion q1, Quaternion q2, float amount);
 
     /// <summary>
     /// Calculates spherical linear interpolation between two quaternions.
@@ -1036,7 +1036,7 @@ internal static partial class RlMathWrapper {
     /// <returns>The interpolated quaternion.</returns>
     [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial Quaternion QuaternionSlerp(Quaternion q1, Quaternion q2, float amount);
+    internal static partial Quaternion QuaternionSlerp(Quaternion q1, Quaternion q2, float amount);
 
     /// <summary>
     /// Calculate quaternion based on the rotation from one vector to another.
@@ -1046,7 +1046,7 @@ internal static partial class RlMathWrapper {
     /// <returns>The generated quaternion representing the rotation.</returns>
     [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial Quaternion QuaternionFromVector3ToVector3(Vector3 from, Vector3 to);
+    internal static partial Quaternion QuaternionFromVector3ToVector3(Vector3 from, Vector3 to);
 
     /// <summary>
     /// Get a quaternion for a given rotation matrix.
@@ -1055,7 +1055,7 @@ internal static partial class RlMathWrapper {
     /// <returns>The Quaternion created from the Matrix4x4.</returns>
     [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial Quaternion QuaternionFromMatrix(Matrix4x4 mat);
+    internal static partial Quaternion QuaternionFromMatrix(Matrix4x4 mat);
 
     /// <summary>
     /// Get a matrix for a given quaternion.
@@ -1064,7 +1064,7 @@ internal static partial class RlMathWrapper {
     /// <returns>The matrix representation of the quaternion.</returns>
     [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial Matrix4x4 QuaternionToMatrix(Quaternion q);
+    internal static partial Matrix4x4 QuaternionToMatrix(Quaternion q);
 
     /// <summary>
     /// Get rotation quaternion for an angle and axis.
@@ -1074,7 +1074,7 @@ internal static partial class RlMathWrapper {
     /// <returns>The resulting quaternion.</returns>
     [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial Quaternion QuaternionFromAxisAngle(Vector3 axis, float angle);
+    internal static partial Quaternion QuaternionFromAxisAngle(Vector3 axis, float angle);
 
     /// <summary>
     /// Get the rotation angle and axis for a given quaternion.
@@ -1084,7 +1084,7 @@ internal static partial class RlMathWrapper {
     /// <param name="angle">The resulting angle in radians.</param>
     [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial void QuaternionToAxisAngle(Quaternion q, out Vector3 axis, out float angle);
+    internal static partial void QuaternionToAxisAngle(Quaternion q, out Vector3 axis, out float angle);
 
     /// <summary>
     /// Get the quaternion equivalent to Euler angles.
@@ -1095,7 +1095,7 @@ internal static partial class RlMathWrapper {
     /// <returns>The quaternion representing the euler angles.</returns>
     [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial Quaternion QuaternionFromEuler(float pitch, float yaw, float roll);
+    internal static partial Quaternion QuaternionFromEuler(float pitch, float yaw, float roll);
 
     /// <summary>
     /// Get the Euler angles equivalent to quaternion (roll, pitch, yaw).
@@ -1104,7 +1104,7 @@ internal static partial class RlMathWrapper {
     /// <returns>The Euler angles as a Vector3.</returns>
     [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial Vector3 QuaternionToEuler(Quaternion q);
+    internal static partial Vector3 QuaternionToEuler(Quaternion q);
 
     /// <summary>
     /// Transform a quaternion given a transformation matrix.
@@ -1114,7 +1114,7 @@ internal static partial class RlMathWrapper {
     /// <returns>The transformed Quaternion.</returns>
     [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial Quaternion QuaternionTransform(Quaternion q, Matrix4x4 mat);
+    internal static partial Quaternion QuaternionTransform(Quaternion q, Matrix4x4 mat);
 
     /// <summary>
     /// Check whether two given quaternions are almost equal.
@@ -1124,5 +1124,5 @@ internal static partial class RlMathWrapper {
     /// <returns>True if the quaternions are equal, False otherwise.</returns>
     [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial int QuaternionEquals(Quaternion p, Quaternion q);
+    internal static partial int QuaternionEquals(Quaternion p, Quaternion q);
 }

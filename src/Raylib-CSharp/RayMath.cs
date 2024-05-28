@@ -425,8 +425,8 @@ public static class RayMath {
     }
 
     /// <inheritdoc cref="RlMathWrapper.QuaternionFromEuler"/>
-    public static Quaternion QuaternionFromEuler(float roll, float pitch, float yaw) {
-        return RlMathWrapper.QuaternionFromEuler(roll, pitch, yaw);
+    public static Quaternion QuaternionFromEuler(float pitch, float yaw, float roll) {
+        return RlMathWrapper.QuaternionFromEuler(pitch, yaw, roll);
     }
 
     /// <inheritdoc cref="RlMathWrapper.QuaternionToEuler"/>

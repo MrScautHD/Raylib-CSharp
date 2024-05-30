@@ -1,46 +1,31 @@
-using System.Runtime.CompilerServices;
-using System.Runtime.InteropServices;
+using Raylib_CSharp.Apis;
 
 namespace Raylib_CSharp.Audio;
 
-public static partial class AudioDevice {
+public static class AudioDevice {
 
-    /// <summary>
-    /// Initialize audio device and context.
-    /// </summary>
-    [LibraryImport(Raylib.Name, EntryPoint = "InitAudioDevice")]
-    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial void Init();
+    /// <inheritdoc cref="RaylibApi.InitAudioDevice" />
+    public static void Init() {
+        RaylibApi.InitAudioDevice();
+    }
 
-    /// <summary>
-    /// Close the audio device and context.
-    /// </summary>
-    [LibraryImport(Raylib.Name, EntryPoint = "CloseAudioDevice")]
-    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial void Close();
+    /// <inheritdoc cref="RaylibApi.CloseAudioDevice" />
+    public static void Close() {
+        RaylibApi.CloseAudioDevice();
+    }
 
-    /// <summary>
-    /// Check if audio device has been initialized successfully.
-    /// </summary>
-    /// <returns>Returns true if the audio device is ready; otherwise, false.</returns>
-    [LibraryImport(Raylib.Name, EntryPoint = "IsAudioDeviceReady")]
-    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    [return: MarshalAs(UnmanagedType.I1)]
-    public static partial bool IsReady();
+    /// <inheritdoc cref="RaylibApi.IsAudioDeviceReady" />
+    public static bool IsReady() {
+        return RaylibApi.IsAudioDeviceReady();
+    }
 
-    /// <summary>
-    /// Set master volume (listener).
-    /// </summary>
-    /// <param name="volume">The volume value.</param>
-    [LibraryImport(Raylib.Name, EntryPoint = "SetMasterVolume")]
-    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial void SetMasterVolume(float volume);
+    /// <inheritdoc cref="RaylibApi.SetMasterVolume" />
+    public static void SetMasterVolume(float volume) {
+        RaylibApi.SetMasterVolume(volume);
+    }
 
-    /// <summary>
-    /// Get master volume (listener).
-    /// </summary>
-    /// <returns>The master volume of the audio device.</returns>
-    [LibraryImport(Raylib.Name, EntryPoint = "GetMasterVolume")]
-    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial float GetMasterVolume();
+    /// <inheritdoc cref="RaylibApi.GetMasterVolume" />
+    public static float GetMasterVolume() {
+        return RaylibApi.GetMasterVolume();
+    }
 }

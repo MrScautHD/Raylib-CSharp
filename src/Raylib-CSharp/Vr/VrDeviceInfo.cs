@@ -48,6 +48,9 @@ public struct VrDeviceInfo {
     /// <summary>
     /// Lens distortion constant parameters.
     /// </summary>
+    public unsafe fixed float LensDistortionValuesPtr[4];
+
+    /// <inheritdoc cref="LensDistortionValuesPtr" />
     public unsafe Span<float> LensDistortionValues {
         get {
             fixed (float* lensDistortionValues = this.LensDistortionValuesPtr) {
@@ -56,11 +59,12 @@ public struct VrDeviceInfo {
         }
     }
 
-    public unsafe fixed float LensDistortionValuesPtr[4];
-
     /// <summary>
     /// Chromatic aberration correction parameters.
     /// </summary>
+    public unsafe fixed float ChromaAbCorrectionPtr[4];
+
+    /// <inheritdoc cref="ChromaAbCorrectionPtr" />
     public unsafe Span<float> ChromaAbCorrection {
         get {
             fixed (float* chromaAbCorrection = this.ChromaAbCorrectionPtr) {
@@ -68,6 +72,4 @@ public struct VrDeviceInfo {
             }
         }
     }
-
-    public unsafe fixed float ChromaAbCorrectionPtr[4];
 }

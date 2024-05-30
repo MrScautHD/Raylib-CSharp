@@ -1,9 +1,10 @@
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
+using Raylib_CSharp.Apis;
 
 namespace Raylib_CSharp.Logging;
 
-public static partial class Logger {
+public static class Logger {
 
     public delegate bool OnMessage(TraceLogLevel logLevel, string text);
     public static event OnMessage? Message;
@@ -15,33 +16,18 @@ public static partial class Logger {
     /// </summary>
     public static unsafe void Init() {
         _formatter = new StringFormatter();
-        SetTraceLogCallback(&TraceLogCallback);
+        RaylibApi.SetTraceLogCallback(&TraceLogCallback);
     }
 
-    /// <summary>
-    /// Sends a log message to the logger with the specified log level and text.
-    /// </summary>
-    /// <param name="logLevel">The level of the log message.</param>
-    /// <param name="text">The text of the log message.</param>
-    [LibraryImport(Raylib.Name, StringMarshalling = StringMarshalling.Utf8)]
-    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial void TraceLog(TraceLogLevel logLevel, string text);
+    /// <inheritdoc cref="RaylibApi.TraceLog" />
+    public static void TraceLog(TraceLogLevel logLevel, string text) {
+        RaylibApi.TraceLog(logLevel, text);
+    }
 
-    /// <summary>
-    /// Sets the trace log level.
-    /// </summary>
-    /// <param name="logLevel">The log level to set.</param>
-    [LibraryImport(Raylib.Name)]
-    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial void SetTraceLogLevel(TraceLogLevel logLevel);
-
-    /// <summary>
-    /// Sets the trace log callback function.
-    /// </summary>
-    /// <param name="callback">A pointer to an unmanaged function that matches the signature of the callback function.</param>
-    [LibraryImport(Raylib.Name, StringMarshalling = StringMarshalling.Utf8)]
-    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    private static unsafe partial void SetTraceLogCallback(delegate* unmanaged[Cdecl]<int, nint, nint, void> callback);
+    /// <inheritdoc cref="RaylibApi.SetTraceLogLevel" />
+    public static void SetTraceLogLevel(TraceLogLevel logLevel) {
+        RaylibApi.SetTraceLogLevel(logLevel);
+    }
 
     /// <summary>
     /// Callback method that is called whenever a new log message is generated.

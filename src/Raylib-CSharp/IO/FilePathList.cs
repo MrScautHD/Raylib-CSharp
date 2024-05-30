@@ -19,7 +19,8 @@ public struct FilePathList {
     /// <summary>
     /// FilePaths entries.
     /// </summary>
-    public unsafe StringArraySpan Paths => new(this.PathsPtr, (int) this.Count);
-
     public unsafe sbyte** PathsPtr;
+
+    /// <inheritdoc cref="PathsPtr" />
+    public unsafe StringArraySpan Paths => new(this.PathsPtr, (int) this.Count);
 }

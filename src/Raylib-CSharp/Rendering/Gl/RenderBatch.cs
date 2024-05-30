@@ -18,16 +18,18 @@ public struct RenderBatch {
     /// <summary>
     /// Dynamic buffer(s) for vertex data.
     /// </summary>
-    public unsafe Span<VertexBuffer> VertexBuffer => new(this.VertexBufferPtr, this.BufferCount);
-
     public unsafe VertexBuffer* VertexBufferPtr;
+
+    /// <inheritdoc cref="VertexBufferPtr" />
+    public unsafe Span<VertexBuffer> VertexBuffer => new(this.VertexBufferPtr, this.BufferCount);
 
     /// <summary>
     /// Draw calls array, depends on textureId.
     /// </summary>
-    public unsafe Span<DrawCall> Draws => new(this.DrawsPtr, this.DrawCounter);
-
     public unsafe DrawCall* DrawsPtr;
+
+    /// <inheritdoc cref="DrawsPtr" />
+    public unsafe Span<DrawCall> Draws => new(this.DrawsPtr, this.DrawCounter);
 
     /// <summary>
     /// Draw calls counter.

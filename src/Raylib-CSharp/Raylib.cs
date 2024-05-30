@@ -1,69 +1,67 @@
 using System.Runtime.CompilerServices;
 using Raylib_CSharp.Windowing;
-using Raylib_CSharp.Wrappers;
+using Raylib_CSharp.Apis;
 
 [assembly: DisableRuntimeMarshalling]
 
 namespace Raylib_CSharp;
 
-// TODO: Remove temp methods like `Camera3D.Update_(....)` after this issue is fixed: https://github.com/dotnet/runtime/issues/102690
-
 public static class Raylib {
 
     public const string Name = "raylib";
 
-    public static readonly Version Version = new(3, 0, 6);
+    public static readonly Version Version = new(4, 0, 0);
     public static readonly Version RlVersion = new(5, 0, 0);
 
-    /// <inheritdoc cref="RlWrapper.TakeScreenshot"/>
+    /// <inheritdoc cref="RaylibApi.TakeScreenshot" />
     public static void TakeScreenshot(string path) {
-        RlWrapper.TakeScreenshot(path);
+        RaylibApi.TakeScreenshot(path);
     }
 
-    /// <inheritdoc cref="RlWrapper.SetConfigFlags"/>
+    /// <inheritdoc cref="RaylibApi.SetConfigFlags" />
     public static void SetConfigFlags(ConfigFlags flags) {
-        RlWrapper.SetConfigFlags(flags);
+        RaylibApi.SetConfigFlags(flags);
     }
 
-    /// <inheritdoc cref="RlWrapper.OpenUrl"/>
-    public static void OpenUrl(string path) {
-        RlWrapper.OpenUrl(path);
+    /// <inheritdoc cref="RaylibApi.OpenURL" />
+    public static void OpenURL(string path) {
+        RaylibApi.OpenURL(path);
     }
 
-    /// <inheritdoc cref="RlWrapper.SetRandomSeed"/>
+    /// <inheritdoc cref="RaylibApi.SetRandomSeed" />
     public static void SetRandomSeed(uint seed) {
-        RlWrapper.SetRandomSeed(seed);
+        RaylibApi.SetRandomSeed(seed);
     }
 
-    /// <inheritdoc cref="RlWrapper.GetRandomValue"/>
+    /// <inheritdoc cref="RaylibApi.GetRandomValue" />
     public static int GetRandomValue(int min, int max) {
-        return RlWrapper.GetRandomValue(min, max);
+        return RaylibApi.GetRandomValue(min, max);
     }
 
-    /// <inheritdoc cref="RlWrapper.LoadRandomSequence"/>
+    /// <inheritdoc cref="RaylibApi.LoadRandomSequence" />
     public static unsafe ReadOnlySpan<int> LoadRandomSequence(int count, int min, int max) {
-        return new ReadOnlySpan<int>(RlWrapper.LoadRandomSequence(count, min, max), count);
+        return new ReadOnlySpan<int>(RaylibApi.LoadRandomSequence(count, min, max), count);
     }
 
-    /// <inheritdoc cref="RlWrapper.UnloadRandomSequence"/>
+    /// <inheritdoc cref="RaylibApi.UnloadRandomSequence" />
     public static unsafe void UnloadRandomSequence(ReadOnlySpan<int> sequence) {
         fixed (int* sequencePtr = sequence) {
-            RlWrapper.UnloadRandomSequence(sequencePtr);
+            RaylibApi.UnloadRandomSequence(sequencePtr);
         }
     }
 
-    /// <inheritdoc cref="RlWrapper.MemAlloc"/>
+    /// <inheritdoc cref="RaylibApi.MemAlloc" />
     public static unsafe T* MemAlloc<T>(int size) where T : unmanaged {
-        return (T*) RlWrapper.MemAlloc(size * sizeof(T));
+        return (T*) RaylibApi.MemAlloc(size * sizeof(T));
     }
 
-    /// <inheritdoc cref="RlWrapper.MemRealloc"/>
+    /// <inheritdoc cref="RaylibApi.MemRealloc" />
     public static unsafe T* MemRealloc<T>(T* ptr, int size) where T : unmanaged {
-        return (T*) RlWrapper.MemRealloc((nint) ptr, size * sizeof(T));
+        return (T*) RaylibApi.MemRealloc((nint) ptr, size * sizeof(T));
     }
 
-    /// <inheritdoc cref="RlWrapper.MemFree"/>
+    /// <inheritdoc cref="RaylibApi.MemFree" />
     public static unsafe void MemFree<T>(T* ptr) where T : unmanaged {
-        RlWrapper.MemFree((nint) ptr);
+        RaylibApi.MemFree((nint) ptr);
     }
 }

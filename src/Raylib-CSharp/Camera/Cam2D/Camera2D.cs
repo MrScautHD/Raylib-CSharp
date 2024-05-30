@@ -1,11 +1,11 @@
 using System.Numerics;
-using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
+using Raylib_CSharp.Apis;
 
 namespace Raylib_CSharp.Camera.Cam2D;
 
 [StructLayout(LayoutKind.Sequential)]
-public partial struct Camera2D {
+public struct Camera2D {
 
     /// <summary>
     /// Camera offset (displacement from target).
@@ -41,39 +41,18 @@ public partial struct Camera2D {
         this.Zoom = zoom;
     }
 
-    /// <summary>
-    /// Get the world space position for a 2d camera screen space position.
-    /// </summary>
-    /// <param name="position">The screen position (2D) to convert.</param>
-    /// <param name="camera">The Camera2D used for the conversion.</param>
-    /// <returns>The world position (3D) corresponding to the screen position (2D).</returns>
-    [LibraryImport(Raylib.Name, EntryPoint = "GetScreenToWorld2D")]
-    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial Vector2 GetScreenToWorld(Vector2 position, Camera2D camera);
+    /// <inheritdoc cref="RaylibApi.GetScreenToWorld2D" />
+    public Vector2 GetScreenToWorld(Vector2 position) {
+        return RaylibApi.GetScreenToWorld2D(position, this);
+    }
 
-    /// <summary>
-    /// Get the screen space position for a 2d camera world space position.
-    /// </summary>
-    /// <param name="position">The world position in 2D.</param>
-    /// <param name="camera">The 2D camera.</param>
-    /// <returns>The screen position in 2D.</returns>
-    [LibraryImport(Raylib.Name, EntryPoint = "GetWorldToScreen2D")]
-    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial Vector2 GetWorldToScreen(Vector2 position, Camera2D camera);
-}
+    /// <inheritdoc cref="RaylibApi.GetWorldToScreen2D" />
+    public Vector2 GetWorldToScreen(Vector2 position) {
+        return RaylibApi.GetWorldToScreen2D(position, this);
+    }
 
-/// <summary>
-/// Contains extension methods for the <see cref="Camera2D"/> class.
-/// </summary>
-public static partial class Camera2DExtensions {
-
-    /// <summary>
-    /// Get camera 2d transform matrix.
-    /// </summary>
-    /// <param name="camera">The Camera2D to get the transformation matrix for.</param>
-    /// <returns>The 2D transformation matrix.</returns>
-    [LibraryImport(Raylib.Name, EntryPoint = "GetCameraMatrix2D")]
-    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])] // TODO CHECK IF IT WOULD POSSIBLE TO DONE THE "THIS" With a custom marshaler or something like that...
-    private static partial Matrix4x4 GetMatrix_(Camera2D camera);
-    public static Matrix4x4 GetMatrix(this Camera2D camera) => GetMatrix_(camera);
+    /// <inheritdoc cref="RaylibApi.GetCameraMatrix2D" />
+    public Matrix4x4 GetCameraMatrix() {
+        return RaylibApi.GetCameraMatrix2D(this);
+    }
 }

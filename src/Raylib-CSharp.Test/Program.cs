@@ -55,7 +55,7 @@ Window.Init(1280, 720, "Raylib-CSharp");
 
 Model model = Model.Load("content/model.glb");
 
-ReadOnlySpan<ModelAnimation> animation = ModelAnimation.Load("content/model.glb");
+ReadOnlySpan<ModelAnimation> animation = ModelAnimation.LoadAnimations("content/model.glb");
 
 ReadOnlySpanData<ModelAnimation> data = new(animation);
 List<ReadOnlySpanData<ModelAnimation>> list = new();
@@ -123,7 +123,7 @@ while (!Window.ShouldClose()) {
     Graphics.DrawModel(model, Vector3.UnitY / 2, 1, Color.Alpha(Color.Green, 0.5F));
     Graphics.EndMode3D();
 
-    Graphics.DrawFps(50, 50);
+    Graphics.DrawFPS(50, 50);
     Graphics.DrawTexture(texture, 10, 10, Color.White);
 
     Graphics.EndDrawing();

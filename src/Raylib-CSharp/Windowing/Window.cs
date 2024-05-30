@@ -1,423 +1,250 @@
 using System.Numerics;
-using System.Runtime.CompilerServices;
-using System.Runtime.InteropServices;
-using System.Runtime.InteropServices.Marshalling;
 using Raylib_CSharp.Images;
-using Raylib_CSharp.Unsafe.Marshallers;
+using Raylib_CSharp.Apis;
 
 namespace Raylib_CSharp.Windowing;
 
-public static partial class Window {
+public static class Window {
 
-    /// <summary>
-    /// Initialize window and OpenGL context.
-    /// </summary>
-    /// <param name="width">The width of the window.</param>
-    /// <param name="height">The height of the window.</param>
-    /// <param name="title">The title of the window.</param>
-    [LibraryImport(Raylib.Name, EntryPoint = "InitWindow", StringMarshalling = StringMarshalling.Utf8)]
-    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial void Init(int width, int height, string title);
+    /// <inheritdoc cref="RaylibApi.InitWindow" />
+    public static void Init(int width, int height, string title) {
+        RaylibApi.InitWindow(width, height, title);
+    }
 
-    /// <summary>
-    /// Close window and unload OpenGL context.
-    /// </summary>
-    [LibraryImport(Raylib.Name, EntryPoint = "CloseWindow")]
-    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial void Close();
+    /// <inheritdoc cref="RaylibApi.CloseWindow" />
+    public static void Close() {
+        RaylibApi.CloseWindow();
+    }
 
-    /// <summary>
-    /// Check if application should close (KEY_ESCAPE pressed or windows close icon clicked).
-    /// </summary>
-    /// <returns>true if the window should close, false otherwise.</returns>
-    [LibraryImport(Raylib.Name, EntryPoint = "WindowShouldClose")]
-    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    [return: MarshalAs(UnmanagedType.I1)]
-    public static partial bool ShouldClose();
+    /// <inheritdoc cref="RaylibApi.WindowShouldClose" />
+    public static bool ShouldClose() {
+        return RaylibApi.WindowShouldClose();
+    }
 
-    /// <summary>
-    /// Check if window has been initialized successfully.
-    /// </summary>
-    /// <returns>True if the window and OpenGL context are ready, false otherwise</returns>
-    [LibraryImport(Raylib.Name, EntryPoint = "IsWindowReady")]
-    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    [return: MarshalAs(UnmanagedType.I1)]
-    public static partial bool IsReady();
+    /// <inheritdoc cref="RaylibApi.IsWindowReady" />
+    public static bool IsReady() {
+        return RaylibApi.IsWindowReady();
+    }
 
-    /// <summary>
-    /// Check if window is currently fullscreen.
-    /// </summary>
-    /// <returns>True if the window is in fullscreen mode, false otherwise.</returns>
-    [LibraryImport(Raylib.Name, EntryPoint = "IsWindowFullscreen")]
-    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    [return: MarshalAs(UnmanagedType.I1)]
-    public static partial bool IsFullscreen();
+    /// <inheritdoc cref="RaylibApi.IsWindowFullscreen" />
+    public static bool IsFullscreen() {
+        return RaylibApi.IsWindowFullscreen();
+    }
 
-    /// <summary>
-    /// Check if window is currently hidden (only PLATFORM_DESKTOP).
-    /// </summary>
-    /// <returns>True if the window is hidden, false otherwise.</returns>
-    [LibraryImport(Raylib.Name, EntryPoint = "IsWindowHidden")]
-    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    [return: MarshalAs(UnmanagedType.I1)]
-    public static partial bool IsHidden();
+    /// <inheritdoc cref="RaylibApi.IsWindowHidden" />
+    public static bool IsHidden() {
+        return RaylibApi.IsWindowHidden();
+    }
 
-    /// <summary>
-    /// Check if window is currently minimized (only PLATFORM_DESKTOP).
-    /// </summary>
-    /// <returns>
-    /// <c>true</c> if the window is minimized; otherwise, <c>false</c>.
-    /// </returns>
-    [LibraryImport(Raylib.Name, EntryPoint = "IsWindowMinimized")]
-    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    [return: MarshalAs(UnmanagedType.I1)]
-    public static partial bool IsMinimized();
+    /// <inheritdoc cref="RaylibApi.IsWindowMinimized" />
+    public static bool IsMinimized() {
+        return RaylibApi.IsWindowMinimized();
+    }
 
-    /// <summary>
-    /// Check if window is currently maximized (only PLATFORM_DESKTOP).
-    /// </summary>
-    /// <returns>True if the window is maximized, false otherwise.</returns>
-    [LibraryImport(Raylib.Name, EntryPoint = "IsWindowMaximized")]
-    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    [return: MarshalAs(UnmanagedType.I1)]
-    public static partial bool IsMaximized();
+    /// <inheritdoc cref="RaylibApi.IsWindowMaximized" />
+    public static bool IsMaximized() {
+        return RaylibApi.IsWindowMaximized();
+    }
 
-    /// <summary>
-    /// Check if window is currently focused (only PLATFORM_DESKTOP).
-    /// </summary>
-    /// <returns>true if the window has input focus, false otherwise.</returns>
-    [LibraryImport(Raylib.Name, EntryPoint = "IsWindowFocused")]
-    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    [return: MarshalAs(UnmanagedType.I1)]
-    public static partial bool IsFocused();
+    /// <inheritdoc cref="RaylibApi.IsWindowFocused" />
+    public static bool IsFocused() {
+        return RaylibApi.IsWindowFocused();
+    }
 
-    /// <summary>
-    /// Check if window has been resized last frame.
-    /// </summary>
-    /// <returns>true if the window has been resized, false otherwise.</returns>
-    [LibraryImport(Raylib.Name, EntryPoint = "IsWindowResized")]
-    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    [return: MarshalAs(UnmanagedType.I1)]
-    public static partial bool IsResized();
+    /// <inheritdoc cref="RaylibApi.IsWindowResized" />
+    public static bool IsResized() {
+        return RaylibApi.IsWindowResized();
+    }
 
-    /// <summary>
-    /// Check if one specific window flag is enabled.
-    /// </summary>
-    /// <param name="flag">The window state flag to check.</param>
-    /// <returns>true if the window state flag is set, false otherwise.</returns>
-    [LibraryImport(Raylib.Name, EntryPoint = "IsWindowState")]
-    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    [return: MarshalAs(UnmanagedType.I1)]
-    public static partial bool IsState(ConfigFlags flag);
+    /// <inheritdoc cref="RaylibApi.IsWindowState" />
+    public static bool IsState(ConfigFlags flag) {
+        return RaylibApi.IsWindowState(flag);
+    }
 
-    /// <summary>
-    /// Set window configuration state using flags (only PLATFORM_DESKTOP).
-    /// </summary>
-    /// <param name="flag">The configuration flag(s) to set for the window.</param>
-    [LibraryImport(Raylib.Name, EntryPoint = "SetWindowState")]
-    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial void SetState(ConfigFlags flag);
+    /// <inheritdoc cref="RaylibApi.SetWindowState" />
+    public static void SetState(ConfigFlags flag) {
+        RaylibApi.SetWindowState(flag);
+    }
 
-    /// <summary>
-    /// Clear window configuration state flags.
-    /// </summary>
-    /// <param name="flag">The window configuration flag to clear.</param>
-    [LibraryImport(Raylib.Name, EntryPoint = "ClearWindowState")]
-    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial void ClearState(ConfigFlags flag);
+    /// <inheritdoc cref="RaylibApi.ClearWindowState" />
+    public static void ClearState(ConfigFlags flag) {
+        RaylibApi.ClearWindowState(flag);
+    }
 
-    /// <summary>
-    /// Toggle window state: fullscreen/windowed (only PLATFORM_DESKTOP).
-    /// </summary>
-    [LibraryImport(Raylib.Name)]
-    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial void ToggleFullscreen();
+    /// <inheritdoc cref="RaylibApi.ToggleFullscreen" />
+    public static void ToggleFullscreen() {
+        RaylibApi.ToggleFullscreen();
+    }
 
-    /// <summary>
-    /// Toggle window state: borderless windowed (only PLATFORM_DESKTOP).
-    /// </summary>
-    [LibraryImport(Raylib.Name, EntryPoint = "ToggleBorderlessWindowed")]
-    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial void ToggleBorderless();
+    /// <inheritdoc cref="RaylibApi.ToggleBorderlessWindowed" />
+    public static void ToggleBorderless() {
+        RaylibApi.ToggleBorderlessWindowed();
+    }
 
-    /// <summary>
-    /// Set window state: maximized, if resizable (only PLATFORM_DESKTOP).
-    /// </summary>
-    [LibraryImport(Raylib.Name, EntryPoint = "MaximizeWindow")]
-    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial void Maximize();
+    /// <inheritdoc cref="RaylibApi.MaximizeWindow" />
+    public static void Maximize() {
+        RaylibApi.MaximizeWindow();
+    }
 
-    /// <summary>
-    /// Set window state: minimized, if resizable (only PLATFORM_DESKTOP).
-    /// </summary>
-    [LibraryImport(Raylib.Name, EntryPoint = "MinimizeWindow")]
-    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial void Minimize();
+    /// <inheritdoc cref="RaylibApi.MinimizeWindow" />
+    public static void Minimize() {
+        RaylibApi.MinimizeWindow();
+    }
 
-    /// <summary>
-    /// Set window state: not minimized/maximized (only PLATFORM_DESKTOP).
-    /// </summary>
-    [LibraryImport(Raylib.Name, EntryPoint = "RestoreWindow")]
-    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial void Restore();
+    /// <inheritdoc cref="RaylibApi.RestoreWindow" />
+    public static void Restore() {
+        RaylibApi.RestoreWindow();
+    }
 
-    /// <summary>
-    /// Set icon for window (single image, RGBA 32bit, only PLATFORM_DESKTOP).
-    /// </summary>
-    [LibraryImport(Raylib.Name, EntryPoint = "SetWindowIcon")]
-    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial void SetIcon(Image image);
+    /// <inheritdoc cref="RaylibApi.SetWindowIcon" />
+    public static void SetIcon(Image image) {
+        RaylibApi.SetWindowIcon(image);
+    }
 
-    /// <summary>
-    /// Set icon for window (multiple images, RGBA 32bit, only PLATFORM_DESKTOP).
-    /// </summary>
-    /// <param name="images">The array of images representing the icons.</param>
-    /// <param name="count">The number of icons in the array.</param>
-    [LibraryImport(Raylib.Name, EntryPoint = "SetWindowIcons")]
-    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static unsafe partial void SetIcons(Image* images, int count);
-
-    /// <summary>
-    /// Set icon for window (multiple images, RGBA 32bit, only PLATFORM_DESKTOP).
-    /// </summary>
-    /// <param name="images">The collection of images to be used as icons.</param>
+    /// <inheritdoc cref="RaylibApi.SetWindowIcons" />
     public static unsafe void SetIcons(Span<Image> images) {
         fixed (Image* imagesPtr = images) {
-            SetIcons(imagesPtr, images.Length);
+            RaylibApi.SetWindowIcons(imagesPtr, images.Length);
         }
     }
 
-    /// <summary>
-    /// Set title for window (only PLATFORM_DESKTOP and PLATFORM_WEB).
-    /// </summary>
-    /// <param name="title">The new title for the window.</param>
-    [LibraryImport(Raylib.Name, EntryPoint = "SetWindowIcon", StringMarshalling = StringMarshalling.Utf8)]
-    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial void SetTitle(string title);
+    /// <inheritdoc cref="RaylibApi.SetWindowTitle" />
+    public static void SetTitle(string title) {
+        RaylibApi.SetWindowTitle(title);
+    }
 
-    /// <summary>
-    /// Set window position on screen (only PLATFORM_DESKTOP).
-    /// </summary>
-    /// <param name="x">The x-coordinate of the window position.</param>
-    /// <param name="y">The y-coordinate of the window position.</param>
-    [LibraryImport(Raylib.Name, EntryPoint = "SetWindowPosition")]
-    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial void SetPosition(int x, int y);
+    /// <inheritdoc cref="RaylibApi.SetWindowPosition" />
+    public static void SetPosition(int x, int y) {
+        RaylibApi.SetWindowPosition(x, y);
+    }
 
-    /// <summary>
-    /// Set monitor for the current window.
-    /// </summary>
-    /// <param name="monitor">The index of the monitor to be used.</param>
-    [LibraryImport(Raylib.Name, EntryPoint = "SetWindowMonitor")]
-    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial void SetMonitor(int monitor);
+    /// <inheritdoc cref="RaylibApi.SetWindowMonitor" />
+    public static void SetMonitor(int monitor) {
+        RaylibApi.SetWindowMonitor(monitor);
+    }
 
-    /// <summary>
-    /// Set window minimum dimensions (for FLAG_WINDOW_RESIZABLE).
-    /// </summary>
-    /// <param name="width">The minimum width of the window.</param>
-    /// <param name="height">The minimum height of the window.</param>
-    [LibraryImport(Raylib.Name, EntryPoint = "SetWindowMinSize")]
-    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial void SetMinSize(int width, int height);
+    /// <inheritdoc cref="RaylibApi.SetWindowMinSize" />
+    public static void SetMinSize(int width, int height) {
+        RaylibApi.SetWindowMinSize(width, height);
+    }
 
-    /// <summary>
-    /// Set window maximum dimensions (for FLAG_WINDOW_RESIZABLE).
-    /// </summary>
-    /// <param name="width">The maximum width of the window.</param>
-    /// <param name="height">The maximum height of the window.</param>
-    [LibraryImport(Raylib.Name, EntryPoint = "SetWindowMaxSize")]
-    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial void SetMaxSize(int width, int height);
+    /// <inheritdoc cref="RaylibApi.SetWindowMaxSize" />
+    public static void SetMaxSize(int width, int height) {
+        RaylibApi.SetWindowMaxSize(width, height);
+    }
 
-    /// <summary>
-    /// Set window dimensions.
-    /// </summary>
-    /// <param name="width">The width of the window.</param>
-    /// <param name="height">The height of the window.</param>
-    [LibraryImport(Raylib.Name, EntryPoint = "SetWindowSize")]
-    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial void SetSize(int width, int height);
+    /// <inheritdoc cref="RaylibApi.SetWindowSize" />
+    public static void SetSize(int width, int height) {
+        RaylibApi.SetWindowSize(width, height);
+    }
 
-    /// <summary>
-    /// Set window opacity [0.0f..1.0f] (only PLATFORM_DESKTOP).
-    /// </summary>
-    /// <param name="opacity">The opacity to set, ranging from 0.0f (transparent) to 1.0f (opaque).</param>
-    [LibraryImport(Raylib.Name, EntryPoint = "SetWindowOpacity")]
-    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial void SetOpacity(float opacity);
+    /// <inheritdoc cref="RaylibApi.SetWindowOpacity" />
+    public static void SetOpacity(float opacity) {
+        RaylibApi.SetWindowOpacity(opacity);
+    }
 
-    /// <summary>
-    /// Set window focused (only PLATFORM_DESKTOP).
-    /// </summary>
-    [LibraryImport(Raylib.Name, EntryPoint = "SetWindowFocused")]
-    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial void SetFocused();
+    /// <inheritdoc cref="RaylibApi.SetWindowFocused" />
+    public static void SetFocused() {
+        RaylibApi.SetWindowFocused();
+    }
 
-    /// <summary>
-    /// Get native window handle.
-    /// </summary>
-    /// <returns>The handle of the window.</returns>
-    [LibraryImport(Raylib.Name, EntryPoint = "GetWindowHandle")]
-    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial nint GetHandle();
+    /// <inheritdoc cref="RaylibApi.GetWindowHandle" />
+    public static nint GetHandle() {
+        return RaylibApi.GetWindowHandle();
+    }
 
-    /// <summary>
-    /// Get current screen width.
-    /// </summary>
-    /// <returns>The width of the screen in pixels.</returns>
-    [LibraryImport(Raylib.Name)]
-    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial int GetScreenWidth();
+    /// <inheritdoc cref="RaylibApi.GetScreenWidth" />
+    public static int GetScreenWidth() {
+        return RaylibApi.GetScreenWidth();
+    }
 
-    /// <summary>
-    /// Get current screen height.
-    /// </summary>
-    /// <returns>The height of the screen in pixels.</returns>
-    [LibraryImport(Raylib.Name)]
-    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial int GetScreenHeight();
+    /// <inheritdoc cref="RaylibApi.GetScreenHeight" />
+    public static int GetScreenHeight() {
+        return RaylibApi.GetScreenHeight();
+    }
 
-    /// <summary>
-    /// Get current render width (it considers HiDPI).
-    /// </summary>
-    /// <returns>The width of the window's render area.</returns>
-    [LibraryImport(Raylib.Name)]
-    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial int GetRenderWidth();
+    /// <inheritdoc cref="RaylibApi.GetRenderWidth" />
+    public static int GetRenderWidth() {
+        return RaylibApi.GetRenderWidth();
+    }
 
-    /// <summary>
-    /// Get current render height (it considers HiDPI).
-    /// </summary>
-    /// <returns>The height of the rendering context.</returns>
-    [LibraryImport(Raylib.Name)]
-    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial int GetRenderHeight();
+    /// <inheritdoc cref="RaylibApi.GetRenderHeight" />
+    public static int GetRenderHeight() {
+        return RaylibApi.GetRenderHeight();
+    }
 
-    /// <summary>
-    /// Get number of connected monitors.
-    /// </summary>
-    /// <returns>The number of monitors connected to the system.</returns>
-    [LibraryImport(Raylib.Name)]
-    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial int GetMonitorCount();
+    /// <inheritdoc cref="RaylibApi.GetMonitorCount" />
+    public static int GetMonitorCount() {
+        return RaylibApi.GetMonitorCount();
+    }
 
-    /// <summary>
-    /// Get current connected monitor.
-    /// </summary>
-    /// <returns>The index of the current monitor.</returns>
-    [LibraryImport(Raylib.Name)]
-    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial int GetCurrentMonitor();
+    /// <inheritdoc cref="RaylibApi.GetCurrentMonitor" />
+    public static int GetCurrentMonitor() {
+        return RaylibApi.GetCurrentMonitor();
+    }
 
-    /// <summary>
-    /// Get specified monitor position.
-    /// </summary>
-    /// <param name="monitor">The index of the monitor.</param>
-    /// <returns>The position of the monitor.</returns>
-    [LibraryImport(Raylib.Name)]
-    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial Vector2 GetMonitorPosition(int monitor);
+    /// <inheritdoc cref="RaylibApi.GetMonitorPosition" />
+    public static Vector2 GetMonitorPosition(int monitor) {
+        return RaylibApi.GetMonitorPosition(monitor);
+    }
 
-    /// <summary>
-    /// Get specified monitor width (current video mode used by monitor).
-    /// </summary>
-    /// <param name="monitor">The monitor index.</param>
-    /// <returns>The width of the monitor in pixels.</returns>
-    [LibraryImport(Raylib.Name)]
-    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial int GetMonitorWidth(int monitor);
+    /// <inheritdoc cref="RaylibApi.GetMonitorWidth" />
+    public static int GetMonitorWidth(int monitor) {
+        return RaylibApi.GetMonitorWidth(monitor);
+    }
 
-    /// <summary>
-    /// Get specified monitor height (current video mode used by monitor).
-    /// </summary>
-    /// <param name="monitor">The index of the monitor. Default value is 0.</param>
-    /// <returns>The height of the specified monitor.</returns>
-    [LibraryImport(Raylib.Name)]
-    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial int GetMonitorHeight(int monitor);
+    /// <inheritdoc cref="RaylibApi.GetMonitorHeight" />
+    public static int GetMonitorHeight(int monitor) {
+        return RaylibApi.GetMonitorHeight(monitor);
+    }
 
-    /// <summary>
-    /// Get specified monitor physical width in millimetres.
-    /// </summary>
-    /// <param name="monitor">The index of the monitor to retrieve the width from.</param>
-    /// <returns>The physical width of the monitor in pixels.</returns>
-    [LibraryImport(Raylib.Name)]
-    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial int GetMonitorPhysicalWidth(int monitor);
+    /// <inheritdoc cref="RaylibApi.GetMonitorPhysicalWidth" />
+    public static int GetMonitorPhysicalWidth(int monitor) {
+        return RaylibApi.GetMonitorPhysicalWidth(monitor);
+    }
 
-    /// <summary>
-    /// Get specified monitor physical height in millimetres.
-    /// </summary>
-    /// <param name="monitor">The index of the monitor.</param>
-    /// <returns>The physical height of the monitor.</returns>
-    [LibraryImport(Raylib.Name)]
-    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial int GetMonitorPhysicalHeight(int monitor);
+    /// <inheritdoc cref="RaylibApi.GetMonitorPhysicalHeight" />
+    public static int GetMonitorPhysicalHeight(int monitor) {
+        return RaylibApi.GetMonitorPhysicalHeight(monitor);
+    }
 
-    /// <summary>
-    /// Get specified monitor refresh rate.
-    /// </summary>
-    /// <param name="monitor">The index of the monitor to retrieve the refresh rate from.</param>
-    /// <returns>The refresh rate of the specified monitor in Hz.</returns>
-    [LibraryImport(Raylib.Name)]
-    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial int GetMonitorRefreshRate(int monitor);
+    /// <inheritdoc cref="RaylibApi.GetMonitorRefreshRate" />
+    public static int GetMonitorRefreshRate(int monitor) {
+        return RaylibApi.GetMonitorRefreshRate(monitor);
+    }
 
-    /// <summary>
-    /// Get window position XY on monitor.
-    /// </summary>
-    /// <returns>The position of the window as a <see cref="Vector2"/>.</returns>
-    [LibraryImport(Raylib.Name, EntryPoint = "GetWindowPosition")]
-    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial Vector2 GetPosition();
+    /// <inheritdoc cref="RaylibApi.GetWindowPosition" />
+    public static Vector2 GetPosition() {
+        return RaylibApi.GetWindowPosition();
+    }
 
-    /// <summary>
-    /// Get window scale DPI factor.
-    /// </summary>
-    /// <returns>The scale DPI of the window as a <see cref="Vector2"/>.</returns>
-    [LibraryImport(Raylib.Name, EntryPoint = "GetWindowScaleDPI")]
-    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial Vector2 GetScaleDPI();
+    /// <inheritdoc cref="RaylibApi.GetWindowScaleDPI" />
+    public static Vector2 GetScaleDPI() {
+        return RaylibApi.GetWindowScaleDPI();
+    }
 
-    /// <summary>
-    /// Get the human-readable, UTF-8 encoded name of the specified monitor.
-    /// </summary>
-    /// <param name="monitor">The index of the monitor.</param>
-    /// <returns>The name of the monitor.</returns>
-    [LibraryImport(Raylib.Name)]
-    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    [return: MarshalUsing(typeof(NonFreeUtf8StringMarshaller))]
-    public static partial string GetMonitorName(int monitor);
+    /// <inheritdoc cref="RaylibApi.GetMonitorName" />
+    public static string GetMonitorName(int monitor) {
+        return RaylibApi.GetMonitorName(monitor);
+    }
 
-    /// <summary>
-    /// Set clipboard text content.
-    /// </summary>
-    /// <param name="text">The text to set as the clipboard content.</param>
-    [LibraryImport(Raylib.Name, StringMarshalling = StringMarshalling.Utf8)]
-    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial void SetClipboardText(string text);
+    /// <inheritdoc cref="RaylibApi.SetClipboardText" />
+    public static void SetClipboardText(string text) {
+        RaylibApi.SetClipboardText(text);
+    }
 
-    /// <summary>
-    /// Get clipboard text content.
-    /// </summary>
-    /// <returns>The text stored in the clipboard as a Unicode string.</returns>
-    [LibraryImport(Raylib.Name)]
-    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    [return: MarshalUsing(typeof(NonFreeUtf8StringMarshaller))]
-    public static partial string GetClipboardText();
+    /// <inheritdoc cref="RaylibApi.GetClipboardText" />
+    public static string GetClipboardText() {
+        return RaylibApi.GetClipboardText();
+    }
 
-    /// <summary>
-    /// Enable waiting for events on EndDrawing(), no automatic event polling.
-    /// </summary>
-    [LibraryImport(Raylib.Name)]
-    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial void EnableEventWaiting();
+    /// <inheritdoc cref="RaylibApi.EnableEventWaiting" />
+    public static void EnableEventWaiting() {
+        RaylibApi.EnableEventWaiting();
+    }
 
-    /// <summary>
-    /// Disable waiting for events on EndDrawing(), automatic events polling.
-    /// </summary>
-    [LibraryImport(Raylib.Name)]
-    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial void DisableEventWaiting();
+    /// <inheritdoc cref="RaylibApi.DisableEventWaiting" />
+    public static void DisableEventWaiting() {
+        RaylibApi.DisableEventWaiting();
+    }
 }

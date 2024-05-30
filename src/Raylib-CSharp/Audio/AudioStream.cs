@@ -1,10 +1,10 @@
-using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
+using Raylib_CSharp.Apis;
 
 namespace Raylib_CSharp.Audio;
 
 [StructLayout(LayoutKind.Sequential)]
-public partial struct AudioStream {
+public struct AudioStream {
 
     /// <summary>
     /// Pointer to internal data used by the audio system.
@@ -31,223 +31,98 @@ public partial struct AudioStream {
     /// </summary>
     public uint Channels;
 
-    /// <summary>
-    /// Load audio stream (to stream raw audio pcm data).
-    /// </summary>
-    /// <param name="sampleRate">The sample rate of the audio stream.</param>
-    /// <param name="sampleSize">The sample size of the audio stream.</param>
-    /// <param name="channels">The number of channels in the audio stream.</param>
-    /// <returns>The loaded audio stream.</returns>
-    [LibraryImport(Raylib.Name, EntryPoint = "LoadAudioStream")]
-    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial AudioStream Load(uint sampleRate, uint sampleSize, uint channels);
+    /// <inheritdoc cref="RaylibApi.LoadAudioStream" />
+    public static AudioStream Load(uint sampleRate, uint sampleSize, uint channels) {
+        return RaylibApi.LoadAudioStream(sampleRate, sampleSize, channels);
+    }
 
-    /// <summary>
-    /// Default size for new audio streams.
-    /// </summary>
-    /// <param name="size">The size of the audio stream buffer in bytes.</param>
-    [LibraryImport(Raylib.Name, EntryPoint = "SetAudioStreamBufferSizeDefault")]
-    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial void SetBufferSizeDefault(int size);
+    /// <inheritdoc cref="RaylibApi.SetAudioStreamBufferSizeDefault" />
+    public static void SetBufferSizeDefault(int size) {
+        RaylibApi.SetAudioStreamBufferSizeDefault(size);
+    }
 
-    /// <summary>
-    /// Attach audio stream processor to the entire audio pipeline, receives the samples as floats.
-    /// </summary>
-    /// <param name="processor">A pointer to the unmanaged processor function.</param>
-    [LibraryImport(Raylib.Name, EntryPoint = "AttachAudioMixedProcessor")]
-    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static unsafe partial void AttachAudioMixedProcessor(delegate* unmanaged[Cdecl]<nint, uint, void> processor);
+    /// <inheritdoc cref="RaylibApi.SetAudioStreamCallback" />
+    public static unsafe void SetCallback(AudioStream stream, delegate* unmanaged[Cdecl]<nint, uint, void> callback) {
+        RaylibApi.SetAudioStreamCallback(stream, callback);
+    }
 
-    /// <summary>
-    /// Detach audio stream processor from the entire audio pipeline.
-    /// </summary>
-    /// <param name="processor">A pointer to the unmanaged processor function.</param>
-    [LibraryImport(Raylib.Name, EntryPoint = "DetachAudioMixedProcessor")]
-    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static unsafe partial void DetachAudioMixedProcessor(delegate* unmanaged[Cdecl]<nint, uint, void> processor);
-}
+    /// <inheritdoc cref="RaylibApi.AttachAudioStreamProcessor" />
+    public static unsafe void AttachProcessor(AudioStream stream, delegate* unmanaged[Cdecl]<nint, uint, void> processor) {
+        RaylibApi.AttachAudioStreamProcessor(stream, processor);
+    }
 
-/// <summary>
-/// Contains extension methods for the <see cref="AudioStream"/> class.
-/// </summary>
-public static partial class AudioStreamExtensions {
+    /// <inheritdoc cref="RaylibApi.DetachAudioStreamProcessor" />
+    public static unsafe void DetachProcessor(AudioStream stream, delegate* unmanaged[Cdecl]<nint, uint, void> processor) {
+        RaylibApi.DetachAudioStreamProcessor(stream, processor);
+    }
 
-    /// <summary>
-    /// Checks if an audio stream is ready.
-    /// </summary>
-    /// <param name="stream">The audio stream to check.</param>
-    /// <returns>True if the audio stream is ready, false otherwise.</returns>
-    [LibraryImport(Raylib.Name, EntryPoint = "IsAudioStreamReady")]
-    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    [return: MarshalAs(UnmanagedType.I1)]
-    private static partial bool IsReady_(AudioStream stream);
+    /// <inheritdoc cref="RaylibApi.AttachAudioMixedProcessor" />
+    public static unsafe void AttachMixedProcessor(delegate* unmanaged[Cdecl]<nint, uint, void> processor) {
+        RaylibApi.AttachAudioMixedProcessor(processor);
+    }
 
-    /// <inheritdoc cref="AudioStreamExtensions.IsReady_"/>
-    public static bool IsReady(this AudioStream stream) => IsReady_(stream);
+    /// <inheritdoc cref="RaylibApi.DetachAudioMixedProcessor" />
+    public static unsafe void DetachMixedProcessor(delegate* unmanaged[Cdecl]<nint, uint, void> processor) {
+        RaylibApi.DetachAudioMixedProcessor(processor);
+    }
 
-    /// <summary>
-    /// Unload audio stream and free memory.
-    /// </summary>
-    /// <param name="stream">The audio stream to unload.</param>
-    [LibraryImport(Raylib.Name, EntryPoint = "UnloadAudioStream")]
-    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    private static partial void Unload_(AudioStream stream);
+    /// <inheritdoc cref="RaylibApi.IsAudioStreamReady" />
+    public bool IsReady() {
+        return RaylibApi.IsAudioStreamReady(this);
+    }
 
-    /// <inheritdoc cref="AudioStreamExtensions.Unload_"/>
-    public static void Unload(this AudioStream stream) => Unload_(stream);
+    /// <inheritdoc cref="RaylibApi.UnloadAudioStream" />
+    public void Unload() {
+        RaylibApi.UnloadAudioStream(this);
+    }
 
-    /// <summary>
-    /// Update audio stream buffers with data.
-    /// </summary>
-    /// <param name="stream">The audio stream to update.</param>
-    /// <param name="data">Pointer to the new audio data.</param>
-    /// <param name="frameCount">The number of frames in the new audio data.</param>
-    [LibraryImport(Raylib.Name, EntryPoint = "UpdateAudioStream")]
-    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    private static partial void Update_(AudioStream stream, nint data, int frameCount);
+    /// <inheritdoc cref="RaylibApi.UpdateAudioStream" />
+    public void Update(nint data, int frameCount) {
+        RaylibApi.UpdateAudioStream(this, data, frameCount);
+    }
 
-    /// <inheritdoc cref="AudioStreamExtensions.Update_"/>
-    public static void Update(this AudioStream stream, nint data, int frameCount) => Update_(stream, data, frameCount);
+    /// <inheritdoc cref="RaylibApi.IsAudioStreamProcessed" />
+    public bool IsProcessed() {
+        return RaylibApi.IsAudioStreamProcessed(this);
+    }
 
-    /// <summary>
-    /// Check if any audio stream buffers requires refill.
-    /// </summary>
-    /// <param name="stream">The audio stream to check.</param>
-    /// <returns>Returns true if the audio stream has been fully processed, otherwise returns false.</returns>
-    [LibraryImport(Raylib.Name, EntryPoint = "IsAudioStreamProcessed")]
-    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    [return: MarshalAs(UnmanagedType.I1)]
-    private static partial bool IsProcessed_(AudioStream stream);
+    /// <inheritdoc cref="RaylibApi.PlayAudioStream" />
+    public void Play() {
+        RaylibApi.PlayAudioStream(this);
+    }
 
-    /// <inheritdoc cref="AudioStreamExtensions.IsProcessed_"/>
-    public static bool IsProcessed(this AudioStream stream) => IsProcessed_(stream);
+    /// <inheritdoc cref="RaylibApi.PauseAudioStream" />
+    public void Pause() {
+        RaylibApi.PauseAudioStream(this);
+    }
 
-    /// <summary>
-    /// Play audio stream.
-    /// </summary>
-    /// <param name="stream">The audio stream to play.</param>
-    [LibraryImport(Raylib.Name, EntryPoint = "PlayAudioStream")]
-    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    private static partial void Play_(AudioStream stream);
+    /// <inheritdoc cref="RaylibApi.ResumeAudioStream" />
+    public void Resume() {
+        RaylibApi.ResumeAudioStream(this);
+    }
 
-    /// <inheritdoc cref="AudioStreamExtensions.Play_"/>
-    public static void Play(this AudioStream stream) => Play_(stream);
+    /// <inheritdoc cref="RaylibApi.IsAudioStreamPlaying" />
+    public bool IsPlaying() {
+        return RaylibApi.IsAudioStreamPlaying(this);
+    }
 
-    /// <summary>
-    /// Pause audio stream.
-    /// </summary>
-    /// <param name="stream">The audio stream to pause.</param>
-    [LibraryImport(Raylib.Name, EntryPoint = "PauseAudioStream")]
-    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    private static partial void Pause_(AudioStream stream);
+    /// <inheritdoc cref="RaylibApi.StopAudioStream" />
+    public void Stop() {
+        RaylibApi.StopAudioStream(this);
+    }
 
-    /// <inheritdoc cref="AudioStreamExtensions.Pause_"/>
-    public static void Pause(this AudioStream stream) => Pause_(stream);
+    /// <inheritdoc cref="RaylibApi.SetAudioStreamVolume" />
+    public void SetVolume(float volume) {
+        RaylibApi.SetAudioStreamVolume(this, volume);
+    }
 
-    /// <summary>
-    /// Resume audio stream.
-    /// </summary>
-    /// <param name="stream">The audio stream to resume.</param>
-    [LibraryImport(Raylib.Name, EntryPoint = "ResumeAudioStream")]
-    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    private static partial void Resume_(AudioStream stream);
+    /// <inheritdoc cref="RaylibApi.SetAudioStreamPitch" />
+    public void SetPitch(float pitch) {
+        RaylibApi.SetAudioStreamPitch(this, pitch);
+    }
 
-    /// <inheritdoc cref="AudioStreamExtensions.Resume_"/>
-    public static void Resume(this AudioStream stream) => Resume_(stream);
-
-    /// <summary>
-    /// Check if audio stream is playing.
-    /// </summary>
-    /// <param name="stream">The audio stream to check.</param>
-    /// <returns>True if the audio stream is playing, false otherwise.</returns>
-    [LibraryImport(Raylib.Name, EntryPoint = "IsAudioStreamPlaying")]
-    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    [return: MarshalAs(UnmanagedType.I1)]
-    private static partial bool IsPlaying_(AudioStream stream);
-
-    /// <inheritdoc cref="AudioStreamExtensions.IsPlaying_"/>
-    public static bool IsPlaying(this AudioStream stream) => IsPlaying_(stream);
-
-    /// <summary>
-    /// Stop audio stream.
-    /// </summary>
-    /// <param name="stream">The audio stream to stop.</param>
-    [LibraryImport(Raylib.Name, EntryPoint = "StopAudioStream")]
-    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    private static partial void Stop_(AudioStream stream);
-
-    /// <inheritdoc cref="AudioStreamExtensions.Stop_"/>
-    public static void Stop(this AudioStream stream) => Stop_(stream);
-
-    /// <summary>
-    /// Set volume for audio stream (1.0 is max level).
-    /// </summary>
-    /// <param name="stream">The audio stream to set the volume for.</param>
-    /// <param name="volume">The volume value to set (range 0.0f to 1.0f).</param>
-    [LibraryImport(Raylib.Name, EntryPoint = "SetAudioStreamVolume")]
-    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    private static partial void SetVolume_(AudioStream stream, float volume);
-
-    /// <inheritdoc cref="AudioStreamExtensions.SetVolume_"/>
-    public static void SetVolume(this AudioStream stream, float volume) => SetVolume_(stream, volume);
-
-    /// <summary>
-    /// Set pitch for audio stream (1.0 is base level).
-    /// </summary>
-    /// <param name="stream">The audio stream to set the pitch for.</param>
-    /// <param name="pitch">The desired pitch value. Range is [-1.0f, 1.0f], with 0.0f being unchanged pitch.</param>
-    [LibraryImport(Raylib.Name, EntryPoint = "SetAudioStreamPitch")]
-    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    private static partial void SetPitch_(AudioStream stream, float pitch);
-
-    /// <inheritdoc cref="AudioStreamExtensions.SetPitch_"/>
-    public static void SetPitch(this AudioStream stream, float pitch) => SetPitch_(stream, pitch);
-
-    /// <summary>
-    /// Set pan for audio stream (0.5 is centered).
-    /// </summary>
-    /// <param name="stream">The audio stream.</param>
-    /// <param name="pan">The pan value. Pan value should be between -1.0 (fully left) and 1.0 (fully right).</param>
-    [LibraryImport(Raylib.Name, EntryPoint = "SetAudioStreamPan")]
-    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    private static partial void SetPan_(AudioStream stream, float pan);
-
-    /// <inheritdoc cref="AudioStreamExtensions.SetPan_"/>
-    public static void SetPan(this AudioStream stream, float pan) => SetPan_(stream, pan);
-
-    /// <summary>
-    /// Audio thread callback to request new data.
-    /// </summary>
-    /// <param name="stream">The audio stream to set the callback for.</param>
-    /// <param name="callback">The callback function pointer.</param>
-    [LibraryImport(Raylib.Name, EntryPoint = "SetAudioStreamCallback")]
-    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    private static unsafe partial void SetCallback_(AudioStream stream, delegate* unmanaged[Cdecl]<nint, uint, void> callback);
-
-    /// <inheritdoc cref="AudioStreamExtensions.SetCallback_"/>
-    public static unsafe void SetCallback(this AudioStream stream, delegate* unmanaged[Cdecl]<nint, uint, void> callback) => SetCallback_(stream, callback);
-
-    /// <summary>
-    /// Attach audio stream processor to stream, receives the samples as floats.
-    /// </summary>
-    /// <param name="stream">The audio stream to attach the processor to.</param>
-    /// <param name="processor">A pointer to the unmanaged processor function.</param>
-    [LibraryImport(Raylib.Name, EntryPoint = "AttachAudioStreamProcessor")]
-    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    private static unsafe partial void AttachProcessor_(AudioStream stream, delegate* unmanaged[Cdecl]<nint, uint, void> processor);
-
-    /// <inheritdoc cref="AudioStreamExtensions.AttachProcessor_"/>
-    public static unsafe void AttachProcessor(this AudioStream stream, delegate* unmanaged[Cdecl]<nint, uint, void> callback) => AttachProcessor_(stream, callback);
-
-    /// <summary>
-    /// Detach audio stream processor from stream.
-    /// </summary>
-    /// <param name="stream">The audio stream.</param>
-    /// <param name="processor">A pointer to the unmanaged processor function.</param>
-    [LibraryImport(Raylib.Name, EntryPoint = "DetachAudioStreamProcessor")]
-    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    private static unsafe partial void DetachProcessor_(AudioStream stream, delegate* unmanaged[Cdecl]<nint, uint, void> processor);
-
-    /// <inheritdoc cref="AudioStreamExtensions.DetachProcessor_"/>
-    public static unsafe void DetachProcessor(this AudioStream stream, delegate* unmanaged[Cdecl]<nint, uint, void> callback) => DetachProcessor_(stream, callback);
+    /// <inheritdoc cref="RaylibApi.SetAudioStreamPan" />
+    public void SetPan(float pan) {
+        RaylibApi.SetAudioStreamPan(this, pan);
+    }
 }

@@ -2,9 +2,9 @@ using System.Numerics;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
-namespace Raylib_CSharp.Wrappers;
+namespace Raylib_CSharp.Apis;
 
-internal static partial class RlMathWrapper {
+internal static partial class RayMathApi {
 
     /// <summary>
     /// Clamp float value.

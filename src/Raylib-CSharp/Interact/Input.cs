@@ -1,469 +1,267 @@
 using System.Numerics;
-using System.Runtime.CompilerServices;
-using System.Runtime.InteropServices;
-using System.Runtime.InteropServices.Marshalling;
-using Raylib_CSharp.Unsafe.Marshallers;
+using Raylib_CSharp.Apis;
 
 namespace Raylib_CSharp.Interact;
 
-public static partial class Input {
+public static class Input {
 
-    /// <summary>
-    /// Shows cursor.
-    /// </summary>
-    [LibraryImport(Raylib.Name)]
-    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial void ShowCursor();
+    /// <inheritdoc cref="RaylibApi.ShowCursor" />
+    public static void ShowCursor() {
+        RaylibApi.ShowCursor();
+    }
 
-    /// <summary>
-    /// Hides cursor.
-    /// </summary>
-    [LibraryImport(Raylib.Name)]
-    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial void HideCursor();
+    /// <inheritdoc cref="RaylibApi.HideCursor" />
+    public static void HideCursor() {
+        RaylibApi.HideCursor();
+    }
 
-    /// <summary>
-    /// Check if cursor is not visible.
-    /// </summary>
-    /// <returns>True if the cursor is hidden, false otherwise.</returns>
-    [LibraryImport(Raylib.Name)]
-    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    [return: MarshalAs(UnmanagedType.I1)]
-    public static partial bool IsCursorHidden();
+    /// <inheritdoc cref="RaylibApi.IsCursorHidden" />
+    public static bool IsCursorHidden() {
+        return RaylibApi.IsCursorHidden();
+    }
 
-    /// <summary>
-    /// Enables cursor (unlock cursor).
-    /// </summary>
-    [LibraryImport(Raylib.Name)]
-    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial void EnableCursor();
+    /// <inheritdoc cref="RaylibApi.EnableCursor" />
+    public static void EnableCursor() {
+        RaylibApi.EnableCursor();
+    }
 
-    /// <summary>
-    /// Disables cursor (lock cursor).
-    /// </summary>
-    [LibraryImport(Raylib.Name)]
-    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial void DisableCursor();
+    /// <inheritdoc cref="RaylibApi.DisableCursor" />
+    public static void DisableCursor() {
+        RaylibApi.DisableCursor();
+    }
 
-    /// <summary>
-    /// Check if cursor is on the screen.
-    /// </summary>
-    [LibraryImport(Raylib.Name)]
-    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    [return: MarshalAs(UnmanagedType.I1)]
-    public static partial bool IsCursorOnScreen();
+    /// <inheritdoc cref="RaylibApi.IsCursorOnScreen" />
+    public static bool IsCursorOnScreen() {
+        return RaylibApi.IsCursorOnScreen();
+    }
 
-    /// <summary>
-    /// Check if a key has been pressed once.
-    /// </summary>
-    /// <param name="key">The keyboard key to check.</param>
-    /// <returns>Returns true if the key is pressed down, otherwise false.</returns>
-    [LibraryImport(Raylib.Name)]
-    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    [return: MarshalAs(UnmanagedType.I1)]
-    public static partial bool IsKeyPressed(KeyboardKey key);
+    /// <inheritdoc cref="RaylibApi.IsKeyPressed" />
+    public static bool IsKeyPressed(KeyboardKey key) {
+        return RaylibApi.IsKeyPressed(key);
+    }
 
-    /// <summary>
-    /// Check if a key has been pressed again (Only PLATFORM_DESKTOP).
-    /// </summary>
-    /// <param name="key">The key to check.</param>
-    /// <returns>Returns true if the key is being pressed and repeated; otherwise, false</returns>
-    [LibraryImport(Raylib.Name)]
-    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    [return: MarshalAs(UnmanagedType.I1)]
-    public static partial bool IsKeyPressedRepeat(KeyboardKey key);
+    /// <inheritdoc cref="RaylibApi.IsKeyPressedRepeat" />
+    public static bool IsKeyPressedRepeat(KeyboardKey key) {
+        return RaylibApi.IsKeyPressedRepeat(key);
+    }
 
-    /// <summary>
-    /// Check if a key is being pressed.
-    /// </summary>
-    /// <param name="key">The key to check.</param>
-    /// <returns>True if the key is currently being pressed; otherwise, false.</returns>
-    [LibraryImport(Raylib.Name)]
-    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    [return: MarshalAs(UnmanagedType.I1)]
-    public static partial bool IsKeyDown(KeyboardKey key);
+    /// <inheritdoc cref="RaylibApi.IsKeyDown" />
+    public static bool IsKeyDown(KeyboardKey key) {
+        return RaylibApi.IsKeyDown(key);
+    }
 
-    /// <summary>
-    /// Check if a key has been released once.
-    /// </summary>
-    /// <param name="key">The keyboard key to check</param>
-    /// <returns>Returns true if the key is released, otherwise false</returns>
-    [LibraryImport(Raylib.Name)]
-    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    [return: MarshalAs(UnmanagedType.I1)]
-    public static partial bool IsKeyReleased(KeyboardKey key);
+    /// <inheritdoc cref="RaylibApi.IsKeyReleased" />
+    public static bool IsKeyReleased(KeyboardKey key) {
+        return RaylibApi.IsKeyReleased(key);
+    }
 
-    /// <summary>
-    /// Check if a key is NOT being pressed.
-    /// </summary>
-    /// <param name="key">The key to check.</param>
-    /// <returns>A boolean value indicating whether the key is up or not.</returns>
-    [LibraryImport(Raylib.Name)]
-    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    [return: MarshalAs(UnmanagedType.I1)]
-    public static partial bool IsKeyUp(KeyboardKey key);
+    /// <inheritdoc cref="RaylibApi.IsKeyUp" />
+    public static bool IsKeyUp(KeyboardKey key) {
+        return RaylibApi.IsKeyUp(key);
+    }
 
-    /// <summary>
-    /// Get key pressed (keycode), call it multiple times for keys queued, returns 0 when the queue is empty.
-    /// </summary>
-    /// <returns>
-    /// The keyboard key being pressed.
-    /// </returns>
-    [LibraryImport(Raylib.Name)]
-    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial int GetKeyPressed();
+    /// <inheritdoc cref="RaylibApi.GetKeyPressed" />
+    public static int GetKeyPressed() {
+        return RaylibApi.GetKeyPressed();
+    }
 
-    /// <summary>
-    /// Get char pressed (unicode), call it multiple times for chars queued, returns 0 when the queue is empty.
-    /// </summary>
-    /// <returns>The ASCII value of the character that was last pressed in the keyboard.</returns>
-    [LibraryImport(Raylib.Name)]
-    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial int GetCharPressed();
+    /// <inheritdoc cref="RaylibApi.GetCharPressed" />
+    public static int GetCharPressed() {
+        return RaylibApi.GetCharPressed();
+    }
 
-    /// <summary>
-    /// Set a custom key to exit program (default is ESC).
-    /// </summary>
-    /// <param name="key">The keyboard key used as the exit key.</param>
-    [LibraryImport(Raylib.Name)]
-    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial void SetExitKey(KeyboardKey key);
+    /// <inheritdoc cref="RaylibApi.SetExitKey" />
+    public static void SetExitKey(KeyboardKey key) {
+        RaylibApi.SetExitKey(key);
+    }
 
-    /// <summary>
-    /// Check if a gamepad is available.
-    /// </summary>
-    /// <param name="gamepad">The gamepad number.</param>
-    /// <returns>True if the gamepad is available, false otherwise.</returns>
-    [LibraryImport(Raylib.Name)]
-    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    [return: MarshalAs(UnmanagedType.I1)]
-    public static partial bool IsGamepadAvailable(int gamepad);
+    /// <inheritdoc cref="RaylibApi.IsGamepadAvailable" />
+    public static bool IsGamepadAvailable(int gamepad) {
+        return RaylibApi.IsGamepadAvailable(gamepad);
+    }
 
-    /// <summary>
-    /// Get gamepad internal name id.
-    /// </summary>
-    /// <param name="gamepad">The index of the gamepad.</param>
-    /// <returns>The name of the gamepad.</returns>
-    [LibraryImport(Raylib.Name)]
-    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    [return: MarshalUsing(typeof(NonFreeUtf8StringMarshaller))]
-    public static partial string GetGamepadName(int gamepad);
+    /// <inheritdoc cref="RaylibApi.GetGamepadName" />
+    public static string GetGamepadName(int gamepad) {
+        return RaylibApi.GetGamepadName(gamepad);
+    }
 
-    /// <summary>
-    /// Check if a gamepad button has been pressed once.
-    /// </summary>
-    /// <param name="gamepad">The index of the gamepad.</param>
-    /// <param name="button">The gamepad button to check.</param>
-    /// <returns>True if the button is currently pressed; otherwise, false.</returns>
-    [LibraryImport(Raylib.Name)]
-    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    [return: MarshalAs(UnmanagedType.I1)]
-    public static partial bool IsGamepadButtonPressed(int gamepad, GamepadButton button);
+    /// <inheritdoc cref="RaylibApi.IsGamepadButtonPressed" />
+    public static bool IsGamepadButtonPressed(int gamepad, GamepadButton button) {
+        return RaylibApi.IsGamepadButtonPressed(gamepad, button);
+    }
 
-    /// <summary>
-    /// Check if a gamepad button is being pressed.
-    /// </summary>
-    /// <param name="gamepad">The index of the gamepad.</param>
-    /// <param name="button">The button to check.</param>
-    /// <returns>True if the button is being pressed down, false otherwise.</returns>
-    [LibraryImport(Raylib.Name)]
-    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    [return: MarshalAs(UnmanagedType.I1)]
-    public static partial bool IsGamepadButtonDown(int gamepad, GamepadButton button);
+    /// <inheritdoc cref="RaylibApi.IsGamepadButtonDown" />
+    public static bool IsGamepadButtonDown(int gamepad, GamepadButton button) {
+        return RaylibApi.IsGamepadButtonDown(gamepad, button);
+    }
 
-    /// <summary>
-    /// Check if a gamepad button has been released once.
-    /// </summary>
-    /// <param name="gamepad">Gamepad number</param>
-    /// <param name="button">Gamepad button</param>
-    /// <returns>True if the gamepad button has been released, false otherwise</returns>
-    [LibraryImport(Raylib.Name)]
-    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    [return: MarshalAs(UnmanagedType.I1)]
-    public static partial bool IsGamepadButtonReleased(int gamepad, GamepadButton button);
+    /// <inheritdoc cref="RaylibApi.IsGamepadButtonReleased" />
+    public static bool IsGamepadButtonReleased(int gamepad, GamepadButton button) {
+        return RaylibApi.IsGamepadButtonReleased(gamepad, button);
+    }
 
-    /// <summary>
-    /// Check if a gamepad button is NOT being pressed.
-    /// </summary>
-    /// <param name="gamepad">The gamepad index.</param>
-    /// <param name="button">The gamepad button to check.</param>
-    /// <returns>Returns true if the gamepad button is not being held down; otherwise, false.</returns>
-    [LibraryImport(Raylib.Name)]
-    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    [return: MarshalAs(UnmanagedType.I1)]
-    public static partial bool IsGamepadButtonUp(int gamepad, GamepadButton button);
+    /// <inheritdoc cref="RaylibApi.IsGamepadButtonUp" />
+    public static bool IsGamepadButtonUp(int gamepad, GamepadButton button) {
+        return RaylibApi.IsGamepadButtonUp(gamepad, button);
+    }
 
-    /// <summary>
-    /// Get the last gamepad button pressed.
-    /// </summary>
-    /// <returns>True if the button is pressed, false otherwise.</returns>
-    [LibraryImport(Raylib.Name)]
-    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial int GetGamepadButtonPressed();
+    /// <inheritdoc cref="RaylibApi.GetGamepadButtonPressed" />
+    public static int GetGamepadButtonPressed() {
+        return RaylibApi.GetGamepadButtonPressed();
+    }
 
-    /// <summary>
-    /// Get gamepad axis count for a gamepad.
-    /// </summary>
-    /// <param name="gamepad">The gamepad index.</param>
-    /// <returns>The number of axis for the specified gamepad.</returns>
-    [LibraryImport(Raylib.Name)]
-    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial int GetGamepadAxisCount(int gamepad);
+    /// <inheritdoc cref="RaylibApi.GetGamepadAxisCount" />
+    public static int GetGamepadAxisCount(int gamepad) {
+        return RaylibApi.GetGamepadAxisCount(gamepad);
+    }
 
-    /// <summary>
-    /// Get axis movement value for a gamepad axis.
-    /// </summary>
-    /// <param name="gamepad">The gamepad index.</param>
-    /// <param name="axis">The axis to retrieve the movement from.</param>
-    /// <returns>The movement value of the specified axis. This value ranges between -1.0f and 1.0f.</returns>
-    [LibraryImport(Raylib.Name)]
-    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial float GetGamepadAxisMovement(int gamepad, GamepadAxis axis);
+    /// <inheritdoc cref="RaylibApi.GetGamepadAxisMovement" />
+    public static float GetGamepadAxisMovement(int gamepad, GamepadAxis axis) {
+        return RaylibApi.GetGamepadAxisMovement(gamepad, axis);
+    }
 
-    /// <summary>
-    /// Set internal gamepad mappings (SDL_GameControllerDB).
-    /// </summary>
-    /// <param name="mappings">The gamepad mappings as a string.</param>
-    /// <returns>True if the gamepad mappings were set successfully, false otherwise.</returns>
-    [LibraryImport(Raylib.Name, StringMarshalling = StringMarshalling.Utf8)]
-    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial int SetGamepadMappings(string mappings);
+    /// <inheritdoc cref="RaylibApi.SetGamepadMappings" />
+    public static int SetGamepadMappings(string mappings) {
+        return RaylibApi.SetGamepadMappings(mappings);
+    }
 
-    /// <summary>
-    /// Check if a mouse button has been pressed once.
-    /// </summary>
-    /// <param name="button">The button to check for.</param>
-    /// <returns>Returns true if the specified mouse button is currently pressed; otherwise, false.</returns>
-    [LibraryImport(Raylib.Name)]
-    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    [return: MarshalAs(UnmanagedType.I1)]
-    public static partial bool IsMouseButtonPressed(MouseButton button);
+    /// <inheritdoc cref="RaylibApi.IsMouseButtonPressed" />
+    public static bool IsMouseButtonPressed(MouseButton button) {
+        return RaylibApi.IsMouseButtonPressed(button);
+    }
 
-    /// <summary>
-    /// Check if a mouse button is being pressed.
-    /// </summary>
-    /// <param name="button">The mouse button to check.</param>
-    /// <returns>True if the mouse button is currently being pressed down; otherwise, false.</returns>
-    [LibraryImport(Raylib.Name)]
-    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    [return: MarshalAs(UnmanagedType.I1)]
-    public static partial bool IsMouseButtonDown(MouseButton button);
+    /// <inheritdoc cref="RaylibApi.IsMouseButtonDown" />
+    public static bool IsMouseButtonDown(MouseButton button) {
+        return RaylibApi.IsMouseButtonDown(button);
+    }
 
-    /// <summary>
-    /// Check if a mouse button has been released once.
-    /// </summary>
-    /// <param name="button">The mouse button to check</param>
-    /// <returns>True if the mouse button was released, otherwise false.</returns>
-    [LibraryImport(Raylib.Name)]
-    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    [return: MarshalAs(UnmanagedType.I1)]
-    public static partial bool IsMouseButtonReleased(MouseButton button);
+    /// <inheritdoc cref="RaylibApi.IsMouseButtonReleased" />
+    public static bool IsMouseButtonReleased(MouseButton button) {
+        return RaylibApi.IsMouseButtonReleased(button);
+    }
 
-    /// <summary>
-    /// Check if a mouse button is NOT being pressed.
-    /// </summary>
-    /// <param name="button">The mouse button to check.</param>
-    /// <returns>true if the mouse button is up; otherwise, false.</returns>
-    [LibraryImport(Raylib.Name)]
-    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    [return: MarshalAs(UnmanagedType.I1)]
-    public static partial bool IsMouseButtonUp(MouseButton button);
+    /// <inheritdoc cref="RaylibApi.IsMouseButtonUp" />
+    public static bool IsMouseButtonUp(MouseButton button) {
+        return RaylibApi.IsMouseButtonUp(button);
+    }
 
-    /// <summary>
-    /// Get mouse position X.
-    /// </summary>
-    /// <returns>The x-coordinate of the mouse cursor position.</returns>
-    [LibraryImport(Raylib.Name)]
-    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial int GetMouseX();
+    /// <inheritdoc cref="RaylibApi.GetMouseX" />
+    public static int GetMouseX() {
+        return RaylibApi.GetMouseX();
+    }
 
-    /// <summary>
-    /// Get mouse position Y.
-    /// </summary>
-    /// <returns>The Y position of the mouse cursor.</returns>
-    [LibraryImport(Raylib.Name)]
-    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial int GetMouseY();
+    /// <inheritdoc cref="RaylibApi.GetMouseY" />
+    public static int GetMouseY() {
+        return RaylibApi.GetMouseY();
+    }
 
-    /// <summary>
-    /// Get mouse position XY.
-    /// </summary>
-    /// <returns>The current position of the mouse as a <see cref="Vector2"/>.</returns>
-    [LibraryImport(Raylib.Name)]
-    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial Vector2 GetMousePosition();
+    /// <inheritdoc cref="RaylibApi.GetMousePosition" />
+    public static Vector2 GetMousePosition() {
+        return RaylibApi.GetMousePosition();
+    }
 
-    /// <summary>
-    /// Get mouse delta between frames.
-    /// </summary>
-    /// <returns>The delta of the mouse movement.</returns>
-    [LibraryImport(Raylib.Name)]
-    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial Vector2 GetMouseDelta();
+    /// <inheritdoc cref="RaylibApi.GetMouseDelta" />
+    public static Vector2 GetMouseDelta() {
+        return RaylibApi.GetMouseDelta();
+    }
 
-    /// <summary>
-    /// Set mouse position XY.
-    /// </summary>
-    /// <param name="x">The x-coordinate of the new mouse position.</param>
-    /// <param name="y">The y-coordinate of the new mouse position.</param>
-    [LibraryImport(Raylib.Name)]
-    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial void SetMousePosition(int x, int y);
+    /// <inheritdoc cref="RaylibApi.SetMousePosition" />
+    public static void SetMousePosition(int x, int y) {
+        RaylibApi.SetMousePosition(x, y);
+    }
 
-    /// <summary>
-    /// Set mouse offset.
-    /// </summary>
-    /// <param name="offsetX">The offset on the X-axis.</param>
-    /// <param name="offsetY">The offset on the Y-axis.</param>
-    [LibraryImport(Raylib.Name)]
-    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial void SetMouseOffset(int offsetX, int offsetY);
+    /// <inheritdoc cref="RaylibApi.SetMouseOffset" />
+    public static void SetMouseOffset(int offsetX, int offsetY) {
+        RaylibApi.SetMouseOffset(offsetX, offsetY);
+    }
 
-    /// <summary>
-    /// Set mouse scaling.
-    /// </summary>
-    /// <param name="scaleX">The X-axis scale value.</param>
-    /// <param name="scaleY">The Y-axis scale value.</param>
-    [LibraryImport(Raylib.Name)]
-    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial void SetMouseScale(float scaleX, float scaleY);
+    /// <inheritdoc cref="RaylibApi.SetMouseScale" />
+    public static void SetMouseScale(float scaleX, float scaleY) {
+        RaylibApi.SetMouseScale(scaleX, scaleY);
+    }
 
-    /// <summary>
-    /// Get mouse wheel movement for X or Y, whichever is larger.
-    /// </summary>
-    /// <returns>The movement of the mouse wheel as a float value.</returns>
-    [LibraryImport(Raylib.Name)]
-    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial float GetMouseWheelMove();
+    /// <inheritdoc cref="RaylibApi.GetMouseWheelMove" />
+    public static float GetMouseWheelMove() {
+        return RaylibApi.GetMouseWheelMove();
+    }
 
-    /// <summary>
-    /// Get mouse wheel movement for both X and Y.
-    /// </summary>
-    /// <returns>The vertical movement of the mouse wheel.</returns>
-    [LibraryImport(Raylib.Name)]
-    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial Vector2 GetMouseWheelMoveV();
+    /// <inheritdoc cref="RaylibApi.GetMouseWheelMoveV" />
+    public static Vector2 GetMouseWheelMoveV() {
+        return RaylibApi.GetMouseWheelMoveV();
+    }
 
-    /// <summary>
-    /// Set mouse cursor.
-    /// </summary>
-    /// <param name="cursor">The cursor type to set.</param>
-    [LibraryImport(Raylib.Name)]
-    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial void SetMouseCursor(MouseCursor cursor);
+    /// <inheritdoc cref="RaylibApi.SetMouseCursor" />
+    public static void SetMouseCursor(MouseCursor cursor) {
+        RaylibApi.SetMouseCursor(cursor);
+    }
 
-    /// <summary>
-    /// Get touch position X for touch point 0 (relative to screen size).
-    /// </summary>
-    /// <returns>The horizontal position of the touch input.</returns>
-    [LibraryImport(Raylib.Name)]
-    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial int GetTouchX();
+    /// <inheritdoc cref="RaylibApi.GetTouchX" />
+    public static int GetTouchX() {
+        return RaylibApi.GetTouchX();
+    }
 
-    /// <summary>
-    /// Get touch position Y for touch point 0 (relative to screen size).
-    /// </summary>
-    /// <returns>The Y position of the touch point.</returns>
-    [LibraryImport(Raylib.Name)]
-    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial int GetTouchY();
+    /// <inheritdoc cref="RaylibApi.GetTouchY" />
+    public static int GetTouchY() {
+        return RaylibApi.GetTouchY();
+    }
 
-    /// <summary>
-    /// Get touch position XY for a touch point index (relative to screen size).
-    /// </summary>
-    /// <param name="index">The index of the touch point.</param>
-    /// <returns>The position of the touch point as a Vector2.</returns>
-    [LibraryImport(Raylib.Name)]
-    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial Vector2 GetTouchPosition(int index);
+    /// <inheritdoc cref="RaylibApi.GetTouchPosition" />
+    public static Vector2 GetTouchPosition(int index) {
+        return RaylibApi.GetTouchPosition(index);
+    }
 
-    /// <summary>
-    /// Get touch point identifier for given index.
-    /// </summary>
-    /// <param name="index">The index of the touch point.</param>
-    /// <returns>The touch point ID.</returns>
-    [LibraryImport(Raylib.Name)]
-    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial int GetTouchPointId(int index);
+    /// <inheritdoc cref="RaylibApi.GetTouchPointId" />
+    public static int GetTouchPointId(int index) {
+        return RaylibApi.GetTouchPointId(index);
+    }
 
-    /// <summary>
-    /// Get number of touch points.
-    /// </summary>
-    /// <returns>The number of touch points currently active on the screen.</returns>
-    [LibraryImport(Raylib.Name)]
-    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial int GetTouchPointCount();
+    /// <inheritdoc cref="RaylibApi.GetTouchPointCount" />
+    public static int GetTouchPointCount() {
+        return RaylibApi.GetTouchPointCount();
+    }
 
-    /// <summary>
-    /// Enable a set of gestures using flags.
-    /// </summary>
-    /// <param name="flags">The bitwise OR of the gestures to enable.</param>
-    [LibraryImport(Raylib.Name)]
-    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial void SetGesturesEnabled(Gesture flags);
+    /// <inheritdoc cref="RaylibApi.SetGesturesEnabled" />
+    public static void SetGesturesEnabled(Gesture flags) {
+        RaylibApi.SetGesturesEnabled(flags);
+    }
 
-    /// <summary>
-    /// Check if a gesture have been detected.
-    /// </summary>
-    /// <param name="gesture">The gesture to check for detection.</param>
-    /// <returns>True if the specified gesture is detected, false otherwise.</returns>
-    [LibraryImport(Raylib.Name)]
-    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    [return: MarshalAs(UnmanagedType.I1)]
-    public static partial bool IsGestureDetected(Gesture gesture);
+    /// <inheritdoc cref="RaylibApi.IsGestureDetected" />
+    public static bool IsGestureDetected(Gesture gesture) {
+        return RaylibApi.IsGestureDetected(gesture);
+    }
 
-    /// <summary>
-    /// Get latest detected gesture.
-    /// </summary>
-    /// <returns>The type of gesture detected.</returns>
-    [LibraryImport(Raylib.Name)]
-    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial int GetGestureDetected();
+    /// <inheritdoc cref="RaylibApi.GetGestureDetected" />
+    public static int GetGestureDetected() {
+        return RaylibApi.GetGestureDetected();
+    }
 
-    /// <summary>
-    /// Get gesture hold time in milliseconds.
-    /// </summary>
-    /// <returns>The hold duration of the gesture in seconds.</returns>
-    [LibraryImport(Raylib.Name)]
-    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial float GetGestureHoldDuration();
+    /// <inheritdoc cref="RaylibApi.GetGestureHoldDuration" />
+    public static float GetGestureHoldDuration() {
+        return RaylibApi.GetGestureHoldDuration();
+    }
 
-    /// <summary>
-    /// Get gesture drag vector.
-    /// </summary>
-    /// <returns>The direction vector of the drag gesture.</returns>
-    [LibraryImport(Raylib.Name)]
-    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial Vector2 GetGestureDragVector();
+    /// <inheritdoc cref="RaylibApi.GetGestureDragVector" />
+    public static Vector2 GetGestureDragVector() {
+        return RaylibApi.GetGestureDragVector();
+    }
 
-    /// <summary>
-    /// Get gesture drag angle.
-    /// </summary>
-    /// <returns>The drag angle of the gesture in degrees.</returns>
-    [LibraryImport(Raylib.Name)]
-    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial float GetGestureDragAngle();
+    /// <inheritdoc cref="RaylibApi.GetGestureDragAngle" />
+    public static float GetGestureDragAngle() {
+        return RaylibApi.GetGestureDragAngle();
+    }
 
-    /// <summary>
-    /// Get gesture pinch delta.
-    /// </summary>
-    /// <returns>The pinch gesture vector.</returns>
-    [LibraryImport(Raylib.Name)]
-    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial Vector2 GetGesturePinchVector();
+    /// <inheritdoc cref="RaylibApi.GetGesturePinchVector" />
+    public static Vector2 GetGesturePinchVector() {
+        return RaylibApi.GetGesturePinchVector();
+    }
 
-    /// <summary>
-    /// Get gesture pinch angle.
-    /// </summary>
-    /// <returns>The angle of the pinch gesture.</returns>
-    [LibraryImport(Raylib.Name)]
-    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial float GetGesturePinchAngle();
+    /// <inheritdoc cref="RaylibApi.GetGesturePinchAngle" />
+    public static float GetGesturePinchAngle() {
+        return RaylibApi.GetGesturePinchAngle();
+    }
 
-    /// <summary>
-    /// Register all input events.
-    /// </summary>
-    [LibraryImport(Raylib.Name)]
-    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    public static partial void PollInputEvents();
+    /// <inheritdoc cref="RaylibApi.PollInputEvents" />
+    public static void PollInputEvents() {
+        RaylibApi.PollInputEvents();
+    }
 }

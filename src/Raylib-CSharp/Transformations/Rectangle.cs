@@ -1,7 +1,7 @@
 using System.Numerics;
 using System.Runtime.InteropServices;
 
-namespace Raylib_CSharp;
+namespace Raylib_CSharp.Transformations;
 
 [StructLayout(LayoutKind.Sequential)]
 public struct Rectangle {
@@ -41,11 +41,23 @@ public struct Rectangle {
     }
 
     /// <summary>
+    /// Gets or sets the position of the top-left corner of the rectangle.
+    /// </summary>
+    /// <value>The position of the top-left corner of the rectangle.</value>
+    public Vector2 Position {
+        get => new Vector2(this.X, this.Y);
+        set {
+            this.X = value.X;
+            this.Y = value.Y;
+        }
+    }
+
+    /// <summary>
     /// Gets or sets the size of the rectangle.
     /// </summary>
     /// <value>A Vector2 representing the width and height of the rectangle.</value>
     public Vector2 Size {
-        get => new Vector2(this.X, this.Y);
+        get => new Vector2(this.Width, this.Height);
         set {
             this.Width = value.X;
             this.Height = value.Y;

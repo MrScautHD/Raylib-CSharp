@@ -1,5 +1,6 @@
 using System.Numerics;
 using System.Runtime.InteropServices;
+using Raylib_CSharp.Apis;
 
 namespace Raylib_CSharp.Vr;
 
@@ -55,4 +56,14 @@ public struct VrStereoConfig {
     /// VR distortion scale in.
     /// </summary>
     public Vector2 ScaleIn;
+
+    /// <inheritdoc cref="RaylibApi.LoadVrStereoConfig" />
+    public static VrStereoConfig Load(VrDeviceInfo device) {
+        return RaylibApi.LoadVrStereoConfig(device);
+    }
+
+    /// <inheritdoc cref="RaylibApi.UnloadVrStereoConfig" />
+    public void Unload() {
+        RaylibApi.UnloadVrStereoConfig(this);
+    }
 }

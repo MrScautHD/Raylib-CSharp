@@ -52,7 +52,7 @@ public struct Camera2D {
     }
 
     /// <inheritdoc cref="RaylibApi.GetCameraMatrix2D" />
-    public Matrix4x4 GetCameraMatrix() {
+    public Matrix4x4 GetMatrix() {
         return RaylibApi.GetCameraMatrix2D(this);
     }
 }

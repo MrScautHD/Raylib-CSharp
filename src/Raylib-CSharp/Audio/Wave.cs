@@ -32,61 +32,61 @@ public struct Wave {
     public nint Data;
 
     /// <inheritdoc cref="RaylibApi.LoadWave" />
-    public static Wave LoadWave(string fileName) {
+    public static Wave Load(string fileName) {
         return RaylibApi.LoadWave(fileName);
     }
 
     /// <inheritdoc cref="RaylibApi.LoadWaveFromMemory" />
-    public static unsafe Wave LoadWaveFromMemory(string fileType, ReadOnlySpan<byte> fileData) {
+    public static unsafe Wave LoadFromMemory(string fileType, ReadOnlySpan<byte> fileData) {
         fixed (byte* fileDataPtr = fileData) {
             return RaylibApi.LoadWaveFromMemory(fileType, fileDataPtr, fileData.Length);
         }
     }
 
     /// <inheritdoc cref="RaylibApi.UnloadWaveSamples" />
-    public static unsafe void UnloadWaveSamples(ReadOnlySpan<float> samples) {
+    public static unsafe void UnloadSamples(ReadOnlySpan<float> samples) {
         fixed (float* samplesPtr = samples) {
             RaylibApi.UnloadWaveSamples(samplesPtr);
         }
     }
 
     /// <inheritdoc cref="RaylibApi.IsWaveReady" />
-    public bool IsWaveReady() {
+    public bool IsReady() {
         return RaylibApi.IsWaveReady(this);
     }
 
     /// <inheritdoc cref="RaylibApi.UnloadWave" />
-    public void UnloadWave() {
+    public void Unload() {
         RaylibApi.UnloadWave(this);
     }
 
     /// <inheritdoc cref="RaylibApi.ExportWave" />
-    public bool ExportWave(string fileName) {
+    public bool Export(string fileName) {
         return RaylibApi.ExportWave(this, fileName);
     }
 
     /// <inheritdoc cref="RaylibApi.ExportWaveAsCode" />
-    public bool ExportWaveAsCode(string fileName) {
+    public bool ExportAsCode(string fileName) {
         return RaylibApi.ExportWaveAsCode(this, fileName);
     }
 
     /// <inheritdoc cref="RaylibApi.WaveCopy" />
-    public Wave WaveCopy() {
+    public Wave Copy() {
         return RaylibApi.WaveCopy(this);
     }
 
     /// <inheritdoc cref="RaylibApi.WaveCrop" />
-    public void WaveCrop(int initSample, int finalSample) {
+    public void Crop(int initSample, int finalSample) {
         RaylibApi.WaveCrop(ref this, initSample, finalSample);
     }
 
     /// <inheritdoc cref="RaylibApi.WaveFormat" />
-    public void WaveFormat(int sampleRate, int sampleSize, int channels) {
+    public void Format(int sampleRate, int sampleSize, int channels) {
         RaylibApi.WaveFormat(ref this, sampleRate, sampleSize, channels);
     }
 
     /// <inheritdoc cref="RaylibApi.LoadWaveSamples" />
-    public unsafe ReadOnlySpan<float> LoadWaveSamples() {
+    public unsafe ReadOnlySpan<float> LoadSamples() {
         return new ReadOnlySpan<float>(RaylibApi.LoadWaveSamples(this), (int) (this.FrameCount * this.Channels));
     }
 }

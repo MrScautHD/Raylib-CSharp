@@ -68,5 +68,6 @@ public class CustomLogger : ISample {
 
     public void Dispose() {
         Window.Close();
+        Logger.Destroy();
     }
 }

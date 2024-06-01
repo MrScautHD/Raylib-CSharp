@@ -47,4 +47,12 @@ public static class Logger {
             }
         }
     }
+
+    /// <summary>
+    /// Destroys the logger (sets the trace log callback to null).
+    /// </summary>
+    public static unsafe void Destroy() {
+        Message = null;
+        RaylibApi.SetTraceLogCallback(null);
+    }
 }

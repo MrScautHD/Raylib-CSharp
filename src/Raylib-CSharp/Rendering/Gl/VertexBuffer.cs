@@ -29,7 +29,7 @@ public struct VertexBuffer {
     public unsafe Span<Vector2> TexCoords => new(this.TexCoordsPtr, this.ElementCount * 4);
 
     /// <summary>
-    /// Vertex texture coordinates (UV - 2 components per vertex) (shader-location = 1).
+    /// Vertex normals (XYZ - 3 components per vertex) (shader-location = 2).
     /// </summary>
     public unsafe float* NormalsPtr;
 

@@ -539,7 +539,7 @@ public enum KeyboardKey {
     /// <summary>
     /// Key: 'Android menu button'
     /// </summary>
-    Menu = 82,
+    Menu = 5,
 
     /// <summary>
     /// Key: 'Android volume up button'

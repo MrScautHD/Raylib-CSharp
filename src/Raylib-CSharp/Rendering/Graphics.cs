@@ -448,8 +448,13 @@ public static class Graphics {
     }
 
     /// <inheritdoc cref="RaylibApi.DrawRectangleRoundedLines" />
-    public static void DrawRectangleRoundedLines(Rectangle rec, float roundness, int segments, float lineThick, Color color) {
-        RaylibApi.DrawRectangleRoundedLines(rec, roundness, segments, lineThick, color);
+    public static void DrawRectangleRoundedLines(Rectangle rec, float roundness, int segments, Color color) {
+        RaylibApi.DrawRectangleRoundedLines(rec, roundness, segments, color);
+    }
+
+    /// <inheritdoc cref="RaylibApi.DrawRectangleRoundedLinesEx" />
+    public static void DrawRectangleRoundedLinesEx(Rectangle rec, float roundness, int segments, float lineThick, Color color) {
+        RaylibApi.DrawRectangleRoundedLinesEx(rec, roundness, segments, lineThick, color);
     }
 
     /// <inheritdoc cref="RaylibApi.DrawTriangle" />

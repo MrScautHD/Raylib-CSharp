@@ -119,6 +119,31 @@ internal static partial class RlGlApi {
     internal static partial void Viewport(int x, int y, int width, int height);
 
     /// <summary>
+    /// Set clip planes distances.
+    /// </summary>
+    /// <param name="near">The distance to the near clipping plane.</param>
+    /// <param name="far">The distance to the far clipping plane.</param>
+    [LibraryImport(Raylib.Name, EntryPoint = "rlSetClipPlanes")]
+    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
+    internal static partial void SetClipPlanes(double near, double far);
+
+    /// <summary>
+    /// Get cull plane distance near.
+    /// </summary>
+    /// <returns>The near cull distance value.</returns>
+    [LibraryImport(Raylib.Name, EntryPoint = "rlGetCullDistanceNear")]
+    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
+    internal static partial double GetCullDistanceNear();
+
+    /// <summary>
+    /// Get cull plane distance far.
+    /// </summary>
+    /// <returns>The cull distance far value.</returns>
+    [LibraryImport(Raylib.Name, EntryPoint = "rlGetCullDistanceFar")]
+    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
+    internal static partial double GetCullDistanceFar();
+
+    /// <summary>
     /// Initialize drawing mode (how to organize vertex).
     /// </summary>
     /// <param name="mode">The drawing mode to set.</param>
@@ -381,6 +406,14 @@ internal static partial class RlGlApi {
     internal static partial void DisableFramebuffer();
 
     /// <summary>
+    /// Get the currently active render texture (fbo), 0 for default framebuffer.
+    /// </summary>
+    /// <returns>The identifier of the active framebuffer.</returns>
+    [LibraryImport(Raylib.Name, EntryPoint = "rlGetActiveFramebuffer")]
+    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
+    internal static partial int GetActiveFramebuffer();
+
+    /// <summary>
     /// Activate multiple draw color buffers.
     /// </summary>
     /// <param name="count">The number of draw buffers to activate.</param>
@@ -403,6 +436,15 @@ internal static partial class RlGlApi {
     [LibraryImport(Raylib.Name, EntryPoint = "rlBlitFramebuffer")]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
     internal static partial void BlitFramebuffer(int srcX, int srcY, int srcWidth, int srcHeight, int dstX, int dstY, int dstWidth, int dstHeight, int bufferMask);
+
+    /// <summary>
+    /// Bind framebuffer (FBO).
+    /// </summary>
+    /// <param name="target">The ID of the framebuffer object.</param>
+    /// <param name="framebuffer">The value to bind.</param>
+    [LibraryImport(Raylib.Name, EntryPoint = "rlBindFramebuffer")]
+    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
+    internal static partial void BindFramebuffer(uint target, uint framebuffer);
 
     /// <summary>
     /// Enable color blending.
@@ -459,6 +501,13 @@ internal static partial class RlGlApi {
     [LibraryImport(Raylib.Name, EntryPoint = "rlDisableBackfaceCulling")]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
     internal static partial void DisableBackfaceCulling();
+
+    /// <summary>
+    /// Color mask control.
+    /// </summary>
+    [LibraryImport(Raylib.Name, EntryPoint = "rlColorMask")]
+    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
+    internal static partial void ColorMask([MarshalAs(UnmanagedType.Bool)] bool r, [MarshalAs(UnmanagedType.Bool)] bool g, [MarshalAs(UnmanagedType.Bool)] bool b, [MarshalAs(UnmanagedType.Bool)] bool a);
 
     /// <summary>
     /// Set face culling mode.
@@ -778,9 +827,9 @@ internal static partial class RlGlApi {
     internal static partial uint LoadVertexArray();
 
     /// <summary>
-    /// Load a vertex buffer attribute.
+    /// Load a vertex buffer object.
     /// </summary>
-    /// <param name="buffer">The pointer to the vertex buffer data.</param>
+    /// <param name="buffer">The pointer to the vertex buffer object.</param>
     /// <param name="size">The size of the vertex buffer data.</param>
     /// <param name="dynamic">Determines if the vertex buffer can be modified dynamically.</param>
     /// <returns>The ID of the vertex buffer in GPU memory.</returns>
@@ -789,7 +838,7 @@ internal static partial class RlGlApi {
     internal static partial uint LoadVertexBuffer(nint buffer, int size, [MarshalAs(UnmanagedType.I1)] bool dynamic);
 
     /// <summary>
-    /// Load a new attributes element buffer.
+    /// Load vertex buffer elements object.
     /// </summary>
     /// <param name="buffer">Pointer to the destination buffer.</param>
     /// <param name="size">Size of the buffer in bytes.</param>
@@ -800,7 +849,7 @@ internal static partial class RlGlApi {
     internal static partial uint LoadVertexBufferElement(nint buffer, int size, [MarshalAs(UnmanagedType.I1)] bool dynamic);
 
     /// <summary>
-    /// Update GPU buffer with new data.
+    /// Update vertex buffer object data on GPU buffer.
     /// </summary>
     /// <param name="bufferId">The ID of the buffer to update.</param>
     /// <param name="data">A pointer to the new data to be copied into the buffer.</param>
@@ -811,7 +860,7 @@ internal static partial class RlGlApi {
     internal static partial void UpdateVertexBuffer(uint bufferId, nint data, int dataSize, int offset);
 
     /// <summary>
-    /// Updates a portion of the vertex buffer with new data.
+    /// Update vertex buffer elements data on GPU buffer.
     /// </summary>
     /// <param name="id">The ID of the vertex buffer to update.</param>
     /// <param name="data">A pointer to the new vertex data.</param>
@@ -822,7 +871,7 @@ internal static partial class RlGlApi {
     internal static partial void UpdateVertexBufferElements(uint id, nint data, int dataSize, int offset);
 
     /// <summary>
-    /// Unload vertex array object (VAO).
+    /// Unload vertex array (vao).
     /// </summary>
     /// <param name="vaoId">The ID of the VAO to be unloaded.</param>
     [LibraryImport(Raylib.Name, EntryPoint = "rlUnloadVertexArray")]
@@ -830,28 +879,29 @@ internal static partial class RlGlApi {
     internal static partial void UnloadVertexArray(uint vaoId);
 
     /// <summary>
-    /// Unload vertex buffer (VBO).
+    /// Unload vertex buffer object.
     /// </summary>
     /// <param name="vaoId">The ID of the vertex buffer object to unload.</param>
     [LibraryImport(Raylib.Name, EntryPoint = "rlUnloadVertexBuffer")]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
     internal static partial void UnloadVertexBuffer(uint vaoId);
 
-    /// <summary>
-    /// Set vertex attribute.
-    /// </summary>
-    /// <param name="index">The index of the attribute.</param>
-    /// <param name="compSize">The number of components per attribute.</param>
-    /// <param name="type">The data type of the attribute.</param>
-    /// <param name="normalized">Specifies whether the attribute data should be normalized.</param>
-    /// <param name="stride">The stride between consecutive attributes.</param>
-    /// <param name="pointer">A pointer to the attribute data.</param>
-    [LibraryImport(Raylib.Name, EntryPoint = "rlSetVertexAttribute")]
-    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    internal static partial void SetVertexAttribute(uint index, int compSize, int type, [MarshalAs(UnmanagedType.I1)] bool normalized, int stride, nint pointer);
 
     /// <summary>
-    /// Set vertex attribute divisor.
+    /// Set vertex attribute data configuration.
+    /// </summary>
+    /// <param name="index">The index of the vertex attribute.</param>
+    /// <param name="compSize">The number of components per attribute.</param>
+    /// <param name="type">The data type of the attribute.</param>
+    /// <param name="normalized">Specifies whether the values should be normalized.</param>
+    /// <param name="stride">The stride between attributes in bytes.</param>
+    /// <param name="offset">The offset of the attribute in bytes.</param>
+    [LibraryImport(Raylib.Name, EntryPoint = "rlSetVertexAttribute")]
+    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
+    internal static partial void SetVertexAttribute(uint index, int compSize, int type, [MarshalAs(UnmanagedType.I1)] bool normalized, int stride, int offset);
+
+    /// <summary>
+    /// Set vertex attribute data divisor.
     /// </summary>
     /// <param name="index">The index of the vertex attribute.</param>
     /// <param name="divisor">The number of instances that will pass between updates of the vertex attribute.</param>
@@ -860,7 +910,7 @@ internal static partial class RlGlApi {
     internal static partial void SetVertexAttributeDivisor(uint index, int divisor);
 
     /// <summary>
-    /// Set vertex attribute default value.
+    /// Set vertex attribute default value, when attribute to provided.
     /// </summary>
     /// <param name="locIndex">The location index of the vertex attribute.</param>
     /// <param name="value">A pointer to the value of the vertex attribute.</param>
@@ -871,7 +921,7 @@ internal static partial class RlGlApi {
     internal static partial void SetVertexAttributeDefault(int locIndex, nint value, ShaderAttributeDataType attribType, int count);
 
     /// <summary>
-    /// Draw vertex array.
+    /// Draw vertex array (currently active vao).
     /// </summary>
     /// <param name="offset">The starting index of the vertex array to draw.</param>
     /// <param name="count">The number of vertices to draw.</param>
@@ -880,7 +930,7 @@ internal static partial class RlGlApi {
     internal static partial void DrawVertexArray(int offset, int count);
 
     /// <summary>
-    /// Draw vertex array elements.
+    /// Draw vertex array (currently active vao).
     /// </summary>
     /// <param name="offset">The index within the vertex buffer to start drawing.</param>
     /// <param name="count">The number of elements to draw.</param>
@@ -890,7 +940,7 @@ internal static partial class RlGlApi {
     internal static partial void DrawVertexArrayElements(int offset, int count, nint buffer);
 
     /// <summary>
-    /// Draw vertex array instanced.
+    /// Draw vertex array (currently active vao) with instancing.
     /// </summary>
     /// <param name="offset">Offset (vertex count offset)</param>
     /// <param name="count">Number of elements in the array</param>
@@ -900,7 +950,7 @@ internal static partial class RlGlApi {
     internal static partial void DrawVertexArrayInstanced(int offset, int count, int instances);
 
     /// <summary>
-    /// Draw vertex array elements instanced.
+    /// Draw vertex array elements with instancing.
     /// </summary>
     /// <param name="offset">Offset in buffer</param>
     /// <param name="count">Number of elements to draw</param>
@@ -911,7 +961,7 @@ internal static partial class RlGlApi {
     internal static partial void DrawVertexArrayElementsInstanced(int offset, int count, nint buffer, int instances);
 
     /// <summary>
-    /// Load texture in GPU.
+    /// Load texture data.
     /// </summary>
     /// <param name="data">Pointer to the raw data.</param>
     /// <param name="width">The width of the texture.</param>
@@ -935,7 +985,7 @@ internal static partial class RlGlApi {
     internal static partial uint LoadTextureDepth(int width, int height, [MarshalAs(UnmanagedType.I1)] bool useRenderBuffer);
 
     /// <summary>
-    /// Load texture cubemap.
+    /// Load texture cubemap data.
     /// </summary>
     /// <param name="data">Pointer to the raw texture data.</param>
     /// <param name="size">The size of the texture data in bytes.</param>
@@ -946,7 +996,7 @@ internal static partial class RlGlApi {
     internal static partial uint LoadTextureCubemap(nint data, int size, PixelFormat format);
 
     /// <summary>
-    /// Update GPU texture with new data.
+    /// Update GPU texture with new data on GPU.
     /// </summary>
     /// <param name="id">The ID of the texture to update.</param>
     /// <param name="offsetX">The x-coordinate offset within the texture to update.</param>
@@ -1027,12 +1077,10 @@ internal static partial class RlGlApi {
     /// <summary>
     /// Load an empty framebuffer.
     /// </summary>
-    /// <param name="width">The width of the framebuffer</param>
-    /// <param name="height">The height of the framebuffer</param>
     /// <returns>The identifier of the loaded framebuffer</returns>
     [LibraryImport(Raylib.Name, EntryPoint = "rlLoadFramebuffer")]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    internal static partial uint LoadFramebuffer(int width, int height);
+    internal static partial uint LoadFramebuffer();
 
     /// <summary>
     /// Attach texture/renderbuffer to a framebuffer.

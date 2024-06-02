@@ -26,11 +26,6 @@ public struct VrDeviceInfo {
     public float VScreenSize;
 
     /// <summary>
-    /// Screen center in meters.
-    /// </summary>
-    public float VScreenCenter;
-
-    /// <summary>
     /// Distance between eye and display in meters.
     /// </summary>
     public float EyeToScreenDistance;

@@ -92,6 +92,9 @@ public static class RlGl {
     public const int BlendSrcAlpha = 0x80CB;
     public const int BlendColor = 0x8005;
 
+    public const int ReadFrameBuffer = 0x8CA8;
+    public const int DrawFrameBuffer = 0x8CA9;
+
     /// <inheritdoc cref="Rendering.Gl.MatrixMode" />
     public static void MatrixMode(MatrixMode mode) {
         RlGlApi.MatrixMode(mode);
@@ -145,6 +148,21 @@ public static class RlGl {
     /// <inheritdoc cref="RlGlApi.Viewport" />
     public static void Viewport(int x, int y, int width, int height) {
         RlGlApi.Viewport(x, y, width, height);
+    }
+
+    /// <inheritdoc cref="RlGlApi.SetClipPlanes" />
+    public static void SetClipPlanes(double near, double far) {
+        RlGlApi.SetClipPlanes(near, far);
+    }
+
+    /// <inheritdoc cref="RlGlApi.GetCullDistanceNear" />
+    public static double GetCullDistanceNear() {
+        return RlGlApi.GetCullDistanceNear();
+    }
+
+    /// <inheritdoc cref="RlGlApi.GetCullDistanceFar" />
+    public static double GetCullDistanceFar() {
+        return RlGlApi.GetCullDistanceFar();
     }
 
     /// <inheritdoc cref="RlGlApi.Begin" />
@@ -302,6 +320,11 @@ public static class RlGl {
         RlGlApi.DisableFramebuffer();
     }
 
+    /// <inheritdoc cref="RlGlApi.GetActiveFramebuffer" />
+    public static int GetActiveFramebuffer() {
+        return RlGlApi.GetActiveFramebuffer();
+    }
+
     /// <inheritdoc cref="RlGlApi.ActiveDrawBuffers" />
     public static void ActiveDrawBuffers(int count) {
         RlGlApi.ActiveDrawBuffers(count);
@@ -310,6 +333,11 @@ public static class RlGl {
     /// <inheritdoc cref="RlGlApi.BlitFramebuffer" />
     public static void BlitFramebuffer(int srcX, int srcY, int srcWidth, int srcHeight, int dstX, int dstY, int dstWidth, int dstHeight, int bufferMask) {
         RlGlApi.BlitFramebuffer(srcX, srcY, srcWidth, srcHeight, dstX, dstY, dstWidth, dstHeight, bufferMask);
+    }
+
+    /// <inheritdoc cref="RlGlApi.BindFramebuffer" />
+    public static void BindFramebuffer(uint id, uint val) {
+        RlGlApi.BindFramebuffer(id, val);
     }
 
     /// <inheritdoc cref="RlGlApi.EnableColorBlend" />
@@ -350,6 +378,11 @@ public static class RlGl {
     /// <inheritdoc cref="RlGlApi.DisableBackfaceCulling" />
     public static void DisableBackfaceCulling() {
         RlGlApi.DisableBackfaceCulling();
+    }
+
+    /// <inheritdoc cref="RlGlApi.DisableBackfaceCulling" />
+    public static void ColorMask(bool r, bool g, bool b, bool a) {
+        RlGlApi.ColorMask(r, g, b, a);
     }
 
     /// <inheritdoc cref="RlGlApi.SetCullFace" />
@@ -578,8 +611,8 @@ public static class RlGl {
     }
 
     /// <inheritdoc cref="RlGlApi.SetVertexAttribute" />
-    public static void SetVertexAttribute(uint index, int compSize, int type, bool normalized, int stride, nint pointer) {
-        RlGlApi.SetVertexAttribute(index, compSize, type, normalized, stride, pointer);
+    public static void SetVertexAttribute(uint index, int compSize, int type, bool normalized, int stride, int offset) {
+        RlGlApi.SetVertexAttribute(index, compSize, type, normalized, stride, offset);
     }
 
     /// <inheritdoc cref="RlGlApi.SetVertexAttributeDivisor" />
@@ -666,8 +699,8 @@ public static class RlGl {
     }
 
     /// <inheritdoc cref="RlGlApi.LoadFramebuffer" />
-    public static uint LoadFramebuffer(int width, int height) {
-        return RlGlApi.LoadFramebuffer(width, height);
+    public static uint LoadFramebuffer() {
+        return RlGlApi.LoadFramebuffer();
     }
 
     /// <inheritdoc cref="RlGlApi.FramebufferAttach" />

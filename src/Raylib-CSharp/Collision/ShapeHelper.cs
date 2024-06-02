@@ -85,6 +85,11 @@ public static class ShapeHelper {
         return RaylibApi.CheckCollisionPointLine(point, p1, p2, threshold);
     }
 
+    /// <inheritdoc cref="RaylibApi.CheckCollisionCircleLine" />
+    public static bool CheckCollisionCircleLine(Vector2 center, float radius, Vector2 p1, Vector2 p2) {
+        return RaylibApi.CheckCollisionCircleLine(center, radius, p1, p2);
+    }
+
     /// <inheritdoc cref="RaylibApi.GetCollisionRec" />
     public static Rectangle GetCollisionRec(Rectangle rec1, Rectangle rec2) {
         return RaylibApi.GetCollisionRec(rec1, rec2);

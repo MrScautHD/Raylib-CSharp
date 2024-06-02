@@ -143,4 +143,9 @@ public static class TextManager {
     public static int TextToInteger(string text) {
         return RaylibApi.TextToInteger(text);
     }
+
+    /// <inheritdoc cref="RaylibApi.TextToFloat" />
+    public static float TextToFloat(string text) {
+        return RaylibApi.TextToFloat(text);
+    }
 }

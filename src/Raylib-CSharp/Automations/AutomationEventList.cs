@@ -31,7 +31,7 @@ public struct AutomationEventList {
 
     /// <inheritdoc cref="RaylibApi.UnloadAutomationEventList" />
     public void Unload() {
-        RaylibApi.UnloadAutomationEventList(ref this);
+        RaylibApi.UnloadAutomationEventList(this);
     }
 
     /// <inheritdoc cref="RaylibApi.ExportAutomationEventList" />

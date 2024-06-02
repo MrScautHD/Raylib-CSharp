@@ -1414,16 +1414,27 @@ internal static partial class RaylibApi {
     internal static partial void DrawRectangleRounded(Rectangle rec, float roundness, int segments, Color color);
 
     /// <summary>
-    /// Draw rectangle with rounded edges outline.
+    /// Draw rectangle lines with rounded edges.
     /// </summary>
     /// <param name="rec">The rectangle to draw.</param>
     /// <param name="roundness">The roundness of the corners. The value 0 is a sharp corner, while larger values make the corners more rounded.</param>
     /// <param name="segments">The number of segments used to approximate each corner.</param>
-    /// <param name="lineThick">The thickness of the lines used to draw the rectangle and its corners.</param>
     /// <param name="color">The color of the rectangle and its corners.</param>
     [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    internal static partial void DrawRectangleRoundedLines(Rectangle rec, float roundness, int segments, float lineThick, Color color);
+    internal static partial void DrawRectangleRoundedLines(Rectangle rec, float roundness, int segments, Color color);
+
+    /// <summary>
+    /// Draw rectangle with rounded edges outline.
+    /// </summary>
+    /// <param name="rec">The rectangle to be drawn.</param>
+    /// <param name="roundness">The roundness of the rectangle's corners.</param>
+    /// <param name="segments">The number of line segments used to create the rounded corners.</param>
+    /// <param name="lineThick">The thickness of the lines.</param>
+    /// <param name="color">The color of the lines.</param>
+    [LibraryImport(Raylib.Name)]
+    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
+    internal static partial void DrawRectangleRoundedLinesEx(Rectangle rec, float roundness, int segments, float lineThick, Color color);
 
     /// <summary>
     /// Draw triangle outline (vertex in counter-clockwise order!).
@@ -1983,23 +1994,26 @@ internal static partial class RaylibApi {
     internal static partial Matrix4x4 GetCameraProjectionMatrix(ref Camera3D camera, float aspect);
 
     /// <summary>
-    /// Get camera transform matrix (view matrix).
+    /// Get a ray trace from screen position (i.e mouse).
     /// </summary>
-    /// <param name="camera">The camera for which to retrieve the matrix.</param>
-    /// <returns>The 4x4 matrix representing the camera's view.</returns>
+    /// <param name="position">The position in screen space.</param>
+    /// <param name="camera">The Camera3D object used for the transformation.</param>
+    /// <returns>A Ray object representing the ray from screen space to world space.</returns>
     [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    internal static partial Matrix4x4 GetCameraMatrix(Camera3D camera);
+    internal static partial Ray GetScreenToWorldRay(Vector2 position, Camera3D camera);
 
     /// <summary>
-    /// Get a ray trace from mouse position.
+    /// Get a ray trace from screen position (i.e mouse) in a viewport.
     /// </summary>
-    /// <param name="mousePosition">The position of the mouse in screen coordinates.</param>
-    /// <param name="camera">The camera to use for the ray calculation.</param>
-    /// <returns>The ray from the mouse position in world space coordinates.</returns>
+    /// <param name="position">The position in screen space coordinates.</param>
+    /// <param name="camera">The camera used to convert the ray from screen space to world space.</param>
+    /// <param name="width">The width of the screen.</param>
+    /// <param name="height">The height of the screen.</param>
+    /// <returns>Returns a <see cref="Ray"/> representing the ray in world space.</returns>
     [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    internal static partial Ray GetMouseRay(Vector2 mousePosition, Camera3D camera);
+    internal static partial Ray GetScreenToWorldRayEx(Vector2 position, Camera3D camera, int width, int height);
 
     /// <summary>
     /// Get the screen space position for a 3d world space position.
@@ -2022,6 +2036,15 @@ internal static partial class RaylibApi {
     [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
     internal static partial Vector2 GetWorldToScreenEx(Vector3 position, Camera3D camera, int width, int height);
+
+    /// <summary>
+    /// Get camera transform matrix (view matrix).
+    /// </summary>
+    /// <param name="camera">The camera for which to retrieve the matrix.</param>
+    /// <returns>The 4x4 matrix representing the camera's view.</returns>
+    [LibraryImport(Raylib.Name)]
+    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
+    internal static partial Matrix4x4 GetCameraMatrix(Camera3D camera);
 
     /* --------------------------------- Input --------------------------------- */
 
@@ -2245,6 +2268,16 @@ internal static partial class RaylibApi {
     [LibraryImport(Raylib.Name, StringMarshalling = StringMarshalling.Utf8)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
     internal static partial int SetGamepadMappings(string mappings);
+
+    /// <summary>
+    /// Set gamepad vibration for both motors.
+    /// </summary>
+    /// <param name="gamepad">The index of the gamepad.</param>
+    /// <param name="leftMotor">The intensity of the left motor vibration (0.0f to 1.0f).</param>
+    /// <param name="rightMotor">The intensity of the right motor vibration (0.0f to 1.0f).</param>
+    [LibraryImport(Raylib.Name, StringMarshalling = StringMarshalling.Utf8)]
+    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
+    internal static partial void SetGamepadVibration(int gamepad, float leftMotor, float rightMotor);
 
     /// <summary>
     /// Check if a mouse button has been pressed once.
@@ -2754,6 +2787,16 @@ internal static partial class RaylibApi {
     internal static partial bool IsPathFile(string path);
 
     /// <summary>
+    /// Checks if the given file name is valid.
+    /// </summary>
+    /// <param name="fileName">The file name to be checked.</param>
+    /// <returns>Returns true if the file name is valid; otherwise, false.</returns>
+    [LibraryImport(Raylib.Name, StringMarshalling = StringMarshalling.Utf8)]
+    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
+    [return: MarshalAs(UnmanagedType.I1)]
+    internal static partial bool IsFileNameValid(string fileName);
+
+    /// <summary>
     /// Load directory filepaths.
     /// </summary>
     /// <param name="dirPath">The path to the directory to load files from.</param>
@@ -2908,7 +2951,7 @@ internal static partial class RaylibApi {
     /// <param name="list">The AutomationEventList to unload.</param>
     [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    internal static partial void UnloadAutomationEventList(ref AutomationEventList list);
+    internal static partial void UnloadAutomationEventList(AutomationEventList list);
 
     /// <summary>
     /// Export automation events list as text file.
@@ -3050,14 +3093,14 @@ internal static partial class RaylibApi {
     internal static partial Wave WaveCopy(Wave wave);
 
     /// <summary>
-    /// Crop a wave to defined samples range.
+    /// Crop a wave to defined frames range.
     /// </summary>
     /// <param name="wave">The wave to crop</param>
-    /// <param name="initSample">The initial sample to start cropping from</param>
-    /// <param name="finalSample">The final sample to end cropping at</param>
+    /// <param name="initFrame">The initial sample to start cropping from</param>
+    /// <param name="finalFrame">The final sample to end cropping at</param>
     [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    internal static partial void WaveCrop(ref Wave wave, int initSample, int finalSample);
+    internal static partial void WaveCrop(ref Wave wave, int initFrame, int finalFrame);
 
     /// <summary>
     /// Convert wave data to desired format.
@@ -3388,7 +3431,7 @@ internal static partial class RaylibApi {
     internal static unsafe partial void SetAudioStreamCallback(AudioStream stream, delegate* unmanaged[Cdecl]<nint, uint, void> callback);
 
     /// <summary>
-    /// Attach audio stream processor to stream, receives the samples as floats.
+    /// Attach audio stream processor to stream, receives the samples as 'float'.
     /// </summary>
     /// <param name="stream">The audio stream to attach the processor to.</param>
     /// <param name="processor">A pointer to the unmanaged processor function.</param>
@@ -3406,7 +3449,7 @@ internal static partial class RaylibApi {
     internal static unsafe partial void DetachAudioStreamProcessor(AudioStream stream, delegate* unmanaged[Cdecl]<nint, uint, void> processor);
 
     /// <summary>
-    /// Attach audio stream processor to the entire audio pipeline, receives the samples as floats.
+    /// Attach audio stream processor to the entire audio pipeline, receives the samples as 'float'.
     /// </summary>
     /// <param name="processor">A pointer to the unmanaged processor function.</param>
     [LibraryImport(Raylib.Name)]
@@ -3538,6 +3581,22 @@ internal static partial class RaylibApi {
     [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
     internal static partial void SetShapesTexture(Texture2D texture, Rectangle source);
+
+    /// <summary>
+    /// Get texture that is used for shapes drawing.
+    /// </summary>
+    /// <returns>The Texture2D object representing the texture for shapes.</returns>
+    [LibraryImport(Raylib.Name)]
+    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
+    internal static partial Texture2D GetShapesTexture();
+
+    /// <summary>
+    /// Get texture source rectangle that is used for shapes drawing.
+    /// </summary>
+    /// <returns>A Rectangle structure representing the rectangle of the current texture used for shapes rendering.</returns>
+    [LibraryImport(Raylib.Name)]
+    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
+    internal static partial Rectangle GetShapesTextureRectangle();
 
     /// <summary>
     /// Get (evaluate) spline point: Linear.
@@ -3713,6 +3772,19 @@ internal static partial class RaylibApi {
     internal static partial bool CheckCollisionPointLine(Vector2 point, Vector2 p1, Vector2 p2, int threshold);
 
     /// <summary>
+    /// Check if circle collides with a line created betweeen two points [p1] and [p2].
+    /// </summary>
+    /// <param name="center">The center of the circle.</param>
+    /// <param name="radius">The radius of the circle.</param>
+    /// <param name="p1">The starting point of the line segment.</param>
+    /// <param name="p2">The ending point of the line segment.</param>
+    /// <returns>True if the circle and line segment intersect, false otherwise.</returns>
+    [LibraryImport(Raylib.Name)]
+    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
+    [return: MarshalAs(UnmanagedType.I1)]
+    internal static partial bool CheckCollisionCircleLine(Vector2 center, float radius, Vector2 p1, Vector2 p2);
+
+    /// <summary>
     /// Get collision rectangle for two rectangles collision.
     /// </summary>
     /// <param name="rec1">The first rectangle.</param>
@@ -3766,6 +3838,18 @@ internal static partial class RaylibApi {
     [LibraryImport(Raylib.Name, StringMarshalling = StringMarshalling.Utf8)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
     internal static partial Image LoadImageAnim(string fileNameOrString, out int frames);
+
+    /// <summary>
+    /// Load animated image data.
+    /// </summary>
+    /// <param name="fileType">The type of the image file (e.g., "png", "jpg", "gif").</param>
+    /// <param name="fileData">A pointer to the image file data in memory.</param>
+    /// <param name="dataSize">The size of the image file data in bytes.</param>
+    /// <param name="frames">The number of frames in the loaded animated image.</param>
+    /// <returns>An Image struct representing the loaded animated image.</returns>
+    [LibraryImport(Raylib.Name, StringMarshalling = StringMarshalling.Utf8)]
+    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
+    internal static unsafe partial Image LoadImageAnimFromMemory(string fileType, byte* fileData, int dataSize, out int frames);
 
     /// <summary>
     /// Load image from memory buffer, fileType refers to extension: i.e. '.png'.
@@ -4087,6 +4171,16 @@ internal static partial class RaylibApi {
     [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
     internal static partial void ImageBlurGaussian(ref Image image, int blurSize);
+
+    /// <summary>
+    /// Apply Custom Square image convolution kernel.
+    /// </summary>
+    /// <param name="image">The Image to be convoluted.</param>
+    /// <param name="kernel">The kernel to be used in the convolution.</param>
+    /// <param name="kernelSize">The size of the kernel.</param>
+    [LibraryImport(Raylib.Name)]
+    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
+    internal static unsafe partial void ImageKernelConvolution(ref Image image, float* kernel, int kernelSize);
 
     /// <summary>
     /// Resize image (Bicubic scaling algorithm).
@@ -4586,6 +4680,17 @@ internal static partial class RaylibApi {
     /* --------------------------------- Color --------------------------------- */
 
     /// <summary>
+    /// Check if two colors are equal.
+    /// </summary>
+    /// <param name="col1">The first color to compare.</param>
+    /// <param name="col2">The second color to compare.</param>
+    /// <returns>True if the colors are equal; otherwise, false.</returns>
+    [LibraryImport(Raylib.Name)]
+    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
+    [return: MarshalAs(UnmanagedType.I1)]
+    internal static partial bool ColorIsEqual(Color col1, Color col2);
+
+    /// <summary>
     /// Get color with alpha applied, alpha goes from 0.0f to 1.0f.
     /// </summary>
     /// <param name="color">The color to fade.</param>
@@ -4596,7 +4701,7 @@ internal static partial class RaylibApi {
     internal static partial Color Fade(Color color, float alpha);
 
     /// <summary>
-    /// Get hexadecimal value for a Color.
+    /// Get hexadecimal value for a Color (0xRRGGBBAA).
     /// </summary>
     /// <param name="color">The color to convert.</param>
     /// <returns>The integer representation of the color.</returns>
@@ -5161,6 +5266,15 @@ internal static partial class RaylibApi {
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
     internal static partial int TextToInteger(string text);
 
+    /// <summary>
+    /// Get float value from text (negative values not supported).
+    /// </summary>
+    /// <param name="text">A string containing a number to convert.</param>
+    /// <returns>The single-precision floating-point number equivalent to the numeric value or symbol specified in <paramref name="text"/>.</returns>
+    [LibraryImport(Raylib.Name, StringMarshalling = StringMarshalling.Utf8)]
+    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
+    internal static partial float TextToFloat(string text);
+
     /* --------------------------------- Mesh --------------------------------- */
 
     /// <summary>
@@ -5314,17 +5428,6 @@ internal static partial class RaylibApi {
     internal static partial void UnloadMesh(Mesh mesh);
 
     /// <summary>
-    /// Export mesh data to file, returns true on success.
-    /// </summary>
-    /// <param name="mesh">The mesh data to export.</param>
-    /// <param name="fileName">The name of the file to export the mesh to.</param>
-    /// <returns>Returns true if the export was successful, false otherwise.</returns>
-    [LibraryImport(Raylib.Name, StringMarshalling = StringMarshalling.Utf8)]
-    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    [return: MarshalAs(UnmanagedType.I1)]
-    internal static partial bool ExportMesh(Mesh mesh, string fileName);
-
-    /// <summary>
     /// Compute mesh bounding box limits.
     /// </summary>
     /// <param name="mesh">The mesh to get the bounding box from</param>
@@ -5340,6 +5443,28 @@ internal static partial class RaylibApi {
     [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
     internal static partial void GenMeshTangents(ref Mesh mesh);
+
+    /// <summary>
+    /// Export mesh data to file, returns true on success.
+    /// </summary>
+    /// <param name="mesh">The mesh data to export.</param>
+    /// <param name="fileName">The name of the file to export the mesh to.</param>
+    /// <returns>Returns true if the export was successful, false otherwise.</returns>
+    [LibraryImport(Raylib.Name, StringMarshalling = StringMarshalling.Utf8)]
+    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
+    [return: MarshalAs(UnmanagedType.I1)]
+    internal static partial bool ExportMesh(Mesh mesh, string fileName);
+
+    /// <summary>
+    /// Export mesh as code file (.h) defining multiple arrays of vertex attributes.
+    /// </summary>
+    /// <param name="mesh">The mesh to export.</param>
+    /// <param name="fileName">The name of the file to save the exported code to.</param>
+    /// <returns>True if the export was successful; otherwise, false.</returns>
+    [LibraryImport(Raylib.Name, StringMarshalling = StringMarshalling.Utf8)]
+    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
+    [return: MarshalAs(UnmanagedType.I1)]
+    internal static partial bool ExportMeshAsCode(Mesh mesh, string fileName);
 
     /* --------------------------------- Model --------------------------------- */
 

@@ -125,6 +125,11 @@ public static class Input {
         return RaylibApi.SetGamepadMappings(mappings);
     }
 
+    /// <inheritdoc cref="RaylibApi.SetGamepadVibration" />
+    public static void SetGamepadVibration(int gamepad, float leftMotor, float rightMotor) {
+        RaylibApi.SetGamepadVibration(gamepad, leftMotor, rightMotor);
+    }
+
     /// <inheritdoc cref="RaylibApi.IsMouseButtonPressed" />
     public static bool IsMouseButtonPressed(MouseButton button) {
         return RaylibApi.IsMouseButtonPressed(button);

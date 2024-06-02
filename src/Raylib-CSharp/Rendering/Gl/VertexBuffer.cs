@@ -29,6 +29,14 @@ public struct VertexBuffer {
     public unsafe Span<Vector2> TexCoords => new(this.TexCoordsPtr, this.ElementCount * 4);
 
     /// <summary>
+    /// Vertex texture coordinates (UV - 2 components per vertex) (shader-location = 1).
+    /// </summary>
+    public unsafe float* NormalsPtr;
+
+    /// <inheritdoc cref="TexCoordsPtr" />
+    public unsafe Span<Vector2> Normals => new(this.NormalsPtr, this.ElementCount * 3);
+
+    /// <summary>
     /// Vertex colors (RGBA - 4 components per vertex) (shader-location = 3).
     /// </summary>
     public unsafe byte* ColorsPtr;
@@ -52,7 +60,7 @@ public struct VertexBuffer {
     /// <summary>
     /// OpenGL Vertex Buffer Objects id (5 types of vertex data).
     /// </summary>
-    public unsafe fixed uint VboIdPtr[4];
+    public unsafe fixed uint VboIdPtr[5];
 
     /// <inheritdoc cref="VboId" />
     public unsafe Span<uint> VboId {

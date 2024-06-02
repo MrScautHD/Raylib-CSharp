@@ -119,14 +119,14 @@ public struct Camera3D {
         return RaylibApi.GetCameraProjectionMatrix(ref this, aspect);
     }
 
-    /// <inheritdoc cref="RaylibApi.GetCameraMatrix" />
-    public Matrix4x4 GetMatrix() {
-        return RaylibApi.GetCameraMatrix(this);
+    /// <inheritdoc cref="RaylibApi.GetScreenToWorldRay" />
+    public Ray GetScreenToWorldRay(Vector2 mousePosition) {
+        return RaylibApi.GetScreenToWorldRay(mousePosition, this);
     }
 
-    /// <inheritdoc cref="RaylibApi.GetMouseRay" />
-    public Ray GetMouseRay(Vector2 mousePosition) {
-        return RaylibApi.GetMouseRay(mousePosition, this);
+    /// <inheritdoc cref="RaylibApi.GetScreenToWorldRayEx" />
+    public Ray GetScreenToWorldRayEx(Vector2 mousePosition, int width, int height) {
+        return RaylibApi.GetScreenToWorldRayEx(mousePosition, this, width, height);
     }
 
     /// <inheritdoc cref="RaylibApi.GetWorldToScreen" />
@@ -137,5 +137,10 @@ public struct Camera3D {
     /// <inheritdoc cref="RaylibApi.GetWorldToScreenEx" />
     public Vector2 GetWorldToScreenEx(Vector3 position, int width, int height) {
         return RaylibApi.GetWorldToScreenEx(position, this, width, height);
+    }
+
+    /// <inheritdoc cref="RaylibApi.GetCameraMatrix" />
+    public Matrix4x4 GetMatrix() {
+        return RaylibApi.GetCameraMatrix(this);
     }
 }

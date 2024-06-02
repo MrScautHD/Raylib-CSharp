@@ -3,27 +3,27 @@ namespace Raylib_CSharp.Camera.Cam3D;
 public enum CameraMode {
 
     /// <summary>
-    /// Custom camera.
+    /// Camera custom, controlled by user (UpdateCamera() does nothing).
     /// </summary>
     Custom = 0,
 
     /// <summary>
-    /// Free camera.
+    /// Camera free mode.
     /// </summary>
     Free,
 
     /// <summary>
-    /// Orbital camera.
+    /// Camera orbital, around target, zoom supported.
     /// </summary>
     Orbital,
 
     /// <summary>
-    /// First person camera.
+    /// Camera first person.
     /// </summary>
     FirstPerson,
 
     /// <summary>
-    /// Third person camera.
+    /// Camera third person.
     /// </summary>
     ThirdPerson
 }

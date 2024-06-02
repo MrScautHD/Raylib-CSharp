@@ -277,6 +277,26 @@ internal static partial class RayMathApi {
     internal static partial Vector2 Vector2Reflect(Vector2 v, Vector2 normal);
 
     /// <summary>
+    /// Returns the component-wise minimum of two vectors.
+    /// </summary>
+    /// <param name="v1">The first vector.</param>
+    /// <param name="v2">The second vector.</param>
+    /// <returns>The component-wise minimum of the two vectors.</returns>
+    [LibraryImport(Raylib.Name)]
+    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
+    internal static partial Vector2 Vector2Min(Vector2 v1, Vector2 v2);
+
+    /// <summary>
+    /// Returns the maximum values for each component of two Vector2 objects.
+    /// </summary>
+    /// <param name="v1">The first Vector2 object.</param>
+    /// <param name="v2">The second Vector2 object.</param>
+    /// <returns>A new Vector2 object with the maximum values for each component.</returns>
+    [LibraryImport(Raylib.Name)]
+    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
+    internal static partial Vector2 Vector2Max(Vector2 v1, Vector2 v2);
+
+    /// <summary>
     /// Rotate vector by angle.
     /// </summary>
     /// <param name="v">The 2D vector to rotate.</param>
@@ -337,6 +357,17 @@ internal static partial class RayMathApi {
     [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
     internal static partial int Vector2Equals(Vector2 p, Vector2 q);
+
+    /// <summary>
+    /// Compute the direction of a refracted ray.
+    /// </summary>
+    /// <param name="v">The incident vector.</param>
+    /// <param name="n">The normal vector.</param>
+    /// <param name="r">The refraction index.</param>
+    /// <returns>The refraction vector.</returns>
+    [LibraryImport(Raylib.Name)]
+    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
+    internal static partial Vector2 Vector2Refract(Vector2 v, Vector2 n, float r);
 
     /// <summary>
     /// Vector with components value 0.0f.
@@ -582,6 +613,17 @@ internal static partial class RayMathApi {
     internal static partial Vector3 Vector3RotateByAxisAngle(Vector3 v, Vector3 axis, float angle);
 
     /// <summary>
+    /// Move Vector towards target.
+    /// </summary>
+    /// <param name="v">The current vector to move.</param>
+    /// <param name="target">The target vector to move towards.</param>
+    /// <param name="maxDistance">The maximum distance to move towards the target.</param>
+    /// <returns>The new vector moved towards the target, limited to the maximum distance.</returns>
+    [LibraryImport(Raylib.Name)]
+    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
+    internal static partial Vector3 Vector3MoveTowards(Vector3 v, Vector3 target, float maxDistance);
+
+    /// <summary>
     /// Calculate linear interpolation between two vectors.
     /// </summary>
     /// <param name="v1">The start Vector3 value.</param>
@@ -591,6 +633,19 @@ internal static partial class RayMathApi {
     [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
     internal static partial Vector3 Vector3Lerp(Vector3 v1, Vector3 v2, float amount);
+
+    /// <summary>
+    /// Calculate cubic hermite interpolation between two vectors and their tangents.
+    /// </summary>
+    /// <param name="v1">The first 3D vector.</param>
+    /// <param name="tangent1">The first 3D tangent vector.</param>
+    /// <param name="v2">The second 3D vector.</param>
+    /// <param name="tangent2">The second 3D tangent vector.</param>
+    /// <param name="amount">The interpolation amount between the two vectors.</param>
+    /// <returns>The interpolated vector. The resulting vector is a point along the Hermite spline.</returns>
+    [LibraryImport(Raylib.Name)]
+    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
+    internal static partial Vector3 Vector3CubicHermite(Vector3 v1, Vector3 tangent1, Vector3 v2, Vector3 tangent2, float amount);
 
     /// <summary>
     /// Calculate reflected vector to normal.
@@ -697,6 +752,219 @@ internal static partial class RayMathApi {
     [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
     internal static partial Vector3 Vector3Refract(Vector3 v, Vector3 n, float r);
+
+    /// <summary>
+    /// Returns a Vector4 with all components set to zero.
+    /// </summary>
+    /// <returns>A Vector4 with all components set to zero.</returns>
+    [LibraryImport(Raylib.Name)]
+    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
+    internal static partial Vector4 Vector4Zero();
+
+    /// <summary>
+    /// Creates a new Vector4 initialized with all components set to 1.
+    /// </summary>
+    /// <returns>A Vector4 with all components set to 1.</returns>
+    [LibraryImport(Raylib.Name)]
+    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
+    internal static partial Vector4 Vector4One();
+
+    /// <summary>
+    /// Adds two Vector4 together and returns the result.
+    /// </summary>
+    /// <param name="v1">The first Vector4.</param>
+    /// <param name="v2">The second Vector4.</param>
+    /// <returns>The sum of the two Vector4.</returns>
+    [LibraryImport(Raylib.Name)]
+    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
+    internal static partial Vector4 Vector4Add(Vector4 v1, Vector4 v2);
+
+    /// <summary>
+    /// Adds a scalar value to all components of a Vector4.
+    /// </summary>
+    /// <param name="v">The Vector4 to modify.</param>
+    /// <param name="add">The value to add to each component.</param>
+    /// <returns>The result of adding the scalar value to each component of the Vector4.</returns>
+    [LibraryImport(Raylib.Name)]
+    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
+    internal static partial Vector4 Vector4AddValue(Vector4 v, float add);
+
+    /// <summary>
+    /// Subtract two Vector4s.
+    /// </summary>
+    /// <param name="v1">The first Vector4.</param>
+    /// <param name="v2">The second Vector4.</param>
+    /// <returns>The result of subtracting v2 from v1.</returns>
+    [LibraryImport(Raylib.Name)]
+    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
+    internal static partial Vector4 Vector4Subtract(Vector4 v1, Vector4 v2);
+
+    /// <summary>
+    /// Subtract a value from each component of a Vector4.
+    /// </summary>
+    /// <param name="v">The Vector4 to subtract the value from.</param>
+    /// <param name="add">The value to subtract from each component.</param>
+    /// <returns>A new Vector4 with the result of subtracting the value from each component of the input Vector4.</returns>
+    [LibraryImport(Raylib.Name)]
+    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
+    internal static partial Vector4 Vector4SubtractValue(Vector4 v, float add);
+
+    /// <summary>
+    /// Calculates the length of a Vector4.
+    /// </summary>
+    /// <param name="v">The Vector4 to calculate the length of.</param>
+    /// <returns>The length of the Vector4.</returns>
+    [LibraryImport(Raylib.Name)]
+    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
+    internal static partial float Vector4Length(Vector4 v);
+
+    /// <summary>
+    /// Calculates the squared length of a Vector4.
+    /// </summary>
+    /// <param name="v">The Vector4 to calculate the squared length of.</param>
+    /// <returns>The squared length of the Vector4.</returns>
+    [LibraryImport(Raylib.Name)]
+    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
+    internal static partial float Vector4LengthSqr(Vector4 v);
+
+    /// <summary>
+    /// Calculates the dot product of two Vector4.
+    /// </summary>
+    /// <param name="v1">The first Vector4.</param>
+    /// <param name="v2">The second Vector4.</param>
+    /// <returns>The dot product of the two Vector4.</returns>
+    [LibraryImport(Raylib.Name)]
+    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
+    internal static partial float Vector4DotProduct(Vector4 v1, Vector4 v2);
+
+    /// <summary>
+    /// Calculate distance between two vectors.
+    /// </summary>
+    /// <param name="v1">The first Vector4.</param>
+    /// <param name="v2">The second Vector4.</param>
+    /// <returns>The Euclidean distance between v1 and v2.</returns>
+    [LibraryImport(Raylib.Name)]
+    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
+    internal static partial float Vector4Distance(Vector4 v1, Vector4 v2);
+
+    /// <summary>
+    /// Calculate square distance between two vectors.
+    /// </summary>
+    /// <param name="v1">The first Vector4 point.</param>
+    /// <param name="v2">The second Vector4 point.</param>
+    /// <returns>The square of the distance between the two Vector4 points.</returns>
+    [LibraryImport(Raylib.Name)]
+    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
+    internal static partial float Vector4DistanceSqr(Vector4 v1, Vector4 v2);
+
+    /// <summary>
+    /// Scales a Vector4 by a scalar value.
+    /// </summary>
+    /// <param name="v">The Vector4 to scale.</param>
+    /// <param name="scale">The scaling factor.</param>
+    /// <returns>The scaled Vector4.</returns>
+    [LibraryImport(Raylib.Name)]
+    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
+    internal static partial Vector4 Vector4Scale(Vector4 v, float scale);
+
+    /// <summary>
+    /// Multiply vector by vector.
+    /// </summary>
+    /// <param name="v1">The first Vector4 value.</param>
+    /// <param name="v2">The second Vector4 value.</param>
+    /// <returns>The resulting multiplied Vector4 value.</returns>
+    [LibraryImport(Raylib.Name)]
+    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
+    internal static partial Vector4 Vector4Multiply(Vector4 v1, Vector4 v2);
+
+    /// <summary>
+    /// Negate vector.
+    /// </summary>
+    /// <param name="v">The Vector4 to negate.</param>
+    /// <returns>The negated Vector4.</returns>
+    [LibraryImport(Raylib.Name)]
+    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
+    internal static partial Vector4 Vector4Negate(Vector4 v);
+
+    /// <summary>
+    /// Divide vector by vector.
+    /// </summary>
+    /// <param name="v1">The dividend Vector4.</param>
+    /// <param name="v2">The divisor Vector4.</param>
+    /// <returns>The result of dividing each element of v1 by the corresponding element of v2.</returns>
+    [LibraryImport(Raylib.Name)]
+    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
+    internal static partial Vector4 Vector4Divide(Vector4 v1, Vector4 v2);
+
+    /// <summary>
+    /// Normalize provided vector.
+    /// </summary>
+    /// <param name="v">The Vector4 to normalize.</param>
+    /// <returns>The normalized Vector4.</returns>
+    [LibraryImport(Raylib.Name)]
+    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
+    internal static partial Vector4 Vector4Normalize(Vector4 v);
+
+    /// <summary>
+    /// Get min value for each pair of components.
+    /// </summary>
+    /// <param name="v1">The first Vector4 value.</param>
+    /// <param name="v2">The second Vector4 value.</param>
+    /// <returns>The Vector4 with the minimum values from v1 and v2.</returns>
+    [LibraryImport(Raylib.Name)]
+    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
+    internal static partial Vector4 Vector4Min(Vector4 v1, Vector4 v2);
+
+    /// <summary>
+    /// Get max value for each pair of components.
+    /// </summary>
+    /// <param name="v1">The first vector.</param>
+    /// <param name="v2">The second vector.</param>
+    /// <returns>The component-wise maximum vector.</returns>
+    [LibraryImport(Raylib.Name)]
+    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
+    internal static partial Vector4 Vector4Max(Vector4 v1, Vector4 v2);
+
+    /// <summary>
+    /// Calculate linear interpolation between two vectors.
+    /// </summary>
+    /// <param name="v1">The start vector.</param>
+    /// <param name="v2">The end vector.</param>
+    /// <param name="amount">The interpolation amount. Value should be between 0 and 1.</param>
+    /// <returns>The interpolated vector.</returns>
+    [LibraryImport(Raylib.Name)]
+    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
+    internal static partial Vector4 Vector4Lerp(Vector4 v1, Vector4 v2, float amount);
+
+    /// <summary>
+    /// Move Vector towards target.
+    /// </summary>
+    /// <param name="v">The current vector.</param>
+    /// <param name="target">The target vector to move towards.</param>
+    /// <param name="maxDistance">The maximum magnitude of the movement.</param>
+    /// <returns>The resulting vector after moving towards the target.</returns>
+    [LibraryImport(Raylib.Name)]
+    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
+    internal static partial Vector4 Vector4MoveTowards(Vector4 v, Vector4 target, float maxDistance);
+
+    /// <summary>
+    /// Invert the given vector.
+    /// </summary>
+    /// <param name="v">The vector to invert.</param>
+    /// <returns>The inverted vector.</returns>
+    [LibraryImport(Raylib.Name)]
+    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
+    internal static partial Vector4 Vector4Invert(Vector4 v);
+
+    /// <summary>
+    /// Check whether two given vectors are almost equal.
+    /// </summary>
+    /// <param name="p">The first Vector4 object to compare.</param>
+    /// <param name="q">The second Vector4 object to compare.</param>
+    /// <returns>True if the two vectors are equal, false otherwise.</returns>
+    [LibraryImport(Raylib.Name)]
+    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
+    internal static partial int Vector4Equals(Vector4 p, Vector4 q);
 
     /// <summary>
     /// Compute matrix determinant.
@@ -1037,6 +1305,19 @@ internal static partial class RayMathApi {
     [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
     internal static partial Quaternion QuaternionSlerp(Quaternion q1, Quaternion q2, float amount);
+
+    /// <summary>
+    /// Calculate quaternion cubic spline interpolation using Cubic Hermite Spline algorithm.
+    /// </summary>
+    /// <param name="q1">The starting quaternion.</param>
+    /// <param name="outTangent1">The outgoing tangent quaternion of the starting quaternion.</param>
+    /// <param name="q2">The ending quaternion.</param>
+    /// <param name="inTangent2">The incoming tangent quaternion of the ending quaternion.</param>
+    /// <param name="t">The interpolation parameter [0.0f, 1.0f].</param>
+    /// <returns>The interpolated quaternion.</returns>
+    [LibraryImport(Raylib.Name)]
+    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
+    internal static partial Quaternion QuaternionCubicHermiteSpline(Quaternion q1, Quaternion outTangent1, Quaternion q2, Quaternion inTangent2, float t);
 
     /// <summary>
     /// Calculate quaternion based on the rotation from one vector to another.

@@ -110,6 +110,11 @@ public static class FileManager {
         return RaylibApi.IsPathFile(path);
     }
 
+    /// <inheritdoc cref="RaylibApi.IsFileNameValid" />
+    public static bool IsFileNameValid(string fileName) {
+        return RaylibApi.IsFileNameValid(fileName);
+    }
+
     /// <inheritdoc cref="RaylibApi.LoadDirectoryFiles" />
     public static FilePathList LoadDirectoryFiles(string dirPath) {
         return RaylibApi.LoadDirectoryFiles(dirPath);

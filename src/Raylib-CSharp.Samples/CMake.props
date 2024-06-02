@@ -1,6 +1,6 @@
 <Project>
     <PropertyGroup>
-        <RlVersion>5.0</RlVersion>
+        <RlVersion>11202bf299a70a8ef30e28ab99a8184bbb119a99</RlVersion>
     </PropertyGroup>
 
     <PropertyGroup Condition="$([MSBuild]::IsOSPlatform('Windows'))">
@@ -15,10 +15,11 @@
         <RlName>libraylib.so</RlName>
     </PropertyGroup>
 
+    <!-- Todo: When "dev-5.1" release move back to "Tags" instead of "commits": "https://github.com/raysan5/raylib/archive/refs/tags/$(RlVersion).zip" -->
     <!-- Download Raylib -->
     <Target Name="DownloadRaylib" BeforeTargets="UnZipRaylib">
         <DownloadFile DestinationFolder="$(IntermediateOutputPath)"
-                      SourceUrl="https://github.com/raysan5/raylib/archive/refs/tags/$(RlVersion).zip"
+                      SourceUrl="https://github.com/raysan5/raylib/archive/$(RlVersion).zip"
                       DestinationFileName="raylib-$(RlVersion).zip"
                       Condition="!Exists('$(IntermediateOutputPath)raylib-$(RlVersion).zip')" />
     </Target>

@@ -56,6 +56,13 @@ public struct Image {
         return RaylibApi.LoadImageAnim(fileNameOrString, out frames);
     }
 
+    /// <inheritdoc cref="RaylibApi.LoadImageAnimFromMemory" />
+    public static unsafe Image LoadImageAnimFromMemory(string fileType, ReadOnlySpan<byte> fileData, out int frames) {
+        fixed (byte* fileDataPtr = fileData) {
+            return RaylibApi.LoadImageAnimFromMemory(fileType, fileDataPtr, fileData.Length, out frames);
+        }
+    }
+
     /// <inheritdoc cref="RaylibApi.LoadImageFromMemory" />
     public static unsafe Image LoadFromMemory(string fileType, ReadOnlySpan<byte> fileData) {
         fixed (byte* fileDataPtr = fileData) {
@@ -215,6 +222,13 @@ public struct Image {
     /// <inheritdoc cref="RaylibApi.ImageBlurGaussian" />
     public void BlurGaussian(int blurSize) {
         RaylibApi.ImageBlurGaussian(ref this, blurSize);
+    }
+
+    /// <inheritdoc cref="RaylibApi.ImageKernelConvolution" />
+    public unsafe void KernelConvolution(Span<float> kernel) {
+        fixed (float* kernelPtr = kernel) {
+            RaylibApi.ImageKernelConvolution(ref this, kernelPtr, kernel.Length);
+        }
     }
 
     /// <inheritdoc cref="RaylibApi.ImageResize" />

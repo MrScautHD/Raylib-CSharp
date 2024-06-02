@@ -143,6 +143,16 @@ public static class RayMath {
         return RayMathApi.Vector2Reflect(v, normal);
     }
 
+    /// <inheritdoc cref="RayMathApi.Vector2Min" />
+    public static Vector2 Vector2Min(Vector2 v1, Vector2 v2) {
+        return RayMathApi.Vector2Min(v1, v2);
+    }
+
+    /// <inheritdoc cref="RayMathApi.Vector2Max" />
+    public static Vector2 Vector2Max(Vector2 v1, Vector2 v2) {
+        return RayMathApi.Vector2Max(v1, v2);
+    }
+
     /// <inheritdoc cref="RayMathApi.Vector2Rotate" />
     public static Vector2 Vector2Rotate(Vector2 v, float angle) {
         return RayMathApi.Vector2Rotate(v, angle);
@@ -171,6 +181,11 @@ public static class RayMath {
     /// <inheritdoc cref="RayMathApi.Vector2Equals" />
     public static int Vector2Equals(Vector2 p, Vector2 q) {
         return RayMathApi.Vector2Equals(p, q);
+    }
+
+    /// <inheritdoc cref="RayMathApi.Vector2Refract" />
+    public static Vector2 Vector2Refract(Vector2 v, Vector2 n, float r) {
+        return RayMathApi.Vector2Refract(v, n, r);
     }
 
     /// <inheritdoc cref="RayMathApi.Vector3Zero" />
@@ -298,9 +313,19 @@ public static class RayMath {
         return RayMathApi.Vector3RotateByAxisAngle(v, axis, angle);
     }
 
+    /// <inheritdoc cref="RayMathApi.Vector3MoveTowards" />
+    public static Vector3 Vector3MoveTowards(Vector3 v, Vector3 target, float maxDistance) {
+        return RayMathApi.Vector3MoveTowards(v, target, maxDistance);
+    }
+
     /// <inheritdoc cref="RayMathApi.Vector3Lerp" />
     public static Vector3 Vector3Lerp(Vector3 v1, Vector3 v2, float amount) {
         return RayMathApi.Vector3Lerp(v1, v2, amount);
+    }
+
+    /// <inheritdoc cref="RayMathApi.Vector3CubicHermite" />
+    public static Vector3 Vector3CubicHermite(Vector3 v1, Vector3 tangent1, Vector3 v2, Vector3 tangent2, float amount) {
+        return RayMathApi.Vector3CubicHermite(v1, tangent1, v2, tangent2, amount);
     }
 
     /// <inheritdoc cref="RayMathApi.Vector3Reflect" />
@@ -351,6 +376,116 @@ public static class RayMath {
     /// <inheritdoc cref="RayMathApi.Vector3Refract" />
     public static Vector3 Vector3Refract(Vector3 v, Vector3 n, float r) {
         return RayMathApi.Vector3Refract(v, n, r);
+    }
+
+    /// <inheritdoc cref="RayMathApi.Vector4Zero" />
+    public static Vector4 Vector4Zero() {
+        return RayMathApi.Vector4Zero();
+    }
+
+    /// <inheritdoc cref="RayMathApi.Vector4One" />
+    public static Vector4 Vector4One() {
+        return RayMathApi.Vector4One();
+    }
+
+    /// <inheritdoc cref="RayMathApi.Vector4Add" />
+    public static Vector4 Vector4Add(Vector4 v1, Vector4 v2) {
+        return RayMathApi.Vector4Add(v1, v2);
+    }
+
+    /// <inheritdoc cref="RayMathApi.Vector4AddValue" />
+    public static Vector4 Vector4AddValue(Vector4 v, float add) {
+        return RayMathApi.Vector4AddValue(v, add);
+    }
+
+    /// <inheritdoc cref="RayMathApi.Vector4Subtract" />
+    public static Vector4 Vector4Subtract(Vector4 v1, Vector4 v2) {
+        return RayMathApi.Vector4Subtract(v1, v2);
+    }
+
+    /// <inheritdoc cref="RayMathApi.Vector4SubtractValue" />
+    public static Vector4 Vector4SubtractValue(Vector4 v, float sub) {
+        return RayMathApi.Vector4SubtractValue(v, sub);
+    }
+
+    /// <inheritdoc cref="RayMathApi.Vector4Length" />
+    public static float Vector4Length(Vector4 v) {
+        return RayMathApi.Vector4Length(v);
+    }
+
+    /// <inheritdoc cref="RayMathApi.Vector4LengthSqr" />
+    public static float Vector4LengthSqr(Vector4 v) {
+        return RayMathApi.Vector4LengthSqr(v);
+    }
+
+    /// <inheritdoc cref="RayMathApi.Vector4DotProduct" />
+    public static float Vector4DotProduct(Vector4 v1, Vector4 v2) {
+        return RayMathApi.Vector4DotProduct(v1, v2);
+    }
+
+    /// <inheritdoc cref="RayMathApi.Vector4Distance" />
+    public static float Vector4Distance(Vector4 v1, Vector4 v2) {
+        return RayMathApi.Vector4Distance(v1, v2);
+    }
+
+    /// <inheritdoc cref="RayMathApi.Vector4DistanceSqr" />
+    public static float Vector4DistanceSqr(Vector4 v1, Vector4 v2) {
+        return RayMathApi.Vector4DistanceSqr(v1, v2);
+    }
+
+    /// <inheritdoc cref="RayMathApi.Vector4Scale" />
+    public static Vector4 Vector4Scale(Vector4 v, float scale) {
+        return RayMathApi.Vector4Scale(v, scale);
+    }
+
+    /// <inheritdoc cref="RayMathApi.Vector4Multiply" />
+    public static Vector4 Vector4Multiply(Vector4 v1, Vector4 v2) {
+        return RayMathApi.Vector4Multiply(v1, v2);
+    }
+
+    /// <inheritdoc cref="RayMathApi.Vector4Negate" />
+    public static Vector4 Vector4Negate(Vector4 v) {
+        return RayMathApi.Vector4Negate(v);
+    }
+
+    /// <inheritdoc cref="RayMathApi.Vector4Divide" />
+    public static Vector4 Vector4Divide(Vector4 v1, Vector4 v2) {
+        return RayMathApi.Vector4Divide(v1, v2);
+    }
+
+    /// <inheritdoc cref="RayMathApi.Vector4Normalize" />
+    public static Vector4 Vector4Normalize(Vector4 v) {
+        return RayMathApi.Vector4Normalize(v);
+    }
+
+    /// <inheritdoc cref="RayMathApi.Vector4Min" />
+    public static Vector4 Vector4Min(Vector4 v1, Vector4 v2) {
+        return RayMathApi.Vector4Min(v1, v2);
+    }
+
+    /// <inheritdoc cref="RayMathApi.Vector4Max" />
+    public static Vector4 Vector4Max(Vector4 v1, Vector4 v2) {
+        return RayMathApi.Vector4Max(v1, v2);
+    }
+
+    /// <inheritdoc cref="RayMathApi.Vector4Lerp" />
+    public static Vector4 Vector4Lerp(Vector4 v1, Vector4 v2, float amount) {
+        return RayMathApi.Vector4Lerp(v1, v2, amount);
+    }
+
+    /// <inheritdoc cref="RayMathApi.Vector4MoveTowards" />
+    public static Vector4 Vector4MoveTowards(Vector4 v, Vector4 target, float maxDistance) {
+        return RayMathApi.Vector4MoveTowards(v, target, maxDistance);
+    }
+
+    /// <inheritdoc cref="RayMathApi.Vector4Invert" />
+    public static Vector4 Vector4Invert(Vector4 v) {
+        return RayMathApi.Vector4Invert(v);
+    }
+
+    /// <inheritdoc cref="RayMathApi.Vector4Equals" />
+    public static int Vector4Equals(Vector4 p, Vector4 q) {
+        return RayMathApi.Vector4Equals(p, q);
     }
 
     /// <inheritdoc cref="RayMathApi.MatrixDeterminant" />
@@ -521,6 +656,11 @@ public static class RayMath {
     /// <inheritdoc cref="RayMathApi.QuaternionSlerp" />
     public static Quaternion QuaternionSlerp(Quaternion q1, Quaternion q2, float amount) {
         return RayMathApi.QuaternionSlerp(q1, q2, amount);
+    }
+
+    /// <inheritdoc cref="RayMathApi.QuaternionCubicHermiteSpline" />
+    public static Quaternion QuaternionCubicHermiteSpline(Quaternion q1, Quaternion outTangent1, Quaternion q2, Quaternion inTangent2, float t) {
+        return RayMathApi.QuaternionCubicHermiteSpline(q1, outTangent1, q2, inTangent2, t);
     }
 
     /// <inheritdoc cref="RayMathApi.QuaternionFromVector3ToVector3" />

@@ -58,7 +58,7 @@ public enum GamepadButton {
     LeftTrigger2,
 
     /// <summary>
-    /// Gamepad top/back trigger right (one), it could be a trailing button.
+    /// Gamepad top/back trigger right (first), it could be a trailing button.
     /// </summary>
     RightTrigger1,
 

@@ -285,11 +285,6 @@ public struct Mesh {
         RaylibApi.UnloadMesh(this);
     }
 
-    /// <inheritdoc cref="RaylibApi.ExportMesh" />
-    public bool Export(string fileName) {
-        return RaylibApi.ExportMesh(this, fileName);
-    }
-
     /// <inheritdoc cref="RaylibApi.GetMeshBoundingBox" />
     public BoundingBox GetBoundingBox() {
         return RaylibApi.GetMeshBoundingBox(this);
@@ -298,5 +293,15 @@ public struct Mesh {
     /// <inheritdoc cref="RaylibApi.GenMeshTangents" />
     public void GenTangents() {
         RaylibApi.GenMeshTangents(ref this);
+    }
+
+    /// <inheritdoc cref="RaylibApi.ExportMesh" />
+    public bool Export(string fileName) {
+        return RaylibApi.ExportMesh(this, fileName);
+    }
+
+    /// <inheritdoc cref="RaylibApi.ExportMeshAsCode" />
+    public bool ExportAsCode(string fileName) {
+        return RaylibApi.ExportMeshAsCode(this, fileName);
     }
 }

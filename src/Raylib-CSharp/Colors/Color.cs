@@ -73,6 +73,11 @@ public struct Color {
         return $"R:{this.R} G:{this.G} B:{this.B} A:{this.A}";
     }
 
+    /// <inheritdoc cref="RaylibApi.ColorIsEqual" />
+    public static bool ColorIsEqual(Color col1, Color col2) {
+        return RaylibApi.ColorIsEqual(col1, col2);
+    }
+
     /// <inheritdoc cref="RaylibApi.Fade" />
     public static Color Fade(Color color, float alpha) {
         return RaylibApi.Fade(color, alpha);

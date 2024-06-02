@@ -30,7 +30,7 @@
                OverwriteReadOnlyFiles="true"
                Condition="!Exists('$(IntermediateOutputPath)raylib-$(RlVersion)')" />
     </Target>
-    
+
     <!-- Configure Args -->
     <ItemGroup>
         <ConfigureArgs Include="-S $(IntermediateOutputPath)raylib-$(RlVersion)" />
@@ -41,6 +41,7 @@
         <ConfigureArgs Include="-D CUSTOMIZE_BUILD=ON" />
         <ConfigureArgs Include="-D SUPPORT_GIF_RECORDING=OFF" />
         <ConfigureArgs Include="-D SUPPORT_SCREEN_CAPTURE=OFF" />
+        <ConfigureArgs Include="-D GRAPHICS=GRAPHICS_API_OPENGL_43" />
     </ItemGroup>
 
     <!-- Build Raylib -->

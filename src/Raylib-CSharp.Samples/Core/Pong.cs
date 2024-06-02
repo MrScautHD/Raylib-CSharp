@@ -1,7 +1,6 @@
 using System.Numerics;
 using Raylib_CSharp.Colors;
 using Raylib_CSharp.Interact;
-using Raylib_CSharp.Logging;
 using Raylib_CSharp.Rendering;
 using Raylib_CSharp.Transformations;
 using Raylib_CSharp.Windowing;
@@ -9,6 +8,7 @@ using Raylib_CSharp.Windowing;
 namespace Raylib_CSharp.Samples.Core;
 
 public class Pong : ISample {
+
     private const int _screenWidth = 1280;
     private const int _screenHeight = 720;
 
@@ -16,24 +16,22 @@ public class Pong : ISample {
     private const float _ballBaseSpeed = 7.0f;
     private const float _paddleSpeed = 7.0f;
 
-    private readonly Vector2 _center = new(_screenWidth / 2, _screenHeight / 2);
+    private readonly Vector2 _center = new(_screenWidth / 2.0F, _screenHeight / 2.0F);
 
     private readonly Tuple<Vector2, Vector2> _leftSide = new Tuple<Vector2, Vector2>(new Vector2(0, 0), new Vector2(0, _screenHeight));
     private readonly Tuple<Vector2, Vector2> _rightSide = new Tuple<Vector2, Vector2>(new Vector2(_screenWidth, 0), new Vector2(_screenWidth, _screenHeight));
 
-    private Rectangle _leftPaddle = new Rectangle(50, _screenHeight / 2 - 60, 20, 120);
-    private Rectangle _rightPaddle = new Rectangle(_screenWidth - 70, _screenHeight / 2 - 60, 20, 120);
+    private Rectangle _leftPaddle = new Rectangle(50, _screenHeight / 2.0F - 60, 20, 120);
+    private Rectangle _rightPaddle = new Rectangle(_screenWidth - 70, _screenHeight / 2.0F - 60, 20, 120);
 
-    private Vector2 _ballPosition = new Vector2(_screenWidth / 2, _screenHeight / 2);
+    private Vector2 _ballPosition = new Vector2(_screenWidth / 2.0F, _screenHeight / 2.0F);
     private Vector2 _ballSpeed = new Vector2(_ballBaseSpeed, _ballBaseSpeed);
 
-    private int _leftPaddleScore = 0;
-    private int _rightPaddleScore = 0;
+    private int _leftPaddleScore;
+    private int _rightPaddleScore;
 
     public void Run() {
         Window.Init(_screenWidth, _screenHeight, "Pong");
-
-        Logger.SetTraceLogLevel(TraceLogLevel.Warning);
         Time.SetTargetFPS(60);
 
         while (!Window.ShouldClose()) {
@@ -41,6 +39,9 @@ public class Pong : ISample {
         }
     }
 
+    /// <summary>
+    /// Draws the game frame on the screen.
+    /// </summary>
     private void DrawFrame() {
         Graphics.BeginDrawing();
         Graphics.ClearBackground(Color.Black);
@@ -98,11 +99,22 @@ public class Pong : ISample {
         Graphics.EndDrawing();
     }
 
+    /// <summary>
+    /// Calculates the normalized direction vector from origin to target.
+    /// </summary>
+    /// <param name="origin">The origin position.</param>
+    /// <param name="target">The target position.</param>
+    /// <returns>The normalized direction vector from origin to target.</returns>
     private static Vector2 GetDirectionToTarget(Vector2 origin, Vector2 target) {
         Vector2 direction = target - origin;
         return Vector2.Normalize(direction);
     }
 
+    /// <summary>
+    /// Generates a random target point for the ball based on the winning side.
+    /// </summary>
+    /// <param name="winningSide">The side that won the previous round. Must be either Side.Left or Side.Right.</param>
+    /// <returns>A Vector2 representing the random target point on the winning side.</returns>
     private Vector2 GetRandomTargetForDirection(Side winningSide) {
         Tuple<Vector2, Vector2> corners = winningSide switch {
             Side.Left => this._leftSide,
@@ -113,6 +125,9 @@ public class Pong : ISample {
         return corners.Item1 with { Y = randomTarget };
     }
 
+    /// <summary>
+    /// The Side enum represents the sides in the Pong game.
+    /// </summary>
     private enum Side {
         Left,
         Right

@@ -10,9 +10,10 @@ public class SpinningAroundADiamond : ISample {
 
     /// <inheritdoc />
     public void Run() {
-        Window.Init(800, 450, "Spinning a 3D Camera Around a Diamond");
+        Window.Init(800, 450, "Spinning a Diamond in 3D Space with a 3D Camera");
         Time.SetTargetFPS(60);
 
+        // Define the camera to look into our 3D world
         Camera3D camera = new Camera3D {
             Position = new Vector3(0, 10, 70),
             Target = new Vector3(0, 0, 0),
@@ -21,18 +22,17 @@ public class SpinningAroundADiamond : ISample {
             Projection = CameraProjection.Perspective
         };
 
+        // Define the diamond as a series of triangles with different colors
         Polygon diamond = new(
-            new Triangle(new Vector3(-25, 0, 25), new Vector3(25, 0, 25), new Vector3(0, 25, 0)),
-            new Triangle(new Vector3(25, 0, 25), new Vector3(25, 0, -25), new Vector3(0, 25, 0)),
-            new Triangle(new Vector3(25, 0, -25), new Vector3(-25, 0, -25), new Vector3(0, 25, 0)),
-            new Triangle(new Vector3(-25, 0, -25), new Vector3(-25, 0, 25), new Vector3(0, 25, 0)),
-            new Triangle(new Vector3(-25, 0, 25), new Vector3(0, -25, 0), new Vector3(25, 0, 25)),
-            new Triangle(new Vector3(25, 0, 25), new Vector3(0, -25, 0), new Vector3(25, 0, -25)),
-            new Triangle(new Vector3(25, 0, -25), new Vector3(0, -25, 0), new Vector3(-25, 0, -25)),
-            new Triangle(new Vector3(-25, 0, -25), new Vector3(0, -25, 0), new Vector3(-25, 0, 25))
+            new Triangle(new Vector3(-25, 0, 25), new Vector3(25, 0, 25), new Vector3(0, 25, 0), Color.SkyBlue),
+            new Triangle(new Vector3(25, 0, 25), new Vector3(25, 0, -25), new Vector3(0, 25, 0), Color.Green),
+            new Triangle(new Vector3(25, 0, -25), new Vector3(-25, 0, -25), new Vector3(0, 25, 0), Color.Gold),
+            new Triangle(new Vector3(-25, 0, -25), new Vector3(-25, 0, 25), new Vector3(0, 25, 0), Color.Maroon),
+            new Triangle(new Vector3(-25, 0, 25), new Vector3(0, -25, 0), new Vector3(25, 0, 25), Color.Gold),
+            new Triangle(new Vector3(25, 0, 25), new Vector3(0, -25, 0), new Vector3(25, 0, -25), Color.Maroon),
+            new Triangle(new Vector3(25, 0, -25), new Vector3(0, -25, 0), new Vector3(-25, 0, -25), Color.SkyBlue),
+            new Triangle(new Vector3(-25, 0, -25), new Vector3(0, -25, 0), new Vector3(-25, 0, 25), Color.Green)
         );
-
-        Color[] colors = new Color[] { Color.SkyBlue, Color.Green, Color.Gold, Color.Maroon, Color.Gold, Color.Maroon, Color.SkyBlue, Color.Green };
 
         float rotation = 0.0f;
         float rotationSpeedPerFrame = 0.025f;
@@ -47,8 +47,8 @@ public class SpinningAroundADiamond : ISample {
             diamond.Rotate(Vector3.UnitY, angle);
 
             // Draw the diamond as a series of triangles with different colors
-            for (int index = 0; index < diamond.Triangles.Length; index++) {
-                diamond.Triangles[index].Draw(colors[index]);
+            foreach (Triangle triangle in diamond.Triangles) {
+                triangle.Draw();
             }
 
             // Draw the grid on the floor to give a sense of orientation
@@ -84,15 +84,17 @@ public class SpinningAroundADiamond : ISample {
         public Vector3 Vertex1;
         public Vector3 Vertex2;
         public Vector3 Vertex3;
+        public Color Color;
 
-        public Triangle(Vector3 v1, Vector3 v2, Vector3 v3) {
+        public Triangle(Vector3 v1, Vector3 v2, Vector3 v3, Color color) {
             this.Vertex1 = v1;
             this.Vertex2 = v2;
             this.Vertex3 = v3;
+            this.Color = color;
         }
 
-        public void Draw(Color color) {
-            Graphics.DrawTriangle3D(this.Vertex1, this.Vertex2, this.Vertex3, color);
+        public void Draw() {
+            Graphics.DrawTriangle3D(this.Vertex1, this.Vertex2, this.Vertex3, this.Color);
         }
     }
 

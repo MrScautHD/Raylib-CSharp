@@ -77,14 +77,18 @@ jobs:
       - name: Setup dependencies
         run: |
           sudo apt-get install -y \
-            libasound2-dev \
-            libxrandr-dev \
-            libx11-dev \
-            libxi-dev \
-            libgl1-mesa-dev \
-            libglu1-mesa-dev \
-            libxcursor-dev \
-            libxinerama-dev
+           libglfw3 \
+           libglfw3-dev \
+           libx11-dev \
+           libxcursor-dev \
+           libxrandr-dev \
+           libxinerama-dev \
+           libxi-dev \
+           libxext-dev \
+           libxfixes-dev \
+           libwayland-dev \
+           libwayland-bin \
+           libxkbcommon-dev 
 
       # Build Raylib
       - name: Build Raylib
@@ -170,14 +174,18 @@ jobs:
       - name: Setup dependencies
         run: |
           sudo apt-get install -y \
-            libasound2-dev \
-            libxrandr-dev \
-            libx11-dev \
-            libxi-dev \
-            libgl1-mesa-dev \
-            libglu1-mesa-dev \
-            libxcursor-dev \
-            libxinerama-dev
+           libglfw3 \
+           libglfw3-dev \
+           libx11-dev \
+           libxcursor-dev \
+           libxrandr-dev \
+           libxinerama-dev \
+           libxi-dev \
+           libxext-dev \
+           libxfixes-dev \
+           libwayland-dev \
+           libwayland-bin \
+           libxkbcommon-dev 
 
       # Windows x86
       - uses: actions/download-artifact@v4

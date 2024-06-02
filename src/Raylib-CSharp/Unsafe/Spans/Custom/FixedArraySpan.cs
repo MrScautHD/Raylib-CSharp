@@ -25,7 +25,7 @@ public readonly unsafe struct FixedArraySpan<T> where T : unmanaged {
     /// </summary>
     /// <param name="index">The index of the sub-array.</param>
     /// <returns>A read-only span representing the sub-array.</returns>
-    public ReadOnlySpan<T> this[int index] {
+    public Span<T> this[int index] {
         get {
             if (index >= this._length) {
                 throw new IndexOutOfRangeException();

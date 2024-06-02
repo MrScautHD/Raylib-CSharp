@@ -120,13 +120,13 @@ public struct Camera3D {
     }
 
     /// <inheritdoc cref="RaylibApi.GetScreenToWorldRay" />
-    public Ray GetScreenToWorldRay(Vector2 mousePosition) {
-        return RaylibApi.GetScreenToWorldRay(mousePosition, this);
+    public Ray GetScreenToWorldRay(Vector2 position) {
+        return RaylibApi.GetScreenToWorldRay(position, this);
     }
 
     /// <inheritdoc cref="RaylibApi.GetScreenToWorldRayEx" />
-    public Ray GetScreenToWorldRayEx(Vector2 mousePosition, int width, int height) {
-        return RaylibApi.GetScreenToWorldRayEx(mousePosition, this, width, height);
+    public Ray GetScreenToWorldRayEx(Vector2 position, int width, int height) {
+        return RaylibApi.GetScreenToWorldRayEx(position, this, width, height);
     }
 
     /// <inheritdoc cref="RaylibApi.GetWorldToScreen" />

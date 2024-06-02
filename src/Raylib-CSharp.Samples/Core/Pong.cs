@@ -1,6 +1,7 @@
 using System.Numerics;
 using Raylib_CSharp.Colors;
 using Raylib_CSharp.Interact;
+using Raylib_CSharp.Logging;
 using Raylib_CSharp.Rendering;
 using Raylib_CSharp.Transformations;
 using Raylib_CSharp.Windowing;
@@ -32,6 +33,8 @@ public class Pong : ISample {
 
     public void Run() {
         Window.Init(_screenWidth, _screenHeight, "Pong");
+
+        Logger.SetTraceLogLevel(TraceLogLevel.Warning);
         Time.SetTargetFPS(60);
 
         while (!Window.ShouldClose()) {
@@ -134,6 +137,7 @@ public class Pong : ISample {
     }
 
     public void Dispose() {
+        Logger.SetTraceLogLevel(TraceLogLevel.All);
         Window.Close();
     }
 }

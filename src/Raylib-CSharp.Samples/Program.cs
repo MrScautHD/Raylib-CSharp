@@ -3,6 +3,7 @@ using Raylib_CSharp.Samples.Core;
 using Spectre.Console;
 
 ISample[] samples = [
+    new SpinningAroundADiamond(),
     new Pong(),
     new BasicWindow(),
     new CustomLogger()

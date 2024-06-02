@@ -5,7 +5,8 @@ using Spectre.Console;
 ISample[] samples = [
     new BasicWindow(),
     new CustomLogger(),
-    new Pong()
+    new Pong(),
+    new SpinningAroundADiamond()
 ];
 
 string selection = args.Length == 0 ? SamplesMenu.DisplayMenu(samples) : args[0];

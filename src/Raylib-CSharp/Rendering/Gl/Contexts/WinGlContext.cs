@@ -51,7 +51,7 @@ public partial class WinGlContext : IGlContext {
     /// If the function fails, the return value is <see cref="nint.Zero"/>. To get extended error information, call <see cref="Marshal.GetLastWin32Error"/>.
     /// </returns>
     [LibraryImport(Kernel32, EntryPoint = "LoadLibraryA", SetLastError = true, StringMarshalling = StringMarshalling.Utf8)]
-    private static partial nint LoadLibrary([MarshalAs(UnmanagedType.LPStr)] string fileName);
+    private static partial nint LoadLibrary(string fileName);
 
     /// <summary>
     /// Retrieves the address of an exported function or variable from the specified dynamic-link library (DLL).

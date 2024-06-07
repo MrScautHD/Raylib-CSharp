@@ -1,3 +1,4 @@
+using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
 namespace Raylib_CSharp.Rendering.Gl.Contexts;
@@ -40,6 +41,7 @@ public partial class WinGlContext : IGlContext {
     /// <param name="procName">The name of the extension function.</param>
     /// <returns> A pointer to the extension function if successful; otherwise, <see cref="nint.Zero"/>.</returns>
     [LibraryImport(OpenGL32, EntryPoint = "wglGetProcAddress", StringMarshalling = StringMarshalling.Utf8)]
+    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
     private static partial nint GetWGLProcAddress(string procName);
 
     /// <summary>
@@ -51,6 +53,7 @@ public partial class WinGlContext : IGlContext {
     /// If the function fails, the return value is <see cref="nint.Zero"/>. To get extended error information, call <see cref="Marshal.GetLastWin32Error"/>.
     /// </returns>
     [LibraryImport(Kernel32, EntryPoint = "LoadLibraryA", SetLastError = true, StringMarshalling = StringMarshalling.Utf8)]
+    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
     private static partial nint LoadLibrary(string fileName);
 
     /// <summary>
@@ -64,6 +67,7 @@ public partial class WinGlContext : IGlContext {
     /// To get extended error information, call <see cref="Marshal.GetLastWin32Error"/>.
     /// </returns>
     [LibraryImport(Kernel32, EntryPoint = "GetProcAddress", SetLastError = true, StringMarshalling = StringMarshalling.Utf8)]
+    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
     private static partial nint GetProcAddress(nint module, string procName);
 
     /// <summary>
@@ -75,6 +79,7 @@ public partial class WinGlContext : IGlContext {
     /// If the function fails, the return value is false.
     /// </returns>
     [LibraryImport(Kernel32, EntryPoint = "FreeLibrary", SetLastError = true)]
+    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
     [return: MarshalAs(UnmanagedType.Bool)]
     private static partial bool FreeLibrary(nint module);
 

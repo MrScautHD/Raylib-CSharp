@@ -1,3 +1,4 @@
+using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
 namespace Raylib_CSharp.Rendering.Gl.Contexts;
@@ -51,6 +52,7 @@ public partial class LinuxGlContext : IGlContext {
     /// <param name="procName">The name of the OpenGL extension function to retrieve.</param>
     /// <returns> A pointer to the address of the extension function if successful; otherwise, returns NULL.</returns>
     [LibraryImport(libGL, EntryPoint = "glXGetProcAddress", StringMarshalling = StringMarshalling.Utf8)]
+    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
     private static partial nint GetXProcAddress(string procName);
 
     /// <summary>
@@ -59,6 +61,7 @@ public partial class LinuxGlContext : IGlContext {
     /// <param name="procName">The name of the OpenGL extension function to retrieve.</param>
     /// <returns> A pointer to the address of the extension function if successful; otherwise, returns NULL.</returns>
     [LibraryImport(libGL0, EntryPoint = "glXGetProcAddress", StringMarshalling = StringMarshalling.Utf8)]
+    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
     private static partial nint GetXProcAddress0(string procName);
 
     /// <summary>
@@ -67,5 +70,6 @@ public partial class LinuxGlContext : IGlContext {
     /// <param name="procName">The name of the OpenGL extension function to retrieve.</param>
     /// <returns> A pointer to the address of the extension function if successful; otherwise, returns NULL.</returns>
     [LibraryImport(libGL1, EntryPoint = "glXGetProcAddress", StringMarshalling = StringMarshalling.Utf8)]
+    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
     private static partial nint GetXProcAddress1(string procName);
 }

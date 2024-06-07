@@ -1,4 +1,5 @@
 ﻿using System.Numerics;
+using Raylib_CSharp;
 using Raylib_CSharp.Camera.Cam3D;
 using Raylib_CSharp.Colors;
 using Raylib_CSharp.Fonts;
@@ -6,7 +7,7 @@ using Raylib_CSharp.Geometry;
 using Raylib_CSharp.Images;
 using Raylib_CSharp.IO;
 using Raylib_CSharp.Logging;
-using Raylib_CSharp.Rendering;
+using Raylib_CSharp.Rendering;using Raylib_CSharp.Rendering.Gl.Contexts;
 using Raylib_CSharp.Textures;
 using Raylib_CSharp.Unsafe.Spans.Data;
 using Raylib_CSharp.Windowing;
@@ -108,6 +109,8 @@ Font font2 = Font.GetDefault();
 
 Image testImage = Image.GenColor(100, 100, Color.Green);
 
+NativeGlContext Context = new NativeGlContext();
+
 //Span<Matrix4x4> matrix = new(new Matrix4x4[1]);
 //matrix[1] = new Matrix4x4();
 
@@ -116,6 +119,12 @@ while (!Window.ShouldClose()) {
 
     Graphics.BeginDrawing();
     Graphics.ClearBackground(Color.SkyBlue);
+
+    unsafe {
+        ((delegate* unmanaged<int, void>) Context.GetProcAddress("glUseProgram"))((int) RlGl.GetShaderIdDefault());
+    }
+
+    //Console.WriteLine(GladApi.GetString(0x1F02) + "");
 
     Graphics.BeginMode3D(camera3D);
     Graphics.DrawGrid(100, 1);

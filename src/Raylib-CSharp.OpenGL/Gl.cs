@@ -3,7 +3,8 @@ using Raylib_CSharp.OpenGL.Contexts;
 
 namespace Raylib_CSharp.OpenGL;
 
-public static class Gl {
+// TODO: Done Docu and marshal to safe types.
+public static unsafe class Gl {
 
     public const int ActiveAtomicCounterBuffers_ = 0x92D9;
     public const int ActiveAttributes_ = 0x8B89;

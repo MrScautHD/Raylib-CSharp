@@ -1877,6 +1877,4030 @@ public static class Gl {
     }
 
     public static void AccumxOES(uint op, int value) {
-        GlApi.AccumxOES(op, value);
-    }
+		GlApi.AccumxOES(op, value);
+	}
+
+    public static void ActiveShaderProgram(uint pipeline, uint program) {
+		GlApi.ActiveShaderProgram(pipeline, program);
+	}
+
+	public static void ActiveTexture(uint texture) {
+		GlApi.ActiveTexture(texture);
+	}
+
+	public static void ActiveTextureARB(uint texture) {
+		GlApi.ActiveTextureARB(texture);
+	}
+
+	public static void AlphaFuncxOES(uint func, int reference) {
+		GlApi.AlphaFuncxOES(func, reference);
+	}
+
+	public static void AttachObjectARB(uint containerObj, uint obj) {
+		GlApi.AttachObjectARB(containerObj, obj);
+	}
+
+	public static void AttachShader(uint program, uint shader) {
+		GlApi.AttachShader(program, shader);
+	}
+
+	public static void BeginConditionalRender(uint id, uint mode) {
+		GlApi.BeginConditionalRender(id, mode);
+	}
+
+	public static void BeginQuery(uint target, uint id) {
+		GlApi.BeginQuery(target, id);
+	}
+
+	public static void BeginQueryARB(uint target, uint id) {
+		GlApi.BeginQueryARB(target, id);
+	}
+
+	public static void BeginQueryIndexed(uint target, uint index, uint id) {
+		GlApi.BeginQueryIndexed(target, index, id);
+	}
+
+	public static void BeginTransformFeedback(uint primitiveMode) {
+		GlApi.BeginTransformFeedback(primitiveMode);
+	}
+
+	public static unsafe void BindAttribLocation(uint program, uint index, char* name) {
+		GlApi.BindAttribLocation(program, index, name);
+	}
+
+	public static unsafe void BindAttribLocationARB(uint programObj, uint index, char* name) {
+		GlApi.BindAttribLocationARB(programObj, index, name);
+	}
+
+	public static void BindBuffer(uint target, uint buffer) {
+		GlApi.BindBuffer(target, buffer);
+	}
+
+	public static void BindBufferARB(uint target, uint buffer) {
+		GlApi.BindBufferARB(target, buffer);
+	}
+
+	public static void BindBufferBase(uint target, uint index, uint buffer) {
+		GlApi.BindBufferBase(target, index, buffer);
+	}
+
+	public static unsafe void BindBufferRange(uint target, uint index, uint buffer, int* offset, nint size) {
+		GlApi.BindBufferRange(target, index, buffer, offset, size);
+	}
+
+	public static unsafe void BindBuffersBase(uint target, uint first, int count, uint* buffers) {
+		GlApi.BindBuffersBase(target, first, count, buffers);
+	}
+
+	public static unsafe void BindBuffersRange(uint target, uint first, int count, uint* buffers, int** offsets, nint* sizes) {
+		GlApi.BindBuffersRange(target, first, count, buffers, offsets, sizes);
+	}
+
+	public static unsafe void BindFragDataLocation(uint program, uint color, char* name) {
+		GlApi.BindFragDataLocation(program, color, name);
+	}
+
+	public static unsafe void BindFragDataLocationIndexed(uint program, uint colorNumber, uint index, char* name) {
+		GlApi.BindFragDataLocationIndexed(program, colorNumber, index, name);
+	}
+
+	public static void BindFramebuffer(uint target, uint framebuffer) {
+		GlApi.BindFramebuffer(target, framebuffer);
+	}
+
+	public static void BindFramebufferEXT(uint target, uint framebuffer) {
+		GlApi.BindFramebufferEXT(target, framebuffer);
+	}
+
+	public static void BindImageTexture(uint unit, uint texture, int level, byte layered, int layer, uint access, uint format) {
+		GlApi.BindImageTexture(unit, texture, level, layered, layer, access, format);
+	}
+
+	public static unsafe void BindImageTextures(uint first, int count, uint* textures) {
+		GlApi.BindImageTextures(first, count, textures);
+	}
+
+	public static void BindProgramARB(uint target, uint program) {
+		GlApi.BindProgramARB(target, program);
+	}
+
+	public static void BindProgramPipeline(uint pipeline) {
+		GlApi.BindProgramPipeline(pipeline);
+	}
+
+	public static void BindRenderbuffer(uint target, uint renderbuffer) {
+		GlApi.BindRenderbuffer(target, renderbuffer);
+	}
+
+	public static void BindRenderbufferEXT(uint target, uint renderbuffer) {
+		GlApi.BindRenderbufferEXT(target, renderbuffer);
+	}
+
+	public static void BindSampler(uint unit, uint sampler) {
+		GlApi.BindSampler(unit, sampler);
+	}
+
+	public static unsafe void BindSamplers(uint first, int count, uint* samplers) {
+		GlApi.BindSamplers(first, count, samplers);
+	}
+
+	public static void BindTexture(uint target, uint texture) {
+		GlApi.BindTexture(target, texture);
+	}
+
+	public static void BindTextureUnit(uint unit, uint texture) {
+		GlApi.BindTextureUnit(unit, texture);
+	}
+
+	public static unsafe void BindTextures(uint first, int count, uint* textures) {
+		GlApi.BindTextures(first, count, textures);
+	}
+
+	public static void BindTransformFeedback(uint target, uint id) {
+		GlApi.BindTransformFeedback(target, id);
+	}
+
+	public static void BindVertexArray(uint array) {
+		GlApi.BindVertexArray(array);
+	}
+
+	public static unsafe void BindVertexBuffer(uint bindingindex, uint buffer, int* offset, int stride) {
+		GlApi.BindVertexBuffer(bindingindex, buffer, offset, stride);
+	}
+
+	public static unsafe void BindVertexBuffers(uint first, int count, uint* buffers, int** offsets, int* strides) {
+		GlApi.BindVertexBuffers(first, count, buffers, offsets, strides);
+	}
+
+	public static unsafe void BitmapxOES(int width, int height, int xorig, int yorig, int xmove, int ymove, byte* bitmap) {
+		GlApi.BitmapxOES(width, height, xorig, yorig, xmove, ymove, bitmap);
+	}
+
+	public static void BlendColor(float red, float green, float blue, float alpha) {
+		GlApi.BlendColor(red, green, blue, alpha);
+	}
+
+	public static void BlendColorxOES(int red, int green, int blue, int alpha) {
+		GlApi.BlendColorxOES(red, green, blue, alpha);
+	}
+
+	public static void BlendEquation(uint mode) {
+		GlApi.BlendEquation(mode);
+	}
+
+	public static void BlendEquationSeparate(uint modeRGB, uint modeAlpha) {
+		GlApi.BlendEquationSeparate(modeRGB, modeAlpha);
+	}
+
+	public static void BlendEquationSeparatei(uint buf, uint modeRGB, uint modeAlpha) {
+		GlApi.BlendEquationSeparatei(buf, modeRGB, modeAlpha);
+	}
+
+	public static void BlendEquationSeparateiARB(uint buf, uint modeRGB, uint modeAlpha) {
+		GlApi.BlendEquationSeparateiARB(buf, modeRGB, modeAlpha);
+	}
+
+	public static void BlendEquationi(uint buf, uint mode) {
+		GlApi.BlendEquationi(buf, mode);
+	}
+
+	public static void BlendEquationiARB(uint buf, uint mode) {
+		GlApi.BlendEquationiARB(buf, mode);
+	}
+
+	public static void BlendFunc(uint sfactor, uint dfactor) {
+		GlApi.BlendFunc(sfactor, dfactor);
+	}
+
+	public static void BlendFuncSeparate(uint sfactorRGB, uint dfactorRGB, uint sfactorAlpha, uint dfactorAlpha) {
+		GlApi.BlendFuncSeparate(sfactorRGB, dfactorRGB, sfactorAlpha, dfactorAlpha);
+	}
+
+	public static void BlendFuncSeparatei(uint buf, uint srcRGB, uint dstRGB, uint srcAlpha, uint dstAlpha) {
+		GlApi.BlendFuncSeparatei(buf, srcRGB, dstRGB, srcAlpha, dstAlpha);
+	}
+
+	public static void BlendFuncSeparateiARB(uint buf, uint srcRGB, uint dstRGB, uint srcAlpha, uint dstAlpha) {
+		GlApi.BlendFuncSeparateiARB(buf, srcRGB, dstRGB, srcAlpha, dstAlpha);
+	}
+
+	public static void BlendFunci(uint buf, uint src, uint dst) {
+		GlApi.BlendFunci(buf, src, dst);
+	}
+
+	public static void BlendFunciARB(uint buf, uint src, uint dst) {
+		GlApi.BlendFunciARB(buf, src, dst);
+	}
+
+	public static void BlitFramebuffer(int srcX0, int srcY0, int srcX1, int srcY1, int dstX0, int dstY0, int dstX1, int dstY1, uint mask, uint filter) {
+		GlApi.BlitFramebuffer(srcX0, srcY0, srcX1, srcY1, dstX0, dstY0, dstX1, dstY1, mask, filter);
+	}
+
+	public static void BlitFramebufferEXT(int srcX0, int srcY0, int srcX1, int srcY1, int dstX0, int dstY0, int dstX1, int dstY1, uint mask, uint filter) {
+		GlApi.BlitFramebufferEXT(srcX0, srcY0, srcX1, srcY1, dstX0, dstY0, dstX1, dstY1, mask, filter);
+	}
+
+	public static void BlitNamedFramebuffer(uint readFramebuffer, uint drawFramebuffer, int srcX0, int srcY0, int srcX1, int srcY1, int dstX0, int dstY0, int dstX1, int dstY1, uint mask, uint filter) {
+		GlApi.BlitNamedFramebuffer(readFramebuffer, drawFramebuffer, srcX0, srcY0, srcX1, srcY1, dstX0, dstY0, dstX1, dstY1, mask, filter);
+	}
+
+	public static unsafe void BufferData(uint target, nint size, void* data, uint usage) {
+		GlApi.BufferData(target, size, data, usage);
+	}
+
+	public static unsafe void BufferDataARB(uint target, nint size, void* data, uint usage) {
+		GlApi.BufferDataARB(target, size, data, usage);
+	}
+
+	public static unsafe void BufferStorage(uint target, nint size, void* data, uint flags) {
+		GlApi.BufferStorage(target, size, data, flags);
+	}
+
+	public static unsafe void BufferSubData(uint target, int* offset, nint size, void* data) {
+		GlApi.BufferSubData(target, offset, size, data);
+	}
+
+	public static unsafe void BufferSubDataARB(uint target, int* offset, nint size, void* data) {
+		GlApi.BufferSubDataARB(target, offset, size, data);
+	}
+
+	public static uint CheckFramebufferStatus(uint target) {
+		return GlApi.CheckFramebufferStatus(target);
+	}
+
+	public static uint CheckFramebufferStatusEXT(uint target) {
+		return GlApi.CheckFramebufferStatusEXT(target);
+	}
+
+	public static uint CheckNamedFramebufferStatus(uint framebuffer, uint target) {
+		return GlApi.CheckNamedFramebufferStatus(framebuffer, target);
+	}
+
+	public static void ClampColor(uint target, uint clamp) {
+		GlApi.ClampColor(target, clamp);
+	}
+
+	public static void ClampColorARB(uint target, uint clamp) {
+		GlApi.ClampColorARB(target, clamp);
+	}
+
+	public static void Clear(uint mask) {
+		GlApi.Clear(mask);
+	}
+
+	public static void ClearAccumxOES(int red, int green, int blue, int alpha) {
+		GlApi.ClearAccumxOES(red, green, blue, alpha);
+	}
+
+	public static unsafe void ClearBufferData(uint target, uint internalformat, uint format, uint type, void* data) {
+		GlApi.ClearBufferData(target, internalformat, format, type, data);
+	}
+
+	public static unsafe void ClearBufferSubData(uint target, uint internalformat, int* offset, nint size, uint format, uint type, void* data) {
+		GlApi.ClearBufferSubData(target, internalformat, offset, size, format, type, data);
+	}
+
+	public static void ClearBufferfi(uint buffer, int drawbuffer, float depth, int stencil) {
+		GlApi.ClearBufferfi(buffer, drawbuffer, depth, stencil);
+	}
+
+	public static unsafe void ClearBufferfv(uint buffer, int drawbuffer, float* value) {
+		GlApi.ClearBufferfv(buffer, drawbuffer, value);
+	}
+
+	public static unsafe void ClearBufferiv(uint buffer, int drawbuffer, int* value) {
+		GlApi.ClearBufferiv(buffer, drawbuffer, value);
+	}
+
+	public static unsafe void ClearBufferuiv(uint buffer, int drawbuffer, uint* value) {
+		GlApi.ClearBufferuiv(buffer, drawbuffer, value);
+	}
+
+	public static void ClearColor(float red, float green, float blue, float alpha) {
+		GlApi.ClearColor(red, green, blue, alpha);
+	}
+
+	public static void ClearColorxOES(int red, int green, int blue, int alpha) {
+		GlApi.ClearColorxOES(red, green, blue, alpha);
+	}
+
+	public static void ClearDepth(double depth) {
+		GlApi.ClearDepth(depth);
+	}
+
+	public static void ClearDepthf(float d) {
+		GlApi.ClearDepthf(d);
+	}
+
+	public static void ClearDepthxOES(int depth) {
+		GlApi.ClearDepthxOES(depth);
+	}
+
+	public static unsafe void ClearNamedBufferData(uint buffer, uint internalformat, uint format, uint type, void* data) {
+		GlApi.ClearNamedBufferData(buffer, internalformat, format, type, data);
+	}
+
+	public static unsafe void ClearNamedBufferSubData(uint buffer, uint internalformat, int* offset, nint size, uint format, uint type, void* data) {
+		GlApi.ClearNamedBufferSubData(buffer, internalformat, offset, size, format, type, data);
+	}
+
+	public static void ClearNamedFramebufferfi(uint framebuffer, uint buffer, int drawbuffer, float depth, int stencil) {
+		GlApi.ClearNamedFramebufferfi(framebuffer, buffer, drawbuffer, depth, stencil);
+	}
+
+	public static unsafe void ClearNamedFramebufferfv(uint framebuffer, uint buffer, int drawbuffer, float* value) {
+		GlApi.ClearNamedFramebufferfv(framebuffer, buffer, drawbuffer, value);
+	}
+
+	public static unsafe void ClearNamedFramebufferiv(uint framebuffer, uint buffer, int drawbuffer, int* value) {
+		GlApi.ClearNamedFramebufferiv(framebuffer, buffer, drawbuffer, value);
+	}
+
+	public static unsafe void ClearNamedFramebufferuiv(uint framebuffer, uint buffer, int drawbuffer, uint* value) {
+		GlApi.ClearNamedFramebufferuiv(framebuffer, buffer, drawbuffer, value);
+	}
+
+	public static unsafe void ClearStencil(int s) {
+		GlApi.ClearStencil(s);
+	}
+
+	public static unsafe void ClearTexImage(uint texture, int level, uint format, uint type, void* data) {
+		GlApi.ClearTexImage(texture, level, format, type, data);
+	}
+
+	public static unsafe void ClearTexSubImage(uint texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, uint format, uint type, void* data) {
+		GlApi.ClearTexSubImage(texture, level, xoffset, yoffset, zoffset, width, height, depth, format, type, data);
+	}
+
+	public static void ClientActiveTextureARB(uint texture) {
+		GlApi.ClientActiveTextureARB(texture);
+	}
+
+	public static uint ClientWaitSync(GLSync sync, uint flags, nint timeout) {
+		return GlApi.ClientWaitSync(sync, flags, timeout);
+	}
+
+	public static unsafe void ClipPlanexOES(uint plane, int* equation) {
+		GlApi.ClipPlanexOES(plane, equation);
+	}
+
+	public static void Color3xOES(int red, int green, int blue) {
+		GlApi.Color3xOES(red, green, blue);
+	}
+
+	public static unsafe void Color3xvOES(int* components) {
+		GlApi.Color3xvOES(components);
+	}
+
+	public static void Color4xOES(int red, int green, int blue, int alpha) {
+		GlApi.Color4xOES(red, green, blue, alpha);
+	}
+
+	public static unsafe void Color4xvOES(int* components) {
+		GlApi.Color4xvOES(components);
+	}
+
+	public static void ColorMask(byte red, byte green, byte blue, byte alpha) {
+		GlApi.ColorMask(red, green, blue, alpha);
+	}
+
+	public static void ColorMaski(uint index, byte r, byte g, byte b, byte a) {
+		GlApi.ColorMaski(index, r, g, b, a);
+	}
+
+	public static void CompileShader(uint shader) {
+		GlApi.CompileShader(shader);
+	}
+
+	public static void CompileShaderARB(uint shaderObj) {
+		GlApi.CompileShaderARB(shaderObj);
+	}
+
+	public static unsafe void CompileShaderIncludeARB(uint shader, int count, char** path, int* length) {
+		GlApi.CompileShaderIncludeARB(shader, count, path, length);
+	}
+
+	public static unsafe void CompressedTexImage1D(uint target, int level, uint internalformat, int width, int border, int imageSize, void* data) {
+		GlApi.CompressedTexImage1D(target, level, internalformat, width, border, imageSize, data);
+	}
+
+	public static unsafe void CompressedTexImage1DARB(uint target, int level, uint internalformat, int width, int border, int imageSize, void* data) {
+		GlApi.CompressedTexImage1DARB(target, level, internalformat, width, border, imageSize, data);
+	}
+
+	public static unsafe void CompressedTexImage2D(uint target, int level, uint internalformat, int width, int height, int border, int imageSize, void* data) {
+		GlApi.CompressedTexImage2D(target, level, internalformat, width, height, border, imageSize, data);
+	}
+
+	public static unsafe void CompressedTexImage2DARB(uint target, int level, uint internalformat, int width, int height, int border, int imageSize, void* data) {
+		GlApi.CompressedTexImage2DARB(target, level, internalformat, width, height, border, imageSize, data);
+	}
+
+	public static unsafe void CompressedTexImage3D(uint target, int level, uint internalformat, int width, int height, int depth, int border, int imageSize, void* data) {
+		GlApi.CompressedTexImage3D(target, level, internalformat, width, height, depth, border, imageSize, data);
+	}
+
+	public static unsafe void CompressedTexImage3DARB(uint target, int level, uint internalformat, int width, int height, int depth, int border, int imageSize, void* data) {
+		GlApi.CompressedTexImage3DARB(target, level, internalformat, width, height, depth, border, imageSize, data);
+	}
+
+	public static unsafe void CompressedTexSubImage1D(uint target, int level, int xoffset, int width, uint format, int imageSize, void* data) {
+		GlApi.CompressedTexSubImage1D(target, level, xoffset, width, format, imageSize, data);
+	}
+
+	public static unsafe void CompressedTexSubImage1DARB(uint target, int level, int xoffset, int width, uint format, int imageSize, void* data) {
+		GlApi.CompressedTexSubImage1DARB(target, level, xoffset, width, format, imageSize, data);
+	}
+
+	public static unsafe void CompressedTexSubImage2D(uint target, int level, int xoffset, int yoffset, int width, int height, uint format, int imageSize, void* data) {
+		GlApi.CompressedTexSubImage2D(target, level, xoffset, yoffset, width, height, format, imageSize, data);
+	}
+
+	public static unsafe void CompressedTexSubImage2DARB(uint target, int level, int xoffset, int yoffset, int width, int height, uint format, int imageSize, void* data) {
+		GlApi.CompressedTexSubImage2DARB(target, level, xoffset, yoffset, width, height, format, imageSize, data);
+	}
+
+	public static unsafe void CompressedTexSubImage3D(uint target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, uint format, int imageSize, void* data) {
+		GlApi.CompressedTexSubImage3D(target, level, xoffset, yoffset, zoffset, width, height, depth, format, imageSize, data);
+	}
+
+	public static unsafe void CompressedTexSubImage3DARB(uint target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, uint format, int imageSize, void* data) {
+		GlApi.CompressedTexSubImage3DARB(target, level, xoffset, yoffset, zoffset, width, height, depth, format, imageSize, data);
+	}
+
+	public static unsafe void CompressedTextureSubImage1D(uint texture, int level, int xoffset, int width, uint format, int imageSize, void* data) {
+		GlApi.CompressedTextureSubImage1D(texture, level, xoffset, width, format, imageSize, data);
+	}
+
+	public static unsafe void CompressedTextureSubImage2D(uint texture, int level, int xoffset, int yoffset, int width, int height, uint format, int imageSize, void* data) {
+		GlApi.CompressedTextureSubImage2D(texture, level, xoffset, yoffset, width, height, format, imageSize, data);
+	}
+
+	public static unsafe void CompressedTextureSubImage3D(uint texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, uint format, int imageSize, void* data) {
+		GlApi.CompressedTextureSubImage3D(texture, level, xoffset, yoffset, zoffset, width, height, depth, format, imageSize, data);
+	}
+
+	public static void ConvolutionParameterxOES(uint target, uint pname, int param) {
+		GlApi.ConvolutionParameterxOES(target, pname, param);
+	}
+
+	public static unsafe void ConvolutionParameterxvOES(uint target, uint pname, int* parameters) {
+		GlApi.ConvolutionParameterxvOES(target, pname, parameters);
+	}
+
+	public static unsafe void CopyBufferSubData(uint readTarget, uint writeTarget, int* readOffset, int* writeOffset, nint size) {
+		GlApi.CopyBufferSubData(readTarget, writeTarget, readOffset, writeOffset, size);
+	}
+
+	public static void CopyImageSubData(uint srcName, uint srcTarget, int srcLevel, int srcX, int srcY, int srcZ, uint dstName, uint dstTarget, int dstLevel, int dstX, int dstY, int dstZ, int srcWidth, int srcHeight, int srcDepth) {
+		GlApi.CopyImageSubData(srcName, srcTarget, srcLevel, srcX, srcY, srcZ, dstName, dstTarget, dstLevel, dstX, dstY, dstZ, srcWidth, srcHeight, srcDepth);
+	}
+
+	public static unsafe void CopyNamedBufferSubData(uint readBuffer, uint writeBuffer, int* readOffset, int* writeOffset, nint size) {
+		GlApi.CopyNamedBufferSubData(readBuffer, writeBuffer, readOffset, writeOffset, size);
+	}
+
+	public static void CopyTexImage1D(uint target, int level, uint internalformat, int x, int y, int width, int border) {
+		GlApi.CopyTexImage1D(target, level, internalformat, x, y, width, border);
+	}
+
+	public static void CopyTexImage2D(uint target, int level, uint internalformat, int x, int y, int width, int height, int border) {
+		GlApi.CopyTexImage2D(target, level, internalformat, x, y, width, height, border);
+	}
+
+	public static void CopyTexSubImage1D(uint target, int level, int xoffset, int x, int y, int width) {
+		GlApi.CopyTexSubImage1D(target, level, xoffset, x, y, width);
+	}
+
+	public static void CopyTexSubImage2D(uint target, int level, int xoffset, int yoffset, int x, int y, int width, int height) {
+		GlApi.CopyTexSubImage2D(target, level, xoffset, yoffset, x, y, width, height);
+	}
+
+	public static void CopyTexSubImage3D(uint target, int level, int xoffset, int yoffset, int zoffset, int x, int y, int width, int height) {
+		GlApi.CopyTexSubImage3D(target, level, xoffset, yoffset, zoffset, x, y, width, height);
+	}
+
+	public static void CopyTextureSubImage1D(uint texture, int level, int xoffset, int x, int y, int width) {
+		GlApi.CopyTextureSubImage1D(texture, level, xoffset, x, y, width);
+	}
+
+	public static void CopyTextureSubImage2D(uint texture, int level, int xoffset, int yoffset, int x, int y, int width, int height) {
+		GlApi.CopyTextureSubImage2D(texture, level, xoffset, yoffset, x, y, width, height);
+	}
+
+	public static void CopyTextureSubImage3D(uint texture, int level, int xoffset, int yoffset, int zoffset, int x, int y, int width, int height) {
+		GlApi.CopyTextureSubImage3D(texture, level, xoffset, yoffset, zoffset, x, y, width, height);
+	}
+
+	public static unsafe void CreateBuffers(int n, uint* buffers) {
+		GlApi.CreateBuffers(n, buffers);
+	}
+
+	public static unsafe void CreateFramebuffers(int n, uint* framebuffers) {
+		GlApi.CreateFramebuffers(n, framebuffers);
+	}
+
+	public static uint CreateProgram() {
+		return GlApi.CreateProgram();
+	}
+
+	public static uint CreateProgramObjectARB() {
+		return GlApi.CreateProgramObjectARB();
+	}
+
+	public static unsafe void CreateProgramPipelines(int n, uint* pipelines) {
+		GlApi.CreateProgramPipelines(n, pipelines);
+	}
+
+	public static unsafe void CreateQueries(uint target, int n, uint* ids) {
+		GlApi.CreateQueries(target, n, ids);
+	}
+
+	public static unsafe void CreateRenderbuffers(int n, uint* renderbuffers) {
+		GlApi.CreateRenderbuffers(n, renderbuffers);
+	}
+
+	public static unsafe void CreateSamplers(int n, uint* samplers) {
+		GlApi.CreateSamplers(n, samplers);
+	}
+
+	public static uint CreateShader(uint type) {
+		return GlApi.CreateShader(type);
+	}
+
+	public static uint CreateShaderObjectARB(uint shaderType) {
+		return GlApi.CreateShaderObjectARB(shaderType);
+	}
+
+	public static unsafe uint CreateShaderProgramv(uint type, int count, char** strings) {
+		return GlApi.CreateShaderProgramv(type, count, strings);
+	}
+
+	public static unsafe void CreateTextures(uint target, int n, uint* textures) {
+		GlApi.CreateTextures(target, n, textures);
+	}
+
+	public static unsafe void CreateTransformFeedbacks(int n, uint* ids) {
+		GlApi.CreateTransformFeedbacks(n, ids);
+	}
+
+	public static unsafe void CreateVertexArrays(int n, uint* arrays) {
+		GlApi.CreateVertexArrays(n, arrays);
+	}
+
+	public static void CullFace(uint mode) {
+		GlApi.CullFace(mode);
+	}
+
+	public static unsafe void DebugMessageCallback(delegate* unmanaged[Cdecl]<uint, uint, uint, uint, int, char*, void*, void> callback, void* userParam) {
+		GlApi.DebugMessageCallback(callback, userParam);
+	}
+
+	public static unsafe void DebugMessageCallbackARB(delegate* unmanaged[Cdecl]<uint, uint, uint, uint, int, char*, void*, void> callback, void* userParam) {
+		GlApi.DebugMessageCallbackARB(callback, userParam);
+	}
+
+	public static unsafe void DebugMessageControl(uint source, uint type, uint severity, int count, uint* ids, byte enabled) {
+		GlApi.DebugMessageControl(source, type, severity, count, ids, enabled);
+	}
+
+	public static unsafe void DebugMessageControlARB(uint source, uint type, uint severity, int count, uint* ids, byte enabled) {
+		GlApi.DebugMessageControlARB(source, type, severity, count, ids, enabled);
+	}
+
+	public static unsafe void DebugMessageInsert(uint source, uint type, uint id, uint severity, int length, char* buf) {
+		GlApi.DebugMessageInsert(source, type, id, severity, length, buf);
+	}
+
+	public static unsafe void DebugMessageInsertARB(uint source, uint type, uint id, uint severity, int length, char* buf) {
+		GlApi.DebugMessageInsertARB(source, type, id, severity, length, buf);
+	}
+
+	public static unsafe void DeleteBuffers(int n, uint* buffers) {
+		GlApi.DeleteBuffers(n, buffers);
+	}
+
+	public static unsafe void DeleteBuffersARB(int n, uint* buffers) {
+		GlApi.DeleteBuffersARB(n, buffers);
+	}
+
+	public static unsafe void DeleteFramebuffers(int n, uint* framebuffers) {
+		GlApi.DeleteFramebuffers(n, framebuffers);
+	}
+
+	public static unsafe void DeleteFramebuffersEXT(int n, uint* framebuffers) {
+		GlApi.DeleteFramebuffersEXT(n, framebuffers);
+	}
+
+	public static unsafe void DeleteNamedStringARB(int namelen, char* name) {
+		GlApi.DeleteNamedStringARB(namelen, name);
+	}
+
+	public static void DeleteObjectARB(uint obj) {
+		GlApi.DeleteObjectARB(obj);
+	}
+
+	public static void DeleteProgram(uint program) {
+		GlApi.DeleteProgram(program);
+	}
+
+	public static unsafe void DeleteProgramPipelines(int n, uint* pipelines) {
+		GlApi.DeleteProgramPipelines(n, pipelines);
+	}
+
+	public static unsafe void DeleteProgramsARB(int n, uint* programs) {
+		GlApi.DeleteProgramsARB(n, programs);
+	}
+
+	public static unsafe void DeleteQueries(int n, uint* ids) {
+		GlApi.DeleteQueries(n, ids);
+	}
+
+	public static unsafe void DeleteQueriesARB(int n, uint* ids) {
+		GlApi.DeleteQueriesARB(n, ids);
+	}
+
+	public static unsafe void DeleteRenderbuffers(int n, uint* renderbuffers) {
+		GlApi.DeleteRenderbuffers(n, renderbuffers);
+	}
+
+	public static unsafe void DeleteRenderbuffersEXT(int n, uint* renderbuffers) {
+		GlApi.DeleteRenderbuffersEXT(n, renderbuffers);
+	}
+
+	public static unsafe void DeleteSamplers(int count, uint* samplers) {
+		GlApi.DeleteSamplers(count, samplers);
+	}
+
+	public static void DeleteShader(uint shader) {
+		GlApi.DeleteShader(shader);
+	}
+
+	public static void DeleteSync(GLSync sync) {
+		GlApi.DeleteSync(sync);
+	}
+
+	public static void DeleteTextures(int n, uint* textures) {
+		GlApi.DeleteTextures(n, textures);
+	}
+
+	public static void DeleteTransformFeedbacks(int n, uint* ids) {
+		GlApi.DeleteTransformFeedbacks(n, ids);
+	}
+
+	public static void DeleteVertexArrays(int n, uint* arrays) {
+		GlApi.DeleteVertexArrays(n, arrays);
+	}
+
+	public static void DepthFunc(uint func) {
+		GlApi.DepthFunc(func);
+	}
+
+	public static void DepthMask(byte flag) {
+		GlApi.DepthMask(flag);
+	}
+
+	public static void DepthRange(double n, double f) {
+		GlApi.DepthRange(n, f);
+	}
+
+	public static void DepthRangeArrayv(uint first, int count, double* v) {
+		GlApi.DepthRangeArrayv(first, count, v);
+	}
+
+	public static void DepthRangeIndexed(uint index, double n, double f) {
+		GlApi.DepthRangeIndexed(index, n, f);
+	}
+
+	public static void DepthRangef(float n, float f) {
+		GlApi.DepthRangef(n, f);
+	}
+
+	public static void DepthRangexOES(int n, int f) {
+		GlApi.DepthRangexOES(n, f);
+	}
+
+	public static void DetachObjectARB(uint containerObj, uint attachedObj) {
+		GlApi.DetachObjectARB(containerObj, attachedObj);
+	}
+
+	public static void DetachShader(uint program, uint shader) {
+		GlApi.DetachShader(program, shader);
+	}
+
+	public static void Disable(uint cap) {
+		GlApi.Disable(cap);
+	}
+
+	public static void DisableVertexArrayAttrib(uint vaobj, uint index) {
+		GlApi.DisableVertexArrayAttrib(vaobj, index);
+	}
+
+	public static void DisableVertexAttribArray(uint index) {
+		GlApi.DisableVertexAttribArray(index);
+	}
+
+	public static void DisableVertexAttribArrayARB(uint index) {
+		GlApi.DisableVertexAttribArrayARB(index);
+	}
+
+	public static void Disablei(uint target, uint index) {
+		GlApi.Disablei(target, index);
+	}
+
+	public static void DispatchCompute(uint numgroupsx, uint numgroupsy, uint numgroupsz) {
+		GlApi.DispatchCompute(numgroupsx, numgroupsy, numgroupsz);
+	}
+
+	public static void DispatchComputeGroupSizeARB(uint numgroupsx, uint numgroupsy, uint numgroupsz, uint groupsizex, uint groupsizey, uint groupsizez) {
+		GlApi.DispatchComputeGroupSizeARB(numgroupsx, numgroupsy, numgroupsz, groupsizex, groupsizey, groupsizez);
+	}
+
+	public static void DispatchComputeIndirect(int* indirect) {
+		GlApi.DispatchComputeIndirect(indirect);
+	}
+
+	public static void DrawArrays(uint mode, int first, int count) {
+		GlApi.DrawArrays(mode, first, count);
+	}
+
+	public static void DrawArraysIndirect(uint mode, void* indirect) {
+		GlApi.DrawArraysIndirect(mode, indirect);
+	}
+
+	public static void DrawArraysInstanced(uint mode, int first, int count, int instancecount) {
+		GlApi.DrawArraysInstanced(mode, first, count, instancecount);
+	}
+
+	public static void DrawArraysInstancedARB(uint mode, int first, int count, int primcount) {
+		GlApi.DrawArraysInstancedARB(mode, first, count, primcount);
+	}
+
+	public static void DrawArraysInstancedBaseInstance(uint mode, int first, int count, int instancecount, uint baseinstance) {
+		GlApi.DrawArraysInstancedBaseInstance(mode, first, count, instancecount, baseinstance);
+	}
+
+	public static void DrawArraysInstancedEXT(uint mode, int start, int count, int primcount) {
+		GlApi.DrawArraysInstancedEXT(mode, start, count, primcount);
+	}
+
+	public static void DrawBuffer(uint buf) {
+		GlApi.DrawBuffer(buf);
+	}
+
+	public static void DrawBuffers(int n, uint* bufs) {
+		GlApi.DrawBuffers(n, bufs);
+	}
+
+	public static void DrawBuffersARB(int n, uint* bufs) {
+		GlApi.DrawBuffersARB(n, bufs);
+	}
+
+	public static void DrawElements(uint mode, int count, uint type, void* indices) {
+		GlApi.DrawElements(mode, count, type, indices);
+	}
+
+	public static void DrawElementsBaseVertex(uint mode, int count, uint type, void* indices, int basevertex) {
+		GlApi.DrawElementsBaseVertex(mode, count, type, indices, basevertex);
+	}
+
+	public static void DrawElementsIndirect(uint mode, uint type, void* indirect) {
+		GlApi.DrawElementsIndirect(mode, type, indirect);
+	}
+
+	public static void DrawElementsInstanced(uint mode, int count, uint type, void* indices, int instancecount) {
+		GlApi.DrawElementsInstanced(mode, count, type, indices, instancecount);
+	}
+
+	public static void DrawElementsInstancedARB(uint mode, int count, uint type, void* indices, int primcount) {
+		GlApi.DrawElementsInstancedARB(mode, count, type, indices, primcount);
+	}
+
+	public static void DrawElementsInstancedBaseInstance(uint mode, int count, uint type, void* indices, int instancecount, uint baseinstance) {
+		GlApi.DrawElementsInstancedBaseInstance(mode, count, type, indices, instancecount, baseinstance);
+	}
+
+	public static void DrawElementsInstancedBaseVertex(uint mode, int count, uint type, void* indices, int instancecount, int basevertex) {
+		GlApi.DrawElementsInstancedBaseVertex(mode, count, type, indices, instancecount, basevertex);
+	}
+
+	public static void DrawElementsInstancedBaseVertexBaseInstance(uint mode, int count, uint type, void* indices, int instancecount, int basevertex, uint baseinstance) {
+		GlApi.DrawElementsInstancedBaseVertexBaseInstance(mode, count, type, indices, instancecount, basevertex, baseinstance);
+	}
+
+	public static void DrawElementsInstancedEXT(uint mode, int count, uint type, void* indices, int primcount) {
+		GlApi.DrawElementsInstancedEXT(mode, count, type, indices, primcount);
+	}
+
+	public static void DrawRangeElements(uint mode, uint start, uint end, int count, uint type, void* indices) {
+		GlApi.DrawRangeElements(mode, start, end, count, type, indices);
+	}
+
+	public static void DrawRangeElementsBaseVertex(uint mode, uint start, uint end, int count, uint type, void* indices, int basevertex) {
+		GlApi.DrawRangeElementsBaseVertex(mode, start, end, count, type, indices, basevertex);
+	}
+
+	public static void DrawTransformFeedback(uint mode, uint id) {
+		GlApi.DrawTransformFeedback(mode, id);
+	}
+
+	public static void DrawTransformFeedbackInstanced(uint mode, uint id, int instancecount) {
+		GlApi.DrawTransformFeedbackInstanced(mode, id, instancecount);
+	}
+
+	public static void DrawTransformFeedbackStream(uint mode, uint id, uint stream) {
+		GlApi.DrawTransformFeedbackStream(mode, id, stream);
+	}
+
+	public static void DrawTransformFeedbackStreamInstanced(uint mode, uint id, uint stream, int instancecount) {
+		GlApi.DrawTransformFeedbackStreamInstanced(mode, id, stream, instancecount);
+	}
+
+	public static void Enable(uint cap) {
+		GlApi.Enable(cap);
+	}
+
+	public static void EnableVertexArrayAttrib(uint vaobj, uint index) {
+		GlApi.EnableVertexArrayAttrib(vaobj, index);
+	}
+
+	public static void EnableVertexAttribArray(uint index) {
+		GlApi.EnableVertexAttribArray(index);
+	}
+
+	public static void EnableVertexAttribArrayARB(uint index) {
+		GlApi.EnableVertexAttribArrayARB(index);
+	}
+
+	public static void Enablei(uint target, uint index) {
+		GlApi.Enablei(target, index);
+	}
+
+	public static void EndConditionalRender() {
+		GlApi.EndConditionalRender();
+	}
+
+	public static void EndQuery(uint target) {
+		GlApi.EndQuery(target);
+	}
+
+	public static void EndQueryARB(uint target) {
+		GlApi.EndQueryARB(target);
+	}
+
+	public static void EndQueryIndexed(uint target, uint index) {
+		GlApi.EndQueryIndexed(target, index);
+	}
+
+	public static void EndTransformFeedback() {
+		GlApi.EndTransformFeedback();
+	}
+
+	public static void EvalCoord1xOES(int u) {
+		GlApi.EvalCoord1xOES(u);
+	}
+
+	public static void EvalCoord1xvOES(int* coords) {
+		GlApi.EvalCoord1xvOES(coords);
+	}
+
+	public static void EvalCoord2xOES(int u, int v) {
+		GlApi.EvalCoord2xOES(u, v);
+	}
+
+	public static void EvalCoord2xvOES(int* coords) {
+		GlApi.EvalCoord2xvOES(coords);
+	}
+
+	public static void EvaluateDepthValuesARB() {
+		GlApi.EvaluateDepthValuesARB();
+	}
+
+	public static void FeedbackBufferxOES(int n, uint type, int* buffer) {
+		GlApi.FeedbackBufferxOES(n, type, buffer);
+	}
+
+	public static GLSync FenceSync(uint condition, uint flags) {
+		return GlApi.FenceSync(condition, flags);
+	}
+
+	public static void Finish() {
+		GlApi.Finish();
+	}
+
+	public static void Flush() {
+		GlApi.Flush();
+	}
+
+	public static void FlushMappedBufferRange(uint target, int* offset, nint length) {
+		GlApi.FlushMappedBufferRange(target, offset, length);
+	}
+
+	public static void FlushMappedNamedBufferRange(uint buffer, int* offset, nint length) {
+		GlApi.FlushMappedNamedBufferRange(buffer, offset, length);
+	}
+
+	public static void FogCoordPointerEXT(uint type, int stride, void* pointer) {
+		GlApi.FogCoordPointerEXT(type, stride, pointer);
+	}
+
+	public static void FogCoorddEXT(double coord) {
+		GlApi.FogCoorddEXT(coord);
+	}
+
+	public static void FogCoorddvEXT(double* coord) {
+		GlApi.FogCoorddvEXT(coord);
+	}
+
+	public static void FogCoordfEXT(float coord) {
+		GlApi.FogCoordfEXT(coord);
+	}
+
+	public static void FogCoordfvEXT(float* coord) {
+		GlApi.FogCoordfvEXT(coord);
+	}
+
+	public static void FogxOES(uint pname, int param) {
+		GlApi.FogxOES(pname, param);
+	}
+
+	public static void FogxvOES(uint pname, int* param) {
+		GlApi.FogxvOES(pname, param);
+	}
+
+	public static void FramebufferParameteri(uint target, uint pname, int param) {
+		GlApi.FramebufferParameteri(target, pname, param);
+	}
+
+	public static void FramebufferRenderbuffer(uint target, uint attachment, uint renderbuffertarget, uint renderbuffer) {
+		GlApi.FramebufferRenderbuffer(target, attachment, renderbuffertarget, renderbuffer);
+	}
+
+	public static void FramebufferRenderbufferEXT(uint target, uint attachment, uint renderbuffertarget, uint renderbuffer) {
+		GlApi.FramebufferRenderbufferEXT(target, attachment, renderbuffertarget, renderbuffer);
+	}
+
+	public static void FramebufferSampleLocationsfvARB(uint target, uint start, int count, float* v) {
+		GlApi.FramebufferSampleLocationsfvARB(target, start, count, v);
+	}
+
+	public static void FramebufferTexture(uint target, uint attachment, uint texture, int level) {
+		GlApi.FramebufferTexture(target, attachment, texture, level);
+	}
+
+	public static void FramebufferTexture1D(uint target, uint attachment, uint textarget, uint texture, int level) {
+		GlApi.FramebufferTexture1D(target, attachment, textarget, texture, level);
+	}
+
+	public static void FramebufferTexture1DEXT(uint target, uint attachment, uint textarget, uint texture, int level) {
+		GlApi.FramebufferTexture1DEXT(target, attachment, textarget, texture, level);
+	}
+
+	public static void FramebufferTexture2D(uint target, uint attachment, uint textarget, uint texture, int level) {
+		GlApi.FramebufferTexture2D(target, attachment, textarget, texture, level);
+	}
+
+	public static void FramebufferTexture2DEXT(uint target, uint attachment, uint textarget, uint texture, int level) {
+		GlApi.FramebufferTexture2DEXT(target, attachment, textarget, texture, level);
+	}
+
+	public static void FramebufferTexture3D(uint target, uint attachment, uint textarget, uint texture, int level, int zoffset) {
+		GlApi.FramebufferTexture3D(target, attachment, textarget, texture, level, zoffset);
+	}
+
+	public static void FramebufferTexture3DEXT(uint target, uint attachment, uint textarget, uint texture, int level, int zoffset) {
+		GlApi.FramebufferTexture3DEXT(target, attachment, textarget, texture, level, zoffset);
+	}
+
+	public static void FramebufferTextureARB(uint target, uint attachment, uint texture, int level) {
+		GlApi.FramebufferTextureARB(target, attachment, texture, level);
+	}
+
+	public static void FramebufferTextureFaceARB(uint target, uint attachment, uint texture, int level, uint face) {
+		GlApi.FramebufferTextureFaceARB(target, attachment, texture, level, face);
+	}
+
+	public static void FramebufferTextureLayer(uint target, uint attachment, uint texture, int level, int layer) {
+		GlApi.FramebufferTextureLayer(target, attachment, texture, level, layer);
+	}
+
+	public static void FramebufferTextureLayerARB(uint target, uint attachment, uint texture, int level, int layer) {
+		GlApi.FramebufferTextureLayerARB(target, attachment, texture, level, layer);
+	}
+
+	public static void FrontFace(uint mode) {
+		GlApi.FrontFace(mode);
+	}
+
+	public static void FrustumxOES(int l, int r, int b, int t, int n, int f) {
+		GlApi.FrustumxOES(l, r, b, t, n, f);
+	}
+
+	public static void GenBuffers(int n, uint* buffers) {
+		GlApi.GenBuffers(n, buffers);
+	}
+
+	public static void GenBuffersARB(int n, uint* buffers) {
+		GlApi.GenBuffersARB(n, buffers);
+	}
+
+	public static void GenFramebuffers(int n, uint* framebuffers) {
+		GlApi.GenFramebuffers(n, framebuffers);
+	}
+
+	public static void GenFramebuffersEXT(int n, uint* framebuffers) {
+		GlApi.GenFramebuffersEXT(n, framebuffers);
+	}
+
+	public static void GenProgramPipelines(int n, uint* pipelines) {
+		GlApi.GenProgramPipelines(n, pipelines);
+	}
+
+	public static void GenProgramsARB(int n, uint* programs) {
+		GlApi.GenProgramsARB(n, programs);
+	}
+
+	public static void GenQueries(int n, uint* ids) {
+		GlApi.GenQueries(n, ids);
+	}
+
+	public static void GenQueriesARB(int n, uint* ids) {
+		GlApi.GenQueriesARB(n, ids);
+	}
+
+	public static void GenRenderbuffers(int n, uint* renderbuffers) {
+		GlApi.GenRenderbuffers(n, renderbuffers);
+	}
+
+	public static void GenRenderbuffersEXT(int n, uint* renderbuffers) {
+		GlApi.GenRenderbuffersEXT(n, renderbuffers);
+	}
+
+	public static void GenSamplers(int count, uint* samplers) {
+		GlApi.GenSamplers(count, samplers);
+	}
+
+	public static void GenTextures(int n, uint* textures) {
+		GlApi.GenTextures(n, textures);
+	}
+
+	public static void GenTransformFeedbacks(int n, uint* ids) {
+		GlApi.GenTransformFeedbacks(n, ids);
+	}
+
+	public static void GenVertexArrays(int n, uint* arrays) {
+		GlApi.GenVertexArrays(n, arrays);
+	}
+
+	public static void GenerateMipmap(uint target) {
+		GlApi.GenerateMipmap(target);
+	}
+
+	public static void GenerateMipmapEXT(uint target) {
+		GlApi.GenerateMipmapEXT(target);
+	}
+
+	public static void GenerateTextureMipmap(uint texture) {
+		GlApi.GenerateTextureMipmap(texture);
+	}
+
+	public static void GetActiveAtomicCounterBufferiv(uint program, uint bufferIndex, uint pname, int* parameters) {
+		GlApi.GetActiveAtomicCounterBufferiv(program, bufferIndex, pname, parameters);
+	}
+
+	public static void GetActiveAttrib(uint program, uint index, int bufSize, int* length, int* size, uint* type, char* name) {
+		GlApi.GetActiveAttrib(program, index, bufSize, length, size, type, name);
+	}
+
+	public static void GetActiveAttribARB(uint programObj, uint index, int maxLength, int* length, int* size, uint* type, char* name) {
+		GlApi.GetActiveAttribARB(programObj, index, maxLength, length, size, type, name);
+	}
+
+	public static void GetActiveSubroutineName(uint program, uint shadertype, uint index, int bufSize, int* length, char* name) {
+		GlApi.GetActiveSubroutineName(program, shadertype, index, bufSize, length, name);
+	}
+
+	public static void GetActiveSubroutineUniformName(uint program, uint shadertype, uint index, int bufSize, int* length, char* name) {
+		GlApi.GetActiveSubroutineUniformName(program, shadertype, index, bufSize, length, name);
+	}
+
+	public static void GetActiveSubroutineUniformiv(uint program, uint shadertype, uint index, uint pname, int* values) {
+		GlApi.GetActiveSubroutineUniformiv(program, shadertype, index, pname, values);
+	}
+
+	public static void GetActiveUniform(uint program, uint index, int bufSize, int* length, int* size, uint* type, char* name) {
+		GlApi.GetActiveUniform(program, index, bufSize, length, size, type, name);
+	}
+
+	public static void GetActiveUniformARB(uint programObj, uint index, int maxLength, int* length, int* size, uint* type, char* name) {
+		GlApi.GetActiveUniformARB(programObj, index, maxLength, length, size, type, name);
+	}
+
+	public static void GetActiveUniformBlockName(uint program, uint uniformBlockIndex, int bufSize, int* length, char* uniformBlockName) {
+		GlApi.GetActiveUniformBlockName(program, uniformBlockIndex, bufSize, length, uniformBlockName);
+	}
+
+	public static void GetActiveUniformBlockiv(uint program, uint uniformBlockIndex, uint pname, int* parameters) {
+		GlApi.GetActiveUniformBlockiv(program, uniformBlockIndex, pname, parameters);
+	}
+
+	public static void GetActiveUniformName(uint program, uint uniformIndex, int bufSize, int* length, char* uniformName) {
+		GlApi.GetActiveUniformName(program, uniformIndex, bufSize, length, uniformName);
+	}
+
+	public static void GetActiveUniformsiv(uint program, int uniformCount, uint* uniformIndices, uint pname, int* parameters) {
+		GlApi.GetActiveUniformsiv(program, uniformCount, uniformIndices, pname, parameters);
+	}
+
+	public static void GetAttachedObjectsARB(uint containerObj, int maxCount, int* count, uint* obj) {
+		GlApi.GetAttachedObjectsARB(containerObj, maxCount, count, obj);
+	}
+
+	public static void GetAttachedShaders(uint program, int maxCount, int* count, uint* shaders) {
+		GlApi.GetAttachedShaders(program, maxCount, count, shaders);
+	}
+
+	public static int GetAttribLocation(uint program, char* name) {
+		return GlApi.GetAttribLocation(program, name);
+	}
+
+	public static int GetAttribLocationARB(uint programObj, char* name) {
+		return GlApi.GetAttribLocationARB(programObj, name);
+	}
+
+	public static void GetBooleani_v(uint target, uint index, byte* data) {
+		GlApi.GetBooleani_v(target, index, data);
+	}
+
+	public static void GetBooleanv(uint pname, byte* data) {
+		GlApi.GetBooleanv(pname, data);
+	}
+
+	public static void GetBufferParameteri64v(uint target, uint pname, nint* parameters) {
+		GlApi.GetBufferParameteri64v(target, pname, parameters);
+	}
+
+	public static void GetBufferParameteriv(uint target, uint pname, int* parameters) {
+		GlApi.GetBufferParameteriv(target, pname, parameters);
+	}
+
+	public static void GetBufferParameterivARB(uint target, uint pname, int* parameters) {
+		GlApi.GetBufferParameterivARB(target, pname, parameters);
+	}
+
+	public static void GetBufferPointerv(uint target, uint pname, void** parameters) {
+		GlApi.GetBufferPointerv(target, pname, parameters);
+	}
+
+	public static void GetBufferPointervARB(uint target, uint pname, void** parameters) {
+		GlApi.GetBufferPointervARB(target, pname, parameters);
+	}
+
+	public static void GetBufferSubData(uint target, int* offset, nint size, void* data) {
+		GlApi.GetBufferSubData(target, offset, size, data);
+	}
+
+	public static void GetBufferSubDataARB(uint target, int* offset, nint size, void* data) {
+		GlApi.GetBufferSubDataARB(target, offset, size, data);
+	}
+
+	public static void GetClipPlanexOES(uint plane, int* equation) {
+		GlApi.GetClipPlanexOES(plane, equation);
+	}
+
+	public static void GetCompressedTexImage(uint target, int level, void* img) {
+		GlApi.GetCompressedTexImage(target, level, img);
+	}
+
+	public static void GetCompressedTexImageARB(uint target, int level, void* img) {
+		GlApi.GetCompressedTexImageARB(target, level, img);
+	}
+
+	public static void GetCompressedTextureImage(uint texture, int level, int bufSize, void* pixels) {
+		GlApi.GetCompressedTextureImage(texture, level, bufSize, pixels);
+	}
+
+	public static void GetCompressedTextureSubImage(uint texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int bufSize, void* pixels) {
+		GlApi.GetCompressedTextureSubImage(texture, level, xoffset, yoffset, zoffset, width, height, depth, bufSize, pixels);
+	}
+
+	public static void GetConvolutionParameterxvOES(uint target, uint pname, int* parameters) {
+		GlApi.GetConvolutionParameterxvOES(target, pname, parameters);
+	}
+
+	public static uint GetDebugMessageLog(uint count, int bufSize, uint* sources, uint* types, uint* ids, uint* severities, int* lengths, char* messageLog) {
+		return GlApi.GetDebugMessageLog(count, bufSize, sources, types, ids, severities, lengths, messageLog);
+	}
+
+	public static uint GetDebugMessageLogARB(uint count, int bufSize, uint* sources, uint* types, uint* ids, uint* severities, int* lengths, char* messageLog) {
+		return GlApi.GetDebugMessageLogARB(count, bufSize, sources, types, ids, severities, lengths, messageLog);
+	}
+
+	public static void GetDoublei_v(uint target, uint index, double* data) {
+		GlApi.GetDoublei_v(target, index, data);
+	}
+
+	public static void GetDoublev(uint pname, double* data) {
+		GlApi.GetDoublev(pname, data);
+	}
+
+	public static uint GetError() {
+		return GlApi.GetError();
+	}
+
+	public static void GetFixedvOES(uint pname, int* parameters) {
+		GlApi.GetFixedvOES(pname, parameters);
+	}
+
+	public static void GetFloati_v(uint target, uint index, float* data) {
+		GlApi.GetFloati_v(target, index, data);
+	}
+
+	public static void GetFloatv(uint pname, float* data) {
+		GlApi.GetFloatv(pname, data);
+	}
+
+	public static int GetFragDataIndex(uint program, char* name) {
+		return GlApi.GetFragDataIndex(program, name);
+	}
+
+	public static int GetFragDataLocation(uint program, char* name) {
+		return GlApi.GetFragDataLocation(program, name);
+	}
+
+	public static void GetFramebufferAttachmentParameteriv(uint target, uint attachment, uint pname, int* parameters) {
+		GlApi.GetFramebufferAttachmentParameteriv(target, attachment, pname, parameters);
+	}
+
+	public static void GetFramebufferAttachmentParameterivEXT(uint target, uint attachment, uint pname, int* parameters) {
+		GlApi.GetFramebufferAttachmentParameterivEXT(target, attachment, pname, parameters);
+	}
+
+	public static void GetFramebufferParameteriv(uint target, uint pname, int* parameters) {
+		GlApi.GetFramebufferParameteriv(target, pname, parameters);
+	}
+
+	public static uint GetHandleARB(uint pname) {
+		return GlApi.GetHandleARB(pname);
+	}
+
+	public static void GetHistogramParameterxvOES(uint target, uint pname, int* parameters) {
+		GlApi.GetHistogramParameterxvOES(target, pname, parameters);
+	}
+
+	public static void GetInfoLogARB(uint obj, int maxLength, int* length, char* infoLog) {
+		GlApi.GetInfoLogARB(obj, maxLength, length, infoLog);
+	}
+
+	public static void GetInteger64i_v(uint target, uint index, nint* data) {
+		GlApi.GetInteger64i_v(target, index, data);
+	}
+
+	public static void GetInteger64v(uint pname, nint* data) {
+		GlApi.GetInteger64v(pname, data);
+	}
+
+	public static void GetIntegeri_v(uint target, uint index, int* data) {
+		GlApi.GetIntegeri_v(target, index, data);
+	}
+
+	public static void GetIntegerv(uint pname, int* data) {
+		GlApi.GetIntegerv(pname, data);
+	}
+
+	public static void GetInternalformati64v(uint target, uint internalformat, uint pname, int count, nint* parameters) {
+		GlApi.GetInternalformati64v(target, internalformat, pname, count, parameters);
+	}
+
+	public static void GetInternalformativ(uint target, uint internalformat, uint pname, int count, int* parameters) {
+		GlApi.GetInternalformativ(target, internalformat, pname, count, parameters);
+	}
+
+	public static void GetLightxOES(uint light, uint pname, int* parameters) {
+		GlApi.GetLightxOES(light, pname, parameters);
+	}
+
+	public static void GetMapxvOES(uint target, uint query, int* v) {
+		GlApi.GetMapxvOES(target, query, v);
+	}
+
+	public static void GetMaterialxOES(uint face, uint pname, int param) {
+		GlApi.GetMaterialxOES(face, pname, param);
+	}
+
+	public static void GetMultisamplefv(uint pname, uint index, float* val) {
+		GlApi.GetMultisamplefv(pname, index, val);
+	}
+
+	public static void GetNamedBufferParameteri64v(uint buffer, uint pname, nint* parameters) {
+		GlApi.GetNamedBufferParameteri64v(buffer, pname, parameters);
+	}
+
+	public static void GetNamedBufferParameteriv(uint buffer, uint pname, int* parameters) {
+		GlApi.GetNamedBufferParameteriv(buffer, pname, parameters);
+	}
+
+	public static void GetNamedBufferPointerv(uint buffer, uint pname, void** parameters) {
+		GlApi.GetNamedBufferPointerv(buffer, pname, parameters);
+	}
+
+	public static void GetNamedBufferSubData(uint buffer, int* offset, nint size, void* data) {
+		GlApi.GetNamedBufferSubData(buffer, offset, size, data);
+	}
+
+	public static void GetNamedFramebufferAttachmentParameteriv(uint framebuffer, uint attachment, uint pname, int* parameters) {
+		GlApi.GetNamedFramebufferAttachmentParameteriv(framebuffer, attachment, pname, parameters);
+	}
+
+	public static void GetNamedFramebufferParameteriv(uint framebuffer, uint pname, int* param) {
+		GlApi.GetNamedFramebufferParameteriv(framebuffer, pname, param);
+	}
+
+	public static void GetNamedRenderbufferParameteriv(uint renderbuffer, uint pname, int* parameters) {
+		GlApi.GetNamedRenderbufferParameteriv(renderbuffer, pname, parameters);
+	}
+
+	public static void GetNamedStringARB(int namelen, char* name, int bufSize, int* stringlen, char* str) {
+		GlApi.GetNamedStringARB(namelen, name, bufSize, stringlen, str);
+	}
+
+	public static void GetNamedStringivARB(int namelen, char* name, uint pname, int* parameters) {
+		GlApi.GetNamedStringivARB(namelen, name, pname, parameters);
+	}
+
+	public static void GetObjectLabel(uint identifier, uint name, int bufSize, int* length, char* label) {
+		GlApi.GetObjectLabel(identifier, name, bufSize, length, label);
+	}
+
+	public static void GetObjectParameterfvARB(uint obj, uint pname, float* parameters) {
+		GlApi.GetObjectParameterfvARB(obj, pname, parameters);
+	}
+
+	public static void GetObjectParameterivARB(uint obj, uint pname, int* parameters) {
+		GlApi.GetObjectParameterivARB(obj, pname, parameters);
+	}
+
+	public static void GetObjectPtrLabel(void* ptr, int bufSize, int* length, char* label) {
+		GlApi.GetObjectPtrLabel(ptr, bufSize, length, label);
+	}
+
+	public static void GetPixelMapxv(uint map, int size, int* values) {
+		GlApi.GetPixelMapxv(map, size, values);
+	}
+
+	public static void GetPointerv(uint pname, void** parameters) {
+		GlApi.GetPointerv(pname, parameters);
+	}
+
+	public static void GetProgramBinary(uint program, int bufSize, int* length, uint* binaryFormat, void* binary) {
+		GlApi.GetProgramBinary(program, bufSize, length, binaryFormat, binary);
+	}
+
+	public static void GetProgramEnvParameterdvARB(uint target, uint index, double* parameters) {
+		GlApi.GetProgramEnvParameterdvARB(target, index, parameters);
+	}
+
+	public static void GetProgramEnvParameterfvARB(uint target, uint index, float* parameters) {
+		GlApi.GetProgramEnvParameterfvARB(target, index, parameters);
+	}
+
+	public static void GetProgramInfoLog(uint program, int bufSize, int* length, char* infoLog) {
+		GlApi.GetProgramInfoLog(program, bufSize, length, infoLog);
+	}
+
+	public static void GetProgramInterfaceiv(uint program, uint programInterface, uint pname, int* parameters) {
+		GlApi.GetProgramInterfaceiv(program, programInterface, pname, parameters);
+	}
+
+	public static void GetProgramLocalParameterdvARB(uint target, uint index, double* parameters) {
+		GlApi.GetProgramLocalParameterdvARB(target, index, parameters);
+	}
+
+	public static void GetProgramLocalParameterfvARB(uint target, uint index, float* parameters) {
+		GlApi.GetProgramLocalParameterfvARB(target, index, parameters);
+	}
+
+	public static void GetProgramPipelineInfoLog(uint pipeline, int bufSize, int* length, char* infoLog) {
+		GlApi.GetProgramPipelineInfoLog(pipeline, bufSize, length, infoLog);
+	}
+
+	public static void GetProgramPipelineiv(uint pipeline, uint pname, int* parameters) {
+		GlApi.GetProgramPipelineiv(pipeline, pname, parameters);
+	}
+
+	public static uint GetProgramResourceIndex(uint program, uint programInterface, char* name) {
+		return GlApi.GetProgramResourceIndex(program, programInterface, name);
+	}
+
+	public static int GetProgramResourceLocation(uint program, uint programInterface, char* name) {
+		return GlApi.GetProgramResourceLocation(program, programInterface, name);
+	}
+
+	public static int GetProgramResourceLocationIndex(uint program, uint programInterface, char* name) {
+		return GlApi.GetProgramResourceLocationIndex(program, programInterface, name);
+	}
+
+	public static void GetProgramResourceName(uint program, uint programInterface, uint index, int bufSize, int* length, char* name) {
+		GlApi.GetProgramResourceName(program, programInterface, index, bufSize, length, name);
+	}
+
+	public static void GetProgramResourceiv(uint program, uint programInterface, uint index, int propCount, uint* props, int count, int* length, int* parameters) {
+		GlApi.GetProgramResourceiv(program, programInterface, index, propCount, props, count, length, parameters);
+	}
+
+	public static void GetProgramStageiv(uint program, uint shadertype, uint pname, int* values) {
+		GlApi.GetProgramStageiv(program, shadertype, pname, values);
+	}
+
+	public static void GetProgramStringARB(uint target, uint pname, void* str) {
+		GlApi.GetProgramStringARB(target, pname, str);
+	}
+
+	public static void GetProgramiv(uint program, uint pname, int* parameters) {
+		GlApi.GetProgramiv(program, pname, parameters);
+	}
+
+	public static void GetProgramivARB(uint target, uint pname, int* parameters) {
+		GlApi.GetProgramivARB(target, pname, parameters);
+	}
+
+	public static void GetQueryBufferObjecti64v(uint id, uint buffer, uint pname, int* offset) {
+		GlApi.GetQueryBufferObjecti64v(id, buffer, pname, offset);
+	}
+
+	public static void GetQueryBufferObjectiv(uint id, uint buffer, uint pname, int* offset) {
+		GlApi.GetQueryBufferObjectiv(id, buffer, pname, offset);
+	}
+
+	public static void GetQueryBufferObjectui64v(uint id, uint buffer, uint pname, int* offset) {
+		GlApi.GetQueryBufferObjectui64v(id, buffer, pname, offset);
+	}
+
+	public static void GetQueryBufferObjectuiv(uint id, uint buffer, uint pname, int* offset) {
+		GlApi.GetQueryBufferObjectuiv(id, buffer, pname, offset);
+	}
+
+	public static void GetQueryIndexediv(uint target, uint index, uint pname, int* parameters) {
+		GlApi.GetQueryIndexediv(target, index, pname, parameters);
+	}
+
+	public static void GetQueryObjecti64v(uint id, uint pname, nint* parameters) {
+		GlApi.GetQueryObjecti64v(id, pname, parameters);
+	}
+
+	public static void GetQueryObjectiv(uint id, uint pname, int* parameters) {
+		GlApi.GetQueryObjectiv(id, pname, parameters);
+	}
+
+	public static void GetQueryObjectivARB(uint id, uint pname, int* parameters) {
+		GlApi.GetQueryObjectivARB(id, pname, parameters);
+	}
+
+	public static void GetQueryObjectui64v(uint id, uint pname, nint* parameters) {
+		GlApi.GetQueryObjectui64v(id, pname, parameters);
+	}
+
+	public static void GetQueryObjectuiv(uint id, uint pname, uint* parameters) {
+		GlApi.GetQueryObjectuiv(id, pname, parameters);
+	}
+
+	public static void GetQueryObjectuivARB(uint id, uint pname, uint* parameters) {
+		GlApi.GetQueryObjectuivARB(id, pname, parameters);
+	}
+
+	public static void GetQueryiv(uint target, uint pname, int* parameters) {
+		GlApi.GetQueryiv(target, pname, parameters);
+	}
+
+	public static void GetQueryivARB(uint target, uint pname, int* parameters) {
+		GlApi.GetQueryivARB(target, pname, parameters);
+	}
+
+	public static void GetRenderbufferParameteriv(uint target, uint pname, int* parameters) {
+		GlApi.GetRenderbufferParameteriv(target, pname, parameters);
+	}
+
+	public static void GetRenderbufferParameterivEXT(uint target, uint pname, int* parameters) {
+		GlApi.GetRenderbufferParameterivEXT(target, pname, parameters);
+	}
+
+	public static void GetSamplerParameterIiv(uint sampler, uint pname, int* parameters) {
+		GlApi.GetSamplerParameterIiv(sampler, pname, parameters);
+	}
+
+	public static void GetSamplerParameterIuiv(uint sampler, uint pname, uint* parameters) {
+		GlApi.GetSamplerParameterIuiv(sampler, pname, parameters);
+	}
+
+	public static void GetSamplerParameterfv(uint sampler, uint pname, float* parameters) {
+		GlApi.GetSamplerParameterfv(sampler, pname, parameters);
+	}
+
+	public static void GetSamplerParameteriv(uint sampler, uint pname, int* parameters) {
+		GlApi.GetSamplerParameteriv(sampler, pname, parameters);
+	}
+
+	public static void GetShaderInfoLog(uint shader, int bufSize, int* length, char* infoLog) {
+		GlApi.GetShaderInfoLog(shader, bufSize, length, infoLog);
+	}
+
+	public static void GetShaderPrecisionFormat(uint shadertype, uint precisiontype, int* range, int* precision) {
+		GlApi.GetShaderPrecisionFormat(shadertype, precisiontype, range, precision);
+	}
+
+	public static void GetShaderSource(uint shader, int bufSize, int* length, char* source) {
+		GlApi.GetShaderSource(shader, bufSize, length, source);
+	}
+
+	public static void GetShaderSourceARB(uint obj, int maxLength, int* length, char* source) {
+		GlApi.GetShaderSourceARB(obj, maxLength, length, source);
+	}
+
+	public static void GetShaderiv(uint shader, uint pname, int* parameters) {
+		GlApi.GetShaderiv(shader, pname, parameters);
+	}
+
+	public static byte* GetString(uint name) {
+		return GlApi.GetString(name);
+	}
+
+	public static byte* GetStringi(uint name, uint index) {
+		return GlApi.GetStringi(name, index);
+	}
+
+	public static uint GetSubroutineIndex(uint program, uint shadertype, char* name) {
+		return GlApi.GetSubroutineIndex(program, shadertype, name);
+	}
+
+	public static int GetSubroutineUniformLocation(uint program, uint shadertype, char* name) {
+		return GlApi.GetSubroutineUniformLocation(program, shadertype, name);
+	}
+
+	public static void GetSynciv(GLSync sync, uint pname, int count, int* length, int* values) {
+		GlApi.GetSynciv(sync, pname, count, length, values);
+	}
+
+	public static void GetTexEnvxvOES(uint target, uint pname, int* parameters) {
+		GlApi.GetTexEnvxvOES(target, pname, parameters);
+	}
+
+	public static void GetTexGenxvOES(uint coord, uint pname, int* parameters) {
+		GlApi.GetTexGenxvOES(coord, pname, parameters);
+	}
+
+	public static void GetTexImage(uint target, int level, uint format, uint type, void* pixels) {
+		GlApi.GetTexImage(target, level, format, type, pixels);
+	}
+
+	public static void GetTexLevelParameterfv(uint target, int level, uint pname, float* parameters) {
+		GlApi.GetTexLevelParameterfv(target, level, pname, parameters);
+	}
+
+	public static void GetTexLevelParameteriv(uint target, int level, uint pname, int* parameters) {
+		GlApi.GetTexLevelParameteriv(target, level, pname, parameters);
+	}
+
+	public static void GetTexLevelParameterxvOES(uint target, int level, uint pname, int* parameters) {
+		GlApi.GetTexLevelParameterxvOES(target, level, pname, parameters);
+	}
+
+	public static void GetTexParameterIiv(uint target, uint pname, int* parameters) {
+		GlApi.GetTexParameterIiv(target, pname, parameters);
+	}
+
+	public static void GetTexParameterIuiv(uint target, uint pname, uint* parameters) {
+		GlApi.GetTexParameterIuiv(target, pname, parameters);
+	}
+
+	public static void GetTexParameterfv(uint target, uint pname, float* parameters) {
+		GlApi.GetTexParameterfv(target, pname, parameters);
+	}
+
+	public static void GetTexParameteriv(uint target, uint pname, int* parameters) {
+		GlApi.GetTexParameteriv(target, pname, parameters);
+	}
+
+	public static void GetTexParameterxvOES(uint target, uint pname, int* parameters) {
+		GlApi.GetTexParameterxvOES(target, pname, parameters);
+	}
+
+	public static void GetTextureImage(uint texture, int level, uint format, uint type, int bufSize, void* pixels) {
+		GlApi.GetTextureImage(texture, level, format, type, bufSize, pixels);
+	}
+
+	public static void GetTextureLevelParameterfv(uint texture, int level, uint pname, float* parameters) {
+		GlApi.GetTextureLevelParameterfv(texture, level, pname, parameters);
+	}
+
+	public static void GetTextureLevelParameteriv(uint texture, int level, uint pname, int* parameters) {
+		GlApi.GetTextureLevelParameteriv(texture, level, pname, parameters);
+	}
+
+	public static void GetTextureParameterIiv(uint texture, uint pname, int* parameters) {
+		GlApi.GetTextureParameterIiv(texture, pname, parameters);
+	}
+
+	public static void GetTextureParameterIuiv(uint texture, uint pname, uint* parameters) {
+		GlApi.GetTextureParameterIuiv(texture, pname, parameters);
+	}
+
+	public static void GetTextureParameterfv(uint texture, uint pname, float* parameters) {
+		GlApi.GetTextureParameterfv(texture, pname, parameters);
+	}
+
+	public static void GetTextureParameteriv(uint texture, uint pname, int* parameters) {
+		GlApi.GetTextureParameteriv(texture, pname, parameters);
+	}
+
+	public static void GetTextureSubImage(uint texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, uint format, uint type, int bufSize, void* pixels) {
+		GlApi.GetTextureSubImage(texture, level, xoffset, yoffset, zoffset, width, height, depth, format, type, bufSize, pixels);
+	}
+
+	public static void GetTransformFeedbackVarying(uint program, uint index, int bufSize, int* length, int* size, uint* type, char* name) {
+		GlApi.GetTransformFeedbackVarying(program, index, bufSize, length, size, type, name);
+	}
+
+	public static void GetTransformFeedbacki64_v(uint xfb, uint pname, uint index, nint* param) {
+		GlApi.GetTransformFeedbacki64_v(xfb, pname, index, param);
+	}
+
+	public static void GetTransformFeedbacki_v(uint xfb, uint pname, uint index, int* param) {
+		GlApi.GetTransformFeedbacki_v(xfb, pname, index, param);
+	}
+
+	public static void GetTransformFeedbackiv(uint xfb, uint pname, int* param) {
+		GlApi.GetTransformFeedbackiv(xfb, pname, param);
+	}
+
+	public static uint GetUniformBlockIndex(uint program, char* uniformBlockName) {
+		return GlApi.GetUniformBlockIndex(program, uniformBlockName);
+	}
+
+	public static void GetUniformIndices(uint program, int uniformCount, char** uniformNames, uint* uniformIndices) {
+		GlApi.GetUniformIndices(program, uniformCount, uniformNames, uniformIndices);
+	}
+
+	public static int GetUniformLocation(uint program, char* name) {
+		return GlApi.GetUniformLocation(program, name);
+	}
+
+	public static int GetUniformLocationARB(uint programObj, char* name) {
+		return GlApi.GetUniformLocationARB(programObj, name);
+	}
+
+	public static void GetUniformSubroutineuiv(uint shadertype, int location, uint* parameters) {
+		GlApi.GetUniformSubroutineuiv(shadertype, location, parameters);
+	}
+
+	public static void GetUniformdv(uint program, int location, double* parameters) {
+		GlApi.GetUniformdv(program, location, parameters);
+	}
+
+	public static void GetUniformfv(uint program, int location, float* parameters) {
+		GlApi.GetUniformfv(program, location, parameters);
+	}
+
+	public static void GetUniformfvARB(uint programObj, int location, float* parameters) {
+		GlApi.GetUniformfvARB(programObj, location, parameters);
+	}
+
+	public static void GetUniformi64vARB(uint program, int location, nint* parameters) {
+		GlApi.GetUniformi64vARB(program, location, parameters);
+	}
+
+	public static void GetUniformiv(uint program, int location, int* parameters) {
+		GlApi.GetUniformiv(program, location, parameters);
+	}
+
+	public static void GetUniformivARB(uint programObj, int location, int* parameters) {
+		GlApi.GetUniformivARB(programObj, location, parameters);
+	}
+
+	public static void GetUniformui64vARB(uint program, int location, nint* parameters) {
+		GlApi.GetUniformui64vARB(program, location, parameters);
+	}
+
+	public static void GetUniformuiv(uint program, int location, uint* parameters) {
+		GlApi.GetUniformuiv(program, location, parameters);
+	}
+
+	public static void GetVertexArrayIndexed64iv(uint vaobj, uint index, uint pname, nint* param) {
+		GlApi.GetVertexArrayIndexed64iv(vaobj, index, pname, param);
+	}
+
+	public static void GetVertexArrayIndexediv(uint vaobj, uint index, uint pname, int* param) {
+		GlApi.GetVertexArrayIndexediv(vaobj, index, pname, param);
+	}
+
+	public static void GetVertexArrayiv(uint vaobj, uint pname, int* param) {
+		GlApi.GetVertexArrayiv(vaobj, pname, param);
+	}
+
+	public static void GetVertexAttribIiv(uint index, uint pname, int* parameters) {
+		GlApi.GetVertexAttribIiv(index, pname, parameters);
+	}
+
+	public static void GetVertexAttribIuiv(uint index, uint pname, uint* parameters) {
+		GlApi.GetVertexAttribIuiv(index, pname, parameters);
+	}
+
+	public static void GetVertexAttribLdv(uint index, uint pname, double* parameters) {
+		GlApi.GetVertexAttribLdv(index, pname, parameters);
+	}
+
+	public static void GetVertexAttribPointerv(uint index, uint pname, void** pointer) {
+		GlApi.GetVertexAttribPointerv(index, pname, pointer);
+	}
+
+	public static void GetVertexAttribPointervARB(uint index, uint pname, void** pointer) {
+		GlApi.GetVertexAttribPointervARB(index, pname, pointer);
+	}
+
+	public static void GetVertexAttribdv(uint index, uint pname, double* parameters) {
+		GlApi.GetVertexAttribdv(index, pname, parameters);
+	}
+
+	public static void GetVertexAttribdvARB(uint index, uint pname, double* parameters) {
+		GlApi.GetVertexAttribdvARB(index, pname, parameters);
+	}
+
+	public static void GetVertexAttribfv(uint index, uint pname, float* parameters) {
+		GlApi.GetVertexAttribfv(index, pname, parameters);
+	}
+
+	public static void GetVertexAttribfvARB(uint index, uint pname, float* parameters) {
+		GlApi.GetVertexAttribfvARB(index, pname, parameters);
+	}
+
+	public static void GetVertexAttribiv(uint index, uint pname, int* parameters) {
+		GlApi.GetVertexAttribiv(index, pname, parameters);
+	}
+
+	public static void GetVertexAttribivARB(uint index, uint pname, int* parameters) {
+		GlApi.GetVertexAttribivARB(index, pname, parameters);
+	}
+
+	public static void GetnUniformi64vARB(uint program, int location, int bufSize, nint* parameters) {
+		GlApi.GetnUniformi64vARB(program, location, bufSize, parameters);
+	}
+
+	public static void GetnUniformui64vARB(uint program, int location, int bufSize, nint* parameters) {
+		GlApi.GetnUniformui64vARB(program, location, bufSize, parameters);
+	}
+
+	public static void Hint(uint target, uint mode) {
+		GlApi.Hint(target, mode);
+	}
+
+	public static void IndexxOES(int component) {
+		GlApi.IndexxOES(component);
+	}
+
+	public static void IndexxvOES(int* component) {
+		GlApi.IndexxvOES(component);
+	}
+
+	public static void InvalidateBufferData(uint buffer) {
+		GlApi.InvalidateBufferData(buffer);
+	}
+
+	public static void InvalidateBufferSubData(uint buffer, int* offset, nint length) {
+		GlApi.InvalidateBufferSubData(buffer, offset, length);
+	}
+
+	public static void InvalidateFramebuffer(uint target, int numAttachments, uint* attachments) {
+		GlApi.InvalidateFramebuffer(target, numAttachments, attachments);
+	}
+
+	public static void InvalidateNamedFramebufferData(uint framebuffer, int numAttachments, uint* attachments) {
+		GlApi.InvalidateNamedFramebufferData(framebuffer, numAttachments, attachments);
+	}
+
+	public static void InvalidateNamedFramebufferSubData(uint framebuffer, int numAttachments, uint* attachments, int x, int y, int width, int height) {
+		GlApi.InvalidateNamedFramebufferSubData(framebuffer, numAttachments, attachments, x, y, width, height);
+	}
+
+	public static void InvalidateSubFramebuffer(uint target, int numAttachments, uint* attachments, int x, int y, int width, int height) {
+		GlApi.InvalidateSubFramebuffer(target, numAttachments, attachments, x, y, width, height);
+	}
+
+	public static void InvalidateTexImage(uint texture, int level) {
+		GlApi.InvalidateTexImage(texture, level);
+	}
+
+	public static void InvalidateTexSubImage(uint texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth) {
+		GlApi.InvalidateTexSubImage(texture, level, xoffset, yoffset, zoffset, width, height, depth);
+	}
+
+	public static byte IsBuffer(uint buffer) {
+		return GlApi.IsBuffer(buffer);
+	}
+
+	public static byte IsBufferARB(uint buffer) {
+		return GlApi.IsBufferARB(buffer);
+	}
+
+	public static byte IsEnabled(uint cap) {
+		return GlApi.IsEnabled(cap);
+	}
+
+	public static byte IsEnabledi(uint target, uint index) {
+		return GlApi.IsEnabledi(target, index);
+	}
+
+	public static byte IsFramebuffer(uint framebuffer) {
+		return GlApi.IsFramebuffer(framebuffer);
+	}
+
+	public static byte IsFramebufferEXT(uint framebuffer) {
+		return GlApi.IsFramebufferEXT(framebuffer);
+	}
+
+	public static byte IsNamedStringARB(int namelen, char* name) {
+		return GlApi.IsNamedStringARB(namelen, name);
+	}
+
+	public static byte IsProgram(uint program) {
+		return GlApi.IsProgram(program);
+	}
+
+	public static byte IsProgramARB(uint program) {
+		return GlApi.IsProgramARB(program);
+	}
+
+	public static byte IsProgramPipeline(uint pipeline) {
+		return GlApi.IsProgramPipeline(pipeline);
+	}
+
+	public static byte IsQuery(uint id) {
+		return GlApi.IsQuery(id);
+	}
+
+	public static byte IsQueryARB(uint id) {
+		return GlApi.IsQueryARB(id);
+	}
+
+	public static byte IsRenderbuffer(uint renderbuffer) {
+		return GlApi.IsRenderbuffer(renderbuffer);
+	}
+
+	public static byte IsRenderbufferEXT(uint renderbuffer) {
+		return GlApi.IsRenderbufferEXT(renderbuffer);
+	}
+
+	public static byte IsSampler(uint sampler) {
+		return GlApi.IsSampler(sampler);
+	}
+
+	public static byte IsShader(uint shader) {
+		return GlApi.IsShader(shader);
+	}
+
+	public static byte IsSync(GLSync sync) {
+		return GlApi.IsSync(sync);
+	}
+
+	public static byte IsTexture(uint texture) {
+		return GlApi.IsTexture(texture);
+	}
+
+	public static byte IsTransformFeedback(uint id) {
+		return GlApi.IsTransformFeedback(id);
+	}
+
+	public static byte IsVertexArray(uint array) {
+		return GlApi.IsVertexArray(array);
+	}
+
+	public static void LightModelxOES(uint pname, int param) {
+		GlApi.LightModelxOES(pname, param);
+	}
+
+	public static void LightModelxvOES(uint pname, int* param) {
+		GlApi.LightModelxvOES(pname, param);
+	}
+
+	public static void LightxOES(uint light, uint pname, int param) {
+		GlApi.LightxOES(light, pname, param);
+	}
+
+	public static void LightxvOES(uint light, uint pname, int* parameters) {
+		GlApi.LightxvOES(light, pname, parameters);
+	}
+
+	public static void LineWidth(float width) {
+		GlApi.LineWidth(width);
+	}
+
+	public static void LineWidthxOES(int width) {
+		GlApi.LineWidthxOES(width);
+	}
+
+	public static void LinkProgram(uint program) {
+		GlApi.LinkProgram(program);
+	}
+
+	public static void LinkProgramARB(uint programObj) {
+		GlApi.LinkProgramARB(programObj);
+	}
+
+	public static void LoadMatrixxOES(int* m) {
+		GlApi.LoadMatrixxOES(m);
+	}
+
+	public static void LoadTransposeMatrixdARB(double* m) {
+		GlApi.LoadTransposeMatrixdARB(m);
+	}
+
+	public static void LoadTransposeMatrixfARB(float* m) {
+		GlApi.LoadTransposeMatrixfARB(m);
+	}
+
+	public static void LoadTransposeMatrixxOES(int* m) {
+		GlApi.LoadTransposeMatrixxOES(m);
+	}
+
+	public static void LogicOp(uint opcode) {
+		GlApi.LogicOp(opcode);
+	}
+
+	public static void Map1xOES(uint target, int u1, int u2, int stride, int order, int points) {
+		GlApi.Map1xOES(target, u1, u2, stride, order, points);
+	}
+
+	public static void Map2xOES(uint target, int u1, int u2, int ustride, int uorder, int v1, int v2, int vstride, int vorder, int points) {
+		GlApi.Map2xOES(target, u1, u2, ustride, uorder, v1, v2, vstride, vorder, points);
+	}
+
+	public static void* MapBuffer(uint target, uint access) {
+		return GlApi.MapBuffer(target, access);
+	}
+
+	public static void* MapBufferARB(uint target, uint access) {
+		return GlApi.MapBufferARB(target, access);
+	}
+
+	public static void* MapBufferRange(uint target, int* offset, nint length, uint access) {
+		return GlApi.MapBufferRange(target, offset, length, access);
+	}
+
+	public static void MapGrid1xOES(int n, int u1, int u2) {
+		GlApi.MapGrid1xOES(n, u1, u2);
+	}
+
+	public static void MapGrid2xOES(int n, int u1, int u2, int v1, int v2) {
+		GlApi.MapGrid2xOES(n, u1, u2, v1, v2);
+	}
+
+	public static void* MapNamedBuffer(uint buffer, uint access) {
+		return GlApi.MapNamedBuffer(buffer, access);
+	}
+
+	public static void* MapNamedBufferRange(uint buffer, int* offset, nint length, uint access) {
+		return GlApi.MapNamedBufferRange(buffer, offset, length, access);
+	}
+
+	public static void MaterialxOES(uint face, uint pname, int param) {
+		GlApi.MaterialxOES(face, pname, param);
+	}
+
+	public static void MaterialxvOES(uint face, uint pname, int* param) {
+		GlApi.MaterialxvOES(face, pname, param);
+	}
+
+	public static void MemoryBarrier(uint barriers) {
+		GlApi.MemoryBarrier(barriers);
+	}
+
+	public static void MemoryBarrierByRegion(uint barriers) {
+		GlApi.MemoryBarrierByRegion(barriers);
+	}
+
+	public static void MinSampleShading(float value) {
+		GlApi.MinSampleShading(value);
+	}
+
+	public static void MinSampleShadingARB(float value) {
+		GlApi.MinSampleShadingARB(value);
+	}
+
+	public static void MultMatrixxOES(int* m) {
+		GlApi.MultMatrixxOES(m);
+	}
+
+	public static void MultTransposeMatrixdARB(double* m) {
+		GlApi.MultTransposeMatrixdARB(m);
+	}
+
+	public static void MultTransposeMatrixfARB(float* m) {
+		GlApi.MultTransposeMatrixfARB(m);
+	}
+
+	public static void MultTransposeMatrixxOES(int* m) {
+		GlApi.MultTransposeMatrixxOES(m);
+	}
+
+	public static void MultiDrawArrays(uint mode, int* first, int* count, int drawcount) {
+		GlApi.MultiDrawArrays(mode, first, count, drawcount);
+	}
+
+	public static void MultiDrawArraysIndirect(uint mode, void* indirect, int drawcount, int stride) {
+		GlApi.MultiDrawArraysIndirect(mode, indirect, drawcount, stride);
+	}
+
+	public static void MultiDrawElements(uint mode, int* count, uint type, void** indices, int drawcount) {
+		GlApi.MultiDrawElements(mode, count, type, indices, drawcount);
+	}
+
+	public static void MultiDrawElementsBaseVertex(uint mode, int* count, uint type, void** indices, int drawcount, int* basevertex) {
+		GlApi.MultiDrawElementsBaseVertex(mode, count, type, indices, drawcount, basevertex);
+	}
+
+	public static void MultiDrawElementsIndirect(uint mode, uint type, void* indirect, int drawcount, int stride) {
+		GlApi.MultiDrawElementsIndirect(mode, type, indirect, drawcount, stride);
+	}
+
+	public static void MultiTexCoord1dARB(uint target, double s) {
+		GlApi.MultiTexCoord1dARB(target, s);
+	}
+
+	public static void MultiTexCoord1dvARB(uint target, double* v) {
+		GlApi.MultiTexCoord1dvARB(target, v);
+	}
+
+	public static void MultiTexCoord1fARB(uint target, float s) {
+		GlApi.MultiTexCoord1fARB(target, s);
+	}
+
+	public static void MultiTexCoord1fvARB(uint target, float* v) {
+		GlApi.MultiTexCoord1fvARB(target, v);
+	}
+
+	public static void MultiTexCoord1iARB(uint target, int s) {
+		GlApi.MultiTexCoord1iARB(target, s);
+	}
+
+	public static void MultiTexCoord1ivARB(uint target, int* v) {
+		GlApi.MultiTexCoord1ivARB(target, v);
+	}
+
+	public static void MultiTexCoord1sARB(uint target, short s) {
+		GlApi.MultiTexCoord1sARB(target, s);
+	}
+
+	public static void MultiTexCoord1svARB(uint target, short* v) {
+		GlApi.MultiTexCoord1svARB(target, v);
+	}
+
+	public static void MultiTexCoord1xOES(uint texture, int s) {
+		GlApi.MultiTexCoord1xOES(texture, s);
+	}
+
+	public static void MultiTexCoord1xvOES(uint texture, int* coords) {
+		GlApi.MultiTexCoord1xvOES(texture, coords);
+	}
+
+	public static void MultiTexCoord2dARB(uint target, double s, double t) {
+		GlApi.MultiTexCoord2dARB(target, s, t);
+	}
+
+	public static void MultiTexCoord2dvARB(uint target, double* v) {
+		GlApi.MultiTexCoord2dvARB(target, v);
+	}
+
+	public static void MultiTexCoord2fARB(uint target, float s, float t) {
+		GlApi.MultiTexCoord2fARB(target, s, t);
+	}
+
+	public static void MultiTexCoord2fvARB(uint target, float* v) {
+		GlApi.MultiTexCoord2fvARB(target, v);
+	}
+
+	public static void MultiTexCoord2iARB(uint target, int s, int t) {
+		GlApi.MultiTexCoord2iARB(target, s, t);
+	}
+
+	public static void MultiTexCoord2ivARB(uint target, int* v) {
+		GlApi.MultiTexCoord2ivARB(target, v);
+	}
+
+	public static void MultiTexCoord2sARB(uint target, short s, short t) {
+		GlApi.MultiTexCoord2sARB(target, s, t);
+	}
+
+	public static void MultiTexCoord2svARB(uint target, short* v) {
+		GlApi.MultiTexCoord2svARB(target, v);
+	}
+
+	public static void MultiTexCoord2xOES(uint texture, int s, int t) {
+		GlApi.MultiTexCoord2xOES(texture, s, t);
+	}
+
+	public static void MultiTexCoord2xvOES(uint texture, int* coords) {
+		GlApi.MultiTexCoord2xvOES(texture, coords);
+	}
+
+	public static void MultiTexCoord3dARB(uint target, double s, double t, double r) {
+		GlApi.MultiTexCoord3dARB(target, s, t, r);
+	}
+
+	public static void MultiTexCoord3dvARB(uint target, double* v) {
+		GlApi.MultiTexCoord3dvARB(target, v);
+	}
+
+	public static void MultiTexCoord3fARB(uint target, float s, float t, float r) {
+		GlApi.MultiTexCoord3fARB(target, s, t, r);
+	}
+
+	public static void MultiTexCoord3fvARB(uint target, float* v) {
+		GlApi.MultiTexCoord3fvARB(target, v);
+	}
+
+	public static void MultiTexCoord3iARB(uint target, int s, int t, int r) {
+		GlApi.MultiTexCoord3iARB(target, s, t, r);
+	}
+
+	public static void MultiTexCoord3ivARB(uint target, int* v) {
+		GlApi.MultiTexCoord3ivARB(target, v);
+	}
+
+	public static void MultiTexCoord3sARB(uint target, short s, short t, short r) {
+		GlApi.MultiTexCoord3sARB(target, s, t, r);
+	}
+
+	public static void MultiTexCoord3svARB(uint target, short* v) {
+		GlApi.MultiTexCoord3svARB(target, v);
+	}
+
+	public static void MultiTexCoord3xOES(uint texture, int s, int t, int r) {
+		GlApi.MultiTexCoord3xOES(texture, s, t, r);
+	}
+
+	public static void MultiTexCoord3xvOES(uint texture, int* coords) {
+		GlApi.MultiTexCoord3xvOES(texture, coords);
+	}
+
+	public static void MultiTexCoord4dARB(uint target, double s, double t, double r, double q) {
+		GlApi.MultiTexCoord4dARB(target, s, t, r, q);
+	}
+
+	public static void MultiTexCoord4dvARB(uint target, double* v) {
+		GlApi.MultiTexCoord4dvARB(target, v);
+	}
+
+	public static void MultiTexCoord4fARB(uint target, float s, float t, float r, float q) {
+		GlApi.MultiTexCoord4fARB(target, s, t, r, q);
+	}
+
+	public static void MultiTexCoord4fvARB(uint target, float* v) {
+		GlApi.MultiTexCoord4fvARB(target, v);
+	}
+
+	public static void MultiTexCoord4iARB(uint target, int s, int t, int r, int q) {
+		GlApi.MultiTexCoord4iARB(target, s, t, r, q);
+	}
+
+	public static void MultiTexCoord4ivARB(uint target, int* v) {
+		GlApi.MultiTexCoord4ivARB(target, v);
+	}
+
+	public static void MultiTexCoord4sARB(uint target, short s, short t, short r, short q) {
+		GlApi.MultiTexCoord4sARB(target, s, t, r, q);
+	}
+
+	public static void MultiTexCoord4svARB(uint target, short* v) {
+		GlApi.MultiTexCoord4svARB(target, v);
+	}
+
+	public static void MultiTexCoord4xOES(uint texture, int s, int t, int r, int q) {
+		GlApi.MultiTexCoord4xOES(texture, s, t, r, q);
+	}
+
+	public static void MultiTexCoord4xvOES(uint texture, int* coords) {
+		GlApi.MultiTexCoord4xvOES(texture, coords);
+	}
+
+	public static void NamedBufferData(uint buffer, nint size, void* data, uint usage) {
+		GlApi.NamedBufferData(buffer, size, data, usage);
+	}
+
+	public static void NamedBufferStorage(uint buffer, nint size, void* data, uint flags) {
+		GlApi.NamedBufferStorage(buffer, size, data, flags);
+	}
+
+	public static void NamedBufferSubData(uint buffer, int* offset, nint size, void* data) {
+		GlApi.NamedBufferSubData(buffer, offset, size, data);
+	}
+
+	public static void NamedFramebufferDrawBuffer(uint framebuffer, uint buf) {
+		GlApi.NamedFramebufferDrawBuffer(framebuffer, buf);
+	}
+
+	public static void NamedFramebufferDrawBuffers(uint framebuffer, int n, uint* bufs) {
+		GlApi.NamedFramebufferDrawBuffers(framebuffer, n, bufs);
+	}
+
+	public static void NamedFramebufferParameteri(uint framebuffer, uint pname, int param) {
+		GlApi.NamedFramebufferParameteri(framebuffer, pname, param);
+	}
+
+	public static void NamedFramebufferReadBuffer(uint framebuffer, uint src) {
+		GlApi.NamedFramebufferReadBuffer(framebuffer, src);
+	}
+
+	public static void NamedFramebufferRenderbuffer(uint framebuffer, uint attachment, uint renderbuffertarget, uint renderbuffer) {
+		GlApi.NamedFramebufferRenderbuffer(framebuffer, attachment, renderbuffertarget, renderbuffer);
+	}
+
+	public static void NamedFramebufferSampleLocationsfvARB(uint framebuffer, uint start, int count, float* v) {
+		GlApi.NamedFramebufferSampleLocationsfvARB(framebuffer, start, count, v);
+	}
+
+	public static void NamedFramebufferTexture(uint framebuffer, uint attachment, uint texture, int level) {
+		GlApi.NamedFramebufferTexture(framebuffer, attachment, texture, level);
+	}
+
+	public static void NamedFramebufferTextureLayer(uint framebuffer, uint attachment, uint texture, int level, int layer) {
+		GlApi.NamedFramebufferTextureLayer(framebuffer, attachment, texture, level, layer);
+	}
+
+	public static void NamedRenderbufferStorage(uint renderbuffer, uint internalformat, int width, int height) {
+		GlApi.NamedRenderbufferStorage(renderbuffer, internalformat, width, height);
+	}
+
+	public static void NamedRenderbufferStorageMultisample(uint renderbuffer, int samples, uint internalformat, int width, int height) {
+		GlApi.NamedRenderbufferStorageMultisample(renderbuffer, samples, internalformat, width, height);
+	}
+
+	public static void NamedStringARB(uint type, int namelen, char* name, int stringlen, char* str) {
+		GlApi.NamedStringARB(type, namelen, name, stringlen, str);
+	}
+
+	public static void Normal3xOES(int nx, int ny, int nz) {
+		GlApi.Normal3xOES(nx, ny, nz);
+	}
+
+	public static void Normal3xvOES(int* coords) {
+		GlApi.Normal3xvOES(coords);
+	}
+
+	public static void ObjectLabel(uint identifier, uint name, int length, char* label) {
+		GlApi.ObjectLabel(identifier, name, length, label);
+	}
+
+	public static void ObjectPtrLabel(void* ptr, int length, char* label) {
+		GlApi.ObjectPtrLabel(ptr, length, label);
+	}
+
+	public static void OrthoxOES(int l, int r, int b, int t, int n, int f) {
+		GlApi.OrthoxOES(l, r, b, t, n, f);
+	}
+
+	public static void PassThroughxOES(int token) {
+		GlApi.PassThroughxOES(token);
+	}
+
+	public static void PatchParameterfv(uint pname, float* values) {
+		GlApi.PatchParameterfv(pname, values);
+	}
+
+	public static void PatchParameteri(uint pname, int value) {
+		GlApi.PatchParameteri(pname, value);
+	}
+
+	public static void PauseTransformFeedback() {
+		GlApi.PauseTransformFeedback();
+	}
+
+	public static void PixelMapx(uint map, int size, int* values) {
+		GlApi.PixelMapx(map, size, values);
+	}
+
+	public static void PixelStoref(uint pname, float param) {
+		GlApi.PixelStoref(pname, param);
+	}
+
+	public static void PixelStorei(uint pname, int param) {
+		GlApi.PixelStorei(pname, param);
+	}
+
+	public static void PixelStorex(uint pname, int param) {
+		GlApi.PixelStorex(pname, param);
+	}
+
+	public static void PixelTransferxOES(uint pname, int param) {
+		GlApi.PixelTransferxOES(pname, param);
+	}
+
+	public static void PixelZoomxOES(int xfactor, int yfactor) {
+		GlApi.PixelZoomxOES(xfactor, yfactor);
+	}
+
+	public static void PointParameterf(uint pname, float param) {
+		GlApi.PointParameterf(pname, param);
+	}
+
+	public static void PointParameterfv(uint pname, float* parameters) {
+		GlApi.PointParameterfv(pname, parameters);
+	}
+
+	public static void PointParameteri(uint pname, int param) {
+		GlApi.PointParameteri(pname, param);
+	}
+
+	public static void PointParameteriv(uint pname, int* parameters) {
+		GlApi.PointParameteriv(pname, parameters);
+	}
+
+	public static void PointParameterxvOES(uint pname, int* parameters) {
+		GlApi.PointParameterxvOES(pname, parameters);
+	}
+
+	public static void PointSize(float size) {
+		GlApi.PointSize(size);
+	}
+
+	public static void PointSizexOES(int size) {
+		GlApi.PointSizexOES(size);
+	}
+
+	public static void PolygonMode(uint face, uint mode) {
+		GlApi.PolygonMode(face, mode);
+	}
+
+	public static void PolygonOffset(float factor, float units) {
+		GlApi.PolygonOffset(factor, units);
+	}
+
+	public static void PolygonOffsetxOES(int factor, int units) {
+		GlApi.PolygonOffsetxOES(factor, units);
+	}
+
+	public static void PopDebugGroup() {
+		GlApi.PopDebugGroup();
+	}
+
+	public static void PrimitiveBoundingBoxARB(float minX, float minY, float minZ, float minW, float maxX, float maxY, float maxZ, float maxW) {
+		GlApi.PrimitiveBoundingBoxARB(minX, minY, minZ, minW, maxX, maxY, maxZ, maxW);
+	}
+
+	public static void PrimitiveRestartIndex(uint index) {
+		GlApi.PrimitiveRestartIndex(index);
+	}
+
+	public static void PrioritizeTexturesxOES(int n, uint* textures, int* priorities) {
+		GlApi.PrioritizeTexturesxOES(n, textures, priorities);
+	}
+
+	public static void ProgramBinary(uint program, uint binaryFormat, void* binary, int length) {
+		GlApi.ProgramBinary(program, binaryFormat, binary, length);
+	}
+
+	public static void ProgramEnvParameter4dARB(uint target, uint index, double x, double y, double z, double w) {
+		GlApi.ProgramEnvParameter4dARB(target, index, x, y, z, w);
+	}
+
+	public static void ProgramEnvParameter4dvARB(uint target, uint index, double* parameters) {
+		GlApi.ProgramEnvParameter4dvARB(target, index, parameters);
+	}
+
+	public static void ProgramEnvParameter4fARB(uint target, uint index, float x, float y, float z, float w) {
+		GlApi.ProgramEnvParameter4fARB(target, index, x, y, z, w);
+	}
+
+	public static void ProgramEnvParameter4fvARB(uint target, uint index, float* parameters) {
+		GlApi.ProgramEnvParameter4fvARB(target, index, parameters);
+	}
+
+	public static void ProgramLocalParameter4dARB(uint target, uint index, double x, double y, double z, double w) {
+		GlApi.ProgramLocalParameter4dARB(target, index, x, y, z, w);
+	}
+
+	public static void ProgramLocalParameter4dvARB(uint target, uint index, double* parameters) {
+		GlApi.ProgramLocalParameter4dvARB(target, index, parameters);
+	}
+
+	public static void ProgramLocalParameter4fARB(uint target, uint index, float x, float y, float z, float w) {
+		GlApi.ProgramLocalParameter4fARB(target, index, x, y, z, w);
+	}
+
+	public static void ProgramLocalParameter4fvARB(uint target, uint index, float* parameters) {
+		GlApi.ProgramLocalParameter4fvARB(target, index, parameters);
+	}
+
+	public static void ProgramParameteri(uint program, uint pname, int value) {
+		GlApi.ProgramParameteri(program, pname, value);
+	}
+
+	public static void ProgramParameteriARB(uint program, uint pname, int value) {
+		GlApi.ProgramParameteriARB(program, pname, value);
+	}
+
+	public static void ProgramStringARB(uint target, uint format, int len, void* str) {
+		GlApi.ProgramStringARB(target, format, len, str);
+	}
+
+	public static void ProgramUniform1d(uint program, int location, double v0) {
+		GlApi.ProgramUniform1d(program, location, v0);
+	}
+
+	public static void ProgramUniform1dv(uint program, int location, int count, double* value) {
+		GlApi.ProgramUniform1dv(program, location, count, value);
+	}
+
+	public static void ProgramUniform1f(uint program, int location, float v0) {
+		GlApi.ProgramUniform1f(program, location, v0);
+	}
+
+	public static void ProgramUniform1fv(uint program, int location, int count, float* value) {
+		GlApi.ProgramUniform1fv(program, location, count, value);
+	}
+
+	public static void ProgramUniform1i(uint program, int location, int v0) {
+		GlApi.ProgramUniform1i(program, location, v0);
+	}
+
+	public static void ProgramUniform1i64ARB(uint program, int location, nint x) {
+		GlApi.ProgramUniform1i64ARB(program, location, x);
+	}
+
+	public static void ProgramUniform1i64vARB(uint program, int location, int count, nint* value) {
+		GlApi.ProgramUniform1i64vARB(program, location, count, value);
+	}
+
+	public static void ProgramUniform1iv(uint program, int location, int count, int* value) {
+		GlApi.ProgramUniform1iv(program, location, count, value);
+	}
+
+	public static void ProgramUniform1ui(uint program, int location, uint v0) {
+		GlApi.ProgramUniform1ui(program, location, v0);
+	}
+
+	public static void ProgramUniform1ui64ARB(uint program, int location, nint x) {
+		GlApi.ProgramUniform1ui64ARB(program, location, x);
+	}
+
+	public static void ProgramUniform1ui64vARB(uint program, int location, int count, nint* value) {
+		GlApi.ProgramUniform1ui64vARB(program, location, count, value);
+	}
+
+	public static void ProgramUniform1uiv(uint program, int location, int count, uint* value) {
+		GlApi.ProgramUniform1uiv(program, location, count, value);
+	}
+
+	public static void ProgramUniform2d(uint program, int location, double v0, double v1) {
+		GlApi.ProgramUniform2d(program, location, v0, v1);
+	}
+
+	public static void ProgramUniform2dv(uint program, int location, int count, double* value) {
+		GlApi.ProgramUniform2dv(program, location, count, value);
+	}
+
+	public static void ProgramUniform2f(uint program, int location, float v0, float v1) {
+		GlApi.ProgramUniform2f(program, location, v0, v1);
+	}
+
+	public static void ProgramUniform2fv(uint program, int location, int count, float* value) {
+		GlApi.ProgramUniform2fv(program, location, count, value);
+	}
+
+	public static void ProgramUniform2i(uint program, int location, int v0, int v1) {
+		GlApi.ProgramUniform2i(program, location, v0, v1);
+	}
+
+	public static void ProgramUniform2i64ARB(uint program, int location, nint x, nint y) {
+		GlApi.ProgramUniform2i64ARB(program, location, x, y);
+	}
+
+	public static void ProgramUniform2i64vARB(uint program, int location, int count, nint* value) {
+		GlApi.ProgramUniform2i64vARB(program, location, count, value);
+	}
+
+	public static void ProgramUniform2iv(uint program, int location, int count, int* value) {
+		GlApi.ProgramUniform2iv(program, location, count, value);
+	}
+
+	public static void ProgramUniform2ui(uint program, int location, uint v0, uint v1) {
+		GlApi.ProgramUniform2ui(program, location, v0, v1);
+	}
+
+	public static void ProgramUniform2ui64ARB(uint program, int location, nint x, nint y) {
+		GlApi.ProgramUniform2ui64ARB(program, location, x, y);
+	}
+
+	public static void ProgramUniform2ui64vARB(uint program, int location, int count, nint* value) {
+		GlApi.ProgramUniform2ui64vARB(program, location, count, value);
+	}
+
+	public static void ProgramUniform2uiv(uint program, int location, int count, uint* value) {
+		GlApi.ProgramUniform2uiv(program, location, count, value);
+	}
+
+	public static void ProgramUniform3d(uint program, int location, double v0, double v1, double v2) {
+		GlApi.ProgramUniform3d(program, location, v0, v1, v2);
+	}
+
+	public static void ProgramUniform3dv(uint program, int location, int count, double* value) {
+		GlApi.ProgramUniform3dv(program, location, count, value);
+	}
+
+	public static void ProgramUniform3f(uint program, int location, float v0, float v1, float v2) {
+		GlApi.ProgramUniform3f(program, location, v0, v1, v2);
+	}
+
+	public static void ProgramUniform3fv(uint program, int location, int count, float* value) {
+		GlApi.ProgramUniform3fv(program, location, count, value);
+	}
+
+	public static void ProgramUniform3i(uint program, int location, int v0, int v1, int v2) {
+		GlApi.ProgramUniform3i(program, location, v0, v1, v2);
+	}
+
+	public static void ProgramUniform3i64ARB(uint program, int location, nint x, nint y, nint z) {
+		GlApi.ProgramUniform3i64ARB(program, location, x, y, z);
+	}
+
+	public static void ProgramUniform3i64vARB(uint program, int location, int count, nint* value) {
+		GlApi.ProgramUniform3i64vARB(program, location, count, value);
+	}
+
+	public static void ProgramUniform3iv(uint program, int location, int count, int* value) {
+		GlApi.ProgramUniform3iv(program, location, count, value);
+	}
+
+	public static void ProgramUniform3ui(uint program, int location, uint v0, uint v1, uint v2) {
+		GlApi.ProgramUniform3ui(program, location, v0, v1, v2);
+	}
+
+	public static void ProgramUniform3ui64ARB(uint program, int location, nint x, nint y, nint z) {
+		GlApi.ProgramUniform3ui64ARB(program, location, x, y, z);
+	}
+
+	public static void ProgramUniform3ui64vARB(uint program, int location, int count, nint* value) {
+		GlApi.ProgramUniform3ui64vARB(program, location, count, value);
+	}
+
+	public static void ProgramUniform3uiv(uint program, int location, int count, uint* value) {
+		GlApi.ProgramUniform3uiv(program, location, count, value);
+	}
+
+	public static void ProgramUniform4d(uint program, int location, double v0, double v1, double v2, double v3) {
+		GlApi.ProgramUniform4d(program, location, v0, v1, v2, v3);
+	}
+
+	public static void ProgramUniform4dv(uint program, int location, int count, double* value) {
+		GlApi.ProgramUniform4dv(program, location, count, value);
+	}
+
+	public static void ProgramUniform4f(uint program, int location, float v0, float v1, float v2, float v3) {
+		GlApi.ProgramUniform4f(program, location, v0, v1, v2, v3);
+	}
+
+	public static void ProgramUniform4fv(uint program, int location, int count, float* value) {
+		GlApi.ProgramUniform4fv(program, location, count, value);
+	}
+
+	public static void ProgramUniform4i(uint program, int location, int v0, int v1, int v2, int v3) {
+		GlApi.ProgramUniform4i(program, location, v0, v1, v2, v3);
+	}
+
+	public static void ProgramUniform4i64ARB(uint program, int location, nint x, nint y, nint z, nint w) {
+		GlApi.ProgramUniform4i64ARB(program, location, x, y, z, w);
+	}
+
+	public static void ProgramUniform4i64vARB(uint program, int location, int count, nint* value) {
+		GlApi.ProgramUniform4i64vARB(program, location, count, value);
+	}
+
+	public static void ProgramUniform4iv(uint program, int location, int count, int* value) {
+		GlApi.ProgramUniform4iv(program, location, count, value);
+	}
+
+	public static void ProgramUniform4ui(uint program, int location, uint v0, uint v1, uint v2, uint v3) {
+		GlApi.ProgramUniform4ui(program, location, v0, v1, v2, v3);
+	}
+
+	public static void ProgramUniform4ui64ARB(uint program, int location, nint x, nint y, nint z, nint w) {
+		GlApi.ProgramUniform4ui64ARB(program, location, x, y, z, w);
+	}
+
+	public static void ProgramUniform4ui64vARB(uint program, int location, int count, nint* value) {
+		GlApi.ProgramUniform4ui64vARB(program, location, count, value);
+	}
+
+	public static void ProgramUniform4uiv(uint program, int location, int count, uint* value) {
+		GlApi.ProgramUniform4uiv(program, location, count, value);
+	}
+
+	public static void ProgramUniformMatrix2dv(uint program, int location, int count, byte transpose, double* value) {
+		GlApi.ProgramUniformMatrix2dv(program, location, count, transpose, value);
+	}
+
+	public static void ProgramUniformMatrix2fv(uint program, int location, int count, byte transpose, float* value) {
+		GlApi.ProgramUniformMatrix2fv(program, location, count, transpose, value);
+	}
+
+	public static void ProgramUniformMatrix2x3dv(uint program, int location, int count, byte transpose, double* value) {
+		GlApi.ProgramUniformMatrix2x3dv(program, location, count, transpose, value);
+	}
+
+	public static void ProgramUniformMatrix2x3fv(uint program, int location, int count, byte transpose, float* value) {
+		GlApi.ProgramUniformMatrix2x3fv(program, location, count, transpose, value);
+	}
+
+	public static void ProgramUniformMatrix2x4dv(uint program, int location, int count, byte transpose, double* value) {
+		GlApi.ProgramUniformMatrix2x4dv(program, location, count, transpose, value);
+	}
+
+	public static void ProgramUniformMatrix2x4fv(uint program, int location, int count, byte transpose, float* value) {
+		GlApi.ProgramUniformMatrix2x4fv(program, location, count, transpose, value);
+	}
+
+	public static void ProgramUniformMatrix3dv(uint program, int location, int count, byte transpose, double* value) {
+		GlApi.ProgramUniformMatrix3dv(program, location, count, transpose, value);
+	}
+
+	public static void ProgramUniformMatrix3fv(uint program, int location, int count, byte transpose, float* value) {
+		GlApi.ProgramUniformMatrix3fv(program, location, count, transpose, value);
+	}
+
+	public static void ProgramUniformMatrix3x2dv(uint program, int location, int count, byte transpose, double* value) {
+		GlApi.ProgramUniformMatrix3x2dv(program, location, count, transpose, value);
+	}
+
+	public static void ProgramUniformMatrix3x2fv(uint program, int location, int count, byte transpose, float* value) {
+		GlApi.ProgramUniformMatrix3x2fv(program, location, count, transpose, value);
+	}
+
+	public static void ProgramUniformMatrix3x4dv(uint program, int location, int count, byte transpose, double* value) {
+		GlApi.ProgramUniformMatrix3x4dv(program, location, count, transpose, value);
+	}
+
+	public static void ProgramUniformMatrix3x4fv(uint program, int location, int count, byte transpose, float* value) {
+		GlApi.ProgramUniformMatrix3x4fv(program, location, count, transpose, value);
+	}
+
+	public static void ProgramUniformMatrix4dv(uint program, int location, int count, byte transpose, double* value) {
+		GlApi.ProgramUniformMatrix4dv(program, location, count, transpose, value);
+	}
+
+	public static void ProgramUniformMatrix4fv(uint program, int location, int count, byte transpose, float* value) {
+		GlApi.ProgramUniformMatrix4fv(program, location, count, transpose, value);
+	}
+
+	public static void ProgramUniformMatrix4x2dv(uint program, int location, int count, byte transpose, double* value) {
+		GlApi.ProgramUniformMatrix4x2dv(program, location, count, transpose, value);
+	}
+
+	public static void ProgramUniformMatrix4x2fv(uint program, int location, int count, byte transpose, float* value) {
+		GlApi.ProgramUniformMatrix4x2fv(program, location, count, transpose, value);
+	}
+
+	public static void ProgramUniformMatrix4x3dv(uint program, int location, int count, byte transpose, double* value) {
+		GlApi.ProgramUniformMatrix4x3dv(program, location, count, transpose, value);
+	}
+
+	public static void ProgramUniformMatrix4x3fv(uint program, int location, int count, byte transpose, float* value) {
+		GlApi.ProgramUniformMatrix4x3fv(program, location, count, transpose, value);
+	}
+
+	public static void ProvokingVertex(uint mode) {
+		GlApi.ProvokingVertex(mode);
+	}
+
+	public static void PushDebugGroup(uint source, uint id, int length, char* message) {
+		GlApi.PushDebugGroup(source, id, length, message);
+	}
+
+	public static void QueryCounter(uint id, uint target) {
+		GlApi.QueryCounter(id, target);
+	}
+
+	public static void RasterPos2xOES(int x, int y) {
+		GlApi.RasterPos2xOES(x, y);
+	}
+
+	public static void RasterPos2xvOES(int* coords) {
+		GlApi.RasterPos2xvOES(coords);
+	}
+
+	public static void RasterPos3xOES(int x, int y, int z) {
+		GlApi.RasterPos3xOES(x, y, z);
+	}
+
+	public static void RasterPos3xvOES(int* coords) {
+		GlApi.RasterPos3xvOES(coords);
+	}
+
+	public static void RasterPos4xOES(int x, int y, int z, int w) {
+		GlApi.RasterPos4xOES(x, y, z, w);
+	}
+
+	public static void RasterPos4xvOES(int* coords) {
+		GlApi.RasterPos4xvOES(coords);
+	}
+
+	public static void ReadBuffer(uint src) {
+		GlApi.ReadBuffer(src);
+	}
+
+	public static void ReadPixels(int x, int y, int width, int height, uint format, uint type, void* pixels) {
+		GlApi.ReadPixels(x, y, width, height, format, type, pixels);
+	}
+
+	public static void RectxOES(int x1, int y1, int x2, int y2) {
+		GlApi.RectxOES(x1, y1, x2, y2);
+	}
+
+	public static void RectxvOES(int* v1, int* v2) {
+		GlApi.RectxvOES(v1, v2);
+	}
+
+	public static void ReleaseShaderCompiler() {
+		GlApi.ReleaseShaderCompiler();
+	}
+
+	public static void RenderbufferStorage(uint target, uint internalformat, int width, int height) {
+		GlApi.RenderbufferStorage(target, internalformat, width, height);
+	}
+
+	public static void RenderbufferStorageEXT(uint target, uint internalformat, int width, int height) {
+		GlApi.RenderbufferStorageEXT(target, internalformat, width, height);
+	}
+
+	public static void RenderbufferStorageMultisample(uint target, int samples, uint internalformat, int width, int height) {
+		GlApi.RenderbufferStorageMultisample(target, samples, internalformat, width, height);
+	}
+
+	public static void RenderbufferStorageMultisampleEXT(uint target, int samples, uint internalformat, int width, int height) {
+		GlApi.RenderbufferStorageMultisampleEXT(target, samples, internalformat, width, height);
+	}
+
+	public static void ResumeTransformFeedback() {
+		GlApi.ResumeTransformFeedback();
+	}
+
+	public static void RotatexOES(int angle, int x, int y, int z) {
+		GlApi.RotatexOES(angle, x, y, z);
+	}
+
+	public static void SampleCoverage(float value, byte invert) {
+		GlApi.SampleCoverage(value, invert);
+	}
+
+	public static void SampleCoverageARB(float value, byte invert) {
+		GlApi.SampleCoverageARB(value, invert);
+	}
+
+	public static void SampleMaski(uint maskNumber, uint mask) {
+		GlApi.SampleMaski(maskNumber, mask);
+	}
+
+	public static void SamplerParameterIiv(uint sampler, uint pname, int* param) {
+		GlApi.SamplerParameterIiv(sampler, pname, param);
+	}
+
+	public static void SamplerParameterIuiv(uint sampler, uint pname, uint* param) {
+		GlApi.SamplerParameterIuiv(sampler, pname, param);
+	}
+
+	public static void SamplerParameterf(uint sampler, uint pname, float param) {
+		GlApi.SamplerParameterf(sampler, pname, param);
+	}
+
+	public static void SamplerParameterfv(uint sampler, uint pname, float* param) {
+		GlApi.SamplerParameterfv(sampler, pname, param);
+	}
+
+	public static void SamplerParameteri(uint sampler, uint pname, int param) {
+		GlApi.SamplerParameteri(sampler, pname, param);
+	}
+
+	public static void SamplerParameteriv(uint sampler, uint pname, int* param) {
+		GlApi.SamplerParameteriv(sampler, pname, param);
+	}
+
+	public static void ScalexOES(int x, int y, int z) {
+		GlApi.ScalexOES(x, y, z);
+	}
+
+	public static void Scissor(int x, int y, int width, int height) {
+		GlApi.Scissor(x, y, width, height);
+	}
+
+	public static void ScissorArrayv(uint first, int count, int* v) {
+		GlApi.ScissorArrayv(first, count, v);
+	}
+
+	public static void ScissorIndexed(uint index, int left, int bottom, int width, int height) {
+		GlApi.ScissorIndexed(index, left, bottom, width, height);
+	}
+
+	public static void ScissorIndexedv(uint index, int* v) {
+		GlApi.ScissorIndexedv(index, v);
+	}
+
+	public static void ShaderBinary(int count, uint* shaders, uint binaryFormat, void* binary, int length) {
+		GlApi.ShaderBinary(count, shaders, binaryFormat, binary, length);
+	}
+
+	public static void ShaderSource(uint shader, int count, char** str, int* length) {
+		GlApi.ShaderSource(shader, count, str, length);
+	}
+
+	public static void ShaderSourceARB(uint shaderObj, int count, char** str, int* length) {
+		GlApi.ShaderSourceARB(shaderObj, count, str, length);
+	}
+
+	public static void ShaderStorageBlockBinding(uint program, uint storageBlockIndex, uint storageBlockBinding) {
+		GlApi.ShaderStorageBlockBinding(program, storageBlockIndex, storageBlockBinding);
+	}
+
+	public static void SpecializeShaderARB(uint shader, char* pEntryPoint, uint numSpecializationConstants, uint* pConstantIndex, uint* pConstantValue) {
+		GlApi.SpecializeShaderARB(shader, pEntryPoint, numSpecializationConstants, pConstantIndex, pConstantValue);
+	}
+
+	public static void StencilFunc(uint func, int reference, uint mask) {
+		GlApi.StencilFunc(func, reference, mask);
+	}
+
+	public static void StencilFuncSeparate(uint face, uint func, int reference, uint mask) {
+		GlApi.StencilFuncSeparate(face, func, reference, mask);
+	}
+
+	public static void StencilMask(uint mask) {
+		GlApi.StencilMask(mask);
+	}
+
+	public static void StencilMaskSeparate(uint face, uint mask) {
+		GlApi.StencilMaskSeparate(face, mask);
+	}
+
+	public static void StencilOp(uint fail, uint zfail, uint zpass) {
+		GlApi.StencilOp(fail, zfail, zpass);
+	}
+
+	public static void StencilOpSeparate(uint face, uint sfail, uint dpfail, uint dppass) {
+		GlApi.StencilOpSeparate(face, sfail, dpfail, dppass);
+	}
+
+	public static void TexBuffer(uint target, uint internalformat, uint buffer) {
+		GlApi.TexBuffer(target, internalformat, buffer);
+	}
+
+	public static void TexBufferRange(uint target, uint internalformat, uint buffer, int* offset, nint size) {
+		GlApi.TexBufferRange(target, internalformat, buffer, offset, size);
+	}
+
+	public static void TexCoord1xOES(int s) {
+		GlApi.TexCoord1xOES(s);
+	}
+
+	public static void TexCoord1xvOES(int* coords) {
+		GlApi.TexCoord1xvOES(coords);
+	}
+
+	public static void TexCoord2xOES(int s, int t) {
+		GlApi.TexCoord2xOES(s, t);
+	}
+
+	public static void TexCoord2xvOES(int* coords) {
+		GlApi.TexCoord2xvOES(coords);
+	}
+
+	public static void TexCoord3xOES(int s, int t, int r) {
+		GlApi.TexCoord3xOES(s, t, r);
+	}
+
+	public static void TexCoord3xvOES(int* coords) {
+		GlApi.TexCoord3xvOES(coords);
+	}
+
+	public static void TexCoord4xOES(int s, int t, int r, int q) {
+		GlApi.TexCoord4xOES(s, t, r, q);
+	}
+
+	public static void TexCoord4xvOES(int* coords) {
+		GlApi.TexCoord4xvOES(coords);
+	}
+
+	public static void TexEnvxOES(uint target, uint pname, int param) {
+		GlApi.TexEnvxOES(target, pname, param);
+	}
+
+	public static void TexEnvxvOES(uint target, uint pname, int* parameters) {
+		GlApi.TexEnvxvOES(target, pname, parameters);
+	}
+
+	public static void TexGenxOES(uint coord, uint pname, int param) {
+		GlApi.TexGenxOES(coord, pname, param);
+	}
+
+	public static void TexGenxvOES(uint coord, uint pname, int* parameters) {
+		GlApi.TexGenxvOES(coord, pname, parameters);
+	}
+
+	public static void TexImage1D(uint target, int level, int internalformat, int width, int border, uint format, uint type, void* pixels) {
+		GlApi.TexImage1D(target, level, internalformat, width, border, format, type, pixels);
+	}
+
+	public static void TexImage2D(uint target, int level, int internalformat, int width, int height, int border, uint format, uint type, void* pixels) {
+		GlApi.TexImage2D(target, level, internalformat, width, height, border, format, type, pixels);
+	}
+
+	public static void TexImage2DMultisample(uint target, int samples, uint internalformat, int width, int height, byte fixedsamplelocations) {
+		GlApi.TexImage2DMultisample(target, samples, internalformat, width, height, fixedsamplelocations);
+	}
+
+	public static void TexImage3D(uint target, int level, int internalformat, int width, int height, int depth, int border, uint format, uint type, void* pixels) {
+		GlApi.TexImage3D(target, level, internalformat, width, height, depth, border, format, type, pixels);
+	}
+
+	public static void TexImage3DMultisample(uint target, int samples, uint internalformat, int width, int height, int depth, byte fixedsamplelocations) {
+		GlApi.TexImage3DMultisample(target, samples, internalformat, width, height, depth, fixedsamplelocations);
+	}
+
+	public static void TexParameterIiv(uint target, uint pname, int* parameters) {
+		GlApi.TexParameterIiv(target, pname, parameters);
+	}
+
+	public static void TexParameterIuiv(uint target, uint pname, uint* parameters) {
+		GlApi.TexParameterIuiv(target, pname, parameters);
+	}
+
+	public static void TexParameterf(uint target, uint pname, float param) {
+		GlApi.TexParameterf(target, pname, param);
+	}
+
+	public static void TexParameterfv(uint target, uint pname, float* parameters) {
+		GlApi.TexParameterfv(target, pname, parameters);
+	}
+
+	public static void TexParameteri(uint target, uint pname, int param) {
+		GlApi.TexParameteri(target, pname, param);
+	}
+
+	public static void TexParameteriv(uint target, uint pname, int* parameters) {
+		GlApi.TexParameteriv(target, pname, parameters);
+	}
+
+	public static void TexParameterxOES(uint target, uint pname, int param) {
+		GlApi.TexParameterxOES(target, pname, param);
+	}
+
+	public static void TexParameterxvOES(uint target, uint pname, int* parameters) {
+		GlApi.TexParameterxvOES(target, pname, parameters);
+	}
+
+	public static void TexStorage1D(uint target, int levels, uint internalformat, int width) {
+		GlApi.TexStorage1D(target, levels, internalformat, width);
+	}
+
+	public static void TexStorage2D(uint target, int levels, uint internalformat, int width, int height) {
+		GlApi.TexStorage2D(target, levels, internalformat, width, height);
+	}
+
+	public static void TexStorage2DMultisample(uint target, int samples, uint internalformat, int width, int height, byte fixedsamplelocations) {
+		GlApi.TexStorage2DMultisample(target, samples, internalformat, width, height, fixedsamplelocations);
+	}
+
+	public static void TexStorage3D(uint target, int levels, uint internalformat, int width, int height, int depth) {
+		GlApi.TexStorage3D(target, levels, internalformat, width, height, depth);
+	}
+
+	public static void TexStorage3DMultisample(uint target, int samples, uint internalformat, int width, int height, int depth, byte fixedsamplelocations) {
+		GlApi.TexStorage3DMultisample(target, samples, internalformat, width, height, depth, fixedsamplelocations);
+	}
+
+	public static void TexSubImage1D(uint target, int level, int xoffset, int width, uint format, uint type, void* pixels) {
+		GlApi.TexSubImage1D(target, level, xoffset, width, format, type, pixels);
+	}
+
+	public static void TexSubImage2D(uint target, int level, int xoffset, int yoffset, int width, int height, uint format, uint type, void* pixels) {
+		GlApi.TexSubImage2D(target, level, xoffset, yoffset, width, height, format, type, pixels);
+	}
+
+	public static void TexSubImage3D(uint target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, uint format, uint type, void* pixels) {
+		GlApi.TexSubImage3D(target, level, xoffset, yoffset, zoffset, width, height, depth, format, type, pixels);
+	}
+
+	public static void TextureBuffer(uint texture, uint internalformat, uint buffer) {
+		GlApi.TextureBuffer(texture, internalformat, buffer);
+	}
+
+	public static void TextureBufferRange(uint texture, uint internalformat, uint buffer, int* offset, nint size) {
+		GlApi.TextureBufferRange(texture, internalformat, buffer, offset, size);
+	}
+
+	public static void TextureParameterIiv(uint texture, uint pname, int* parameters) {
+		GlApi.TextureParameterIiv(texture, pname, parameters);
+	}
+
+	public static void TextureParameterIuiv(uint texture, uint pname, uint* parameters) {
+		GlApi.TextureParameterIuiv(texture, pname, parameters);
+	}
+
+	public static void TextureParameterf(uint texture, uint pname, float param) {
+		GlApi.TextureParameterf(texture, pname, param);
+	}
+
+	public static void TextureParameterfv(uint texture, uint pname, float* param) {
+		GlApi.TextureParameterfv(texture, pname, param);
+	}
+
+	public static void TextureParameteri(uint texture, uint pname, int param) {
+		GlApi.TextureParameteri(texture, pname, param);
+	}
+
+	public static void TextureParameteriv(uint texture, uint pname, int* param) {
+		GlApi.TextureParameteriv(texture, pname, param);
+	}
+
+	public static void TextureStorage1D(uint texture, int levels, uint internalformat, int width) {
+		GlApi.TextureStorage1D(texture, levels, internalformat, width);
+	}
+
+	public static void TextureStorage2D(uint texture, int levels, uint internalformat, int width, int height) {
+		GlApi.TextureStorage2D(texture, levels, internalformat, width, height);
+	}
+
+	public static void TextureStorage2DMultisample(uint texture, int samples, uint internalformat, int width, int height, byte fixedsamplelocations) {
+		GlApi.TextureStorage2DMultisample(texture, samples, internalformat, width, height, fixedsamplelocations);
+	}
+
+	public static void TextureStorage3D(uint texture, int levels, uint internalformat, int width, int height, int depth) {
+		GlApi.TextureStorage3D(texture, levels, internalformat, width, height, depth);
+	}
+
+	public static void TextureStorage3DMultisample(uint texture, int samples, uint internalformat, int width, int height, int depth, byte fixedsamplelocations) {
+		GlApi.TextureStorage3DMultisample(texture, samples, internalformat, width, height, depth, fixedsamplelocations);
+	}
+
+	public static void TextureSubImage1D(uint texture, int level, int xoffset, int width, uint format, uint type, void* pixels) {
+		GlApi.TextureSubImage1D(texture, level, xoffset, width, format, type, pixels);
+	}
+
+	public static void TextureSubImage2D(uint texture, int level, int xoffset, int yoffset, int width, int height, uint format, uint type, void* pixels) {
+		GlApi.TextureSubImage2D(texture, level, xoffset, yoffset, width, height, format, type, pixels);
+	}
+
+	public static void TextureSubImage3D(uint texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, uint format, uint type, void* pixels) {
+		GlApi.TextureSubImage3D(texture, level, xoffset, yoffset, zoffset, width, height, depth, format, type, pixels);
+	}
+
+	public static void TextureView(uint texture, uint target, uint origtexture, uint internalformat, uint minlevel, uint numlevels, uint minlayer, uint numlayers) {
+		GlApi.TextureView(texture, target, origtexture, internalformat, minlevel, numlevels, minlayer, numlayers);
+	}
+
+	public static void TransformFeedbackBufferBase(uint xfb, uint index, uint buffer) {
+		GlApi.TransformFeedbackBufferBase(xfb, index, buffer);
+	}
+
+	public static void TransformFeedbackBufferRange(uint xfb, uint index, uint buffer, int* offset, nint size) {
+		GlApi.TransformFeedbackBufferRange(xfb, index, buffer, offset, size);
+	}
+
+	public static void TransformFeedbackVaryings(uint program, int count, char** varyings, uint bufferMode) {
+		GlApi.TransformFeedbackVaryings(program, count, varyings, bufferMode);
+	}
+
+	public static void TranslatexOES(int x, int y, int z) {
+		GlApi.TranslatexOES(x, y, z);
+	}
+
+	public static void Uniform1d(int location, double x) {
+		GlApi.Uniform1d(location, x);
+	}
+
+	public static void Uniform1dv(int location, int count, double* value) {
+		GlApi.Uniform1dv(location, count, value);
+	}
+
+	public static void Uniform1f(int location, float v0) {
+		GlApi.Uniform1f(location, v0);
+	}
+
+	public static void Uniform1fARB(int location, float v0) {
+		GlApi.Uniform1fARB(location, v0);
+	}
+
+	public static void Uniform1fv(int location, int count, float* value) {
+		GlApi.Uniform1fv(location, count, value);
+	}
+
+	public static void Uniform1fvARB(int location, int count, float* value) {
+		GlApi.Uniform1fvARB(location, count, value);
+	}
+
+	public static void Uniform1i(int location, int v0) {
+		GlApi.Uniform1i(location, v0);
+	}
+
+	public static void Uniform1i64ARB(int location, nint x) {
+		GlApi.Uniform1i64ARB(location, x);
+	}
+
+	public static void Uniform1i64vARB(int location, int count, nint* value) {
+		GlApi.Uniform1i64vARB(location, count, value);
+	}
+
+	public static void Uniform1iARB(int location, int v0) {
+		GlApi.Uniform1iARB(location, v0);
+	}
+
+	public static void Uniform1iv(int location, int count, int* value) {
+		GlApi.Uniform1iv(location, count, value);
+	}
+
+	public static void Uniform1ivARB(int location, int count, int* value) {
+		GlApi.Uniform1ivARB(location, count, value);
+	}
+
+	public static void Uniform1ui(int location, uint v0) {
+		GlApi.Uniform1ui(location, v0);
+	}
+
+	public static void Uniform1ui64ARB(int location, nint x) {
+		GlApi.Uniform1ui64ARB(location, x);
+	}
+
+	public static void Uniform1ui64vARB(int location, int count, nint* value) {
+		GlApi.Uniform1ui64vARB(location, count, value);
+	}
+
+	public static void Uniform1uiv(int location, int count, uint* value) {
+		GlApi.Uniform1uiv(location, count, value);
+	}
+
+	public static void Uniform2d(int location, double x, double y) {
+		GlApi.Uniform2d(location, x, y);
+	}
+
+	public static void Uniform2dv(int location, int count, double* value) {
+		GlApi.Uniform2dv(location, count, value);
+	}
+
+	public static void Uniform2f(int location, float v0, float v1) {
+		GlApi.Uniform2f(location, v0, v1);
+	}
+
+	public static void Uniform2fARB(int location, float v0, float v1) {
+		GlApi.Uniform2fARB(location, v0, v1);
+	}
+
+	public static void Uniform2fv(int location, int count, float* value) {
+		GlApi.Uniform2fv(location, count, value);
+	}
+
+	public static void Uniform2fvARB(int location, int count, float* value) {
+		GlApi.Uniform2fvARB(location, count, value);
+	}
+
+	public static void Uniform2i(int location, int v0, int v1) {
+		GlApi.Uniform2i(location, v0, v1);
+	}
+
+	public static void Uniform2i64ARB(int location, nint x, nint y) {
+		GlApi.Uniform2i64ARB(location, x, y);
+	}
+
+	public static void Uniform2i64vARB(int location, int count, nint* value) {
+		GlApi.Uniform2i64vARB(location, count, value);
+	}
+
+	public static void Uniform2iARB(int location, int v0, int v1) {
+		GlApi.Uniform2iARB(location, v0, v1);
+	}
+
+	public static void Uniform2iv(int location, int count, int* value) {
+		GlApi.Uniform2iv(location, count, value);
+	}
+
+	public static void Uniform2ivARB(int location, int count, int* value) {
+		GlApi.Uniform2ivARB(location, count, value);
+	}
+
+	public static void Uniform2ui(int location, uint v0, uint v1) {
+		GlApi.Uniform2ui(location, v0, v1);
+	}
+
+	public static void Uniform2ui64ARB(int location, nint x, nint y) {
+		GlApi.Uniform2ui64ARB(location, x, y);
+	}
+
+	public static void Uniform2ui64vARB(int location, int count, nint* value) {
+		GlApi.Uniform2ui64vARB(location, count, value);
+	}
+
+	public static void Uniform2uiv(int location, int count, uint* value) {
+		GlApi.Uniform2uiv(location, count, value);
+	}
+
+	public static void Uniform3d(int location, double x, double y, double z) {
+		GlApi.Uniform3d(location, x, y, z);
+	}
+
+	public static void Uniform3dv(int location, int count, double* value) {
+		GlApi.Uniform3dv(location, count, value);
+	}
+
+	public static void Uniform3f(int location, float v0, float v1, float v2) {
+		GlApi.Uniform3f(location, v0, v1, v2);
+	}
+
+	public static void Uniform3fARB(int location, float v0, float v1, float v2) {
+		GlApi.Uniform3fARB(location, v0, v1, v2);
+	}
+
+	public static void Uniform3fv(int location, int count, float* value) {
+		GlApi.Uniform3fv(location, count, value);
+	}
+
+	public static void Uniform3fvARB(int location, int count, float* value) {
+		GlApi.Uniform3fvARB(location, count, value);
+	}
+
+	public static void Uniform3i(int location, int v0, int v1, int v2) {
+		GlApi.Uniform3i(location, v0, v1, v2);
+	}
+
+	public static void Uniform3i64ARB(int location, nint x, nint y, nint z) {
+		GlApi.Uniform3i64ARB(location, x, y, z);
+	}
+
+	public static void Uniform3i64vARB(int location, int count, nint* value) {
+		GlApi.Uniform3i64vARB(location, count, value);
+	}
+
+	public static void Uniform3iARB(int location, int v0, int v1, int v2) {
+		GlApi.Uniform3iARB(location, v0, v1, v2);
+	}
+
+	public static void Uniform3iv(int location, int count, int* value) {
+		GlApi.Uniform3iv(location, count, value);
+	}
+
+	public static void Uniform3ivARB(int location, int count, int* value) {
+		GlApi.Uniform3ivARB(location, count, value);
+	}
+
+	public static void Uniform3ui(int location, uint v0, uint v1, uint v2) {
+		GlApi.Uniform3ui(location, v0, v1, v2);
+	}
+
+	public static void Uniform3ui64ARB(int location, nint x, nint y, nint z) {
+		GlApi.Uniform3ui64ARB(location, x, y, z);
+	}
+
+	public static void Uniform3ui64vARB(int location, int count, nint* value) {
+		GlApi.Uniform3ui64vARB(location, count, value);
+	}
+
+	public static void Uniform3uiv(int location, int count, uint* value) {
+		GlApi.Uniform3uiv(location, count, value);
+	}
+
+	public static void Uniform4d(int location, double x, double y, double z, double w) {
+		GlApi.Uniform4d(location, x, y, z, w);
+	}
+
+	public static void Uniform4dv(int location, int count, double* value) {
+		GlApi.Uniform4dv(location, count, value);
+	}
+
+	public static void Uniform4f(int location, float v0, float v1, float v2, float v3) {
+		GlApi.Uniform4f(location, v0, v1, v2, v3);
+	}
+
+	public static void Uniform4fARB(int location, float v0, float v1, float v2, float v3) {
+		GlApi.Uniform4fARB(location, v0, v1, v2, v3);
+	}
+
+	public static void Uniform4fv(int location, int count, float* value) {
+		GlApi.Uniform4fv(location, count, value);
+	}
+
+	public static void Uniform4fvARB(int location, int count, float* value) {
+		GlApi.Uniform4fvARB(location, count, value);
+	}
+
+	public static void Uniform4i(int location, int v0, int v1, int v2, int v3) {
+		GlApi.Uniform4i(location, v0, v1, v2, v3);
+	}
+
+	public static void Uniform4i64ARB(int location, nint x, nint y, nint z, nint w) {
+		GlApi.Uniform4i64ARB(location, x, y, z, w);
+	}
+
+	public static void Uniform4i64vARB(int location, int count, nint* value) {
+		GlApi.Uniform4i64vARB(location, count, value);
+	}
+
+	public static void Uniform4iARB(int location, int v0, int v1, int v2, int v3) {
+		GlApi.Uniform4iARB(location, v0, v1, v2, v3);
+	}
+
+	public static void Uniform4iv(int location, int count, int* value) {
+		GlApi.Uniform4iv(location, count, value);
+	}
+
+	public static void Uniform4ivARB(int location, int count, int* value) {
+		GlApi.Uniform4ivARB(location, count, value);
+	}
+
+	public static void Uniform4ui(int location, uint v0, uint v1, uint v2, uint v3) {
+		GlApi.Uniform4ui(location, v0, v1, v2, v3);
+	}
+
+	public static void Uniform4ui64ARB(int location, nint x, nint y, nint z, nint w) {
+		GlApi.Uniform4ui64ARB(location, x, y, z, w);
+	}
+
+	public static void Uniform4ui64vARB(int location, int count, nint* value) {
+		GlApi.Uniform4ui64vARB(location, count, value);
+	}
+
+	public static void Uniform4uiv(int location, int count, uint* value) {
+		GlApi.Uniform4uiv(location, count, value);
+	}
+
+	public static void UniformBlockBinding(uint program, uint uniformBlockIndex, uint uniformBlockBinding) {
+		GlApi.UniformBlockBinding(program, uniformBlockIndex, uniformBlockBinding);
+	}
+
+	public static void UniformMatrix2dv(int location, int count, byte transpose, double* value) {
+		GlApi.UniformMatrix2dv(location, count, transpose, value);
+	}
+
+	public static void UniformMatrix2fv(int location, int count, byte transpose, float* value) {
+		GlApi.UniformMatrix2fv(location, count, transpose, value);
+	}
+
+	public static void UniformMatrix2fvARB(int location, int count, byte transpose, float* value) {
+		GlApi.UniformMatrix2fvARB(location, count, transpose, value);
+	}
+
+	public static void UniformMatrix2x3dv(int location, int count, byte transpose, double* value) {
+		GlApi.UniformMatrix2x3dv(location, count, transpose, value);
+	}
+
+	public static void UniformMatrix2x3fv(int location, int count, byte transpose, float* value) {
+		GlApi.UniformMatrix2x3fv(location, count, transpose, value);
+	}
+
+	public static void UniformMatrix2x4dv(int location, int count, byte transpose, double* value) {
+		GlApi.UniformMatrix2x4dv(location, count, transpose, value);
+	}
+
+	public static void UniformMatrix2x4fv(int location, int count, byte transpose, float* value) {
+		GlApi.UniformMatrix2x4fv(location, count, transpose, value);
+	}
+
+	public static void UniformMatrix3dv(int location, int count, byte transpose, double* value) {
+		GlApi.UniformMatrix3dv(location, count, transpose, value);
+	}
+
+	public static void UniformMatrix3fv(int location, int count, byte transpose, float* value) {
+		GlApi.UniformMatrix3fv(location, count, transpose, value);
+	}
+
+	public static void UniformMatrix3fvARB(int location, int count, byte transpose, float* value) {
+		GlApi.UniformMatrix3fvARB(location, count, transpose, value);
+	}
+
+	public static void UniformMatrix3x2dv(int location, int count, byte transpose, double* value) {
+		GlApi.UniformMatrix3x2dv(location, count, transpose, value);
+	}
+
+	public static void UniformMatrix3x2fv(int location, int count, byte transpose, float* value) {
+		GlApi.UniformMatrix3x2fv(location, count, transpose, value);
+	}
+
+	public static void UniformMatrix3x4dv(int location, int count, byte transpose, double* value) {
+		GlApi.UniformMatrix3x4dv(location, count, transpose, value);
+	}
+
+	public static void UniformMatrix3x4fv(int location, int count, byte transpose, float* value) {
+		GlApi.UniformMatrix3x4fv(location, count, transpose, value);
+	}
+
+	public static void UniformMatrix4dv(int location, int count, byte transpose, double* value) {
+		GlApi.UniformMatrix4dv(location, count, transpose, value);
+	}
+
+	public static void UniformMatrix4fv(int location, int count, byte transpose, float* value) {
+		GlApi.UniformMatrix4fv(location, count, transpose, value);
+	}
+
+	public static void UniformMatrix4fvARB(int location, int count, byte transpose, float* value) {
+		GlApi.UniformMatrix4fvARB(location, count, transpose, value);
+	}
+
+	public static void UniformMatrix4x2dv(int location, int count, byte transpose, double* value) {
+		GlApi.UniformMatrix4x2dv(location, count, transpose, value);
+	}
+
+	public static void UniformMatrix4x2fv(int location, int count, byte transpose, float* value) {
+		GlApi.UniformMatrix4x2fv(location, count, transpose, value);
+	}
+
+	public static void UniformMatrix4x3dv(int location, int count, byte transpose, double* value) {
+		GlApi.UniformMatrix4x3dv(location, count, transpose, value);
+	}
+
+	public static void UniformMatrix4x3fv(int location, int count, byte transpose, float* value) {
+		GlApi.UniformMatrix4x3fv(location, count, transpose, value);
+	}
+
+	public static void UniformSubroutinesuiv(uint shadertype, int count, uint* indices) {
+		GlApi.UniformSubroutinesuiv(shadertype, count, indices);
+	}
+
+	public static byte UnmapBuffer(uint target) {
+		return GlApi.UnmapBuffer(target);
+	}
+
+	public static byte UnmapBufferARB(uint target) {
+		return GlApi.UnmapBufferARB(target);
+	}
+
+	public static byte UnmapNamedBuffer(uint buffer) {
+		return GlApi.UnmapNamedBuffer(buffer);
+	}
+
+	public static void UseProgram(uint program) {
+		GlApi.UseProgram(program);
+	}
+
+	public static void UseProgramObjectARB(uint programObj) {
+		GlApi.UseProgramObjectARB(programObj);
+	}
+
+	public static void UseProgramStages(uint pipeline, uint stages, uint program) {
+		GlApi.UseProgramStages(pipeline, stages, program);
+	}
+
+	public static void ValidateProgram(uint program) {
+		GlApi.ValidateProgram(program);
+	}
+
+	public static void ValidateProgramARB(uint programObj) {
+		GlApi.ValidateProgramARB(programObj);
+	}
+
+	public static void ValidateProgramPipeline(uint pipeline) {
+		GlApi.ValidateProgramPipeline(pipeline);
+	}
+
+	public static void Vertex2xOES(int x) {
+		GlApi.Vertex2xOES(x);
+	}
+
+	public static void Vertex2xvOES(int* coords) {
+		GlApi.Vertex2xvOES(coords);
+	}
+
+	public static void Vertex3xOES(int x, int y) {
+		GlApi.Vertex3xOES(x, y);
+	}
+
+	public static void Vertex3xvOES(int* coords) {
+		GlApi.Vertex3xvOES(coords);
+	}
+
+	public static void Vertex4xOES(int x, int y, int z) {
+		GlApi.Vertex4xOES(x, y, z);
+	}
+
+	public static void Vertex4xvOES(int* coords) {
+		GlApi.Vertex4xvOES(coords);
+	}
+
+	public static void VertexArrayAttribBinding(uint vaobj, uint attribindex, uint bindingindex) {
+		GlApi.VertexArrayAttribBinding(vaobj, attribindex, bindingindex);
+	}
+
+	public static void VertexArrayAttribFormat(uint vaobj, uint attribindex, int size, uint type, byte normalized, uint relativeoffset) {
+		GlApi.VertexArrayAttribFormat(vaobj, attribindex, size, type, normalized, relativeoffset);
+	}
+
+	public static void VertexArrayAttribIFormat(uint vaobj, uint attribindex, int size, uint type, uint relativeoffset) {
+		GlApi.VertexArrayAttribIFormat(vaobj, attribindex, size, type, relativeoffset);
+	}
+
+	public static void VertexArrayAttribLFormat(uint vaobj, uint attribindex, int size, uint type, uint relativeoffset) {
+		GlApi.VertexArrayAttribLFormat(vaobj, attribindex, size, type, relativeoffset);
+	}
+
+	public static void VertexArrayBindingDivisor(uint vaobj, uint bindingindex, uint divisor) {
+		GlApi.VertexArrayBindingDivisor(vaobj, bindingindex, divisor);
+	}
+
+	public static void VertexArrayElementBuffer(uint vaobj, uint buffer) {
+		GlApi.VertexArrayElementBuffer(vaobj, buffer);
+	}
+
+	public static void VertexArrayVertexBuffer(uint vaobj, uint bindingindex, uint buffer, int* offset, int stride) {
+		GlApi.VertexArrayVertexBuffer(vaobj, bindingindex, buffer, offset, stride);
+	}
+
+	public static void VertexArrayVertexBuffers(uint vaobj, uint first, int count, uint* buffers, int** offsets, int* strides) {
+		GlApi.VertexArrayVertexBuffers(vaobj, first, count, buffers, offsets, strides);
+	}
+
+	public static void VertexAttrib1d(uint index, double x) {
+		GlApi.VertexAttrib1d(index, x);
+	}
+
+	public static void VertexAttrib1dARB(uint index, double x) {
+		GlApi.VertexAttrib1dARB(index, x);
+	}
+
+	public static void VertexAttrib1dv(uint index, double* v) {
+		GlApi.VertexAttrib1dv(index, v);
+	}
+
+	public static void VertexAttrib1dvARB(uint index, double* v) {
+		GlApi.VertexAttrib1dvARB(index, v);
+	}
+
+	public static void VertexAttrib1f(uint index, float x) {
+		GlApi.VertexAttrib1f(index, x);
+	}
+
+	public static void VertexAttrib1fARB(uint index, float x) {
+		GlApi.VertexAttrib1fARB(index, x);
+	}
+
+	public static void VertexAttrib1fv(uint index, float* v) {
+		GlApi.VertexAttrib1fv(index, v);
+	}
+
+	public static void VertexAttrib1fvARB(uint index, float* v) {
+		GlApi.VertexAttrib1fvARB(index, v);
+	}
+
+	public static void VertexAttrib1s(uint index, short x) {
+		GlApi.VertexAttrib1s(index, x);
+	}
+
+	public static void VertexAttrib1sARB(uint index, short x) {
+		GlApi.VertexAttrib1sARB(index, x);
+	}
+
+	public static void VertexAttrib1sv(uint index, short* v) {
+		GlApi.VertexAttrib1sv(index, v);
+	}
+
+	public static void VertexAttrib1svARB(uint index, short* v) {
+		GlApi.VertexAttrib1svARB(index, v);
+	}
+
+	public static void VertexAttrib2d(uint index, double x, double y) {
+		GlApi.VertexAttrib2d(index, x, y);
+	}
+
+	public static void VertexAttrib2dARB(uint index, double x, double y) {
+		GlApi.VertexAttrib2dARB(index, x, y);
+	}
+
+	public static void VertexAttrib2dv(uint index, double* v) {
+		GlApi.VertexAttrib2dv(index, v);
+	}
+
+	public static void VertexAttrib2dvARB(uint index, double* v) {
+		GlApi.VertexAttrib2dvARB(index, v);
+	}
+
+	public static void VertexAttrib2f(uint index, float x, float y) {
+		GlApi.VertexAttrib2f(index, x, y);
+	}
+
+	public static void VertexAttrib2fARB(uint index, float x, float y) {
+		GlApi.VertexAttrib2fARB(index, x, y);
+	}
+
+	public static void VertexAttrib2fv(uint index, float* v) {
+		GlApi.VertexAttrib2fv(index, v);
+	}
+
+	public static void VertexAttrib2fvARB(uint index, float* v) {
+		GlApi.VertexAttrib2fvARB(index, v);
+	}
+
+	public static void VertexAttrib2s(uint index, short x, short y) {
+		GlApi.VertexAttrib2s(index, x, y);
+	}
+
+	public static void VertexAttrib2sARB(uint index, short x, short y) {
+		GlApi.VertexAttrib2sARB(index, x, y);
+	}
+
+	public static void VertexAttrib2sv(uint index, short* v) {
+		GlApi.VertexAttrib2sv(index, v);
+	}
+
+	public static void VertexAttrib2svARB(uint index, short* v) {
+		GlApi.VertexAttrib2svARB(index, v);
+	}
+
+	public static void VertexAttrib3d(uint index, double x, double y, double z) {
+		GlApi.VertexAttrib3d(index, x, y, z);
+	}
+
+	public static void VertexAttrib3dARB(uint index, double x, double y, double z) {
+		GlApi.VertexAttrib3dARB(index, x, y, z);
+	}
+
+	public static void VertexAttrib3dv(uint index, double* v) {
+		GlApi.VertexAttrib3dv(index, v);
+	}
+
+	public static void VertexAttrib3dvARB(uint index, double* v) {
+		GlApi.VertexAttrib3dvARB(index, v);
+	}
+
+	public static void VertexAttrib3f(uint index, float x, float y, float z) {
+		GlApi.VertexAttrib3f(index, x, y, z);
+	}
+
+	public static void VertexAttrib3fARB(uint index, float x, float y, float z) {
+		GlApi.VertexAttrib3fARB(index, x, y, z);
+	}
+
+	public static void VertexAttrib3fv(uint index, float* v) {
+		GlApi.VertexAttrib3fv(index, v);
+	}
+
+	public static void VertexAttrib3fvARB(uint index, float* v) {
+		GlApi.VertexAttrib3fvARB(index, v);
+	}
+
+	public static void VertexAttrib3s(uint index, short x, short y, short z) {
+		GlApi.VertexAttrib3s(index, x, y, z);
+	}
+
+	public static void VertexAttrib3sARB(uint index, short x, short y, short z) {
+		GlApi.VertexAttrib3sARB(index, x, y, z);
+	}
+
+	public static void VertexAttrib3sv(uint index, short* v) {
+		GlApi.VertexAttrib3sv(index, v);
+	}
+
+	public static void VertexAttrib3svARB(uint index, short* v) {
+		GlApi.VertexAttrib3svARB(index, v);
+	}
+
+	public static void VertexAttrib4Nbv(uint index, sbyte* v) {
+		GlApi.VertexAttrib4Nbv(index, v);
+	}
+
+	public static void VertexAttrib4NbvARB(uint index, sbyte* v) {
+		GlApi.VertexAttrib4NbvARB(index, v);
+	}
+
+	public static void VertexAttrib4Niv(uint index, int* v) {
+		GlApi.VertexAttrib4Niv(index, v);
+	}
+
+	public static void VertexAttrib4NivARB(uint index, int* v) {
+		GlApi.VertexAttrib4NivARB(index, v);
+	}
+
+	public static void VertexAttrib4Nsv(uint index, short* v) {
+		GlApi.VertexAttrib4Nsv(index, v);
+	}
+
+	public static void VertexAttrib4NsvARB(uint index, short* v) {
+		GlApi.VertexAttrib4NsvARB(index, v);
+	}
+
+	public static void VertexAttrib4Nub(uint index, byte x, byte y, byte z, byte w) {
+		GlApi.VertexAttrib4Nub(index, x, y, z, w);
+	}
+
+	public static void VertexAttrib4NubARB(uint index, byte x, byte y, byte z, byte w) {
+		GlApi.VertexAttrib4NubARB(index, x, y, z, w);
+	}
+
+	public static void VertexAttrib4Nubv(uint index, byte* v) {
+		GlApi.VertexAttrib4Nubv(index, v);
+	}
+
+	public static void VertexAttrib4NubvARB(uint index, byte* v) {
+		GlApi.VertexAttrib4NubvARB(index, v);
+	}
+
+	public static void VertexAttrib4Nuiv(uint index, uint* v) {
+		GlApi.VertexAttrib4Nuiv(index, v);
+	}
+
+	public static void VertexAttrib4NuivARB(uint index, uint* v) {
+		GlApi.VertexAttrib4NuivARB(index, v);
+	}
+
+	public static void VertexAttrib4Nusv(uint index, ushort* v) {
+		GlApi.VertexAttrib4Nusv(index, v);
+	}
+
+	public static void VertexAttrib4NusvARB(uint index, ushort* v) {
+		GlApi.VertexAttrib4NusvARB(index, v);
+	}
+
+	public static void VertexAttrib4bv(uint index, sbyte* v) {
+		GlApi.VertexAttrib4bv(index, v);
+	}
+
+	public static void VertexAttrib4bvARB(uint index, sbyte* v) {
+		GlApi.VertexAttrib4bvARB(index, v);
+	}
+
+	public static void VertexAttrib4d(uint index, double x, double y, double z, double w) {
+		GlApi.VertexAttrib4d(index, x, y, z, w);
+	}
+
+	public static void VertexAttrib4dARB(uint index, double x, double y, double z, double w) {
+		GlApi.VertexAttrib4dARB(index, x, y, z, w);
+	}
+
+	public static void VertexAttrib4dv(uint index, double* v) {
+		GlApi.VertexAttrib4dv(index, v);
+	}
+
+	public static void VertexAttrib4dvARB(uint index, double* v) {
+		GlApi.VertexAttrib4dvARB(index, v);
+	}
+
+	public static void VertexAttrib4f(uint index, float x, float y, float z, float w) {
+		GlApi.VertexAttrib4f(index, x, y, z, w);
+	}
+
+	public static void VertexAttrib4fARB(uint index, float x, float y, float z, float w) {
+		GlApi.VertexAttrib4fARB(index, x, y, z, w);
+	}
+
+	public static void VertexAttrib4fv(uint index, float* v) {
+		GlApi.VertexAttrib4fv(index, v);
+	}
+
+	public static void VertexAttrib4fvARB(uint index, float* v) {
+		GlApi.VertexAttrib4fvARB(index, v);
+	}
+
+	public static void VertexAttrib4iv(uint index, int* v) {
+		GlApi.VertexAttrib4iv(index, v);
+	}
+
+	public static void VertexAttrib4ivARB(uint index, int* v) {
+		GlApi.VertexAttrib4ivARB(index, v);
+	}
+
+	public static void VertexAttrib4s(uint index, short x, short y, short z, short w) {
+		GlApi.VertexAttrib4s(index, x, y, z, w);
+	}
+
+	public static void VertexAttrib4sARB(uint index, short x, short y, short z, short w) {
+		GlApi.VertexAttrib4sARB(index, x, y, z, w);
+	}
+
+	public static void VertexAttrib4sv(uint index, short* v) {
+		GlApi.VertexAttrib4sv(index, v);
+	}
+
+	public static void VertexAttrib4svARB(uint index, short* v) {
+		GlApi.VertexAttrib4svARB(index, v);
+	}
+
+	public static void VertexAttrib4ubv(uint index, byte* v) {
+		GlApi.VertexAttrib4ubv(index, v);
+	}
+
+	public static void VertexAttrib4ubvARB(uint index, byte* v) {
+		GlApi.VertexAttrib4ubvARB(index, v);
+	}
+
+	public static void VertexAttrib4uiv(uint index, uint* v) {
+		GlApi.VertexAttrib4uiv(index, v);
+	}
+
+	public static void VertexAttrib4uivARB(uint index, uint* v) {
+		GlApi.VertexAttrib4uivARB(index, v);
+	}
+
+	public static void VertexAttrib4usv(uint index, ushort* v) {
+		GlApi.VertexAttrib4usv(index, v);
+	}
+
+	public static void VertexAttrib4usvARB(uint index, ushort* v) {
+		GlApi.VertexAttrib4usvARB(index, v);
+	}
+
+	public static void VertexAttribBinding(uint attribindex, uint bindingindex) {
+		GlApi.VertexAttribBinding(attribindex, bindingindex);
+	}
+
+	public static void VertexAttribDivisor(uint index, uint divisor) {
+		GlApi.VertexAttribDivisor(index, divisor);
+	}
+
+	public static void VertexAttribDivisorARB(uint index, uint divisor) {
+		GlApi.VertexAttribDivisorARB(index, divisor);
+	}
+
+	public static void VertexAttribFormat(uint attribindex, int size, uint type, byte normalized, uint relativeoffset) {
+		GlApi.VertexAttribFormat(attribindex, size, type, normalized, relativeoffset);
+	}
+
+	public static void VertexAttribI1i(uint index, int x) {
+		GlApi.VertexAttribI1i(index, x);
+	}
+
+	public static void VertexAttribI1iv(uint index, int* v) {
+		GlApi.VertexAttribI1iv(index, v);
+	}
+
+	public static void VertexAttribI1ui(uint index, uint x) {
+		GlApi.VertexAttribI1ui(index, x);
+	}
+
+	public static void VertexAttribI1uiv(uint index, uint* v) {
+		GlApi.VertexAttribI1uiv(index, v);
+	}
+
+	public static void VertexAttribI2i(uint index, int x, int y) {
+		GlApi.VertexAttribI2i(index, x, y);
+	}
+
+	public static void VertexAttribI2iv(uint index, int* v) {
+		GlApi.VertexAttribI2iv(index, v);
+	}
+
+	public static void VertexAttribI2ui(uint index, uint x, uint y) {
+		GlApi.VertexAttribI2ui(index, x, y);
+	}
+
+	public static void VertexAttribI2uiv(uint index, uint* v) {
+		GlApi.VertexAttribI2uiv(index, v);
+	}
+
+	public static void VertexAttribI3i(uint index, int x, int y, int z) {
+		GlApi.VertexAttribI3i(index, x, y, z);
+	}
+
+	public static void VertexAttribI3iv(uint index, int* v) {
+		GlApi.VertexAttribI3iv(index, v);
+	}
+
+	public static void VertexAttribI3ui(uint index, uint x, uint y, uint z) {
+		GlApi.VertexAttribI3ui(index, x, y, z);
+	}
+
+	public static void VertexAttribI3uiv(uint index, uint* v) {
+		GlApi.VertexAttribI3uiv(index, v);
+	}
+
+	public static void VertexAttribI4bv(uint index, sbyte* v) {
+		GlApi.VertexAttribI4bv(index, v);
+	}
+
+	public static void VertexAttribI4i(uint index, int x, int y, int z, int w) {
+		GlApi.VertexAttribI4i(index, x, y, z, w);
+	}
+
+	public static void VertexAttribI4iv(uint index, int* v) {
+		GlApi.VertexAttribI4iv(index, v);
+	}
+
+	public static void VertexAttribI4sv(uint index, short* v) {
+		GlApi.VertexAttribI4sv(index, v);
+	}
+
+	public static void VertexAttribI4ubv(uint index, byte* v) {
+		GlApi.VertexAttribI4ubv(index, v);
+	}
+
+	public static void VertexAttribI4ui(uint index, uint x, uint y, uint z, uint w) {
+		GlApi.VertexAttribI4ui(index, x, y, z, w);
+	}
+
+	public static void VertexAttribI4uiv(uint index, uint* v) {
+		GlApi.VertexAttribI4uiv(index, v);
+	}
+
+	public static void VertexAttribI4usv(uint index, ushort* v) {
+		GlApi.VertexAttribI4usv(index, v);
+	}
+
+	public static void VertexAttribIFormat(uint attribindex, int size, uint type, uint relativeoffset) {
+		GlApi.VertexAttribIFormat(attribindex, size, type, relativeoffset);
+	}
+
+	public static void VertexAttribIPointer(uint index, int size, uint type, int stride, void* pointer) {
+		GlApi.VertexAttribIPointer(index, size, type, stride, pointer);
+	}
+
+	public static void VertexAttribL1d(uint index, double x) {
+		GlApi.VertexAttribL1d(index, x);
+	}
+
+	public static void VertexAttribL1dv(uint index, double* v) {
+		GlApi.VertexAttribL1dv(index, v);
+	}
+
+	public static void VertexAttribL2d(uint index, double x, double y) {
+		GlApi.VertexAttribL2d(index, x, y);
+	}
+
+	public static void VertexAttribL2dv(uint index, double* v) {
+		GlApi.VertexAttribL2dv(index, v);
+	}
+
+	public static void VertexAttribL3d(uint index, double x, double y, double z) {
+		GlApi.VertexAttribL3d(index, x, y, z);
+	}
+
+	public static void VertexAttribL3dv(uint index, double* v) {
+		GlApi.VertexAttribL3dv(index, v);
+	}
+
+	public static void VertexAttribL4d(uint index, double x, double y, double z, double w) {
+		GlApi.VertexAttribL4d(index, x, y, z, w);
+	}
+
+	public static void VertexAttribL4dv(uint index, double* v) {
+		GlApi.VertexAttribL4dv(index, v);
+	}
+
+	public static void VertexAttribLFormat(uint attribindex, int size, uint type, uint relativeoffset) {
+		GlApi.VertexAttribLFormat(attribindex, size, type, relativeoffset);
+	}
+
+	public static void VertexAttribLPointer(uint index, int size, uint type, int stride, void* pointer) {
+		GlApi.VertexAttribLPointer(index, size, type, stride, pointer);
+	}
+
+	public static void VertexAttribP1ui(uint index, uint type, byte normalized, uint value) {
+		GlApi.VertexAttribP1ui(index, type, normalized, value);
+	}
+
+	public static void VertexAttribP1uiv(uint index, uint type, byte normalized, uint* value) {
+		GlApi.VertexAttribP1uiv(index, type, normalized, value);
+	}
+
+	public static void VertexAttribP2ui(uint index, uint type, byte normalized, uint value) {
+		GlApi.VertexAttribP2ui(index, type, normalized, value);
+	}
+
+	public static void VertexAttribP2uiv(uint index, uint type, byte normalized, uint* value) {
+		GlApi.VertexAttribP2uiv(index, type, normalized, value);
+	}
+
+	public static void VertexAttribP3ui(uint index, uint type, byte normalized, uint value) {
+		GlApi.VertexAttribP3ui(index, type, normalized, value);
+	}
+
+	public static void VertexAttribP3uiv(uint index, uint type, byte normalized, uint* value) {
+		GlApi.VertexAttribP3uiv(index, type, normalized, value);
+	}
+
+	public static void VertexAttribP4ui(uint index, uint type, byte normalized, uint value) {
+		GlApi.VertexAttribP4ui(index, type, normalized, value);
+	}
+
+	public static void VertexAttribP4uiv(uint index, uint type, byte normalized, uint* value) {
+		GlApi.VertexAttribP4uiv(index, type, normalized, value);
+	}
+
+	public static void VertexAttribPointer(uint index, int size, uint type, byte normalized, int stride, void* pointer) {
+		GlApi.VertexAttribPointer(index, size, type, normalized, stride, pointer);
+	}
+
+	public static void VertexAttribPointerARB(uint index, int size, uint type, byte normalized, int stride, void* pointer) {
+		GlApi.VertexAttribPointerARB(index, size, type, normalized, stride, pointer);
+	}
+
+	public static void VertexBindingDivisor(uint bindingindex, uint divisor) {
+		GlApi.VertexBindingDivisor(bindingindex, divisor);
+	}
+
+	public static void Viewport(int x, int y, int width, int height) {
+		GlApi.Viewport(x, y, width, height);
+	}
+
+	public static void ViewportArrayv(uint first, int count, float* v) {
+		GlApi.ViewportArrayv(first, count, v);
+	}
+
+	public static void ViewportIndexedf(uint index, float x, float y, float w, float h) {
+		GlApi.ViewportIndexedf(index, x, y, w, h);
+	}
+
+	public static void ViewportIndexedfv(uint index, float* v) {
+		GlApi.ViewportIndexedfv(index, v);
+	}
+
+	public static void WaitSync(GLSync sync, uint flags, nint timeout) {
+		GlApi.WaitSync(sync, flags, timeout);
+	}
 }

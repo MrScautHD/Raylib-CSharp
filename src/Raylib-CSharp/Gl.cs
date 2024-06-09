@@ -1877,13 +1877,13 @@ public static class Gl {
 
 	public static NativeGlContext Context { get; private set; }
 
-    /// <summary>
-    /// Initializes the Gl context.
-    /// </summary>
-    public static void Init() {
+	/// <summary>
+	/// The Gl class provides bindings for OpenGL functions.
+	/// <summary>
+	public static void Init() {
 		Context = new NativeGlContext();
 	}
-
+    
 	public static unsafe void AccumxOES(uint op, int value) {
 		((delegate* unmanaged<uint, int, void>) Context.GetProcAddress("glAccumxOES"))(op, value);
 	}
@@ -1952,16 +1952,16 @@ public static class Gl {
 		((delegate* unmanaged<uint, uint, uint, void>) Context.GetProcAddress("glBindBufferBase"))(target, index, buffer);
 	}
 
-	public static unsafe void BindBufferRange(uint target, uint index, uint buffer, int* offset, Int64 size) {
-		((delegate* unmanaged<uint, uint, uint, int*, Int64, void>) Context.GetProcAddress("glBindBufferRange"))(target, index, buffer, offset, size);
+	public static unsafe void BindBufferRange(uint target, uint index, uint buffer, int* offset, nint size) {
+		((delegate* unmanaged<uint, uint, uint, int*, nint, void>) Context.GetProcAddress("glBindBufferRange"))(target, index, buffer, offset, size);
 	}
 
 	public static unsafe void BindBuffersBase(uint target, uint first, int count, uint* buffers) {
 		((delegate* unmanaged<uint, uint, int, uint*, void>) Context.GetProcAddress("glBindBuffersBase"))(target, first, count, buffers);
 	}
 
-	public static unsafe void BindBuffersRange(uint target, uint first, int count, uint* buffers, int** offsets, Int64* sizes) {
-		((delegate* unmanaged<uint, uint, int, uint*, int**, Int64*, void>) Context.GetProcAddress("glBindBuffersRange"))(target, first, count, buffers, offsets, sizes);
+	public static unsafe void BindBuffersRange(uint target, uint first, int count, uint* buffers, int** offsets, nint* sizes) {
+		((delegate* unmanaged<uint, uint, int, uint*, int**, nint*, void>) Context.GetProcAddress("glBindBuffersRange"))(target, first, count, buffers, offsets, sizes);
 	}
 
 	public static unsafe void BindFragDataLocation(uint program, uint color, char* name) {
@@ -2112,24 +2112,24 @@ public static class Gl {
 		((delegate* unmanaged<uint, uint, int, int, int, int, int, int, int, int, uint, uint, void>) Context.GetProcAddress("glBlitNamedFramebuffer"))(readFramebuffer, drawFramebuffer, srcX0, srcY0, srcX1, srcY1, dstX0, dstY0, dstX1, dstY1, mask, filter);
 	}
 
-	public static unsafe void BufferData(uint target, Int64 size, void* data, uint usage) {
-		((delegate* unmanaged<uint, Int64, void*, uint, void>) Context.GetProcAddress("glBufferData"))(target, size, data, usage);
+	public static unsafe void BufferData(uint target, nint size, void* data, uint usage) {
+		((delegate* unmanaged<uint, nint, void*, uint, void>) Context.GetProcAddress("glBufferData"))(target, size, data, usage);
 	}
 
-	public static unsafe void BufferDataARB(uint target, Int64 size, void* data, uint usage) {
-		((delegate* unmanaged<uint, Int64, void*, uint, void>) Context.GetProcAddress("glBufferDataARB"))(target, size, data, usage);
+	public static unsafe void BufferDataARB(uint target, nint size, void* data, uint usage) {
+		((delegate* unmanaged<uint, nint, void*, uint, void>) Context.GetProcAddress("glBufferDataARB"))(target, size, data, usage);
 	}
 
-	public static unsafe void BufferStorage(uint target, Int64 size, void* data, uint flags) {
-		((delegate* unmanaged<uint, Int64, void*, uint, void>) Context.GetProcAddress("glBufferStorage"))(target, size, data, flags);
+	public static unsafe void BufferStorage(uint target, nint size, void* data, uint flags) {
+		((delegate* unmanaged<uint, nint, void*, uint, void>) Context.GetProcAddress("glBufferStorage"))(target, size, data, flags);
 	}
 
-	public static unsafe void BufferSubData(uint target, int* offset, Int64 size, void* data) {
-		((delegate* unmanaged<uint, int*, Int64, void*, void>) Context.GetProcAddress("glBufferSubData"))(target, offset, size, data);
+	public static unsafe void BufferSubData(uint target, int* offset, nint size, void* data) {
+		((delegate* unmanaged<uint, int*, nint, void*, void>) Context.GetProcAddress("glBufferSubData"))(target, offset, size, data);
 	}
 
-	public static unsafe void BufferSubDataARB(uint target, int* offset, Int64 size, void* data) {
-		((delegate* unmanaged<uint, int*, Int64, void*, void>) Context.GetProcAddress("glBufferSubDataARB"))(target, offset, size, data);
+	public static unsafe void BufferSubDataARB(uint target, int* offset, nint size, void* data) {
+		((delegate* unmanaged<uint, int*, nint, void*, void>) Context.GetProcAddress("glBufferSubDataARB"))(target, offset, size, data);
 	}
 
 	public static unsafe uint CheckFramebufferStatus(uint target) {
@@ -2164,8 +2164,8 @@ public static class Gl {
 		((delegate* unmanaged<uint, uint, uint, uint, void*, void>) Context.GetProcAddress("glClearBufferData"))(target, internalformat, format, type, data);
 	}
 
-	public static unsafe void ClearBufferSubData(uint target, uint internalformat, int* offset, Int64 size, uint format, uint type, void* data) {
-		((delegate* unmanaged<uint, uint, int*, Int64, uint, uint, void*, void>) Context.GetProcAddress("glClearBufferSubData"))(target, internalformat, offset, size, format, type, data);
+	public static unsafe void ClearBufferSubData(uint target, uint internalformat, int* offset, nint size, uint format, uint type, void* data) {
+		((delegate* unmanaged<uint, uint, int*, nint, uint, uint, void*, void>) Context.GetProcAddress("glClearBufferSubData"))(target, internalformat, offset, size, format, type, data);
 	}
 
 	public static unsafe void ClearBufferfi(uint buffer, int drawbuffer, float depth, int stencil) {
@@ -2208,8 +2208,8 @@ public static class Gl {
 		((delegate* unmanaged<uint, uint, uint, uint, void*, void>) Context.GetProcAddress("glClearNamedBufferData"))(buffer, internalformat, format, type, data);
 	}
 
-	public static unsafe void ClearNamedBufferSubData(uint buffer, uint internalformat, int* offset, Int64 size, uint format, uint type, void* data) {
-		((delegate* unmanaged<uint, uint, int*, Int64, uint, uint, void*, void>) Context.GetProcAddress("glClearNamedBufferSubData"))(buffer, internalformat, offset, size, format, type, data);
+	public static unsafe void ClearNamedBufferSubData(uint buffer, uint internalformat, int* offset, nint size, uint format, uint type, void* data) {
+		((delegate* unmanaged<uint, uint, int*, nint, uint, uint, void*, void>) Context.GetProcAddress("glClearNamedBufferSubData"))(buffer, internalformat, offset, size, format, type, data);
 	}
 
 	public static unsafe void ClearNamedFramebufferfi(uint framebuffer, uint buffer, int drawbuffer, float depth, int stencil) {
@@ -2244,8 +2244,8 @@ public static class Gl {
 		((delegate* unmanaged<uint, void>) Context.GetProcAddress("glClientActiveTextureARB"))(texture);
 	}
 
-	public static unsafe uint ClientWaitSync(GLSync sync, uint flags, UInt64 timeout) {
-		return ((delegate* unmanaged<GLSync, uint, UInt64, uint>) Context.GetProcAddress("glClientWaitSync"))(sync, flags, timeout);
+	public static unsafe uint ClientWaitSync(GLSync sync, uint flags, nint timeout) {
+		return ((delegate* unmanaged<GLSync, uint, nint, uint>) Context.GetProcAddress("glClientWaitSync"))(sync, flags, timeout);
 	}
 
 	public static unsafe void ClipPlanexOES(uint plane, int* equation) {
@@ -2356,16 +2356,16 @@ public static class Gl {
 		((delegate* unmanaged<uint, uint, int*, void>) Context.GetProcAddress("glConvolutionParameterxvOES"))(target, pname, parameters);
 	}
 
-	public static unsafe void CopyBufferSubData(uint readTarget, uint writeTarget, int* readOffset, int* writeOffset, Int64 size) {
-		((delegate* unmanaged<uint, uint, int*, int*, Int64, void>) Context.GetProcAddress("glCopyBufferSubData"))(readTarget, writeTarget, readOffset, writeOffset, size);
+	public static unsafe void CopyBufferSubData(uint readTarget, uint writeTarget, int* readOffset, int* writeOffset, nint size) {
+		((delegate* unmanaged<uint, uint, int*, int*, nint, void>) Context.GetProcAddress("glCopyBufferSubData"))(readTarget, writeTarget, readOffset, writeOffset, size);
 	}
 
 	public static unsafe void CopyImageSubData(uint srcName, uint srcTarget, int srcLevel, int srcX, int srcY, int srcZ, uint dstName, uint dstTarget, int dstLevel, int dstX, int dstY, int dstZ, int srcWidth, int srcHeight, int srcDepth) {
 		((delegate* unmanaged<uint, uint, int, int, int, int, uint, uint, int, int, int, int, int, int, int, void>) Context.GetProcAddress("glCopyImageSubData"))(srcName, srcTarget, srcLevel, srcX, srcY, srcZ, dstName, dstTarget, dstLevel, dstX, dstY, dstZ, srcWidth, srcHeight, srcDepth);
 	}
 
-	public static unsafe void CopyNamedBufferSubData(uint readBuffer, uint writeBuffer, int* readOffset, int* writeOffset, Int64 size) {
-		((delegate* unmanaged<uint, uint, int*, int*, Int64, void>) Context.GetProcAddress("glCopyNamedBufferSubData"))(readBuffer, writeBuffer, readOffset, writeOffset, size);
+	public static unsafe void CopyNamedBufferSubData(uint readBuffer, uint writeBuffer, int* readOffset, int* writeOffset, nint size) {
+		((delegate* unmanaged<uint, uint, int*, int*, nint, void>) Context.GetProcAddress("glCopyNamedBufferSubData"))(readBuffer, writeBuffer, readOffset, writeOffset, size);
 	}
 
 	public static unsafe void CopyTexImage1D(uint target, int level, uint internalformat, int x, int y, int width, int border) {
@@ -2409,11 +2409,11 @@ public static class Gl {
 	}
 
 	public static unsafe uint CreateProgram() {
-        return ((delegate* unmanaged<uint>) Context.GetProcAddress("glCreateProgram"))();
+	    return ((delegate* unmanaged<uint>) Context.GetProcAddress("glCreateProgram"))();
 	}
 
 	public static unsafe uint CreateProgramObjectARB() {
-        return ((delegate* unmanaged<uint>) Context.GetProcAddress("glCreateProgramObjectARB"))();
+	    return ((delegate* unmanaged<uint>) Context.GetProcAddress("glCreateProgramObjectARB"))();
 	}
 
 	public static unsafe void CreateProgramPipelines(int n, uint* pipelines) {
@@ -2800,12 +2800,12 @@ public static class Gl {
 	((delegate* unmanaged<void>) Context.GetProcAddress("glFlush"))();
 	}
 
-	public static unsafe void FlushMappedBufferRange(uint target, int* offset, Int64 length) {
-		((delegate* unmanaged<uint, int*, Int64, void>) Context.GetProcAddress("glFlushMappedBufferRange"))(target, offset, length);
+	public static unsafe void FlushMappedBufferRange(uint target, int* offset, nint length) {
+		((delegate* unmanaged<uint, int*, nint, void>) Context.GetProcAddress("glFlushMappedBufferRange"))(target, offset, length);
 	}
 
-	public static unsafe void FlushMappedNamedBufferRange(uint buffer, int* offset, Int64 length) {
-		((delegate* unmanaged<uint, int*, Int64, void>) Context.GetProcAddress("glFlushMappedNamedBufferRange"))(buffer, offset, length);
+	public static unsafe void FlushMappedNamedBufferRange(uint buffer, int* offset, nint length) {
+		((delegate* unmanaged<uint, int*, nint, void>) Context.GetProcAddress("glFlushMappedNamedBufferRange"))(buffer, offset, length);
 	}
 
 	public static unsafe void FogCoordPointerEXT(uint type, int stride, void* pointer) {
@@ -3044,8 +3044,8 @@ public static class Gl {
 		((delegate* unmanaged<uint, byte*, void>) Context.GetProcAddress("glGetBooleanv"))(pname, data);
 	}
 
-	public static unsafe void GetBufferParameteri64v(uint target, uint pname, Int64* parameters) {
-		((delegate* unmanaged<uint, uint, Int64*, void>) Context.GetProcAddress("glGetBufferParameteri64v"))(target, pname, parameters);
+	public static unsafe void GetBufferParameteri64v(uint target, uint pname, nint* parameters) {
+		((delegate* unmanaged<uint, uint, nint*, void>) Context.GetProcAddress("glGetBufferParameteri64v"))(target, pname, parameters);
 	}
 
 	public static unsafe void GetBufferParameteriv(uint target, uint pname, int* parameters) {
@@ -3064,12 +3064,12 @@ public static class Gl {
 		((delegate* unmanaged<uint, uint, void**, void>) Context.GetProcAddress("glGetBufferPointervARB"))(target, pname, parameters);
 	}
 
-	public static unsafe void GetBufferSubData(uint target, int* offset, Int64 size, void* data) {
-		((delegate* unmanaged<uint, int*, Int64, void*, void>) Context.GetProcAddress("glGetBufferSubData"))(target, offset, size, data);
+	public static unsafe void GetBufferSubData(uint target, int* offset, nint size, void* data) {
+		((delegate* unmanaged<uint, int*, nint, void*, void>) Context.GetProcAddress("glGetBufferSubData"))(target, offset, size, data);
 	}
 
-	public static unsafe void GetBufferSubDataARB(uint target, int* offset, Int64 size, void* data) {
-		((delegate* unmanaged<uint, int*, Int64, void*, void>) Context.GetProcAddress("glGetBufferSubDataARB"))(target, offset, size, data);
+	public static unsafe void GetBufferSubDataARB(uint target, int* offset, nint size, void* data) {
+		((delegate* unmanaged<uint, int*, nint, void*, void>) Context.GetProcAddress("glGetBufferSubDataARB"))(target, offset, size, data);
 	}
 
 	public static unsafe void GetClipPlanexOES(uint plane, int* equation) {
@@ -3160,12 +3160,12 @@ public static class Gl {
 		((delegate* unmanaged<uint, int, int*, char*, void>) Context.GetProcAddress("glGetInfoLogARB"))(obj, maxLength, length, infoLog);
 	}
 
-	public static unsafe void GetInteger64i_v(uint target, uint index, Int64* data) {
-		((delegate* unmanaged<uint, uint, Int64*, void>) Context.GetProcAddress("glGetInteger64i_v"))(target, index, data);
+	public static unsafe void GetInteger64i_v(uint target, uint index, nint* data) {
+		((delegate* unmanaged<uint, uint, nint*, void>) Context.GetProcAddress("glGetInteger64i_v"))(target, index, data);
 	}
 
-	public static unsafe void GetInteger64v(uint pname, Int64* data) {
-		((delegate* unmanaged<uint, Int64*, void>) Context.GetProcAddress("glGetInteger64v"))(pname, data);
+	public static unsafe void GetInteger64v(uint pname, nint* data) {
+		((delegate* unmanaged<uint, nint*, void>) Context.GetProcAddress("glGetInteger64v"))(pname, data);
 	}
 
 	public static unsafe void GetIntegeri_v(uint target, uint index, int* data) {
@@ -3176,8 +3176,8 @@ public static class Gl {
 		((delegate* unmanaged<uint, int*, void>) Context.GetProcAddress("glGetIntegerv"))(pname, data);
 	}
 
-	public static unsafe void GetInternalformati64v(uint target, uint internalformat, uint pname, int count, Int64* parameters) {
-		((delegate* unmanaged<uint, uint, uint, int, Int64*, void>) Context.GetProcAddress("glGetInternalformati64v"))(target, internalformat, pname, count, parameters);
+	public static unsafe void GetInternalformati64v(uint target, uint internalformat, uint pname, int count, nint* parameters) {
+		((delegate* unmanaged<uint, uint, uint, int, nint*, void>) Context.GetProcAddress("glGetInternalformati64v"))(target, internalformat, pname, count, parameters);
 	}
 
 	public static unsafe void GetInternalformativ(uint target, uint internalformat, uint pname, int count, int* parameters) {
@@ -3200,8 +3200,8 @@ public static class Gl {
 		((delegate* unmanaged<uint, uint, float*, void>) Context.GetProcAddress("glGetMultisamplefv"))(pname, index, val);
 	}
 
-	public static unsafe void GetNamedBufferParameteri64v(uint buffer, uint pname, Int64* parameters) {
-		((delegate* unmanaged<uint, uint, Int64*, void>) Context.GetProcAddress("glGetNamedBufferParameteri64v"))(buffer, pname, parameters);
+	public static unsafe void GetNamedBufferParameteri64v(uint buffer, uint pname, nint* parameters) {
+		((delegate* unmanaged<uint, uint, nint*, void>) Context.GetProcAddress("glGetNamedBufferParameteri64v"))(buffer, pname, parameters);
 	}
 
 	public static unsafe void GetNamedBufferParameteriv(uint buffer, uint pname, int* parameters) {
@@ -3212,8 +3212,8 @@ public static class Gl {
 		((delegate* unmanaged<uint, uint, void**, void>) Context.GetProcAddress("glGetNamedBufferPointerv"))(buffer, pname, parameters);
 	}
 
-	public static unsafe void GetNamedBufferSubData(uint buffer, int* offset, Int64 size, void* data) {
-		((delegate* unmanaged<uint, int*, Int64, void*, void>) Context.GetProcAddress("glGetNamedBufferSubData"))(buffer, offset, size, data);
+	public static unsafe void GetNamedBufferSubData(uint buffer, int* offset, nint size, void* data) {
+		((delegate* unmanaged<uint, int*, nint, void*, void>) Context.GetProcAddress("glGetNamedBufferSubData"))(buffer, offset, size, data);
 	}
 
 	public static unsafe void GetNamedFramebufferAttachmentParameteriv(uint framebuffer, uint attachment, uint pname, int* parameters) {
@@ -3352,8 +3352,8 @@ public static class Gl {
 		((delegate* unmanaged<uint, uint, uint, int*, void>) Context.GetProcAddress("glGetQueryIndexediv"))(target, index, pname, parameters);
 	}
 
-	public static unsafe void GetQueryObjecti64v(uint id, uint pname, Int64* parameters) {
-		((delegate* unmanaged<uint, uint, Int64*, void>) Context.GetProcAddress("glGetQueryObjecti64v"))(id, pname, parameters);
+	public static unsafe void GetQueryObjecti64v(uint id, uint pname, nint* parameters) {
+		((delegate* unmanaged<uint, uint, nint*, void>) Context.GetProcAddress("glGetQueryObjecti64v"))(id, pname, parameters);
 	}
 
 	public static unsafe void GetQueryObjectiv(uint id, uint pname, int* parameters) {
@@ -3364,8 +3364,8 @@ public static class Gl {
 		((delegate* unmanaged<uint, uint, int*, void>) Context.GetProcAddress("glGetQueryObjectivARB"))(id, pname, parameters);
 	}
 
-	public static unsafe void GetQueryObjectui64v(uint id, uint pname, UInt64* parameters) {
-		((delegate* unmanaged<uint, uint, UInt64*, void>) Context.GetProcAddress("glGetQueryObjectui64v"))(id, pname, parameters);
+	public static unsafe void GetQueryObjectui64v(uint id, uint pname, nint* parameters) {
+		((delegate* unmanaged<uint, uint, nint*, void>) Context.GetProcAddress("glGetQueryObjectui64v"))(id, pname, parameters);
 	}
 
 	public static unsafe void GetQueryObjectuiv(uint id, uint pname, uint* parameters) {
@@ -3528,8 +3528,8 @@ public static class Gl {
 		((delegate* unmanaged<uint, uint, int, int*, int*, uint*, char*, void>) Context.GetProcAddress("glGetTransformFeedbackVarying"))(program, index, bufSize, length, size, type, name);
 	}
 
-	public static unsafe void GetTransformFeedbacki64_v(uint xfb, uint pname, uint index, Int64* param) {
-		((delegate* unmanaged<uint, uint, uint, Int64*, void>) Context.GetProcAddress("glGetTransformFeedbacki64_v"))(xfb, pname, index, param);
+	public static unsafe void GetTransformFeedbacki64_v(uint xfb, uint pname, uint index, nint* param) {
+		((delegate* unmanaged<uint, uint, uint, nint*, void>) Context.GetProcAddress("glGetTransformFeedbacki64_v"))(xfb, pname, index, param);
 	}
 
 	public static unsafe void GetTransformFeedbacki_v(uint xfb, uint pname, uint index, int* param) {
@@ -3572,8 +3572,8 @@ public static class Gl {
 		((delegate* unmanaged<uint, int, float*, void>) Context.GetProcAddress("glGetUniformfvARB"))(programObj, location, parameters);
 	}
 
-	public static unsafe void GetUniformi64vARB(uint program, int location, Int64* parameters) {
-		((delegate* unmanaged<uint, int, Int64*, void>) Context.GetProcAddress("glGetUniformi64vARB"))(program, location, parameters);
+	public static unsafe void GetUniformi64vARB(uint program, int location, nint* parameters) {
+		((delegate* unmanaged<uint, int, nint*, void>) Context.GetProcAddress("glGetUniformi64vARB"))(program, location, parameters);
 	}
 
 	public static unsafe void GetUniformiv(uint program, int location, int* parameters) {
@@ -3584,16 +3584,16 @@ public static class Gl {
 		((delegate* unmanaged<uint, int, int*, void>) Context.GetProcAddress("glGetUniformivARB"))(programObj, location, parameters);
 	}
 
-	public static unsafe void GetUniformui64vARB(uint program, int location, UInt64* parameters) {
-		((delegate* unmanaged<uint, int, UInt64*, void>) Context.GetProcAddress("glGetUniformui64vARB"))(program, location, parameters);
+	public static unsafe void GetUniformui64vARB(uint program, int location, nint* parameters) {
+		((delegate* unmanaged<uint, int, nint*, void>) Context.GetProcAddress("glGetUniformui64vARB"))(program, location, parameters);
 	}
 
 	public static unsafe void GetUniformuiv(uint program, int location, uint* parameters) {
 		((delegate* unmanaged<uint, int, uint*, void>) Context.GetProcAddress("glGetUniformuiv"))(program, location, parameters);
 	}
 
-	public static unsafe void GetVertexArrayIndexed64iv(uint vaobj, uint index, uint pname, Int64* param) {
-		((delegate* unmanaged<uint, uint, uint, Int64*, void>) Context.GetProcAddress("glGetVertexArrayIndexed64iv"))(vaobj, index, pname, param);
+	public static unsafe void GetVertexArrayIndexed64iv(uint vaobj, uint index, uint pname, nint* param) {
+		((delegate* unmanaged<uint, uint, uint, nint*, void>) Context.GetProcAddress("glGetVertexArrayIndexed64iv"))(vaobj, index, pname, param);
 	}
 
 	public static unsafe void GetVertexArrayIndexediv(uint vaobj, uint index, uint pname, int* param) {
@@ -3648,12 +3648,12 @@ public static class Gl {
 		((delegate* unmanaged<uint, uint, int*, void>) Context.GetProcAddress("glGetVertexAttribivARB"))(index, pname, parameters);
 	}
 
-	public static unsafe void GetnUniformi64vARB(uint program, int location, int bufSize, Int64* parameters) {
-		((delegate* unmanaged<uint, int, int, Int64*, void>) Context.GetProcAddress("glGetnUniformi64vARB"))(program, location, bufSize, parameters);
+	public static unsafe void GetnUniformi64vARB(uint program, int location, int bufSize, nint* parameters) {
+		((delegate* unmanaged<uint, int, int, nint*, void>) Context.GetProcAddress("glGetnUniformi64vARB"))(program, location, bufSize, parameters);
 	}
 
-	public static unsafe void GetnUniformui64vARB(uint program, int location, int bufSize, UInt64* parameters) {
-		((delegate* unmanaged<uint, int, int, UInt64*, void>) Context.GetProcAddress("glGetnUniformui64vARB"))(program, location, bufSize, parameters);
+	public static unsafe void GetnUniformui64vARB(uint program, int location, int bufSize, nint* parameters) {
+		((delegate* unmanaged<uint, int, int, nint*, void>) Context.GetProcAddress("glGetnUniformui64vARB"))(program, location, bufSize, parameters);
 	}
 
 	public static unsafe void Hint(uint target, uint mode) {
@@ -3672,8 +3672,8 @@ public static class Gl {
 		((delegate* unmanaged<uint, void>) Context.GetProcAddress("glInvalidateBufferData"))(buffer);
 	}
 
-	public static unsafe void InvalidateBufferSubData(uint buffer, int* offset, Int64 length) {
-		((delegate* unmanaged<uint, int*, Int64, void>) Context.GetProcAddress("glInvalidateBufferSubData"))(buffer, offset, length);
+	public static unsafe void InvalidateBufferSubData(uint buffer, int* offset, nint length) {
+		((delegate* unmanaged<uint, int*, nint, void>) Context.GetProcAddress("glInvalidateBufferSubData"))(buffer, offset, length);
 	}
 
 	public static unsafe void InvalidateFramebuffer(uint target, int numAttachments, uint* attachments) {
@@ -3848,8 +3848,8 @@ public static class Gl {
 		return ((delegate* unmanaged<uint, uint, void*>) Context.GetProcAddress("glMapBufferARB"))(target, access);
 	}
 
-	public static unsafe void* MapBufferRange(uint target, int* offset, Int64 length, uint access) {
-		return ((delegate* unmanaged<uint, int*, Int64, uint, void*>) Context.GetProcAddress("glMapBufferRange"))(target, offset, length, access);
+	public static unsafe void* MapBufferRange(uint target, int* offset, nint length, uint access) {
+		return ((delegate* unmanaged<uint, int*, nint, uint, void*>) Context.GetProcAddress("glMapBufferRange"))(target, offset, length, access);
 	}
 
 	public static unsafe void MapGrid1xOES(int n, int u1, int u2) {
@@ -3864,8 +3864,8 @@ public static class Gl {
 		return ((delegate* unmanaged<uint, uint, void*>) Context.GetProcAddress("glMapNamedBuffer"))(buffer, access);
 	}
 
-	public static unsafe void* MapNamedBufferRange(uint buffer, int* offset, Int64 length, uint access) {
-		return ((delegate* unmanaged<uint, int*, Int64, uint, void*>) Context.GetProcAddress("glMapNamedBufferRange"))(buffer, offset, length, access);
+	public static unsafe void* MapNamedBufferRange(uint buffer, int* offset, nint length, uint access) {
+		return ((delegate* unmanaged<uint, int*, nint, uint, void*>) Context.GetProcAddress("glMapNamedBufferRange"))(buffer, offset, length, access);
 	}
 
 	public static unsafe void MaterialxOES(uint face, uint pname, int param) {
@@ -3952,12 +3952,12 @@ public static class Gl {
 		((delegate* unmanaged<uint, int*, void>) Context.GetProcAddress("glMultiTexCoord1ivARB"))(target, v);
 	}
 
-	public static unsafe void MultiTexCoord1sARB(uint target, Int16 s) {
-		((delegate* unmanaged<uint, Int16, void>) Context.GetProcAddress("glMultiTexCoord1sARB"))(target, s);
+	public static unsafe void MultiTexCoord1sARB(uint target, short s) {
+		((delegate* unmanaged<uint, short, void>) Context.GetProcAddress("glMultiTexCoord1sARB"))(target, s);
 	}
 
-	public static unsafe void MultiTexCoord1svARB(uint target, Int16* v) {
-		((delegate* unmanaged<uint, Int16*, void>) Context.GetProcAddress("glMultiTexCoord1svARB"))(target, v);
+	public static unsafe void MultiTexCoord1svARB(uint target, short* v) {
+		((delegate* unmanaged<uint, short*, void>) Context.GetProcAddress("glMultiTexCoord1svARB"))(target, v);
 	}
 
 	public static unsafe void MultiTexCoord1xOES(uint texture, int s) {
@@ -3992,12 +3992,12 @@ public static class Gl {
 		((delegate* unmanaged<uint, int*, void>) Context.GetProcAddress("glMultiTexCoord2ivARB"))(target, v);
 	}
 
-	public static unsafe void MultiTexCoord2sARB(uint target, Int16 s, Int16 t) {
-		((delegate* unmanaged<uint, Int16, Int16, void>) Context.GetProcAddress("glMultiTexCoord2sARB"))(target, s, t);
+	public static unsafe void MultiTexCoord2sARB(uint target, short s, short t) {
+		((delegate* unmanaged<uint, short, short, void>) Context.GetProcAddress("glMultiTexCoord2sARB"))(target, s, t);
 	}
 
-	public static unsafe void MultiTexCoord2svARB(uint target, Int16* v) {
-		((delegate* unmanaged<uint, Int16*, void>) Context.GetProcAddress("glMultiTexCoord2svARB"))(target, v);
+	public static unsafe void MultiTexCoord2svARB(uint target, short* v) {
+		((delegate* unmanaged<uint, short*, void>) Context.GetProcAddress("glMultiTexCoord2svARB"))(target, v);
 	}
 
 	public static unsafe void MultiTexCoord2xOES(uint texture, int s, int t) {
@@ -4032,12 +4032,12 @@ public static class Gl {
 		((delegate* unmanaged<uint, int*, void>) Context.GetProcAddress("glMultiTexCoord3ivARB"))(target, v);
 	}
 
-	public static unsafe void MultiTexCoord3sARB(uint target, Int16 s, Int16 t, Int16 r) {
-		((delegate* unmanaged<uint, Int16, Int16, Int16, void>) Context.GetProcAddress("glMultiTexCoord3sARB"))(target, s, t, r);
+	public static unsafe void MultiTexCoord3sARB(uint target, short s, short t, short r) {
+		((delegate* unmanaged<uint, short, short, short, void>) Context.GetProcAddress("glMultiTexCoord3sARB"))(target, s, t, r);
 	}
 
-	public static unsafe void MultiTexCoord3svARB(uint target, Int16* v) {
-		((delegate* unmanaged<uint, Int16*, void>) Context.GetProcAddress("glMultiTexCoord3svARB"))(target, v);
+	public static unsafe void MultiTexCoord3svARB(uint target, short* v) {
+		((delegate* unmanaged<uint, short*, void>) Context.GetProcAddress("glMultiTexCoord3svARB"))(target, v);
 	}
 
 	public static unsafe void MultiTexCoord3xOES(uint texture, int s, int t, int r) {
@@ -4072,12 +4072,12 @@ public static class Gl {
 		((delegate* unmanaged<uint, int*, void>) Context.GetProcAddress("glMultiTexCoord4ivARB"))(target, v);
 	}
 
-	public static unsafe void MultiTexCoord4sARB(uint target, Int16 s, Int16 t, Int16 r, Int16 q) {
-		((delegate* unmanaged<uint, Int16, Int16, Int16, Int16, void>) Context.GetProcAddress("glMultiTexCoord4sARB"))(target, s, t, r, q);
+	public static unsafe void MultiTexCoord4sARB(uint target, short s, short t, short r, short q) {
+		((delegate* unmanaged<uint, short, short, short, short, void>) Context.GetProcAddress("glMultiTexCoord4sARB"))(target, s, t, r, q);
 	}
 
-	public static unsafe void MultiTexCoord4svARB(uint target, Int16* v) {
-		((delegate* unmanaged<uint, Int16*, void>) Context.GetProcAddress("glMultiTexCoord4svARB"))(target, v);
+	public static unsafe void MultiTexCoord4svARB(uint target, short* v) {
+		((delegate* unmanaged<uint, short*, void>) Context.GetProcAddress("glMultiTexCoord4svARB"))(target, v);
 	}
 
 	public static unsafe void MultiTexCoord4xOES(uint texture, int s, int t, int r, int q) {
@@ -4088,16 +4088,16 @@ public static class Gl {
 		((delegate* unmanaged<uint, int*, void>) Context.GetProcAddress("glMultiTexCoord4xvOES"))(texture, coords);
 	}
 
-	public static unsafe void NamedBufferData(uint buffer, Int64 size, void* data, uint usage) {
-		((delegate* unmanaged<uint, Int64, void*, uint, void>) Context.GetProcAddress("glNamedBufferData"))(buffer, size, data, usage);
+	public static unsafe void NamedBufferData(uint buffer, nint size, void* data, uint usage) {
+		((delegate* unmanaged<uint, nint, void*, uint, void>) Context.GetProcAddress("glNamedBufferData"))(buffer, size, data, usage);
 	}
 
-	public static unsafe void NamedBufferStorage(uint buffer, Int64 size, void* data, uint flags) {
-		((delegate* unmanaged<uint, Int64, void*, uint, void>) Context.GetProcAddress("glNamedBufferStorage"))(buffer, size, data, flags);
+	public static unsafe void NamedBufferStorage(uint buffer, nint size, void* data, uint flags) {
+		((delegate* unmanaged<uint, nint, void*, uint, void>) Context.GetProcAddress("glNamedBufferStorage"))(buffer, size, data, flags);
 	}
 
-	public static unsafe void NamedBufferSubData(uint buffer, int* offset, Int64 size, void* data) {
-		((delegate* unmanaged<uint, int*, Int64, void*, void>) Context.GetProcAddress("glNamedBufferSubData"))(buffer, offset, size, data);
+	public static unsafe void NamedBufferSubData(uint buffer, int* offset, nint size, void* data) {
+		((delegate* unmanaged<uint, int*, nint, void*, void>) Context.GetProcAddress("glNamedBufferSubData"))(buffer, offset, size, data);
 	}
 
 	public static unsafe void NamedFramebufferDrawBuffer(uint framebuffer, uint buf) {
@@ -4328,12 +4328,12 @@ public static class Gl {
 		((delegate* unmanaged<uint, int, int, void>) Context.GetProcAddress("glProgramUniform1i"))(program, location, v0);
 	}
 
-	public static unsafe void ProgramUniform1i64ARB(uint program, int location, Int64 x) {
-		((delegate* unmanaged<uint, int, Int64, void>) Context.GetProcAddress("glProgramUniform1i64ARB"))(program, location, x);
+	public static unsafe void ProgramUniform1i64ARB(uint program, int location, nint x) {
+		((delegate* unmanaged<uint, int, nint, void>) Context.GetProcAddress("glProgramUniform1i64ARB"))(program, location, x);
 	}
 
-	public static unsafe void ProgramUniform1i64vARB(uint program, int location, int count, Int64* value) {
-		((delegate* unmanaged<uint, int, int, Int64*, void>) Context.GetProcAddress("glProgramUniform1i64vARB"))(program, location, count, value);
+	public static unsafe void ProgramUniform1i64vARB(uint program, int location, int count, nint* value) {
+		((delegate* unmanaged<uint, int, int, nint*, void>) Context.GetProcAddress("glProgramUniform1i64vARB"))(program, location, count, value);
 	}
 
 	public static unsafe void ProgramUniform1iv(uint program, int location, int count, int* value) {
@@ -4344,12 +4344,12 @@ public static class Gl {
 		((delegate* unmanaged<uint, int, uint, void>) Context.GetProcAddress("glProgramUniform1ui"))(program, location, v0);
 	}
 
-	public static unsafe void ProgramUniform1ui64ARB(uint program, int location, UInt64 x) {
-		((delegate* unmanaged<uint, int, UInt64, void>) Context.GetProcAddress("glProgramUniform1ui64ARB"))(program, location, x);
+	public static unsafe void ProgramUniform1ui64ARB(uint program, int location, nint x) {
+		((delegate* unmanaged<uint, int, nint, void>) Context.GetProcAddress("glProgramUniform1ui64ARB"))(program, location, x);
 	}
 
-	public static unsafe void ProgramUniform1ui64vARB(uint program, int location, int count, UInt64* value) {
-		((delegate* unmanaged<uint, int, int, UInt64*, void>) Context.GetProcAddress("glProgramUniform1ui64vARB"))(program, location, count, value);
+	public static unsafe void ProgramUniform1ui64vARB(uint program, int location, int count, nint* value) {
+		((delegate* unmanaged<uint, int, int, nint*, void>) Context.GetProcAddress("glProgramUniform1ui64vARB"))(program, location, count, value);
 	}
 
 	public static unsafe void ProgramUniform1uiv(uint program, int location, int count, uint* value) {
@@ -4376,12 +4376,12 @@ public static class Gl {
 		((delegate* unmanaged<uint, int, int, int, void>) Context.GetProcAddress("glProgramUniform2i"))(program, location, v0, v1);
 	}
 
-	public static unsafe void ProgramUniform2i64ARB(uint program, int location, Int64 x, Int64 y) {
-		((delegate* unmanaged<uint, int, Int64, Int64, void>) Context.GetProcAddress("glProgramUniform2i64ARB"))(program, location, x, y);
+	public static unsafe void ProgramUniform2i64ARB(uint program, int location, nint x, nint y) {
+		((delegate* unmanaged<uint, int, nint, nint, void>) Context.GetProcAddress("glProgramUniform2i64ARB"))(program, location, x, y);
 	}
 
-	public static unsafe void ProgramUniform2i64vARB(uint program, int location, int count, Int64* value) {
-		((delegate* unmanaged<uint, int, int, Int64*, void>) Context.GetProcAddress("glProgramUniform2i64vARB"))(program, location, count, value);
+	public static unsafe void ProgramUniform2i64vARB(uint program, int location, int count, nint* value) {
+		((delegate* unmanaged<uint, int, int, nint*, void>) Context.GetProcAddress("glProgramUniform2i64vARB"))(program, location, count, value);
 	}
 
 	public static unsafe void ProgramUniform2iv(uint program, int location, int count, int* value) {
@@ -4392,12 +4392,12 @@ public static class Gl {
 		((delegate* unmanaged<uint, int, uint, uint, void>) Context.GetProcAddress("glProgramUniform2ui"))(program, location, v0, v1);
 	}
 
-	public static unsafe void ProgramUniform2ui64ARB(uint program, int location, UInt64 x, UInt64 y) {
-		((delegate* unmanaged<uint, int, UInt64, UInt64, void>) Context.GetProcAddress("glProgramUniform2ui64ARB"))(program, location, x, y);
+	public static unsafe void ProgramUniform2ui64ARB(uint program, int location, nint x, nint y) {
+		((delegate* unmanaged<uint, int, nint, nint, void>) Context.GetProcAddress("glProgramUniform2ui64ARB"))(program, location, x, y);
 	}
 
-	public static unsafe void ProgramUniform2ui64vARB(uint program, int location, int count, UInt64* value) {
-		((delegate* unmanaged<uint, int, int, UInt64*, void>) Context.GetProcAddress("glProgramUniform2ui64vARB"))(program, location, count, value);
+	public static unsafe void ProgramUniform2ui64vARB(uint program, int location, int count, nint* value) {
+		((delegate* unmanaged<uint, int, int, nint*, void>) Context.GetProcAddress("glProgramUniform2ui64vARB"))(program, location, count, value);
 	}
 
 	public static unsafe void ProgramUniform2uiv(uint program, int location, int count, uint* value) {
@@ -4424,12 +4424,12 @@ public static class Gl {
 		((delegate* unmanaged<uint, int, int, int, int, void>) Context.GetProcAddress("glProgramUniform3i"))(program, location, v0, v1, v2);
 	}
 
-	public static unsafe void ProgramUniform3i64ARB(uint program, int location, Int64 x, Int64 y, Int64 z) {
-		((delegate* unmanaged<uint, int, Int64, Int64, Int64, void>) Context.GetProcAddress("glProgramUniform3i64ARB"))(program, location, x, y, z);
+	public static unsafe void ProgramUniform3i64ARB(uint program, int location, nint x, nint y, nint z) {
+		((delegate* unmanaged<uint, int, nint, nint, nint, void>) Context.GetProcAddress("glProgramUniform3i64ARB"))(program, location, x, y, z);
 	}
 
-	public static unsafe void ProgramUniform3i64vARB(uint program, int location, int count, Int64* value) {
-		((delegate* unmanaged<uint, int, int, Int64*, void>) Context.GetProcAddress("glProgramUniform3i64vARB"))(program, location, count, value);
+	public static unsafe void ProgramUniform3i64vARB(uint program, int location, int count, nint* value) {
+		((delegate* unmanaged<uint, int, int, nint*, void>) Context.GetProcAddress("glProgramUniform3i64vARB"))(program, location, count, value);
 	}
 
 	public static unsafe void ProgramUniform3iv(uint program, int location, int count, int* value) {
@@ -4440,12 +4440,12 @@ public static class Gl {
 		((delegate* unmanaged<uint, int, uint, uint, uint, void>) Context.GetProcAddress("glProgramUniform3ui"))(program, location, v0, v1, v2);
 	}
 
-	public static unsafe void ProgramUniform3ui64ARB(uint program, int location, UInt64 x, UInt64 y, UInt64 z) {
-		((delegate* unmanaged<uint, int, UInt64, UInt64, UInt64, void>) Context.GetProcAddress("glProgramUniform3ui64ARB"))(program, location, x, y, z);
+	public static unsafe void ProgramUniform3ui64ARB(uint program, int location, nint x, nint y, nint z) {
+		((delegate* unmanaged<uint, int, nint, nint, nint, void>) Context.GetProcAddress("glProgramUniform3ui64ARB"))(program, location, x, y, z);
 	}
 
-	public static unsafe void ProgramUniform3ui64vARB(uint program, int location, int count, UInt64* value) {
-		((delegate* unmanaged<uint, int, int, UInt64*, void>) Context.GetProcAddress("glProgramUniform3ui64vARB"))(program, location, count, value);
+	public static unsafe void ProgramUniform3ui64vARB(uint program, int location, int count, nint* value) {
+		((delegate* unmanaged<uint, int, int, nint*, void>) Context.GetProcAddress("glProgramUniform3ui64vARB"))(program, location, count, value);
 	}
 
 	public static unsafe void ProgramUniform3uiv(uint program, int location, int count, uint* value) {
@@ -4472,12 +4472,12 @@ public static class Gl {
 		((delegate* unmanaged<uint, int, int, int, int, int, void>) Context.GetProcAddress("glProgramUniform4i"))(program, location, v0, v1, v2, v3);
 	}
 
-	public static unsafe void ProgramUniform4i64ARB(uint program, int location, Int64 x, Int64 y, Int64 z, Int64 w) {
-		((delegate* unmanaged<uint, int, Int64, Int64, Int64, Int64, void>) Context.GetProcAddress("glProgramUniform4i64ARB"))(program, location, x, y, z, w);
+	public static unsafe void ProgramUniform4i64ARB(uint program, int location, nint x, nint y, nint z, nint w) {
+		((delegate* unmanaged<uint, int, nint, nint, nint, nint, void>) Context.GetProcAddress("glProgramUniform4i64ARB"))(program, location, x, y, z, w);
 	}
 
-	public static unsafe void ProgramUniform4i64vARB(uint program, int location, int count, Int64* value) {
-		((delegate* unmanaged<uint, int, int, Int64*, void>) Context.GetProcAddress("glProgramUniform4i64vARB"))(program, location, count, value);
+	public static unsafe void ProgramUniform4i64vARB(uint program, int location, int count, nint* value) {
+		((delegate* unmanaged<uint, int, int, nint*, void>) Context.GetProcAddress("glProgramUniform4i64vARB"))(program, location, count, value);
 	}
 
 	public static unsafe void ProgramUniform4iv(uint program, int location, int count, int* value) {
@@ -4488,12 +4488,12 @@ public static class Gl {
 		((delegate* unmanaged<uint, int, uint, uint, uint, uint, void>) Context.GetProcAddress("glProgramUniform4ui"))(program, location, v0, v1, v2, v3);
 	}
 
-	public static unsafe void ProgramUniform4ui64ARB(uint program, int location, UInt64 x, UInt64 y, UInt64 z, UInt64 w) {
-		((delegate* unmanaged<uint, int, UInt64, UInt64, UInt64, UInt64, void>) Context.GetProcAddress("glProgramUniform4ui64ARB"))(program, location, x, y, z, w);
+	public static unsafe void ProgramUniform4ui64ARB(uint program, int location, nint x, nint y, nint z, nint w) {
+		((delegate* unmanaged<uint, int, nint, nint, nint, nint, void>) Context.GetProcAddress("glProgramUniform4ui64ARB"))(program, location, x, y, z, w);
 	}
 
-	public static unsafe void ProgramUniform4ui64vARB(uint program, int location, int count, UInt64* value) {
-		((delegate* unmanaged<uint, int, int, UInt64*, void>) Context.GetProcAddress("glProgramUniform4ui64vARB"))(program, location, count, value);
+	public static unsafe void ProgramUniform4ui64vARB(uint program, int location, int count, nint* value) {
+		((delegate* unmanaged<uint, int, int, nint*, void>) Context.GetProcAddress("glProgramUniform4ui64vARB"))(program, location, count, value);
 	}
 
 	public static unsafe void ProgramUniform4uiv(uint program, int location, int count, uint* value) {
@@ -4756,8 +4756,8 @@ public static class Gl {
 		((delegate* unmanaged<uint, uint, uint, void>) Context.GetProcAddress("glTexBuffer"))(target, internalformat, buffer);
 	}
 
-	public static unsafe void TexBufferRange(uint target, uint internalformat, uint buffer, int* offset, Int64 size) {
-		((delegate* unmanaged<uint, uint, uint, int*, Int64, void>) Context.GetProcAddress("glTexBufferRange"))(target, internalformat, buffer, offset, size);
+	public static unsafe void TexBufferRange(uint target, uint internalformat, uint buffer, int* offset, nint size) {
+		((delegate* unmanaged<uint, uint, uint, int*, nint, void>) Context.GetProcAddress("glTexBufferRange"))(target, internalformat, buffer, offset, size);
 	}
 
 	public static unsafe void TexCoord1xOES(int s) {
@@ -4896,8 +4896,8 @@ public static class Gl {
 		((delegate* unmanaged<uint, uint, uint, void>) Context.GetProcAddress("glTextureBuffer"))(texture, internalformat, buffer);
 	}
 
-	public static unsafe void TextureBufferRange(uint texture, uint internalformat, uint buffer, int* offset, Int64 size) {
-		((delegate* unmanaged<uint, uint, uint, int*, Int64, void>) Context.GetProcAddress("glTextureBufferRange"))(texture, internalformat, buffer, offset, size);
+	public static unsafe void TextureBufferRange(uint texture, uint internalformat, uint buffer, int* offset, nint size) {
+		((delegate* unmanaged<uint, uint, uint, int*, nint, void>) Context.GetProcAddress("glTextureBufferRange"))(texture, internalformat, buffer, offset, size);
 	}
 
 	public static unsafe void TextureParameterIiv(uint texture, uint pname, int* parameters) {
@@ -4964,8 +4964,8 @@ public static class Gl {
 		((delegate* unmanaged<uint, uint, uint, void>) Context.GetProcAddress("glTransformFeedbackBufferBase"))(xfb, index, buffer);
 	}
 
-	public static unsafe void TransformFeedbackBufferRange(uint xfb, uint index, uint buffer, int* offset, Int64 size) {
-		((delegate* unmanaged<uint, uint, uint, int*, Int64, void>) Context.GetProcAddress("glTransformFeedbackBufferRange"))(xfb, index, buffer, offset, size);
+	public static unsafe void TransformFeedbackBufferRange(uint xfb, uint index, uint buffer, int* offset, nint size) {
+		((delegate* unmanaged<uint, uint, uint, int*, nint, void>) Context.GetProcAddress("glTransformFeedbackBufferRange"))(xfb, index, buffer, offset, size);
 	}
 
 	public static unsafe void TransformFeedbackVaryings(uint program, int count, char** varyings, uint bufferMode) {
@@ -5004,12 +5004,12 @@ public static class Gl {
 		((delegate* unmanaged<int, int, void>) Context.GetProcAddress("glUniform1i"))(location, v0);
 	}
 
-	public static unsafe void Uniform1i64ARB(int location, Int64 x) {
-		((delegate* unmanaged<int, Int64, void>) Context.GetProcAddress("glUniform1i64ARB"))(location, x);
+	public static unsafe void Uniform1i64ARB(int location, nint x) {
+		((delegate* unmanaged<int, nint, void>) Context.GetProcAddress("glUniform1i64ARB"))(location, x);
 	}
 
-	public static unsafe void Uniform1i64vARB(int location, int count, Int64* value) {
-		((delegate* unmanaged<int, int, Int64*, void>) Context.GetProcAddress("glUniform1i64vARB"))(location, count, value);
+	public static unsafe void Uniform1i64vARB(int location, int count, nint* value) {
+		((delegate* unmanaged<int, int, nint*, void>) Context.GetProcAddress("glUniform1i64vARB"))(location, count, value);
 	}
 
 	public static unsafe void Uniform1iARB(int location, int v0) {
@@ -5028,12 +5028,12 @@ public static class Gl {
 		((delegate* unmanaged<int, uint, void>) Context.GetProcAddress("glUniform1ui"))(location, v0);
 	}
 
-	public static unsafe void Uniform1ui64ARB(int location, UInt64 x) {
-		((delegate* unmanaged<int, UInt64, void>) Context.GetProcAddress("glUniform1ui64ARB"))(location, x);
+	public static unsafe void Uniform1ui64ARB(int location, nint x) {
+		((delegate* unmanaged<int, nint, void>) Context.GetProcAddress("glUniform1ui64ARB"))(location, x);
 	}
 
-	public static unsafe void Uniform1ui64vARB(int location, int count, UInt64* value) {
-		((delegate* unmanaged<int, int, UInt64*, void>) Context.GetProcAddress("glUniform1ui64vARB"))(location, count, value);
+	public static unsafe void Uniform1ui64vARB(int location, int count, nint* value) {
+		((delegate* unmanaged<int, int, nint*, void>) Context.GetProcAddress("glUniform1ui64vARB"))(location, count, value);
 	}
 
 	public static unsafe void Uniform1uiv(int location, int count, uint* value) {
@@ -5068,12 +5068,12 @@ public static class Gl {
 		((delegate* unmanaged<int, int, int, void>) Context.GetProcAddress("glUniform2i"))(location, v0, v1);
 	}
 
-	public static unsafe void Uniform2i64ARB(int location, Int64 x, Int64 y) {
-		((delegate* unmanaged<int, Int64, Int64, void>) Context.GetProcAddress("glUniform2i64ARB"))(location, x, y);
+	public static unsafe void Uniform2i64ARB(int location, nint x, nint y) {
+		((delegate* unmanaged<int, nint, nint, void>) Context.GetProcAddress("glUniform2i64ARB"))(location, x, y);
 	}
 
-	public static unsafe void Uniform2i64vARB(int location, int count, Int64* value) {
-		((delegate* unmanaged<int, int, Int64*, void>) Context.GetProcAddress("glUniform2i64vARB"))(location, count, value);
+	public static unsafe void Uniform2i64vARB(int location, int count, nint* value) {
+		((delegate* unmanaged<int, int, nint*, void>) Context.GetProcAddress("glUniform2i64vARB"))(location, count, value);
 	}
 
 	public static unsafe void Uniform2iARB(int location, int v0, int v1) {
@@ -5092,12 +5092,12 @@ public static class Gl {
 		((delegate* unmanaged<int, uint, uint, void>) Context.GetProcAddress("glUniform2ui"))(location, v0, v1);
 	}
 
-	public static unsafe void Uniform2ui64ARB(int location, UInt64 x, UInt64 y) {
-		((delegate* unmanaged<int, UInt64, UInt64, void>) Context.GetProcAddress("glUniform2ui64ARB"))(location, x, y);
+	public static unsafe void Uniform2ui64ARB(int location, nint x, nint y) {
+		((delegate* unmanaged<int, nint, nint, void>) Context.GetProcAddress("glUniform2ui64ARB"))(location, x, y);
 	}
 
-	public static unsafe void Uniform2ui64vARB(int location, int count, UInt64* value) {
-		((delegate* unmanaged<int, int, UInt64*, void>) Context.GetProcAddress("glUniform2ui64vARB"))(location, count, value);
+	public static unsafe void Uniform2ui64vARB(int location, int count, nint* value) {
+		((delegate* unmanaged<int, int, nint*, void>) Context.GetProcAddress("glUniform2ui64vARB"))(location, count, value);
 	}
 
 	public static unsafe void Uniform2uiv(int location, int count, uint* value) {
@@ -5132,12 +5132,12 @@ public static class Gl {
 		((delegate* unmanaged<int, int, int, int, void>) Context.GetProcAddress("glUniform3i"))(location, v0, v1, v2);
 	}
 
-	public static unsafe void Uniform3i64ARB(int location, Int64 x, Int64 y, Int64 z) {
-		((delegate* unmanaged<int, Int64, Int64, Int64, void>) Context.GetProcAddress("glUniform3i64ARB"))(location, x, y, z);
+	public static unsafe void Uniform3i64ARB(int location, nint x, nint y, nint z) {
+		((delegate* unmanaged<int, nint, nint, nint, void>) Context.GetProcAddress("glUniform3i64ARB"))(location, x, y, z);
 	}
 
-	public static unsafe void Uniform3i64vARB(int location, int count, Int64* value) {
-		((delegate* unmanaged<int, int, Int64*, void>) Context.GetProcAddress("glUniform3i64vARB"))(location, count, value);
+	public static unsafe void Uniform3i64vARB(int location, int count, nint* value) {
+		((delegate* unmanaged<int, int, nint*, void>) Context.GetProcAddress("glUniform3i64vARB"))(location, count, value);
 	}
 
 	public static unsafe void Uniform3iARB(int location, int v0, int v1, int v2) {
@@ -5156,12 +5156,12 @@ public static class Gl {
 		((delegate* unmanaged<int, uint, uint, uint, void>) Context.GetProcAddress("glUniform3ui"))(location, v0, v1, v2);
 	}
 
-	public static unsafe void Uniform3ui64ARB(int location, UInt64 x, UInt64 y, UInt64 z) {
-		((delegate* unmanaged<int, UInt64, UInt64, UInt64, void>) Context.GetProcAddress("glUniform3ui64ARB"))(location, x, y, z);
+	public static unsafe void Uniform3ui64ARB(int location, nint x, nint y, nint z) {
+		((delegate* unmanaged<int, nint, nint, nint, void>) Context.GetProcAddress("glUniform3ui64ARB"))(location, x, y, z);
 	}
 
-	public static unsafe void Uniform3ui64vARB(int location, int count, UInt64* value) {
-		((delegate* unmanaged<int, int, UInt64*, void>) Context.GetProcAddress("glUniform3ui64vARB"))(location, count, value);
+	public static unsafe void Uniform3ui64vARB(int location, int count, nint* value) {
+		((delegate* unmanaged<int, int, nint*, void>) Context.GetProcAddress("glUniform3ui64vARB"))(location, count, value);
 	}
 
 	public static unsafe void Uniform3uiv(int location, int count, uint* value) {
@@ -5196,12 +5196,12 @@ public static class Gl {
 		((delegate* unmanaged<int, int, int, int, int, void>) Context.GetProcAddress("glUniform4i"))(location, v0, v1, v2, v3);
 	}
 
-	public static unsafe void Uniform4i64ARB(int location, Int64 x, Int64 y, Int64 z, Int64 w) {
-		((delegate* unmanaged<int, Int64, Int64, Int64, Int64, void>) Context.GetProcAddress("glUniform4i64ARB"))(location, x, y, z, w);
+	public static unsafe void Uniform4i64ARB(int location, nint x, nint y, nint z, nint w) {
+		((delegate* unmanaged<int, nint, nint, nint, nint, void>) Context.GetProcAddress("glUniform4i64ARB"))(location, x, y, z, w);
 	}
 
-	public static unsafe void Uniform4i64vARB(int location, int count, Int64* value) {
-		((delegate* unmanaged<int, int, Int64*, void>) Context.GetProcAddress("glUniform4i64vARB"))(location, count, value);
+	public static unsafe void Uniform4i64vARB(int location, int count, nint* value) {
+		((delegate* unmanaged<int, int, nint*, void>) Context.GetProcAddress("glUniform4i64vARB"))(location, count, value);
 	}
 
 	public static unsafe void Uniform4iARB(int location, int v0, int v1, int v2, int v3) {
@@ -5220,12 +5220,12 @@ public static class Gl {
 		((delegate* unmanaged<int, uint, uint, uint, uint, void>) Context.GetProcAddress("glUniform4ui"))(location, v0, v1, v2, v3);
 	}
 
-	public static unsafe void Uniform4ui64ARB(int location, UInt64 x, UInt64 y, UInt64 z, UInt64 w) {
-		((delegate* unmanaged<int, UInt64, UInt64, UInt64, UInt64, void>) Context.GetProcAddress("glUniform4ui64ARB"))(location, x, y, z, w);
+	public static unsafe void Uniform4ui64ARB(int location, nint x, nint y, nint z, nint w) {
+		((delegate* unmanaged<int, nint, nint, nint, nint, void>) Context.GetProcAddress("glUniform4ui64ARB"))(location, x, y, z, w);
 	}
 
-	public static unsafe void Uniform4ui64vARB(int location, int count, UInt64* value) {
-		((delegate* unmanaged<int, int, UInt64*, void>) Context.GetProcAddress("glUniform4ui64vARB"))(location, count, value);
+	public static unsafe void Uniform4ui64vARB(int location, int count, nint* value) {
+		((delegate* unmanaged<int, int, nint*, void>) Context.GetProcAddress("glUniform4ui64vARB"))(location, count, value);
 	}
 
 	public static unsafe void Uniform4uiv(int location, int count, uint* value) {
@@ -5448,20 +5448,20 @@ public static class Gl {
 		((delegate* unmanaged<uint, float*, void>) Context.GetProcAddress("glVertexAttrib1fvARB"))(index, v);
 	}
 
-	public static unsafe void VertexAttrib1s(uint index, Int16 x) {
-		((delegate* unmanaged<uint, Int16, void>) Context.GetProcAddress("glVertexAttrib1s"))(index, x);
+	public static unsafe void VertexAttrib1s(uint index, short x) {
+		((delegate* unmanaged<uint, short, void>) Context.GetProcAddress("glVertexAttrib1s"))(index, x);
 	}
 
-	public static unsafe void VertexAttrib1sARB(uint index, Int16 x) {
-		((delegate* unmanaged<uint, Int16, void>) Context.GetProcAddress("glVertexAttrib1sARB"))(index, x);
+	public static unsafe void VertexAttrib1sARB(uint index, short x) {
+		((delegate* unmanaged<uint, short, void>) Context.GetProcAddress("glVertexAttrib1sARB"))(index, x);
 	}
 
-	public static unsafe void VertexAttrib1sv(uint index, Int16* v) {
-		((delegate* unmanaged<uint, Int16*, void>) Context.GetProcAddress("glVertexAttrib1sv"))(index, v);
+	public static unsafe void VertexAttrib1sv(uint index, short* v) {
+		((delegate* unmanaged<uint, short*, void>) Context.GetProcAddress("glVertexAttrib1sv"))(index, v);
 	}
 
-	public static unsafe void VertexAttrib1svARB(uint index, Int16* v) {
-		((delegate* unmanaged<uint, Int16*, void>) Context.GetProcAddress("glVertexAttrib1svARB"))(index, v);
+	public static unsafe void VertexAttrib1svARB(uint index, short* v) {
+		((delegate* unmanaged<uint, short*, void>) Context.GetProcAddress("glVertexAttrib1svARB"))(index, v);
 	}
 
 	public static unsafe void VertexAttrib2d(uint index, double x, double y) {
@@ -5496,20 +5496,20 @@ public static class Gl {
 		((delegate* unmanaged<uint, float*, void>) Context.GetProcAddress("glVertexAttrib2fvARB"))(index, v);
 	}
 
-	public static unsafe void VertexAttrib2s(uint index, Int16 x, Int16 y) {
-		((delegate* unmanaged<uint, Int16, Int16, void>) Context.GetProcAddress("glVertexAttrib2s"))(index, x, y);
+	public static unsafe void VertexAttrib2s(uint index, short x, short y) {
+		((delegate* unmanaged<uint, short, short, void>) Context.GetProcAddress("glVertexAttrib2s"))(index, x, y);
 	}
 
-	public static unsafe void VertexAttrib2sARB(uint index, Int16 x, Int16 y) {
-		((delegate* unmanaged<uint, Int16, Int16, void>) Context.GetProcAddress("glVertexAttrib2sARB"))(index, x, y);
+	public static unsafe void VertexAttrib2sARB(uint index, short x, short y) {
+		((delegate* unmanaged<uint, short, short, void>) Context.GetProcAddress("glVertexAttrib2sARB"))(index, x, y);
 	}
 
-	public static unsafe void VertexAttrib2sv(uint index, Int16* v) {
-		((delegate* unmanaged<uint, Int16*, void>) Context.GetProcAddress("glVertexAttrib2sv"))(index, v);
+	public static unsafe void VertexAttrib2sv(uint index, short* v) {
+		((delegate* unmanaged<uint, short*, void>) Context.GetProcAddress("glVertexAttrib2sv"))(index, v);
 	}
 
-	public static unsafe void VertexAttrib2svARB(uint index, Int16* v) {
-		((delegate* unmanaged<uint, Int16*, void>) Context.GetProcAddress("glVertexAttrib2svARB"))(index, v);
+	public static unsafe void VertexAttrib2svARB(uint index, short* v) {
+		((delegate* unmanaged<uint, short*, void>) Context.GetProcAddress("glVertexAttrib2svARB"))(index, v);
 	}
 
 	public static unsafe void VertexAttrib3d(uint index, double x, double y, double z) {
@@ -5544,20 +5544,20 @@ public static class Gl {
 		((delegate* unmanaged<uint, float*, void>) Context.GetProcAddress("glVertexAttrib3fvARB"))(index, v);
 	}
 
-	public static unsafe void VertexAttrib3s(uint index, Int16 x, Int16 y, Int16 z) {
-		((delegate* unmanaged<uint, Int16, Int16, Int16, void>) Context.GetProcAddress("glVertexAttrib3s"))(index, x, y, z);
+	public static unsafe void VertexAttrib3s(uint index, short x, short y, short z) {
+		((delegate* unmanaged<uint, short, short, short, void>) Context.GetProcAddress("glVertexAttrib3s"))(index, x, y, z);
 	}
 
-	public static unsafe void VertexAttrib3sARB(uint index, Int16 x, Int16 y, Int16 z) {
-		((delegate* unmanaged<uint, Int16, Int16, Int16, void>) Context.GetProcAddress("glVertexAttrib3sARB"))(index, x, y, z);
+	public static unsafe void VertexAttrib3sARB(uint index, short x, short y, short z) {
+		((delegate* unmanaged<uint, short, short, short, void>) Context.GetProcAddress("glVertexAttrib3sARB"))(index, x, y, z);
 	}
 
-	public static unsafe void VertexAttrib3sv(uint index, Int16* v) {
-		((delegate* unmanaged<uint, Int16*, void>) Context.GetProcAddress("glVertexAttrib3sv"))(index, v);
+	public static unsafe void VertexAttrib3sv(uint index, short* v) {
+		((delegate* unmanaged<uint, short*, void>) Context.GetProcAddress("glVertexAttrib3sv"))(index, v);
 	}
 
-	public static unsafe void VertexAttrib3svARB(uint index, Int16* v) {
-		((delegate* unmanaged<uint, Int16*, void>) Context.GetProcAddress("glVertexAttrib3svARB"))(index, v);
+	public static unsafe void VertexAttrib3svARB(uint index, short* v) {
+		((delegate* unmanaged<uint, short*, void>) Context.GetProcAddress("glVertexAttrib3svARB"))(index, v);
 	}
 
 	public static unsafe void VertexAttrib4Nbv(uint index, sbyte* v) {
@@ -5576,12 +5576,12 @@ public static class Gl {
 		((delegate* unmanaged<uint, int*, void>) Context.GetProcAddress("glVertexAttrib4NivARB"))(index, v);
 	}
 
-	public static unsafe void VertexAttrib4Nsv(uint index, Int16* v) {
-		((delegate* unmanaged<uint, Int16*, void>) Context.GetProcAddress("glVertexAttrib4Nsv"))(index, v);
+	public static unsafe void VertexAttrib4Nsv(uint index, short* v) {
+		((delegate* unmanaged<uint, short*, void>) Context.GetProcAddress("glVertexAttrib4Nsv"))(index, v);
 	}
 
-	public static unsafe void VertexAttrib4NsvARB(uint index, Int16* v) {
-		((delegate* unmanaged<uint, Int16*, void>) Context.GetProcAddress("glVertexAttrib4NsvARB"))(index, v);
+	public static unsafe void VertexAttrib4NsvARB(uint index, short* v) {
+		((delegate* unmanaged<uint, short*, void>) Context.GetProcAddress("glVertexAttrib4NsvARB"))(index, v);
 	}
 
 	public static unsafe void VertexAttrib4Nub(uint index, byte x, byte y, byte z, byte w) {
@@ -5608,12 +5608,12 @@ public static class Gl {
 		((delegate* unmanaged<uint, uint*, void>) Context.GetProcAddress("glVertexAttrib4NuivARB"))(index, v);
 	}
 
-	public static unsafe void VertexAttrib4Nusv(uint index, UInt16* v) {
-		((delegate* unmanaged<uint, UInt16*, void>) Context.GetProcAddress("glVertexAttrib4Nusv"))(index, v);
+	public static unsafe void VertexAttrib4Nusv(uint index, ushort* v) {
+		((delegate* unmanaged<uint, ushort*, void>) Context.GetProcAddress("glVertexAttrib4Nusv"))(index, v);
 	}
 
-	public static unsafe void VertexAttrib4NusvARB(uint index, UInt16* v) {
-		((delegate* unmanaged<uint, UInt16*, void>) Context.GetProcAddress("glVertexAttrib4NusvARB"))(index, v);
+	public static unsafe void VertexAttrib4NusvARB(uint index, ushort* v) {
+		((delegate* unmanaged<uint, ushort*, void>) Context.GetProcAddress("glVertexAttrib4NusvARB"))(index, v);
 	}
 
 	public static unsafe void VertexAttrib4bv(uint index, sbyte* v) {
@@ -5664,20 +5664,20 @@ public static class Gl {
 		((delegate* unmanaged<uint, int*, void>) Context.GetProcAddress("glVertexAttrib4ivARB"))(index, v);
 	}
 
-	public static unsafe void VertexAttrib4s(uint index, Int16 x, Int16 y, Int16 z, Int16 w) {
-		((delegate* unmanaged<uint, Int16, Int16, Int16, Int16, void>) Context.GetProcAddress("glVertexAttrib4s"))(index, x, y, z, w);
+	public static unsafe void VertexAttrib4s(uint index, short x, short y, short z, short w) {
+		((delegate* unmanaged<uint, short, short, short, short, void>) Context.GetProcAddress("glVertexAttrib4s"))(index, x, y, z, w);
 	}
 
-	public static unsafe void VertexAttrib4sARB(uint index, Int16 x, Int16 y, Int16 z, Int16 w) {
-		((delegate* unmanaged<uint, Int16, Int16, Int16, Int16, void>) Context.GetProcAddress("glVertexAttrib4sARB"))(index, x, y, z, w);
+	public static unsafe void VertexAttrib4sARB(uint index, short x, short y, short z, short w) {
+		((delegate* unmanaged<uint, short, short, short, short, void>) Context.GetProcAddress("glVertexAttrib4sARB"))(index, x, y, z, w);
 	}
 
-	public static unsafe void VertexAttrib4sv(uint index, Int16* v) {
-		((delegate* unmanaged<uint, Int16*, void>) Context.GetProcAddress("glVertexAttrib4sv"))(index, v);
+	public static unsafe void VertexAttrib4sv(uint index, short* v) {
+		((delegate* unmanaged<uint, short*, void>) Context.GetProcAddress("glVertexAttrib4sv"))(index, v);
 	}
 
-	public static unsafe void VertexAttrib4svARB(uint index, Int16* v) {
-		((delegate* unmanaged<uint, Int16*, void>) Context.GetProcAddress("glVertexAttrib4svARB"))(index, v);
+	public static unsafe void VertexAttrib4svARB(uint index, short* v) {
+		((delegate* unmanaged<uint, short*, void>) Context.GetProcAddress("glVertexAttrib4svARB"))(index, v);
 	}
 
 	public static unsafe void VertexAttrib4ubv(uint index, byte* v) {
@@ -5696,12 +5696,12 @@ public static class Gl {
 		((delegate* unmanaged<uint, uint*, void>) Context.GetProcAddress("glVertexAttrib4uivARB"))(index, v);
 	}
 
-	public static unsafe void VertexAttrib4usv(uint index, UInt16* v) {
-		((delegate* unmanaged<uint, UInt16*, void>) Context.GetProcAddress("glVertexAttrib4usv"))(index, v);
+	public static unsafe void VertexAttrib4usv(uint index, ushort* v) {
+		((delegate* unmanaged<uint, ushort*, void>) Context.GetProcAddress("glVertexAttrib4usv"))(index, v);
 	}
 
-	public static unsafe void VertexAttrib4usvARB(uint index, UInt16* v) {
-		((delegate* unmanaged<uint, UInt16*, void>) Context.GetProcAddress("glVertexAttrib4usvARB"))(index, v);
+	public static unsafe void VertexAttrib4usvARB(uint index, ushort* v) {
+		((delegate* unmanaged<uint, ushort*, void>) Context.GetProcAddress("glVertexAttrib4usvARB"))(index, v);
 	}
 
 	public static unsafe void VertexAttribBinding(uint attribindex, uint bindingindex) {
@@ -5780,8 +5780,8 @@ public static class Gl {
 		((delegate* unmanaged<uint, int*, void>) Context.GetProcAddress("glVertexAttribI4iv"))(index, v);
 	}
 
-	public static unsafe void VertexAttribI4sv(uint index, Int16* v) {
-		((delegate* unmanaged<uint, Int16*, void>) Context.GetProcAddress("glVertexAttribI4sv"))(index, v);
+	public static unsafe void VertexAttribI4sv(uint index, short* v) {
+		((delegate* unmanaged<uint, short*, void>) Context.GetProcAddress("glVertexAttribI4sv"))(index, v);
 	}
 
 	public static unsafe void VertexAttribI4ubv(uint index, byte* v) {
@@ -5796,8 +5796,8 @@ public static class Gl {
 		((delegate* unmanaged<uint, uint*, void>) Context.GetProcAddress("glVertexAttribI4uiv"))(index, v);
 	}
 
-	public static unsafe void VertexAttribI4usv(uint index, UInt16* v) {
-		((delegate* unmanaged<uint, UInt16*, void>) Context.GetProcAddress("glVertexAttribI4usv"))(index, v);
+	public static unsafe void VertexAttribI4usv(uint index, ushort* v) {
+		((delegate* unmanaged<uint, ushort*, void>) Context.GetProcAddress("glVertexAttribI4usv"))(index, v);
 	}
 
 	public static unsafe void VertexAttribIFormat(uint attribindex, int size, uint type, uint relativeoffset) {
@@ -5908,8 +5908,8 @@ public static class Gl {
 		((delegate* unmanaged<uint, float*, void>) Context.GetProcAddress("glViewportIndexedfv"))(index, v);
 	}
 
-	public static unsafe void WaitSync(GLSync sync, uint flags, UInt64 timeout) {
-		((delegate* unmanaged<GLSync, uint, UInt64, void>) Context.GetProcAddress("glWaitSync"))(sync, flags, timeout);
+	public static unsafe void WaitSync(GLSync sync, uint flags, nint timeout) {
+		((delegate* unmanaged<GLSync, uint, nint, void>) Context.GetProcAddress("glWaitSync"))(sync, flags, timeout);
 	}
 
 	/// <summary>

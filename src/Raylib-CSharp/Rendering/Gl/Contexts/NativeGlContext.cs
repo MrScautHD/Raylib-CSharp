@@ -46,7 +46,7 @@ public class NativeGlContext : IGlContext, IDisposable {
     }
 
     /// <summary>
-    /// Releases the managed resources used by the object (disposing), and optionally releases the unmanaged
+    /// Releases the managed resources used by the object (disposing), and optionally releases the unmanaged.
     /// resources (not disposing).
     /// </summary>
     /// <param name="disposing">A boolean value indicating whether the method is being called from, dispose method directly (true) or from the finalizer (false).</param>

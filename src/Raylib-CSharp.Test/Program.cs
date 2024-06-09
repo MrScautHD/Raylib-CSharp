@@ -1,5 +1,6 @@
 ﻿using System.Numerics;
 using Raylib_CSharp;
+using Raylib_CSharp.Apis;
 using Raylib_CSharp.Camera.Cam3D;
 using Raylib_CSharp.Colors;
 using Raylib_CSharp.Fonts;
@@ -7,8 +8,10 @@ using Raylib_CSharp.Geometry;
 using Raylib_CSharp.Images;
 using Raylib_CSharp.IO;
 using Raylib_CSharp.Logging;
+using Raylib_CSharp.OpenGL;
 using Raylib_CSharp.Rendering;
 using Raylib_CSharp.Rendering.Gl.Contexts;
+using Raylib_CSharp.Test;
 using Raylib_CSharp.Textures;
 using Raylib_CSharp.Unsafe.Spans.Data;
 using Raylib_CSharp.Windowing;
@@ -110,9 +113,8 @@ Font font2 = Font.GetDefault();
 
 Image testImage = Image.GenColor(100, 100, Color.Green);
 
-NativeGlContext Context = new NativeGlContext();
-
-Gl.Init();
+NativeBindingsContext context = new NativeBindingsContext();
+Gl.Init(context);
 
 //Span<Matrix4x4> matrix = new(new Matrix4x4[1]);
 //matrix[1] = new Matrix4x4();
@@ -147,4 +149,4 @@ model.MaterialCount = 0;
 model.Unload();
 
 Window.Close();
-Gl.Destroy();
+context.Dispose();

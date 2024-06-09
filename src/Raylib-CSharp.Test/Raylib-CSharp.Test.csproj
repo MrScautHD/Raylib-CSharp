@@ -11,6 +11,7 @@
     </PropertyGroup>
 
     <ItemGroup>
+        <ProjectReference Include="..\Raylib-CSharp.OpenGL\Raylib-CSharp.OpenGL.csproj" />
         <ProjectReference Include="..\Raylib-CSharp\Raylib-CSharp.csproj"/>
     </ItemGroup>
 

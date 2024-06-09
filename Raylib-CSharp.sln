@@ -14,6 +14,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Raylib-CSharp.Samples", "src\Raylib-CSharp.Samples\Raylib-CSharp.Samples.csproj", "{3260131D-2B07-44D5-B829-F2BB5BC2058B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Raylib-CSharp.OpenGL", "src\Raylib-CSharp.OpenGL\Raylib-CSharp.OpenGL.csproj", "{338DEE5E-F7FA-46D7-A94F-F33DD1DFF53D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -32,6 +34,10 @@ Global
 		{3260131D-2B07-44D5-B829-F2BB5BC2058B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3260131D-2B07-44D5-B829-F2BB5BC2058B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3260131D-2B07-44D5-B829-F2BB5BC2058B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{338DEE5E-F7FA-46D7-A94F-F33DD1DFF53D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{338DEE5E-F7FA-46D7-A94F-F33DD1DFF53D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{338DEE5E-F7FA-46D7-A94F-F33DD1DFF53D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{338DEE5E-F7FA-46D7-A94F-F33DD1DFF53D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

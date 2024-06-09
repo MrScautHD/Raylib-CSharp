@@ -112,6 +112,8 @@ Image testImage = Image.GenColor(100, 100, Color.Green);
 
 NativeGlContext Context = new NativeGlContext();
 
+Gl.Init();
+
 //Span<Matrix4x4> matrix = new(new Matrix4x4[1]);
 //matrix[1] = new Matrix4x4();
 
@@ -121,9 +123,7 @@ while (!Window.ShouldClose()) {
     Graphics.BeginDrawing();
     Graphics.ClearBackground(Color.SkyBlue);
 
-    unsafe {
-        ((delegate* unmanaged<int, void>) Context.GetProcAddress("glUseProgram"))((int) RlGl.GetShaderIdDefault());
-    }
+    Gl.UseProgram(RlGl.GetShaderIdDefault());
 
     //Console.WriteLine(GladApi.GetString(0x1F02) + "");
 
@@ -147,3 +147,4 @@ model.MaterialCount = 0;
 model.Unload();
 
 Window.Close();
+Gl.Destroy();

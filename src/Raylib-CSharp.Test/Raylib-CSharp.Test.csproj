@@ -21,6 +21,9 @@
             <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
         </Content>
     </ItemGroup>
+    <ItemGroup>
+      <PackageReference Include="OpenTK.Graphics" Version="5.0.0-pre.10" />
+    </ItemGroup>
 
     <!-- Raylib CMake -->
     <Import Project="CMake.props"/>

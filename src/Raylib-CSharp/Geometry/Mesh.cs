@@ -109,17 +109,17 @@ public struct Mesh {
     public unsafe Span<float> BoneWeights => new(this.BoneWeightsPtr, this.VertexCount * 4);
 
     /// <summary>
+    /// OpenGL Vertex Array Object id.
+    /// </summary>
+    public uint VaoId;
+
+    /// <summary>
     /// OpenGL Vertex Buffer Objects id (default vertex data).
     /// </summary>
     public unsafe uint* VboIdPtr;
 
     /// <inheritdoc cref="VboIdPtr" />
     public unsafe Span<uint> VboId => new(this.VboIdPtr, this.VertexCount * 7);
-
-    /// <summary>
-    /// OpenGL Vertex Array Object id.
-    /// </summary>
-    public uint VaoId;
 
     /// <summary>
     /// Mesh, vertex data and vao/vbo.

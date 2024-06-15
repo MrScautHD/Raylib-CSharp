@@ -11,7 +11,6 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <ProjectReference Include="..\Raylib-CSharp.OpenGL\Raylib-CSharp.OpenGL.csproj" />
         <ProjectReference Include="..\Raylib-CSharp\Raylib-CSharp.csproj"/>
     </ItemGroup>
 
@@ -21,6 +20,7 @@
             <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
         </Content>
     </ItemGroup>
+    
     <ItemGroup>
       <PackageReference Include="OpenTK.Graphics" Version="5.0.0-pre.10" />
     </ItemGroup>

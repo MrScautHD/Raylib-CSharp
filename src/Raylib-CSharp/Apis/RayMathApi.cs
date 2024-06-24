@@ -1124,12 +1124,12 @@ internal static partial class RayMathApi {
     /// <param name="right">Right boundary of the frustum view volume.</param>
     /// <param name="bottom">Bottom boundary of the frustum view volume.</param>
     /// <param name="top">Top boundary of the frustum view volume.</param>
-    /// <param name="near">Near boundary of the frustum view volume.</param>
-    /// <param name="far">Far boundary of the frustum view volume.</param>
+    /// <param name="nearPlane">Near boundary of the frustum view volume.</param>
+    /// <param name="farPlane">Far boundary of the frustum view volume.</param>
     /// <returns>A Matrix4x4 representing the frustum perspective projection matrix.</returns>
     [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    internal static partial Matrix4x4 MatrixFrustum(double left, double right, double bottom, double top, double near, double far);
+    internal static partial Matrix4x4 MatrixFrustum(double left, double right, double bottom, double top, double nearPlane, double farPlane);
 
     /// <summary>
     /// Get perspective projection matrix.

@@ -396,6 +396,35 @@ public struct Image {
         RaylibApi.ImageDrawRectangleLines(ref this, rec, thick, color);
     }
 
+    /// <inheritdoc cref="RaylibApi.ImageDrawTriangle" />
+    public void DrawTriangle(Vector2 v1, Vector2 v2, Vector2 v3, Color color) {
+        RaylibApi.ImageDrawTriangle(ref this, v1, v2, v3, color);
+    }
+
+    /// <inheritdoc cref="RaylibApi.ImageDrawTriangleEx" />
+    public void DrawTriangleEx(Vector2 v1, Vector2 v2, Vector2 v3, Color c1, Color c2, Color c3) {
+        RaylibApi.ImageDrawTriangleEx(ref this, v1, v2, v3, c1, c2, c3);
+    }
+
+    /// <inheritdoc cref="RaylibApi.ImageDrawTriangleLines" />
+    public void DrawTriangleLines(Vector2 v1, Vector2 v2, Vector2 v3, Color color) {
+        RaylibApi.ImageDrawTriangleLines(ref this, v1, v2, v3, color);
+    }
+
+    /// <inheritdoc cref="RaylibApi.ImageDrawTriangleFan" />
+    public unsafe void DrawTriangleFan(Span<Vector2> points, Color color) {
+        fixed (Vector2* pointsPtr = points) {
+            RaylibApi.ImageDrawTriangleFan(ref this, pointsPtr, points.Length, color);
+        }
+    }
+
+    /// <inheritdoc cref="RaylibApi.ImageDrawTriangleStrip" />
+    public unsafe void DrawTriangleStrip(Span<Vector2> points, Color color) {
+        fixed (Vector2* pointsPtr = points) {
+            RaylibApi.ImageDrawTriangleStrip(ref this, pointsPtr, points.Length, color);
+        }
+    }
+
     /// <inheritdoc cref="RaylibApi.ImageDraw" />
     public void Draw(Image src, Rectangle srcRec, Rectangle dstRec, Color tint) {
         RaylibApi.ImageDraw(ref this, src, srcRec, dstRec, tint);

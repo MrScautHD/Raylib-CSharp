@@ -139,6 +139,16 @@ public static class TextManager {
         return RaylibApi.TextToPascal(text);
     }
 
+    /// <inheritdoc cref="RaylibApi.TextToSnake" />
+    public static string TextToSnake(string text) {
+        return RaylibApi.TextToSnake(text);
+    }
+
+    /// <inheritdoc cref="RaylibApi.TextToCamel" />
+    public static string TextToCamel(string text) {
+        return RaylibApi.TextToCamel(text);
+    }
+
     /// <inheritdoc cref="RaylibApi.TextToInteger" />
     public static int TextToInteger(string text) {
         return RaylibApi.TextToInteger(text);

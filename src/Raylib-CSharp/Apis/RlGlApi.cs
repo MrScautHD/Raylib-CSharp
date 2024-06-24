@@ -121,11 +121,11 @@ internal static partial class RlGlApi {
     /// <summary>
     /// Set clip planes distances.
     /// </summary>
-    /// <param name="near">The distance to the near clipping plane.</param>
-    /// <param name="far">The distance to the far clipping plane.</param>
+    /// <param name="nearPlane">The distance to the near clipping plane.</param>
+    /// <param name="farPlane">The distance to the far clipping plane.</param>
     [LibraryImport(Raylib.Name, EntryPoint = "rlSetClipPlanes")]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    internal static partial void SetClipPlanes(double near, double far);
+    internal static partial void SetClipPlanes(double nearPlane, double farPlane);
 
     /// <summary>
     /// Get cull plane distance near.

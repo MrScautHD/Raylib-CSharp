@@ -4516,6 +4516,67 @@ internal static partial class RaylibApi {
     internal static partial void ImageDrawRectangleLines(ref Image dst, Rectangle rec, int thick, Color color);
 
     /// <summary>
+    /// Draw triangle within an image.
+    /// </summary>
+    /// <param name="dst">The destination image on which to draw the triangle.</param>
+    /// <param name="v1">The first vertex of the triangle.</param>
+    /// <param name="v2">The second vertex of the triangle.</param>
+    /// <param name="v3">The third vertex of the triangle.</param>
+    /// <param name="color">The color of the filled triangle.</param>
+    [LibraryImport(Raylib.Name)]
+    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
+    internal static partial void ImageDrawTriangle(ref Image dst, Vector2 v1, Vector2 v2, Vector2 v3, Color color);
+
+    /// <summary>
+    /// Draw triangle with interpolated colors within an image.
+    /// </summary>
+    /// <param name="dst">The image on which to draw the triangle.</param>
+    /// <param name="v1">The first vertex of the triangle.</param>
+    /// <param name="v2">The second vertex of the triangle.</param>
+    /// <param name="v3">The third vertex of the triangle.</param>
+    /// <param name="c1">The color of the first vertex.</param>
+    /// <param name="c2">The color of the second vertex.</param>
+    /// <param name="c3">The color of the third vertex.</param>
+    [LibraryImport(Raylib.Name)]
+    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
+    internal static partial void ImageDrawTriangleEx(ref Image dst, Vector2 v1, Vector2 v2, Vector2 v3, Color c1, Color c2, Color c3);
+
+    /// <summary>
+    /// Draw triangle outline within an image.
+    /// </summary>
+    /// <param name="dst">The image on which to draw the triangle.</param>
+    /// <param name="v1">The first vertex of the triangle.</param>
+    /// <param name="v2">The second vertex of the triangle.</param>
+    /// <param name="v3">The third vertex of the triangle.</param>
+    /// <param name="color">The color of the triangle outline.</param>
+    [LibraryImport(Raylib.Name)]
+    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
+    internal static partial void ImageDrawTriangleLines(ref Image dst, Vector2 v1, Vector2 v2, Vector2 v3, Color color);
+
+
+    /// <summary>
+    /// Draw a triangle fan defined by points within an image (first vertex is the center).
+    /// </summary>
+    /// <param name="dst">The destination image.</param>
+    /// <param name="points">A pointer to an array of Vector2 points defining the vertices of the triangle fan.</param>
+    /// <param name="pointCount">The number of points in the array.</param>
+    /// <param name="color">The color of the filled triangle fan.</param>
+    [LibraryImport(Raylib.Name)]
+    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
+    internal static unsafe partial void ImageDrawTriangleFan(ref Image dst, Vector2* points, int pointCount, Color color);
+
+    /// <summary>
+    /// Draw a triangle strip defined by points within an image.
+    /// </summary>
+    /// <param name="dst">The destination image.</param>
+    /// <param name="points">A pointer to an array of Vector2 points.</param>
+    /// <param name="pointCount">The number of points in the array.</param>
+    /// <param name="color">The color of the triangle strip.</param>
+    [LibraryImport(Raylib.Name)]
+    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
+    internal static unsafe partial void ImageDrawTriangleStrip(ref Image dst, Vector2* points, int pointCount, Color color);
+
+    /// <summary>
     /// Draw a source image within a destination image (tint applied to source).
     /// </summary>
     /// <param name="dst">A reference to the destination image.</param>
@@ -5256,6 +5317,26 @@ internal static partial class RaylibApi {
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
     [return: MarshalUsing(typeof(NonFreeUtf8StringMarshaller))]
     internal static partial string TextToPascal(string text);
+
+    /// <summary>
+    /// Get Snake case notation version of provided string.
+    /// </summary>
+    /// <param name="text">The text to be converted.</param>
+    /// <returns>The converted text in snake case.</returns>
+    [LibraryImport(Raylib.Name, StringMarshalling = StringMarshalling.Utf8)]
+    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
+    [return: MarshalUsing(typeof(NonFreeUtf8StringMarshaller))]
+    internal static partial string TextToSnake(string text);
+
+    /// <summary>
+    /// Get Camel case notation version of provided string.
+    /// </summary>
+    /// <param name="text">The text string to convert.</param>
+    /// <returns>The text string converted to camel case.</returns>
+    [LibraryImport(Raylib.Name, StringMarshalling = StringMarshalling.Utf8)]
+    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
+    [return: MarshalUsing(typeof(NonFreeUtf8StringMarshaller))]
+    internal static partial string TextToCamel(string text);
 
     /// <summary>
     /// Get integer value from text (negative values not supported).

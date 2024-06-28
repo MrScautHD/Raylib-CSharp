@@ -1406,4 +1406,15 @@ internal static partial class RayMathApi {
     [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
     internal static partial int QuaternionEquals(Quaternion p, Quaternion q);
+
+    /// <summary>
+    /// Decompose a transformation matrix into its rotational, translational and scaling components.
+    /// </summary>
+    /// <param name="mat">The input matrix to decompose.</param>
+    /// <param name="translation">The output translation component of the decomposed matrix.</param>
+    /// <param name="rotation">The output rotation component of the decomposed matrix.</param>
+    /// <param name="scale">The output scale component of the decomposed matrix.</param>
+    [LibraryImport(Raylib.Name)]
+    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
+    internal static partial void MatrixDecompose(Matrix4x4 mat, ref Vector3 translation, ref Quaternion rotation, ref Vector3 scale);
 }

@@ -356,6 +356,11 @@ public struct Image {
         RaylibApi.ImageDrawLineV(ref this, start, end, color);
     }
 
+    /// <inheritdoc cref="RaylibApi.ImageDrawLineEx" />
+    public void DrawLineEx(Vector2 start, Vector2 end, int thick, Color color) {
+        RaylibApi.ImageDrawLineEx(ref this, start, end, thick, color);
+    }
+
     /// <inheritdoc cref="RaylibApi.ImageDrawCircle" />
     public void DrawCircle(int centerX, int centerY, int radius, Color color) {
         RaylibApi.ImageDrawCircle(ref this, centerX, centerY, radius, color);

@@ -4173,7 +4173,7 @@ internal static partial class RaylibApi {
     internal static partial void ImageBlurGaussian(ref Image image, int blurSize);
 
     /// <summary>
-    /// Apply Custom Square image convolution kernel.
+    /// Apply custom square convolution kernel to image.
     /// </summary>
     /// <param name="image">The Image to be convoluted.</param>
     /// <param name="kernel">The kernel to be used in the convolution.</param>
@@ -4423,6 +4423,18 @@ internal static partial class RaylibApi {
     [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
     internal static partial void ImageDrawLineV(ref Image dst, Vector2 start, Vector2 end, Color color);
+
+    /// <summary>
+    /// Draw a line defining thickness within an image.
+    /// </summary>
+    /// <param name="dst">The destination image.</param>
+    /// <param name="start">The starting position of the line.</param>
+    /// <param name="end">The ending position of the line.</param>
+    /// <param name="thick">The thickness of the line.</param>
+    /// <param name="color">The color of the line.</param>
+    [LibraryImport(Raylib.Name)]
+    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
+    internal static partial void ImageDrawLineEx(ref Image dst, Vector2 start, Vector2 end, int thick, Color color);
 
     /// <summary>
     /// Draw a filled circle within an image.

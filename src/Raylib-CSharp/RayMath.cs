@@ -707,4 +707,9 @@ public static class RayMath {
     public static int QuaternionEquals(Quaternion p, Quaternion q) {
         return RayMathApi.QuaternionEquals(p, q);
     }
+
+    /// <inheritdoc cref="RayMathApi.MatrixDecompose" />
+    public static void MatrixDecompose(Matrix4x4 mat, ref Vector3 translation, ref Quaternion rotation, ref Vector3 scale) {
+        RayMathApi.MatrixDecompose(mat, ref translation, ref rotation, ref scale);
+    }
 }

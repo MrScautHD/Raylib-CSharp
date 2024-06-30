@@ -145,7 +145,7 @@ jobs:
           -D CUSTOMIZE_BUILD=ON \
           -D SUPPORT_GIF_RECORDING=OFF \
           -D SUPPORT_SCREEN_CAPTURE=OFF \
-          -D GRAPHICS=GRAPHICS_API_OPENGL_ES3
+          -D GRAPHICS=GRAPHICS_API_OPENGL_ES2
           cmake --build native --config Release
 
       # Upload Raylib

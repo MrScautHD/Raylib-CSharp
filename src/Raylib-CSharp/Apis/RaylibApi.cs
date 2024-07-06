@@ -5796,5 +5796,4 @@ internal static partial class RaylibApi {
     [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
     internal static partial void UnloadMaterial(Material material);
-
 }

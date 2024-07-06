@@ -8,7 +8,6 @@ namespace Raylib_CSharp.Samples.Core;
 
 public class SpinningAroundADiamond : ISample {
 
-    /// <inheritdoc />
     public void Run() {
         Window.Init(800, 450, "Spinning a Diamond in 3D Space with a 3D Camera");
         Time.SetTargetFPS(60);

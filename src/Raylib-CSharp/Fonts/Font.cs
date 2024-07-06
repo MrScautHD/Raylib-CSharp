@@ -87,7 +87,7 @@ public struct Font {
     }
 
     /// <inheritdoc cref="RaylibApi.LoadFontData" />
-    public static unsafe ReadOnlySpan<GlyphInfo> LoadData(ReadOnlySpan<byte> fileData, int fontSize,int codepointCount, FontType type) {
+    public static unsafe ReadOnlySpan<GlyphInfo> LoadData(ReadOnlySpan<byte> fileData, int fontSize, int codepointCount, FontType type) {
         fixed (byte* fileDataPtr = fileData) {
             return new ReadOnlySpan<GlyphInfo>(RaylibApi.LoadFontData(fileDataPtr, fileData.Length, fontSize, null, codepointCount, type), codepointCount);
         }

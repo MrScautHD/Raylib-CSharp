@@ -74,7 +74,7 @@ public struct Color {
     }
 
     /// <inheritdoc cref="RaylibApi.ColorIsEqual" />
-    public static bool ColorIsEqual(Color col1, Color col2) {
+    public static bool IsEqual(Color col1, Color col2) {
         return RaylibApi.ColorIsEqual(col1, col2);
     }
 

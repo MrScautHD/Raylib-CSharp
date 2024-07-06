@@ -237,7 +237,7 @@ public struct Image {
     }
 
     /// <inheritdoc cref="RaylibApi.ImageResizeNN" />
-    public void ImageResizeNN(int newWidth, int newHeight) {
+    public void ResizeNN(int newWidth, int newHeight) {
         RaylibApi.ImageResizeNN(ref this, newWidth, newHeight);
     }
 

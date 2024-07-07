@@ -61,7 +61,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        name: [x64, i386d]
+        name: [x64]
     
     # Run
     steps:

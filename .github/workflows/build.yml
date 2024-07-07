@@ -61,7 +61,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        name: [x64, i386]
+        name: [x64, x86_64]
     
     # Run
     steps:
@@ -97,7 +97,6 @@ jobs:
           unzip -qq raylib.zip
           cmake -S raylib-${{ env.raylib_version }} \
           -B native \
-          -B CUSTOM_CFLAGS="-m32" \
           -D CMAKE_BUILD_TYPE=Release \
           -D BUILD_SHARED_LIBS=ON \
           -D BUILD_EXAMPLES=OFF \

@@ -4014,6 +4014,16 @@ internal static partial class RaylibApi {
     internal static partial Image ImageTextEx(Font font, string text, float fontSize, float spacing, Color tint);
 
     /// <summary>
+    /// Create an image from a selected channel of another image (GRAYSCALE).
+    /// </summary>
+    /// <param name="image">The input Image.</param>
+    /// <param name="selectedChannel">The index of the channel to extract (0 for red, 1 for green, 2 for blue, 3 for alpha).</param>
+    /// <returns>The Image containing only the selected channel.</returns>
+    [LibraryImport(Raylib.Name)]
+    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
+    internal static partial Image ImageFromChannel(Image image, int selectedChannel);
+
+    /// <summary>
     /// Unload color data loaded with LoadImageColors().
     /// </summary>
     /// <param name="colors">Pointer to the colors of the image.</param>

@@ -9,7 +9,7 @@ on:
     branches: [ "main" ]
 
 env:
-  raylib_version: 'a3ef381b3e55cd2a7cf2a521f136330a295c5a9d'
+  raylib_version: 'a8240722c61d216d96c3f2cab27426ee7b7a3919'
 
 jobs:
   

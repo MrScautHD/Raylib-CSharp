@@ -125,6 +125,11 @@ public struct Image {
         return RaylibApi.GenImageText(width, height, text);
     }
 
+    /// <inheritdoc cref="RaylibApi.ImageFromImage" />
+    public static Image FromImage(Image image, Rectangle rec) {
+        return RaylibApi.ImageFromImage(image, rec);
+    }
+
     /// <inheritdoc cref="RaylibApi.ImageText" />
     public static Image FromText(string text, int fontSize, Color color) {
         return RaylibApi.ImageText(text, fontSize, color);
@@ -133,6 +138,11 @@ public struct Image {
     /// <inheritdoc cref="RaylibApi.ImageTextEx" />
     public static Image FromTextEx(Font font, string text, float fontSize, float spacing, Color tint) {
         return RaylibApi.ImageTextEx(font, text, fontSize, spacing, tint);
+    }
+
+    /// <inheritdoc cref="RaylibApi.ImageFromChannel" />
+    public static Image FromChannel(Image image, int selectedChannel) {
+        return RaylibApi.ImageFromChannel(image, selectedChannel);
     }
 
     /// <inheritdoc cref="RaylibApi.UnloadImageColors" />
@@ -177,11 +187,6 @@ public struct Image {
     /// <inheritdoc cref="RaylibApi.ImageCopy" />
     public Image Copy() {
         return RaylibApi.ImageCopy(this);
-    }
-
-    /// <inheritdoc cref="RaylibApi.ImageFromImage" />
-    public Image FromImage(Rectangle rec) {
-        return RaylibApi.ImageFromImage(this, rec);
     }
 
     /// <inheritdoc cref="RaylibApi.ImageFormat" />

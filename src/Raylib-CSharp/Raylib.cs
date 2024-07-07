@@ -10,8 +10,8 @@ public static class Raylib {
 
     public const string Name = "raylib";
 
-    public static readonly Version Version = new(4, 1, 4);
-    public static readonly Version RlVersion = new(5, 1, 0);
+    public static readonly Version Version = new(4, 1, 6);
+    public static readonly Version RlVersion = new(5, 5, 0);
 
     /// <inheritdoc cref="RaylibApi.TakeScreenshot" />
     public static void TakeScreenshot(string path) {

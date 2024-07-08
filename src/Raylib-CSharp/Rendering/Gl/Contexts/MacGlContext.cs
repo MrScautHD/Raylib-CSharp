@@ -12,12 +12,12 @@ public partial class MacGlContext : IGlContext {
     /// </summary>
     /// <param name="procName">The name of the extension function.</param>
     /// <returns> A pointer to the extension function if found; otherwise, <see cref="nint.Zero"/>.</returns>
-    [LibraryImport(OpenGL, EntryPoint = "NSOpenGLGetProcAddress", StringMarshalling = StringMarshalling.Utf8)]
+    [LibraryImport(OpenGL, EntryPoint = "NSGetProcAddress", StringMarshalling = StringMarshalling.Utf8)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    private static partial nint NSOpenGLGetProcAddress(string procName);
+    private static partial nint NsGetProcAddress(string procName);
 
     public nint GetProcAddress(string procName) {
-        nint address = NSOpenGLGetProcAddress(procName);
+        nint address = NsGetProcAddress(procName);
 
         if (address == nint.Zero) {
             throw new Exception("Failed to retrieve the Procedure Address.");

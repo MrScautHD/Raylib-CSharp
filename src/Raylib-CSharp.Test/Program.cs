@@ -8,7 +8,6 @@ using Raylib_CSharp.Images;
 using Raylib_CSharp.IO;
 using Raylib_CSharp.Logging;
 using Raylib_CSharp.Rendering;
-using Raylib_CSharp.Rendering.Gl.Contexts;
 using Raylib_CSharp.Test;
 using Raylib_CSharp.Textures;
 using Raylib_CSharp.Unsafe.Spans.Data;

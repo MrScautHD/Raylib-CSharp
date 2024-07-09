@@ -8,6 +8,7 @@ using Raylib_CSharp.Images;
 using Raylib_CSharp.IO;
 using Raylib_CSharp.Logging;
 using Raylib_CSharp.Rendering;
+using Raylib_CSharp.Rendering.Gl.Contexts;
 using Raylib_CSharp.Test;
 using Raylib_CSharp.Textures;
 using Raylib_CSharp.Unsafe.Spans.Data;
@@ -115,6 +116,8 @@ GLLoader.LoadBindings(context);
 
 //Span<Matrix4x4> matrix = new(new Matrix4x4[1]);
 //matrix[1] = new Matrix4x4();
+
+context.GetProcAddress("glClearColor");
 
 while (!Window.ShouldClose()) {
     camera3D.Update(CameraMode.Orbital);

@@ -19,7 +19,7 @@ public class NativeGlContext : IGlContext, IDisposable {
             this._context = new LinuxGlContext();
         }
         else if (RuntimeInformation.IsOSPlatform(OSPlatform.OSX)) {
-            this._context = new MacGlContext();
+            this._context = new MacOsGlContext();
         }
         else {
             throw new Exception("Platform is not supported!");

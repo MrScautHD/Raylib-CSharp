@@ -8,7 +8,7 @@
     </PropertyGroup>
 
     <PropertyGroup Condition="$([MSBuild]::IsOSPlatform('Linux'))">
-        <RlName>libraylib.dylib</RlName>
+        <RlName>libraylib.so</RlName>
     </PropertyGroup>
 
     <PropertyGroup Condition="$([MSBuild]::IsOSPlatform('OSX'))">

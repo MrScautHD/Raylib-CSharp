@@ -117,8 +117,6 @@ GLLoader.LoadBindings(context);
 //Span<Matrix4x4> matrix = new(new Matrix4x4[1]);
 //matrix[1] = new Matrix4x4();
 
-context.GetProcAddress("glClearColor");
-
 while (!Window.ShouldClose()) {
     camera3D.Update(CameraMode.Orbital);
 

@@ -3,7 +3,7 @@ using System.Runtime.InteropServices;
 
 namespace Raylib_CSharp.Rendering.Gl.Contexts;
 
-public partial class MacGlContext : IGlContext {
+public partial class MacOsGlContext : IGlContext {
 
     private const string OpenGL = "/System/Library/Frameworks/OpenGL.framework/OpenGL";
 
@@ -17,7 +17,7 @@ public partial class MacGlContext : IGlContext {
     private static partial nint NSLookupAndBindSymbol(string procName);
 
     public nint GetProcAddress(string procName) {
-        nint address = NSLookupAndBindSymbol("_" + procName);
+        nint address = NSLookupAndBindSymbol($"_{procName}");
 
         if (address == nint.Zero) {
             throw new Exception("Failed to retrieve the Procedure Address.");

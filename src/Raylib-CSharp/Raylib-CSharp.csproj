@@ -13,7 +13,7 @@
     <PropertyGroup>
         <Title>Raylib-CSharp</Title>
         <Authors>MrScautHD</Authors>
-        <Version>4.1.6</Version>
+        <Version>4.1.8</Version>
         <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
         <GenerateDocumentationFile>true</GenerateDocumentationFile>
         <NoWarn>$(NoWarn);1591</NoWarn>

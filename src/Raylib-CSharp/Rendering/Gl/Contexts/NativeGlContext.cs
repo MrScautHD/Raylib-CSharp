@@ -6,7 +6,7 @@ public class NativeGlContext : IGlContext, IDisposable {
 
     public bool HasDisposed { get; private set; }
 
-    private IGlContext? _context;
+    private IGlContext _context;
 
     /// <summary>
     /// Represents a native OpenGL context (Use it for bindings like OpenTK...).
@@ -22,16 +22,12 @@ public class NativeGlContext : IGlContext, IDisposable {
             this._context = new MacOsGlContext();
         }
         else {
-            throw new Exception("Platform is not supported!");
+            throw new PlatformNotSupportedException("Platform is not supported!");
         }
     }
 
     public nint GetProcAddress(string procName) {
-        if (this._context != null) {
-            return this._context!.GetProcAddress(procName);
-        } else {
-            throw new Exception("Platform is not supported!");
-        }
+        return this._context.GetProcAddress(procName);
     }
 
     /// <summary>
@@ -53,7 +49,7 @@ public class NativeGlContext : IGlContext, IDisposable {
     protected virtual void Dispose(bool disposing) {
         if (disposing) {
             if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows)) {
-                ((WinGlContext) this._context!)?.Dispose();
+                ((WinGlContext) this._context).Dispose();
             }
         }
     }

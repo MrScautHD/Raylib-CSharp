@@ -1833,7 +1833,7 @@ internal static partial class RaylibApi {
     /// </summary>
     /// <param name="position">The screen position (2D) to convert.</param>
     /// <param name="camera">The Camera2D used for the conversion.</param>
-    /// <returns>The world position (3D) corresponding to the screen position (2D).</returns>
+    /// <returns>The world position (2D) corresponding to the screen position (2D).</returns>
     [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
     internal static partial Vector2 GetScreenToWorld2D(Vector2 position, Camera2D camera);

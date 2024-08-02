@@ -104,7 +104,7 @@ public struct Music {
     }
 
     /// <inheritdoc cref="RaylibApi.GetMusicTimeLength" />
-    public float GeTimeLength() {
+    public float GetTimeLength() {
         return RaylibApi.GetMusicTimeLength(this);
     }
 

@@ -12,7 +12,7 @@ __Raylib-CSharp__ is a fully managed binding over `Raylib-5.5`.
 
 ---
 
-# 🔧 **Advanced Renderers** 🚀
+# 🔧 **Advanced Renderer** 🚀
 Discover the powerful features of our **✨new✨ Render Framework, Bliss**. 
 
 <p align="right" style="margin-bottom: 0px !important;">

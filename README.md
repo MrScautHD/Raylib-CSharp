@@ -12,6 +12,18 @@ __Raylib-CSharp__ is a fully managed binding over `Raylib-5.5`.
 
 ---
 
+# 🔧 **Advanced Renderers** 🚀
+Discover the powerful features of our **✨new✨ Render Framework, Bliss**. 
+
+Bliss is a **modern rendering solution** supporting:
+- 🎮 **Direct3D11**
+- 🌋 **Vulkan**
+- 🖼️ **OpenGL**
+- 🍎 **Metal**
+- 📱 **OpenGL-ES**
+
+Unlock advanced rendering capabilities with Bliss today!
+
 # 🪙 Installation - [Nuget](https://www.nuget.org/packages/Raylib-CSharp)
 ```
 dotnet add package Raylib-CSharp --version 4.1.9
@@ -61,6 +73,3 @@ dotnet add package Raylib-CSharp --version 4.1.9
 
 # ✍️ Acknowledgement
 This library is available under the [MIT](https://choosealicense.com/licenses/mit) license.
-
-Special thanks to the author(s) and contributors of the following projects
-* [Raylib](https://github.com/raysan5/raylib)

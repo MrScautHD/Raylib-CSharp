@@ -12,8 +12,12 @@ __Raylib-CSharp__ is a fully managed binding over `Raylib-5.5`.
 
 ---
 
-# 🔧 **Advanced Renderer** 🚀
+# 🔧 **Advanced Renderers** 🚀
 Discover the powerful features of our **✨new✨ Render Framework, Bliss**. 
+
+<p align="right" style="margin-bottom: 0px !important;">
+  <img width="512" src="https://github.com/user-attachments/assets/cb8a5929-3f79-4a68-ab2c-36b395148c06" alt="Logo" align="right">
+</p>
 
 Bliss is a **modern rendering solution** supporting:
 - 🎮 **Direct3D11**

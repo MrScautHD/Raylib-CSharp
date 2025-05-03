@@ -73,7 +73,7 @@ dotnet add package Raylib-CSharp --version 4.1.9
 | .NET 5.0, 6.0 / C# 10                                                | .NET 8.0 / C# 12                                                                                                                                                                  |
 | Released 2018-07                                                     | Released 2024-05                                                                                                                                                                  |
 | License ZLib                                                         | License MIT                                                                                                                                                                       |
-| Raylib 5.0                                                           | Raylib 5.1-dev                                                                                                                                                                    |
+| Raylib 5.0                                                           | Raylib 5.5                                                                                                                                                                    |
 
 # ✍️ Acknowledgement
 This library is available under the [MIT](https://choosealicense.com/licenses/mit) license.

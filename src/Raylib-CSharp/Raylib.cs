@@ -10,7 +10,7 @@ public static class Raylib {
 
     public const string Name = "raylib";
 
-    public static readonly Version Version = new(4, 1, 8);
+    public static readonly Version Version = new(4, 1, 9);
     public static readonly Version RlVersion = new(5, 5, 0);
 
     /// <inheritdoc cref="RaylibApi.TakeScreenshot" />
@@ -52,16 +52,16 @@ public static class Raylib {
 
     /// <inheritdoc cref="RaylibApi.MemAlloc" />
     public static unsafe T* MemAlloc<T>(int size) where T : unmanaged {
-        return (T*) RaylibApi.MemAlloc(size * sizeof(T));
+        return (T*)RaylibApi.MemAlloc(size * sizeof(T));
     }
 
     /// <inheritdoc cref="RaylibApi.MemRealloc" />
     public static unsafe T* MemRealloc<T>(T* ptr, int size) where T : unmanaged {
-        return (T*) RaylibApi.MemRealloc((nint) ptr, size * sizeof(T));
+        return (T*)RaylibApi.MemRealloc((nint)ptr, size * sizeof(T));
     }
 
     /// <inheritdoc cref="RaylibApi.MemFree" />
     public static unsafe void MemFree<T>(T* ptr) where T : unmanaged {
-        RaylibApi.MemFree((nint) ptr);
+        RaylibApi.MemFree((nint)ptr);
     }
 }

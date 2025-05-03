@@ -40,17 +40,17 @@ dotnet add package Raylib-CSharp --version 4.1.9
 ---
 
 # 💻 Platforms
-[<img src="https://github.com/MrScautHD/Sparkle/assets/65916181/a92bd5fa-517b-44c2-ab58-cc01b5ae5751" alt="windows" width="70" height="70" align="right">](https://www.microsoft.com/de-at/windows)
+[<img src="https://github.com/user-attachments/assets/f8b66880-9037-4ba8-acc4-6ea390e1dde9" alt="windows" width="70" height="70" align="left">](https://www.microsoft.com/de-at/windows)
 ### Windows
-- Using `OpenGL-4.3`
+- Graphics APIs: `OpenGL-4.3`
 
-[<img src="https://github.com/MrScautHD/Sparkle/assets/65916181/f9e643a8-4d46-450c-91ac-d220394ecd42" alt="Linux" width="70" height="70" align="right">](https://www.ubuntu.com/)
+[<img src="https://github.com/user-attachments/assets/814ce8c3-5242-47f4-a51b-b185680d38ff" alt="Linux" width="70" height="70" align="left">](https://www.ubuntu.com/)
 ### Linux
-- Using `OpenGL-4.3`
+- Graphics APIs: `OpenGL-4.3`
 
-[<img src="https://github.com/MrScautHD/Sparkle/assets/65916181/e37eb15f-4237-47ae-9ae7-e4455f7c3d92" alt="macOS" width="70" height="70" align="right">](https://www.apple.com/at/macos/sonoma/)
+[<img src="https://github.com/user-attachments/assets/99605868-0590-42ce-a72a-f6feb1cabf6e" alt="macOS" width="70" height="70" align="left">](https://www.apple.com/at/macos/sonoma/)
 ### MacOS
-- Using `OpenGL-3.3`
+- Graphics APIs: `OpenGL-3.3`
 
 # 🧑 Contributors
 <a href="https://github.com/mrscauthd/Raylib-CSharp/graphs/contributors">

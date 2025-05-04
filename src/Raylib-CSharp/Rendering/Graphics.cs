@@ -273,10 +273,14 @@ public static class Graphics {
         RaylibApi.DrawModelEx(model, position, rotationAxis, rotationAngle, scale, tint);
     }
 
-
     /// <inheritdoc cref="RaylibApi.DrawModelPoints" />
     public static void DrawModelPoints(Model model, Vector3 position, float scale, Color tint) {
         RaylibApi.DrawModelPoints(model, position, scale, tint);
+    }
+    
+    /// <inheritdoc cref="RaylibApi.DrawModelPointsEx" />
+    public static void DrawModelPointsEx(Model model, Vector3 position, Vector3 rotationAxis, float rotationAngle, Vector3 scale, Color tint) {
+        RaylibApi.DrawModelPointsEx(model, position, rotationAxis, rotationAngle, scale, tint);
     }
 
     /// <inheritdoc cref="RaylibApi.DrawModelWires" />

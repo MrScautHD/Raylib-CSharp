@@ -15,7 +15,6 @@
         <RlName>libraylib.dylib</RlName>
     </PropertyGroup>
     
-    <!-- Todo: When "dev-5.1" release move back to "Tags" ("https://github.com/raysan5/raylib/archive/$(RlVersion).zip") instead of "commits": "https://github.com/raysan5/raylib/archive/refs/tags/$(RlVersion).zip" -->
     <!-- Download Raylib -->
     <Target Name="DownloadRaylib" BeforeTargets="UnZipRaylib">
         <DownloadFile DestinationFolder="$(IntermediateOutputPath)"

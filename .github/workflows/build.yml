@@ -9,7 +9,7 @@ on:
     branches: [ "main" ]
 
 env:
-  raylib_version: 'a8240722c61d216d96c3f2cab27426ee7b7a3919'
+  raylib_version: '5.5'
 
 jobs:
   
@@ -34,7 +34,7 @@ jobs:
       - name: Build Raylib
         shell: bash
         run: |
-          curl -Lso raylib.zip https://github.com/raysan5/raylib/archive/${{ env.raylib_version }}.zip
+          curl -Lso raylib.zip https://github.com/raysan5/raylib/archive/refs/tags/${{ env.raylib_version }}.zip
           unzip -qq raylib.zip
           cmake -S raylib-${{ env.raylib_version }} \
           -A ${{ matrix.name }} \
@@ -93,7 +93,7 @@ jobs:
       # Build Raylib
       - name: Build Raylib
         run: |
-          curl -Lso raylib.zip https://github.com/raysan5/raylib/archive/${{ env.raylib_version }}.zip
+          curl -Lso raylib.zip https://github.com/raysan5/raylib/archive/refs/tags/${{ env.raylib_version }}.zip
           unzip -qq raylib.zip
           cmake -S raylib-${{ env.raylib_version }} \
           -B native \
@@ -134,7 +134,7 @@ jobs:
       # Build Raylib
       - name: Build Raylib
         run: |
-          curl -Lso raylib.zip https://github.com/raysan5/raylib/archive/${{ env.raylib_version }}.zip
+          curl -Lso raylib.zip https://github.com/raysan5/raylib/archive/refs/tags/${{ env.raylib_version }}.zip
           unzip -qq raylib.zip
           cmake -S raylib-${{ env.raylib_version }} \
           -B native \

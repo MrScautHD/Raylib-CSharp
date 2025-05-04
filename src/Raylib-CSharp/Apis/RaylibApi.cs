@@ -2964,7 +2964,6 @@ internal static partial class RaylibApi {
     /// <returns>A pointer to the decoded byte array.</returns>
     [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    [return: MarshalUsing(typeof(NonFreeUtf8StringMarshaller))]
     internal static unsafe partial uint* ComputeMD5(byte* data, int dataSize);
 
     /// <summary>
@@ -2975,7 +2974,6 @@ internal static partial class RaylibApi {
     /// <returns>A pointer to the decoded byte array.</returns>
     [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    [return: MarshalUsing(typeof(NonFreeUtf8StringMarshaller))]
     internal static unsafe partial uint* ComputeSHA1(byte* data, int dataSize);
 
 

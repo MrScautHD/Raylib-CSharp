@@ -123,9 +123,9 @@ public struct Model {
         return RaylibApi.GetRayCollisionQuad(ray, p1, p2, p3, p4);
     }
 
-    /// <inheritdoc cref="RaylibApi.IsModelReady" />
+    /// <inheritdoc cref="RaylibApi.IsModelValid" />
     public bool IsReady() {
-        return RaylibApi.IsModelReady(this);
+        return RaylibApi.IsModelValid(this);
     }
 
     /// <inheritdoc cref="RaylibApi.UnloadModel" />

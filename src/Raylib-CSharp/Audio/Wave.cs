@@ -50,9 +50,9 @@ public struct Wave {
         }
     }
 
-    /// <inheritdoc cref="RaylibApi.IsWaveReady" />
+    /// <inheritdoc cref="RaylibApi.IsWaveValid" />
     public bool IsReady() {
-        return RaylibApi.IsWaveReady(this);
+        return RaylibApi.IsWaveValid(this);
     }
 
     /// <inheritdoc cref="RaylibApi.UnloadWave" />
@@ -76,8 +76,8 @@ public struct Wave {
     }
 
     /// <inheritdoc cref="RaylibApi.WaveCrop" />
-    public void Crop(int initSample, int finalSample) {
-        RaylibApi.WaveCrop(ref this, initSample, finalSample);
+    public void Crop(int initFrame, int finalFrame) {
+        RaylibApi.WaveCrop(ref this, initFrame, finalFrame);
     }
 
     /// <inheritdoc cref="RaylibApi.WaveFormat" />
@@ -87,6 +87,6 @@ public struct Wave {
 
     /// <inheritdoc cref="RaylibApi.LoadWaveSamples" />
     public unsafe ReadOnlySpan<float> LoadSamples() {
-        return new ReadOnlySpan<float>(RaylibApi.LoadWaveSamples(this), (int) (this.FrameCount * this.Channels));
+        return new ReadOnlySpan<float>(RaylibApi.LoadWaveSamples(this), (int)(this.FrameCount * this.Channels));
     }
 }

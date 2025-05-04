@@ -72,6 +72,11 @@ public struct ModelAnimation {
         RaylibApi.UpdateModelAnimation(model, this, frame);
     }
 
+    /// <inheritdoc cref="RaylibApi.UpdateModelAnimationBones" />
+    public void UpdateBones(Model model, int frame) {
+        RaylibApi.UpdateModelAnimationBones(model, this, frame);
+    }
+
     /// <inheritdoc cref="RaylibApi.IsModelAnimationValid" />
     public bool IsValid(Model model) {
         return RaylibApi.IsModelAnimationValid(model, this);

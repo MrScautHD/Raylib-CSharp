@@ -46,9 +46,9 @@ public struct Material {
         return RaylibApi.LoadMaterialDefault();
     }
 
-    /// <inheritdoc cref="RaylibApi.IsMaterialReady" />
+    /// <inheritdoc cref="RaylibApi.IsMaterialValid" />
     public bool IsReady() {
-        return RaylibApi.IsMaterialReady(this);
+        return RaylibApi.IsMaterialValid(this);
     }
 
     /// <inheritdoc cref="RaylibApi.UnloadMaterial" />
@@ -70,7 +70,7 @@ public struct Material {
     /// <param name="mapIndex">The index of the material map to modify.</param>
     /// <param name="texture">The texture to assign to the material map.</param>
     public void SetTexture(MaterialMapIndex mapIndex, Texture2D texture) {
-        this.Maps[(int) mapIndex].Texture = texture;
+        this.Maps[(int)mapIndex].Texture = texture;
     }
 
     /// <summary>
@@ -79,7 +79,7 @@ public struct Material {
     /// <param name="mapIndex">The index of the material map.</param>
     /// <param name="color">The color to set for the material map.</param>
     public void SetColor(MaterialMapIndex mapIndex, Color color) {
-        this.Maps[(int) mapIndex].Color = color;
+        this.Maps[(int)mapIndex].Color = color;
     }
 
     /// <summary>
@@ -88,6 +88,6 @@ public struct Material {
     /// <param name="mapIndex">The index of the map to modify.</param>
     /// <param name="value">The new value for the map.</param>
     public void SetValue(MaterialMapIndex mapIndex, float value) {
-        this.Maps[(int) mapIndex].Value = value;
+        this.Maps[(int)mapIndex].Value = value;
     }
 }

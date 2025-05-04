@@ -48,9 +48,9 @@ public struct Texture2D {
         return RaylibApi.LoadTextureCubemap(image, layout);
     }
 
-    /// <inheritdoc cref="RaylibApi.IsTextureReady" />
+    /// <inheritdoc cref="RaylibApi.IsTextureValid" />
     public bool IsReady() {
-        return RaylibApi.IsTextureReady(this);
+        return RaylibApi.IsTextureValid(this);
     }
 
     /// <inheritdoc cref="RaylibApi.UnloadTexture" />

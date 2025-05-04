@@ -109,9 +109,9 @@ public struct Font {
         }
     }
 
-    /// <inheritdoc cref="RaylibApi.IsFontReady" />
+    /// <inheritdoc cref="RaylibApi.IsFontValid" />
     public bool IsReady() {
-        return RaylibApi.IsFontReady(this);
+        return RaylibApi.IsFontValid(this);
     }
 
     /// <inheritdoc cref="RaylibApi.UnloadFont" />

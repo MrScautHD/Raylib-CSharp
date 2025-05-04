@@ -1,4 +1,5 @@
 ﻿using System.Numerics;
+using System.Text;
 using OpenTK.Graphics;
 using Raylib_CSharp.Camera.Cam3D;
 using Raylib_CSharp.Colors;
@@ -77,8 +78,12 @@ ReadOnlySpan<GlyphInfo> info = Font.LoadData(fileData, 18, 95, FontType.Default)
 Console.WriteLine(info.Length + "");
 
 Image image = Font.GenImageAtlas(info, font.Recs, 18, 4, 0);
+Image clipboardImage = Window.GetClipboardImage();  //Not suported on all platforms
 Texture2D texture = Texture2D.LoadFromImage(image);
+Texture2D clipboardTexture = Texture2D.LoadFromImage(clipboardImage);
 image.Unload();
+clipboardImage.Unload();
+
 
 FileManager.UnloadFileData(fileData);
 TextManager.UnloadCodepoints(codepoints);
@@ -112,6 +117,12 @@ Image testImage = Image.GenColor(100, 100, Color.Green);
 
 NativeBindingsContext context = new NativeBindingsContext();
 GLLoader.LoadBindings(context);
+Console.WriteLine($"Bones:{model.Meshes[0].BoneCount}");
+Console.WriteLine($"BoneMatrices:{model.Meshes[0].BoneMatrices[0]}");
+var dataToEncode = Encoding.ASCII.GetBytes("This is only a test");
+Console.WriteLine($"CRC32 Checksum:{FileManager.ComputeCRC32(dataToEncode)}"); //As ISO-HDLC
+Console.WriteLine($"MD5 Checksum:{FileManager.ComputeMD5(dataToEncode).ToString()}"); //As MD5
+Console.WriteLine($"SHA1 Checksum:{FileManager.ComputeSHA1(dataToEncode).ToString()}"); //As MD5
 
 //Span<Matrix4x4> matrix = new(new Matrix4x4[1]);
 //matrix[1] = new Matrix4x4();
@@ -133,6 +144,7 @@ while (!Window.ShouldClose()) {
 
     Graphics.DrawFPS(50, 50);
     Graphics.DrawTexture(texture, 10, 10, Color.White);
+    Graphics.DrawTexture(clipboardTexture, 128, 128, Color.White);
 
     Graphics.EndDrawing();
 }

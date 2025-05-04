@@ -30,7 +30,7 @@ Unlock advanced rendering capabilities with [Bliss](https://github.com/MrScautHD
 
 # 🪙 Installation - [Nuget](https://www.nuget.org/packages/Raylib-CSharp)
 ```
-dotnet add package Raylib-CSharp --version 4.1.9
+dotnet add package Raylib-CSharp --version 5.0.0
 ```
 
 # 📖 [Installation - From source]

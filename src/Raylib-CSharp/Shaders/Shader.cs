@@ -32,7 +32,7 @@ public struct Shader {
     }
 
     /// <inheritdoc cref="RaylibApi.IsShaderValid" />
-    public bool IsReady() {
+    public bool IsValid() {
         return RaylibApi.IsShaderValid(this);
     }
 

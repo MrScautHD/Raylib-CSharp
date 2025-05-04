@@ -109,7 +109,7 @@ Color color1 = Color.Fade(color, 1);
 
 Font font2 = Font.GetDefault();
 
-//if (font2.IsReady()) {
+//if (font2.IsValid()) {
 //
 //}
 
@@ -119,10 +119,16 @@ NativeBindingsContext context = new NativeBindingsContext();
 GLLoader.LoadBindings(context);
 Console.WriteLine($"Bones:{model.Meshes[0].BoneCount}");
 Console.WriteLine($"BoneMatrices:{model.Meshes[0].BoneMatrices[0]}");
-var dataToEncode = Encoding.ASCII.GetBytes("This is only a test");
+var dataToEncode = Encoding.ASCII.GetBytes("This is a test");
 Console.WriteLine($"CRC32 Checksum:{FileManager.ComputeCRC32(dataToEncode)}"); //As ISO-HDLC
-Console.WriteLine($"MD5 Checksum:{FileManager.ComputeMD5(dataToEncode).ToString()}"); //As MD5
-Console.WriteLine($"SHA1 Checksum:{FileManager.ComputeSHA1(dataToEncode).ToString()}"); //As MD5
+
+uint[] md5Hash = FileManager.ComputeMD5(dataToEncode);
+string hexString = string.Join("", md5Hash.Select(x => x.ToString("x8")));
+Console.WriteLine($"MD5 Checksum: {hexString}");
+
+uint[] sha1Hash = FileManager.ComputeSHA1(dataToEncode);
+hexString = string.Join("", sha1Hash.Select(x => x.ToString("x8")));
+Console.WriteLine($"SHA1 Checksum: {hexString}");
 
 //Span<Matrix4x4> matrix = new(new Matrix4x4[1]);
 //matrix[1] = new Matrix4x4();

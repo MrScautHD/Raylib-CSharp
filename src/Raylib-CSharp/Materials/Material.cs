@@ -47,7 +47,7 @@ public struct Material {
     }
 
     /// <inheritdoc cref="RaylibApi.IsMaterialValid" />
-    public bool IsReady() {
+    public bool IsValid() {
         return RaylibApi.IsMaterialValid(this);
     }
 

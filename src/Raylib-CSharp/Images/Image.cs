@@ -160,7 +160,7 @@ public struct Image {
     }
 
     /// <inheritdoc cref="RaylibApi.IsImageValid" />
-    public bool IsReady() {
+    public bool IsValid() {
         return RaylibApi.IsImageValid(this);
     }
 

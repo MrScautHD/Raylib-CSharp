@@ -49,7 +49,7 @@ public struct Texture2D {
     }
 
     /// <inheritdoc cref="RaylibApi.IsTextureValid" />
-    public bool IsReady() {
+    public bool IsValid() {
         return RaylibApi.IsTextureValid(this);
     }
 

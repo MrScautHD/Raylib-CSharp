@@ -32,7 +32,7 @@ public struct Sound {
     }
 
     /// <inheritdoc cref="RaylibApi.IsSoundValid" />
-    public bool IsReady() {
+    public bool IsValid() {
         return RaylibApi.IsSoundValid(this);
     }
 

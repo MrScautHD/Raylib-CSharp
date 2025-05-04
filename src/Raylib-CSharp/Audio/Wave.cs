@@ -51,7 +51,7 @@ public struct Wave {
     }
 
     /// <inheritdoc cref="RaylibApi.IsWaveValid" />
-    public bool IsReady() {
+    public bool IsValid() {
         return RaylibApi.IsWaveValid(this);
     }
 

@@ -110,7 +110,7 @@ public struct Font {
     }
 
     /// <inheritdoc cref="RaylibApi.IsFontValid" />
-    public bool IsReady() {
+    public bool IsValid() {
         return RaylibApi.IsFontValid(this);
     }
 

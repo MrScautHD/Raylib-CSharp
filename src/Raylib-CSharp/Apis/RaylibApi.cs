@@ -1779,7 +1779,7 @@ internal static partial class RaylibApi {
     internal static partial Shader LoadShaderFromMemory(string vsCode, string fsCode);
 
     /// <summary>
-    /// Check if a shader is ready.
+    /// Check if a shader is valid.
     /// </summary>
     /// <param name="shader">The shader to check.</param>
     /// <returns>True if the shader is valid (loaded on GPU); otherwise, false.</returns>
@@ -4117,7 +4117,7 @@ internal static partial class RaylibApi {
     internal static unsafe partial void UnloadImagePalette(Color* colors);
 
     /// <summary>
-    /// Check if an image is ready.
+    /// Check if an image is valid.
     /// </summary>
     /// <param name="image">The image to check.</param>
     /// <returns>True if the image is valid (data and parameters); otherwise, false.</returns>
@@ -4745,7 +4745,7 @@ internal static partial class RaylibApi {
     internal static partial Texture2D LoadTextureCubemap(Image image, CubemapLayout layout);
 
     /// <summary>
-    /// Check if a texture is ready.
+    /// Check if a texture is valid.
     /// </summary>
     /// <param name="texture">The texture to check.</param>
     /// <returns>Returns true if the texture is valid (loaded in GPU), false otherwise.</returns>
@@ -4820,14 +4820,14 @@ internal static partial class RaylibApi {
     internal static partial RenderTexture2D LoadRenderTexture(int width, int height);
 
     /// <summary>
-    /// Check if a render texture is ready.
+    /// Check if a render texture is valid.
     /// </summary>
     /// <param name="target">The render texture to check.</param>
-    /// <returns>Returns true if the render texture is ready, false otherwise.</returns>
+    /// <returns>Returns true if the render texture is valid (loaded in GPU), false otherwise.</returns>
     [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
     [return: MarshalAs(UnmanagedType.I1)]
-    internal static partial bool IsRenderTextureReady(RenderTexture2D target);
+    internal static partial bool IsRenderTextureValid(RenderTexture2D target);
 
     /// <summary>
     /// Unload render texture from GPU memory (VRAM).
@@ -5103,7 +5103,7 @@ internal static partial class RaylibApi {
     internal static unsafe partial void UnloadFontData(GlyphInfo* glyphs, int glyphCount);
 
     /// <summary>
-    /// Check if a font is ready.
+    /// Check if a font is valid.
     /// </summary>
     /// <param name="font">The font to check.</param>
     /// <returns>True if the font is valid (font data loaded, WARNING: GPU texture not checked), false otherwise.</returns>
@@ -5771,7 +5771,7 @@ internal static partial class RaylibApi {
     internal static partial RayCollision GetRayCollisionQuad(Ray ray, Vector3 p1, Vector3 p2, Vector3 p3, Vector3 p4);
 
     /// <summary>
-    /// Check if a model is ready.
+    /// Check if a model is valid.
     /// </summary>
     /// <param name="model">The model to check.</param>
     /// <returns>True if the model is valid (loaded in GPU, VAO/VBOs), false otherwise.</returns>

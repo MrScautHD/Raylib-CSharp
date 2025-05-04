@@ -124,7 +124,7 @@ public struct Model {
     }
 
     /// <inheritdoc cref="RaylibApi.IsModelValid" />
-    public bool IsReady() {
+    public bool IsValid() {
         return RaylibApi.IsModelValid(this);
     }
 

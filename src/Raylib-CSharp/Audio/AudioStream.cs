@@ -67,7 +67,7 @@ public struct AudioStream {
     }
 
     /// <inheritdoc cref="RaylibApi.IsAudioStreamValid" />
-    public bool IsReady() {
+    public bool IsValid() {
         return RaylibApi.IsAudioStreamValid(this);
     }
 

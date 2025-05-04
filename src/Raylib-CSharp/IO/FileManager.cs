@@ -1,3 +1,4 @@
+using System.Text;
 using Raylib_CSharp.Apis;
 
 namespace Raylib_CSharp.IO;
@@ -6,7 +7,7 @@ public static class FileManager {
 
     /// <inheritdoc cref="RaylibApi.LoadFileData" />
     public static unsafe ReadOnlySpan<byte> LoadFileData(string fileName) {
-        return new ReadOnlySpan<byte>(RaylibApi.LoadFileData(fileName, out uint dataSize), (int) dataSize);
+        return new ReadOnlySpan<byte>(RaylibApi.LoadFileData(fileName, out uint dataSize), (int)dataSize);
     }
 
     /// <inheritdoc cref="RaylibApi.UnloadFileData" />
@@ -19,14 +20,14 @@ public static class FileManager {
     /// <inheritdoc cref="RaylibApi.SaveFileData" />
     public static unsafe bool SaveFileData(string fileName, ReadOnlySpan<byte> data) {
         fixed (byte* dataPtr = data) {
-            return RaylibApi.SaveFileData(fileName, (nint) dataPtr, (uint) data.Length);
+            return RaylibApi.SaveFileData(fileName, (nint)dataPtr, (uint)data.Length);
         }
     }
 
     /// <inheritdoc cref="RaylibApi.ExportDataAsCode" />
     public static unsafe bool ExportDataAsCode(ReadOnlySpan<byte> data, string fileName) {
         fixed (byte* dataPtr = data) {
-            return RaylibApi.ExportDataAsCode(dataPtr, (uint) data.Length, fileName);
+            return RaylibApi.ExportDataAsCode(dataPtr, (uint)data.Length, fileName);
         }
     }
 
@@ -105,6 +106,11 @@ public static class FileManager {
         return RaylibApi.ChangeDirectory(dir);
     }
 
+    /// <inheritdoc cref="RaylibApi.MakeDirectory" />
+    public static bool MakeDirectory(string dir) {
+        return RaylibApi.MakeDirectory(dir);
+    }
+
     /// <inheritdoc cref="RaylibApi.IsPathFile" />
     public static bool IsPathFile(string path) {
         return RaylibApi.IsPathFile(path);
@@ -175,6 +181,30 @@ public static class FileManager {
     public static unsafe ReadOnlySpan<byte> DecodeDataBase64(ReadOnlySpan<byte> data) {
         fixed (byte* dataPtr = data) {
             return new ReadOnlySpan<byte>(RaylibApi.DecodeDataBase64(dataPtr, out int outputSize), outputSize);
+        }
+    }
+    /// <inheritdoc cref="RaylibApi.ComputeCRC32" />
+    public static unsafe uint ComputeCRC32(ReadOnlySpan<byte> data) {
+        fixed (byte* dataPtr = data) {
+            return RaylibApi.ComputeCRC32(dataPtr, data.Length);
+        }
+    }
+    /// <inheritdoc cref="RaylibApi.ComputeMD5" />
+    public static unsafe uint[] ComputeMD5(ReadOnlySpan<byte> data) {
+        fixed (byte* dataPtr = data) {
+            uint* nativeResult = RaylibApi.ComputeMD5(dataPtr, data.Length);
+            uint[] convertedResult = new uint[4];
+            for (int ptrIndex = 0; ptrIndex < 4; ptrIndex++) { convertedResult[ptrIndex] = nativeResult[ptrIndex]; }
+            return convertedResult;
+        }
+    }
+    /// <inheritdoc cref="RaylibApi.ComputeSHA1" />
+    public static unsafe uint[] ComputeSHA1(ReadOnlySpan<byte> data) {
+        fixed (byte* dataPtr = data) {
+            uint* nativeResult = RaylibApi.ComputeSHA1(dataPtr, data.Length);
+            uint[] convertedResult = new uint[5];
+            for (int ptrIndex = 0; ptrIndex < 5; ptrIndex++) { convertedResult[ptrIndex] = nativeResult[ptrIndex]; }
+            return convertedResult;
         }
     }
 }

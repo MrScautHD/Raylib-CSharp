@@ -43,9 +43,9 @@ public struct Music {
         }
     }
 
-    /// <inheritdoc cref="RaylibApi.IsMusicReady" />
-    public bool IsReady() {
-        return RaylibApi.IsMusicReady(this);
+    /// <inheritdoc cref="RaylibApi.IsMusicValid" />
+    public bool IsValid() {
+        return RaylibApi.IsMusicValid(this);
     }
 
     /// <inheritdoc cref="RaylibApi.UnloadMusicStream" />

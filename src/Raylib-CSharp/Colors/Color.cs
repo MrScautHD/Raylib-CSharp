@@ -133,6 +133,11 @@ public struct Color {
         return RaylibApi.ColorAlphaBlend(dst, src, tint);
     }
 
+    /// <inheritdoc cref="RaylibApi.ColorLerp" />
+    public static Color Lerp(Color color1, Color color2, float factor) {
+        return RaylibApi.ColorLerp(color1, color2, factor);
+    }
+
     /// <inheritdoc cref="RaylibApi.GetColor" />
     public static Color FromHex(uint hexValue) {
         return RaylibApi.GetColor(hexValue);

@@ -238,6 +238,11 @@ public static class Window {
         return RaylibApi.GetClipboardText();
     }
 
+    /// <inheritdoc cref="RaylibApi.GetClipboardImage" />
+    public static Image GetClipboardImage() {
+        return RaylibApi.GetClipboardImage();
+    }
+
     /// <inheritdoc cref="RaylibApi.EnableEventWaiting" />
     public static void EnableEventWaiting() {
         RaylibApi.EnableEventWaiting();

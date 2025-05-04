@@ -31,9 +31,9 @@ public struct Sound {
         return RaylibApi.LoadSoundAlias(source);
     }
 
-    /// <inheritdoc cref="RaylibApi.IsSoundReady" />
-    public bool IsReady() {
-        return RaylibApi.IsSoundReady(this);
+    /// <inheritdoc cref="RaylibApi.IsSoundValid" />
+    public bool IsValid() {
+        return RaylibApi.IsSoundValid(this);
     }
 
     /// <inheritdoc cref="RaylibApi.UpdateSound" />

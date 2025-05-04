@@ -26,9 +26,9 @@ public struct RenderTexture2D {
         return RaylibApi.LoadRenderTexture(width, height);
     }
 
-    /// <inheritdoc cref="RaylibApi.IsRenderTextureReady" />
-    public bool IsReady() {
-        return RaylibApi.IsRenderTextureReady(this);
+    /// <inheritdoc cref="RaylibApi.IsRenderTextureValid" />
+    public bool IsValid() {
+        return RaylibApi.IsRenderTextureValid(this);
     }
 
     /// <inheritdoc cref="RaylibApi.UnloadRenderTexture" />

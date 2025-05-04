@@ -66,9 +66,9 @@ public struct AudioStream {
         RaylibApi.DetachAudioMixedProcessor(processor);
     }
 
-    /// <inheritdoc cref="RaylibApi.IsAudioStreamReady" />
-    public bool IsReady() {
-        return RaylibApi.IsAudioStreamReady(this);
+    /// <inheritdoc cref="RaylibApi.IsAudioStreamValid" />
+    public bool IsValid() {
+        return RaylibApi.IsAudioStreamValid(this);
     }
 
     /// <inheritdoc cref="RaylibApi.UnloadAudioStream" />

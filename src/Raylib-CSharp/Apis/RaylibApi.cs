@@ -508,6 +508,14 @@ internal static partial class RaylibApi {
     internal static partial string GetClipboardText();
 
     /// <summary>
+    /// Get clipboard image.
+    /// </summary>
+    /// <returns>The image stored in the clipboard as an Image.</returns>
+    [LibraryImport(Raylib.Name)]
+    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
+    internal static partial Image GetClipboardImage();
+
+    /// <summary>
     /// Enable waiting for events on EndDrawing(), no automatic event polling.
     /// </summary>
     [LibraryImport(Raylib.Name)]
@@ -1020,6 +1028,30 @@ internal static partial class RaylibApi {
     internal static partial void DrawModelEx(Model model, Vector3 position, Vector3 rotationAxis, float rotationAngle, Vector3 scale, Color tint);
 
     /// <summary>
+    /// Draw a model points (with texture if set).
+    /// </summary>
+    /// <param name="model">The model to draw the points of.</param>
+    /// <param name="position">The position at which to draw the model.</param>
+    /// <param name="scale">The scale at which to draw the model.</param>
+    /// <param name="tint">The tint color to apply to the model.</param>
+    [LibraryImport(Raylib.Name)]
+    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
+    internal static partial void DrawModelPoints(Model model, Vector3 position, float scale, Color tint);
+
+    /// <summary>
+    /// Draw a model points (with texture if set) with extended parameters.
+    /// </summary>
+    /// <param name="model">The model to draw.</param>
+    /// <param name="position">The position to place the model.</param>
+    /// <param name="rotationAxis">The rotation axis to apply to the model.</param>
+    /// <param name="rotationAngle">The rotation angle to apply to the model.</param>
+    /// <param name="scale">The scale to apply to the model.</param>
+    /// <param name="tint">The color tint to apply to the model.</param>
+    [LibraryImport(Raylib.Name)]
+    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
+    internal static partial void DrawModelPointsEx(Model model, Vector3 position, Vector3 rotationAxis, float rotationAngle, Vector3 scale, Color tint);
+
+    /// <summary>
     /// Draw a model wires (with texture if set).
     /// </summary>
     /// <param name="model">The model to draw the wires of.</param>
@@ -1052,17 +1084,18 @@ internal static partial class RaylibApi {
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
     internal static partial void DrawBoundingBox(BoundingBox box, Color color);
 
+
     /// <summary>
     /// Draw a billboard texture.
     /// </summary>
     /// <param name="camera">The camera used for rendering.</param>
     /// <param name="texture">The texture to be drawn as a billboard.</param>
     /// <param name="position">The position of the billboard in 3D space.</param>
-    /// <param name="size">The size of the billboard.</param>
+    /// <param name="scale">The size of the billboard.</param>
     /// <param name="tint">The tint color of the billboard.</param>
     [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    internal static partial void DrawBillboard(Camera3D camera, Texture2D texture, Vector3 position, float size, Color tint);
+    internal static partial void DrawBillboard(Camera3D camera, Texture2D texture, Vector3 position, float scale, Color tint);
 
     /// <summary>
     /// Draw a billboard texture defined by source.
@@ -1211,11 +1244,11 @@ internal static partial class RaylibApi {
     /// <param name="centerX">The x-coordinate of the circle's center.</param>
     /// <param name="centerY">The y-coordinate of the circle's center.</param>
     /// <param name="radius">The radius of the circle.</param>
-    /// <param name="color1">The color at the center of the circle.</param>
-    /// <param name="color2">The color at the edge of the circle.</param>
+    /// <param name="inner">The color at the center of the circle.</param>
+    /// <param name="outer">The color at the edge of the circle.</param>
     [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    internal static partial void DrawCircleGradient(int centerX, int centerY, float radius, Color color1, Color color2);
+    internal static partial void DrawCircleGradient(int centerX, int centerY, float radius, Color inner, Color outer);
 
     /// <summary>
     /// Draw a color-filled circle (Vector version).
@@ -1349,11 +1382,11 @@ internal static partial class RaylibApi {
     /// <param name="posY">The Y coordinate of the rectangle's top-left corner.</param>
     /// <param name="width">The width of the rectangle.</param>
     /// <param name="height">The height of the rectangle.</param>
-    /// <param name="color1">The starting color of the gradient.</param>
-    /// <param name="color2">The ending color of the gradient.</param>
+    /// <param name="top">The starting color of the gradient.</param>
+    /// <param name="bottom">The ending color of the gradient.</param>
     [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    internal static partial void DrawRectangleGradientV(int posX, int posY, int width, int height, Color color1, Color color2);
+    internal static partial void DrawRectangleGradientV(int posX, int posY, int width, int height, Color top, Color bottom);
 
     /// <summary>
     /// Draw a horizontal-gradient-filled rectangle.
@@ -1362,23 +1395,23 @@ internal static partial class RaylibApi {
     /// <param name="posY">The starting y-coordinate of the rectangle.</param>
     /// <param name="width">The width of the rectangle.</param>
     /// <param name="height">The height of the rectangle.</param>
-    /// <param name="color1">The starting color of the gradient.</param>
-    /// <param name="color2">The ending color of the gradient.</param>
+    /// <param name="left">The starting color of the gradient.</param>
+    /// <param name="right">The ending color of the gradient.</param>
     [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    internal static partial void DrawRectangleGradientH(int posX, int posY, int width, int height, Color color1, Color color2);
+    internal static partial void DrawRectangleGradientH(int posX, int posY, int width, int height, Color left, Color right);
 
     /// <summary>
     /// Draw a gradient-filled rectangle with custom vertex colors.
     /// </summary>
     /// <param name="rec">The position and size of the rectangle.</param>
-    /// <param name="col1">The color at the top-left corner of the rectangle.</param>
-    /// <param name="col2">The color at the top-right corner of the rectangle.</param>
-    /// <param name="col3">The color at the bottom-right corner of the rectangle.</param>
-    /// <param name="col4">The color at the bottom-left corner of the rectangle.</param>
+    /// <param name="topLeft"></param>
+    /// <param name="bottomLeft"></param>
+    /// <param name="topRight"></param>
+    /// <param name="bottomRight"></param>
     [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    internal static partial void DrawRectangleGradientEx(Rectangle rec, Color col1, Color col2, Color col3, Color col4);
+    internal static partial void DrawRectangleGradientEx(Rectangle rec, Color topLeft, Color bottomLeft, Color topRight, Color bottomRight);
 
     /// <summary>
     /// Draw rectangle outline.
@@ -1746,14 +1779,14 @@ internal static partial class RaylibApi {
     internal static partial Shader LoadShaderFromMemory(string vsCode, string fsCode);
 
     /// <summary>
-    /// Check if a shader is ready.
+    /// Check if a shader is valid.
     /// </summary>
     /// <param name="shader">The shader to check.</param>
-    /// <returns>True if the shader is ready; otherwise, false.</returns>
+    /// <returns>True if the shader is valid (loaded on GPU); otherwise, false.</returns>
     [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
     [return: MarshalAs(UnmanagedType.I1)]
-    internal static partial bool IsShaderReady(Shader shader);
+    internal static partial bool IsShaderValid(Shader shader);
 
     /// <summary>
     /// Unload shader from GPU memory (VRAM).
@@ -2275,9 +2308,10 @@ internal static partial class RaylibApi {
     /// <param name="gamepad">The index of the gamepad.</param>
     /// <param name="leftMotor">The intensity of the left motor vibration (0.0f to 1.0f).</param>
     /// <param name="rightMotor">The intensity of the right motor vibration (0.0f to 1.0f).</param>
+    /// <param name="duration">The intensity of the right motor vibration (0.0f to 1.0f).</param>
     [LibraryImport(Raylib.Name, StringMarshalling = StringMarshalling.Utf8)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    internal static partial void SetGamepadVibration(int gamepad, float leftMotor, float rightMotor);
+    internal static partial void SetGamepadVibration(int gamepad, float leftMotor, float rightMotor, float duration);
 
     /// <summary>
     /// Check if a mouse button has been pressed once.
@@ -2777,6 +2811,16 @@ internal static partial class RaylibApi {
     internal static partial bool ChangeDirectory(string dir);
 
     /// <summary>
+    /// Create directories
+    /// </summary>
+    /// <param name="dir">The path to the new directory.</param>
+    /// <returns>True if the directory was created successfully, false otherwise.</returns>
+    [LibraryImport(Raylib.Name, StringMarshalling = StringMarshalling.Utf8)]
+    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
+    [return: MarshalAs(UnmanagedType.I1)]
+    internal static partial bool MakeDirectory(string dir);
+
+    /// <summary>
     /// Check if a given path is a file or a directory.
     /// </summary>
     /// <param name="path">The path to check.</param>
@@ -2901,6 +2945,37 @@ internal static partial class RaylibApi {
     [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
     internal static unsafe partial byte* DecodeDataBase64(byte* data, out int outputSize);
+
+    /// <summary>
+    /// Compute data's CRC32
+    /// </summary>
+    /// <param name="data">A pointer to target data.</param>
+    /// <param name="dataSize">Target data size.</param>
+    /// <returns>A pointer to the decoded byte array.</returns>
+    [LibraryImport(Raylib.Name)]
+    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
+    internal static unsafe partial uint ComputeCRC32(byte* data, int dataSize);
+
+    /// <summary>
+    /// Compute data's MD5
+    /// </summary>
+    /// <param name="data">A pointer to target data.</param>
+    /// <param name="dataSize">Target data size.</param>
+    /// <returns>A pointer to the decoded byte array.</returns>
+    [LibraryImport(Raylib.Name)]
+    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
+    internal static unsafe partial uint* ComputeMD5(byte* data, int dataSize);
+
+    /// <summary>
+    /// Compute data's SHA1
+    /// </summary>
+    /// <param name="data">A pointer to target data.</param>
+    /// <param name="dataSize">Target data size.</param>
+    /// <returns>A pointer to the decoded byte array.</returns>
+    [LibraryImport(Raylib.Name)]
+    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
+    internal static unsafe partial uint* ComputeSHA1(byte* data, int dataSize);
+
 
     /* --------------------------------- Automation Event --------------------------------- */
 
@@ -3044,14 +3119,14 @@ internal static partial class RaylibApi {
     internal static unsafe partial void UnloadWaveSamples(float* samples);
 
     /// <summary>
-    /// Checks if wave data is ready.
+    /// Checks if wave data is valid.
     /// </summary>
     /// <param name="wave">The wave structure to check.</param>
-    /// <returns>True if the wave data is ready; otherwise, false.</returns>
+    /// <returns>True if the wave data is valid (data loaded and parameters); otherwise, false.</returns>
     [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
     [return: MarshalAs(UnmanagedType.I1)]
-    internal static partial bool IsWaveReady(Wave wave);
+    internal static partial bool IsWaveValid(Wave wave);
 
     /// <summary>
     /// Unload wave data.
@@ -3152,14 +3227,14 @@ internal static partial class RaylibApi {
     internal static partial Sound LoadSoundAlias(Sound source);
 
     /// <summary>
-    /// Checks if a sound is ready.
+    /// Checks if a sound is valid.
     /// </summary>
     /// <param name="sound">The sound to check.</param>
-    /// <returns>True if the sound is ready to be played, false otherwise.</returns>
+    /// <returns>True if the sound is valid (data loaded and buffers initialized), false otherwise.</returns>
     [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
     [return: MarshalAs(UnmanagedType.I1)]
-    internal static partial bool IsSoundReady(Sound sound);
+    internal static partial bool IsSoundValid(Sound sound);
 
     /// <summary>
     /// Update sound buffer with new data.
@@ -3279,14 +3354,14 @@ internal static partial class RaylibApi {
     internal static unsafe partial Music LoadMusicStreamFromMemory(string fileType, byte* data, int dataSize);
 
     /// <summary>
-    /// Checks if a music stream is ready.
+    /// Checks if a music stream is valid.
     /// </summary>
     /// <param name="music">The music stream to check.</param>
-    /// <returns>True if the music stream is ready, false otherwise.</returns>
+    /// <returns>True if the music stream is valid (context and buffers initialized), false otherwise.</returns>
     [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
     [return: MarshalAs(UnmanagedType.I1)]
-    internal static partial bool IsMusicReady(Music music);
+    internal static partial bool IsMusicValid(Music music);
 
     /// <summary>
     /// Unload music stream.
@@ -3465,14 +3540,14 @@ internal static partial class RaylibApi {
     internal static unsafe partial void DetachAudioMixedProcessor(delegate* unmanaged[Cdecl]<nint, uint, void> processor);
 
     /// <summary>
-    /// Checks if an audio stream is ready.
+    /// Checks if an audio stream is valid.
     /// </summary>
     /// <param name="stream">The audio stream to check.</param>
-    /// <returns>True if the audio stream is ready, false otherwise.</returns>
+    /// <returns>True if the audio stream is valid (buffers initialized), false otherwise.</returns>
     [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
     [return: MarshalAs(UnmanagedType.I1)]
-    internal static partial bool IsAudioStreamReady(AudioStream stream);
+    internal static partial bool IsAudioStreamValid(AudioStream stream);
 
     /// <summary>
     /// Unload audio stream and free memory.
@@ -3832,12 +3907,12 @@ internal static partial class RaylibApi {
     /// <summary>
     /// Load image sequence from file (frames appended to image.data).
     /// </summary>
-    /// <param name="fileNameOrString">The name of the file or string to load the image as animation from.</param>
+    /// <param name="fileName">The name of the file or string to load the image as animation from.</param>
     /// <param name="frames">Number of frames loaded.</param>
     /// <returns>The loaded image as animation.</returns>
     [LibraryImport(Raylib.Name, StringMarshalling = StringMarshalling.Utf8)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    internal static partial Image LoadImageAnim(string fileNameOrString, out int frames);
+    internal static partial Image LoadImageAnim(string fileName, out int frames);
 
     /// <summary>
     /// Load animated image data.
@@ -4040,14 +4115,14 @@ internal static partial class RaylibApi {
     internal static unsafe partial void UnloadImagePalette(Color* colors);
 
     /// <summary>
-    /// Check if an image is ready.
+    /// Check if an image is valid.
     /// </summary>
     /// <param name="image">The image to check.</param>
-    /// <returns>True if the image is ready; otherwise, false.</returns>
+    /// <returns>True if the image is valid (data and parameters); otherwise, false.</returns>
     [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
     [return: MarshalAs(UnmanagedType.I1)]
-    internal static partial bool IsImageReady(Image image);
+    internal static partial bool IsImageValid(Image image);
 
     /// <summary>
     /// Unload image from CPU memory (RAM).
@@ -4668,14 +4743,14 @@ internal static partial class RaylibApi {
     internal static partial Texture2D LoadTextureCubemap(Image image, CubemapLayout layout);
 
     /// <summary>
-    /// Check if a texture is ready.
+    /// Check if a texture is valid.
     /// </summary>
     /// <param name="texture">The texture to check.</param>
-    /// <returns>Returns true if the texture is ready, false otherwise.</returns>
+    /// <returns>Returns true if the texture is valid (loaded in GPU), false otherwise.</returns>
     [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
     [return: MarshalAs(UnmanagedType.I1)]
-    internal static partial bool IsTextureReady(Texture2D texture);
+    internal static partial bool IsTextureValid(Texture2D texture);
 
     /// <summary>
     /// Unload texture from GPU memory (VRAM).
@@ -4743,14 +4818,14 @@ internal static partial class RaylibApi {
     internal static partial RenderTexture2D LoadRenderTexture(int width, int height);
 
     /// <summary>
-    /// Check if a render texture is ready.
+    /// Check if a render texture is valid.
     /// </summary>
     /// <param name="target">The render texture to check.</param>
-    /// <returns>Returns true if the render texture is ready, false otherwise.</returns>
+    /// <returns>Returns true if the render texture is valid (loaded in GPU), false otherwise.</returns>
     [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
     [return: MarshalAs(UnmanagedType.I1)]
-    internal static partial bool IsRenderTextureReady(RenderTexture2D target);
+    internal static partial bool IsRenderTextureValid(RenderTexture2D target);
 
     /// <summary>
     /// Unload render texture from GPU memory (VRAM).
@@ -4880,6 +4955,17 @@ internal static partial class RaylibApi {
     [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
     internal static partial Color ColorAlphaBlend(Color dst, Color src, Color tint);
+
+    /// <summary>
+    /// Get color lerp interpolation between two colors.
+    /// </summary>
+    /// <param name="color1">The first color.</param>
+    /// <param name="color2">The second color.</param>
+    /// <param name="factor">Color factor (0.0f-1.0f).</param>
+    /// <returns>The interpolated color.</returns>
+    [LibraryImport(Raylib.Name)]
+    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
+    internal static partial Color ColorLerp(Color color1, Color color2, float factor);
 
     /// <summary>
     /// Get Color structure from hexadecimal value.
@@ -5015,14 +5101,14 @@ internal static partial class RaylibApi {
     internal static unsafe partial void UnloadFontData(GlyphInfo* glyphs, int glyphCount);
 
     /// <summary>
-    /// Check if a font is ready.
+    /// Check if a font is valid.
     /// </summary>
     /// <param name="font">The font to check.</param>
-    /// <returns>True if the font is ready to be used, false otherwise.</returns>
+    /// <returns>True if the font is valid (font data loaded, WARNING: GPU texture not checked), false otherwise.</returns>
     [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
     [return: MarshalAs(UnmanagedType.I1)]
-    internal static partial bool IsFontReady(Font font);
+    internal static partial bool IsFontValid(Font font);
 
     /// <summary>
     /// Unload font from GPU memory (VRAM).
@@ -5683,14 +5769,14 @@ internal static partial class RaylibApi {
     internal static partial RayCollision GetRayCollisionQuad(Ray ray, Vector3 p1, Vector3 p2, Vector3 p3, Vector3 p4);
 
     /// <summary>
-    /// Check if a model is ready.
+    /// Check if a model is valid.
     /// </summary>
     /// <param name="model">The model to check.</param>
-    /// <returns>True if the model is ready, false otherwise.</returns>
+    /// <returns>True if the model is valid (loaded in GPU, VAO/VBOs), false otherwise.</returns>
     [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
     [return: MarshalAs(UnmanagedType.I1)]
-    internal static partial bool IsModelReady(Model model);
+    internal static partial bool IsModelValid(Model model);
 
     /// <summary>
     /// Unload model (including meshes) from memory (RAM and/or VRAM).
@@ -5751,6 +5837,16 @@ internal static partial class RaylibApi {
     internal static partial void UpdateModelAnimation(Model model, ModelAnimation anim, int frame);
 
     /// <summary>
+    /// Update model animation mesh bone matrices.
+    /// </summary>
+    /// <param name="model">The model containing the animation.</param>
+    /// <param name="anim">The animation to update.</param>
+    /// <param name="frame">The frame to update the animation to.</param>
+    [LibraryImport(Raylib.Name)]
+    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
+    internal static partial void UpdateModelAnimationBones(Model model, ModelAnimation anim, int frame);
+
+    /// <summary>
     /// Check model animation skeleton match.
     /// </summary>
     /// <param name="model">The model to check the animation for.</param>
@@ -5790,14 +5886,14 @@ internal static partial class RaylibApi {
     internal static partial Material LoadMaterialDefault();
 
     /// <summary>
-    /// Check if a material is ready.
+    /// Check if a material is valid.
     /// </summary>
     /// <param name="material">The material to check.</param>
-    /// <returns>True if the material is ready, false otherwise.</returns>
+    /// <returns>True if the material is valid (shader assigned, map textures loaded in GPU), false otherwise.</returns>
     [LibraryImport(Raylib.Name)]
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
     [return: MarshalAs(UnmanagedType.I1)]
-    internal static partial bool IsMaterialReady(Material material);
+    internal static partial bool IsMaterialValid(Material material);
 
     /// <summary>
     /// Unload material from GPU memory (VRAM).

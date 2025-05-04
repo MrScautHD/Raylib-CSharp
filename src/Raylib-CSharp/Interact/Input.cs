@@ -126,8 +126,8 @@ public static class Input {
     }
 
     /// <inheritdoc cref="RaylibApi.SetGamepadVibration" />
-    public static void SetGamepadVibration(int gamepad, float leftMotor, float rightMotor) {
-        RaylibApi.SetGamepadVibration(gamepad, leftMotor, rightMotor);
+    public static void SetGamepadVibration(int gamepad, float leftMotor, float rightMotor, float duration) {
+        RaylibApi.SetGamepadVibration(gamepad, leftMotor, rightMotor, duration);
     }
 
     /// <inheritdoc cref="RaylibApi.IsMouseButtonPressed" />

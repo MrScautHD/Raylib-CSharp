@@ -52,8 +52,8 @@ public struct Image {
     }
 
     /// <inheritdoc cref="RaylibApi.LoadImageAnim" />
-    public static Image LoadAnim(string fileNameOrString, out int frames) {
-        return RaylibApi.LoadImageAnim(fileNameOrString, out frames);
+    public static Image LoadAnim(string fileName, out int frames) {
+        return RaylibApi.LoadImageAnim(fileName, out frames);
     }
 
     /// <inheritdoc cref="RaylibApi.LoadImageAnimFromMemory" />
@@ -159,9 +159,9 @@ public struct Image {
         }
     }
 
-    /// <inheritdoc cref="RaylibApi.IsImageReady" />
-    public bool IsReady() {
-        return RaylibApi.IsImageReady(this);
+    /// <inheritdoc cref="RaylibApi.IsImageValid" />
+    public bool IsValid() {
+        return RaylibApi.IsImageValid(this);
     }
 
     /// <inheritdoc cref="RaylibApi.UnloadImage" />
@@ -397,7 +397,7 @@ public struct Image {
     }
 
     /// <inheritdoc cref="RaylibApi.ImageDrawRectangleRec" />
-    public  void DrawRectangleRec(Rectangle rec, Color color) {
+    public void DrawRectangleRec(Rectangle rec, Color color) {
         RaylibApi.ImageDrawRectangleRec(ref this, rec, color);
     }
 

@@ -273,6 +273,16 @@ public static class Graphics {
         RaylibApi.DrawModelEx(model, position, rotationAxis, rotationAngle, scale, tint);
     }
 
+    /// <inheritdoc cref="RaylibApi.DrawModelPoints" />
+    public static void DrawModelPoints(Model model, Vector3 position, float scale, Color tint) {
+        RaylibApi.DrawModelPoints(model, position, scale, tint);
+    }
+    
+    /// <inheritdoc cref="RaylibApi.DrawModelPointsEx" />
+    public static void DrawModelPointsEx(Model model, Vector3 position, Vector3 rotationAxis, float rotationAngle, Vector3 scale, Color tint) {
+        RaylibApi.DrawModelPointsEx(model, position, rotationAxis, rotationAngle, scale, tint);
+    }
+
     /// <inheritdoc cref="RaylibApi.DrawModelWires" />
     public static void DrawModelWires(Model model, Vector3 position, float scale, Color tint) {
         RaylibApi.DrawModelWires(model, position, scale, tint);
@@ -289,8 +299,8 @@ public static class Graphics {
     }
 
     /// <inheritdoc cref="RaylibApi.DrawBillboard" />
-    public static void DrawBillboard(Camera3D camera, Texture2D texture, Vector3 position, float size, Color tint) {
-        RaylibApi.DrawBillboard(camera, texture, position, size, tint);
+    public static void DrawBillboard(Camera3D camera, Texture2D texture, Vector3 position, float scale, Color tint) {
+        RaylibApi.DrawBillboard(camera, texture, position, scale, tint);
     }
 
     /// <inheritdoc cref="RaylibApi.DrawBillboardRec" />
@@ -358,8 +368,8 @@ public static class Graphics {
     }
 
     /// <inheritdoc cref="RaylibApi.DrawCircleGradient" />
-    public static void DrawCircleGradient(int centerX, int centerY, float radius, Color color1, Color color2) {
-        RaylibApi.DrawCircleGradient(centerX, centerY, radius, color1, color2);
+    public static void DrawCircleGradient(int centerX, int centerY, float radius, Color inner, Color outer) {
+        RaylibApi.DrawCircleGradient(centerX, centerY, radius, inner, outer);
     }
 
     /// <inheritdoc cref="RaylibApi.DrawCircleV" />
@@ -418,18 +428,18 @@ public static class Graphics {
     }
 
     /// <inheritdoc cref="RaylibApi.DrawRectangleGradientV" />
-    public static void DrawRectangleGradientV(int posX, int posY, int width, int height, Color color1, Color color2) {
-        RaylibApi.DrawRectangleGradientV(posX, posY, width, height, color1, color2);
+    public static void DrawRectangleGradientV(int posX, int posY, int width, int height, Color top, Color bottom) {
+        RaylibApi.DrawRectangleGradientV(posX, posY, width, height, top, bottom);
     }
 
     /// <inheritdoc cref="RaylibApi.DrawRectangleGradientH" />
-    public static void DrawRectangleGradientH(int posX, int posY, int width, int height, Color color1, Color color2) {
-        RaylibApi.DrawRectangleGradientH(posX, posY, width, height, color1, color2);
+    public static void DrawRectangleGradientH(int posX, int posY, int width, int height, Color left, Color right) {
+        RaylibApi.DrawRectangleGradientH(posX, posY, width, height, left, right);
     }
 
     /// <inheritdoc cref="RaylibApi.DrawRectangleGradientEx" />
-    public static void DrawRectangleGradientEx(Rectangle rec, Color col1, Color col2, Color col3, Color col4) {
-        RaylibApi.DrawRectangleGradientEx(rec, col1, col2, col3, col4);
+    public static void DrawRectangleGradientEx(Rectangle rec, Color topLeft, Color bottomLeft, Color topRight, Color bottomRight) {
+        RaylibApi.DrawRectangleGradientEx(rec, topLeft, bottomLeft, topRight, bottomRight);
     }
 
     /// <inheritdoc cref="RaylibApi.DrawRectangleLines" />

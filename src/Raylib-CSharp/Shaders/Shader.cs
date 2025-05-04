@@ -31,9 +31,9 @@ public struct Shader {
         return RaylibApi.LoadShaderFromMemory(vsCode, fsCode);
     }
 
-    /// <inheritdoc cref="RaylibApi.IsShaderReady" />
-    public bool IsReady() {
-        return RaylibApi.IsShaderReady(this);
+    /// <inheritdoc cref="RaylibApi.IsShaderValid" />
+    public bool IsValid() {
+        return RaylibApi.IsShaderValid(this);
     }
 
     /// <inheritdoc cref="RaylibApi.UnloadShader" />

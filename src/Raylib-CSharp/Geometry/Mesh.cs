@@ -109,6 +109,19 @@ public struct Mesh {
     public unsafe Span<float> BoneWeights => new(this.BoneWeightsPtr, this.VertexCount * 4);
 
     /// <summary>
+    /// Bones animated transformation matrices
+    /// </summary>
+    public unsafe float* BoneMatricesPtr;
+
+    /// <inheritdoc cref="BoneMatricesPtr" />
+    public unsafe Span<Matrix4x4> BoneMatrices => new(this.BoneMatricesPtr, this.BoneCount);
+
+    /// <summary>
+    /// Number of bones.
+    /// </summary>
+    public unsafe int BoneCount;
+
+    /// <summary>
     /// OpenGL Vertex Array Object id.
     /// </summary>
     public uint VaoId;

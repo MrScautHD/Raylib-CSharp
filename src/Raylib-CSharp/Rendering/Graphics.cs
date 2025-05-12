@@ -277,7 +277,7 @@ public static class Graphics {
     public static void DrawModelPoints(Model model, Vector3 position, float scale, Color tint) {
         RaylibApi.DrawModelPoints(model, position, scale, tint);
     }
-    
+
     /// <inheritdoc cref="RaylibApi.DrawModelPointsEx" />
     public static void DrawModelPointsEx(Model model, Vector3 position, Vector3 rotationAxis, float rotationAngle, Vector3 scale, Color tint) {
         RaylibApi.DrawModelPointsEx(model, position, rotationAxis, rotationAngle, scale, tint);
@@ -596,5 +596,14 @@ public static class Graphics {
     /// <inheritdoc cref="RaylibApi.DrawTextureNPatch" />
     public static void DrawTextureNPatch(Texture2D texture, NPatchInfo nPatchInfo, Rectangle dest, Vector2 origin, float rotation, Color tint) {
         RaylibApi.DrawTextureNPatch(texture, nPatchInfo, dest, origin, rotation, tint);
+    }
+
+    /// <inheritdoc cref="RaylibApi.DrawTexturePoly" />
+    public static unsafe void DrawTexturePoly(Texture2D texture, Vector2 center, Span<Vector2> points, Span<Vector2> texcoords, int pointCount, Color tint) {
+        fixed (Vector2* pointsPtr = points)
+        fixed (Vector2* texcoordsPtr = texcoords) {
+                RaylibApi.DrawTexturePoly(texture, center, pointsPtr, texcoordsPtr, pointCount, tint);
+
+        }
     }
 }

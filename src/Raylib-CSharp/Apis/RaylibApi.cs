@@ -1737,19 +1737,6 @@ internal static partial class RaylibApi {
     [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
     internal static partial void DrawTextureNPatch(Texture2D texture, NPatchInfo nPatchInfo, Rectangle dest, Vector2 origin, float rotation, Color tint);
 
-    /// <summary>
-    /// Draw a textured polygon.
-    /// </summary>
-    /// <param name="texture">The texture to be drawn.</param>
-    /// <param name="center">Center position of the polygon.</param>
-    /// <param name="points">Polygon vertex coordinates.</param>
-    /// <param name="texcoords">Texture UV coordinates for each vertex.</param>
-    /// <param name="pointCount">Number of vertices in the polygon.</param>
-    /// <param name="tint">The color tint of the texture.</param>
-    [LibraryImport(Raylib.Name)]
-    [UnmanagedCallConv(CallConvs = [typeof(CallConvCdecl)])]
-    internal static unsafe partial void DrawTexturePoly(Texture2D texture, Vector2 center, Vector2* points, Vector2* texcoords, int pointCount, Color tint);
-
     /* --------------------------------- Vr --------------------------------- */
 
     /// <summary>
